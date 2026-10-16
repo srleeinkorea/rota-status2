@@ -272,7 +272,8 @@ function render(data) {
   dashboardData = data;
   const metaEl = document.getElementById('meta');
   const contentEl = document.getElementById('content');
-  metaEl.textContent = `${fmtDate(data.generatedAt)} 기준 · ${data.windowLabel || ''} · 최소 ${data.minPicks}건 · 참여자 ${data.totalParticipants}명`;
+  const ongoingPart = data.ongoingUpdatedAt ? ` · 진행중 경기 ${fmtDate(data.ongoingUpdatedAt)} 갱신` : '';
+  metaEl.textContent = `${fmtDate(data.generatedAt)} 기준 · ${data.windowLabel || ''} · 최소 ${data.minPicks}건 · 참여자 ${data.totalParticipants}명${ongoingPart}`;
 
   let html = '';
   const matches = data.ongoingMatches || [];

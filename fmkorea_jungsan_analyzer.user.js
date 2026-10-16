@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.2
+// @version      4.3
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.2';
+  const SCRIPT_VERSION = '4.3';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -941,6 +941,13 @@
     for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
     return btoa(binary);
   }
+  // UTF-8 안전 base64 디코딩 (GitHub Contents API가 content를 base64로 주므로 역변환 필요)
+  function base64ToUtf8(b64) {
+    const binary = atob(b64.replace(/\n/g, ''));
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
 
   // 업로드할 JSON payload 구성 — 종합 랭킹 상위 N명 + 종목별 랭킹 + 진행중인 베팅 picks + 진행중인 경기 목록
   function buildDashboardPayload(records, minPicks, ongoingPicksMap, windowLabel, ongoingMatches) {
@@ -1128,6 +1135,65 @@
   }
   setInterval(pollDashboardCommand, COMMAND_POLL_MS);
   setTimeout(pollDashboardCommand, 6000);
+
+  // ---------- 5.7 진행중인 경기만 자주 갱신 ----------
+  // 전체 승률 분석(과거 정산 글 전부 훑기)은 시간이 걸려서 자주 돌리기 부담스럽지만,
+  // "진행중인 경기" 목록 자체는 금방 바뀐다(경기가 시작/마감되면서). 그래서 전체 분석과
+  // 별개로, 5분마다 진행중인 경기만 가볍게 다시 긁어서 data.json의 ongoingMatches/allPicks/
+  // overall[].picks 부분만 patch한다 (과거 정산 전적 같은 나머지 데이터는 건드리지 않음).
+  // 전체 분석이 지금 돌고 있는 중이면 건너뛴다 — 그 분석이 끝나면 어차피 전체가 새로 올라가고,
+  // 동시에 두 쪽에서 data.json에 써서 서로 덮어쓰는 충돌을 피하기 위함.
+  const ONGOING_REFRESH_MS = 5 * 60 * 1000;
+
+  async function refreshOngoingMatchesOnly() {
+    const token = getGithubToken();
+    if (!token) return;
+    const panel = document.getElementById('jsa-panel');
+    if (!panel) return;
+    if (!window.jQuery || !window.jQuery.exec_json) return;
+    const job = loadJob();
+    if (job && job.status === 'running') return; // 전체 분석과 충돌 방지
+
+    try {
+      const { map, matches } = await collectOngoingPicks(() => {}); // 조용히 수집(패널 로그 오염 방지)
+      const matchesSlim = matches.map((m) => ({
+        title: m.title, url: m.url, teamA: m.teamA, teamB: m.teamB,
+        countA: m.countA, betA: m.betA, countB: m.countB, betB: m.betB,
+      }));
+      const allPicks = [];
+      for (const [name, picks] of map.entries()) allPicks.push({ name, picks });
+      allPicks.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+
+      const apiUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_DATA_PATH}`;
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      };
+      const getRes = await fetch(`${apiUrl}?t=${Date.now()}`, { headers });
+      if (!getRes.ok) return; // data.json이 아직 없으면 건너뜀 (최초 전체 분석이 먼저 필요)
+      const info = await getRes.json();
+      const sha = info.sha;
+      let data;
+      try { data = JSON.parse(base64ToUtf8(info.content)); } catch (e) { return; }
+
+      data.ongoingMatches = matchesSlim;
+      data.allPicks = allPicks;
+      data.ongoingUpdatedAt = new Date().toISOString();
+      if (Array.isArray(data.overall)) {
+        data.overall.forEach((r) => { r.picks = map.get(r.name) || []; });
+      }
+
+      const body = {
+        message: `진행중인 경기 갱신 (${data.ongoingUpdatedAt})`,
+        content: utf8ToBase64(JSON.stringify(data, null, 2)),
+        sha,
+      };
+      await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+    } catch (e) { /* 다음 주기에 재시도 */ }
+  }
+  setInterval(refreshOngoingMatchesOnly, ONGOING_REFRESH_MS);
+  setTimeout(refreshOngoingMatchesOnly, 90 * 1000); // 패널 뜨고 좀 지나서 첫 실행(초기 분석과 겹치지 않게)
 
   // ---------- 6. 새로고침에도 끊기지 않는 작업(Job) 상태 저장 ----------
   // 이 페이지(dispBoardOngoingMatches)는 다른 스크립트가 1분마다 새로고침을 거는 경우가 있어서,
