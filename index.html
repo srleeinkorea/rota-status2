@@ -146,16 +146,25 @@
   .remote-status.ok { color:var(--win); }
   .remote-status.err { color:var(--lose); }
   .running-banner {
-    display:none; align-items:center; gap:8px; background:var(--accent-dim); color:var(--accent);
+    display:none; align-items:flex-start; gap:8px; background:var(--accent-dim); color:var(--accent);
     border:1px solid rgba(79,140,255,.35); border-radius:10px; padding:8px 12px; font-size:12.5px;
     font-weight:600; margin:6px 0 2px;
   }
   .running-banner.show { display:flex; }
   .running-banner .dot {
     width:7px; height:7px; border-radius:50%; background:var(--accent); flex-shrink:0;
+    margin-top:5px;
     animation: jsa-pulse 1.2s ease-in-out infinite;
   }
   @keyframes jsa-pulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+  .running-banner .rb-body { flex:1; min-width:0; display:flex; flex-direction:column; gap:5px; }
+  .running-banner .rb-progress-track {
+    display:none; background:rgba(79,140,255,.18); border-radius:999px; height:5px; overflow:hidden;
+  }
+  .running-banner .rb-progress-track.show { display:block; }
+  .running-banner .rb-progress-fill {
+    background:var(--accent); height:100%; width:0%; border-radius:999px; transition:width .4s ease;
+  }
 
 </style>
 </head>
@@ -185,7 +194,13 @@
       <button class="rb-run" id="rb-run">분석 시작</button>
       <button class="rb-gear" id="rb-gear" title="GitHub 토큰 설정">⚙</button>
     </div>
-    <div class="running-banner" id="rb-running-banner"><span class="dot"></span><span id="rb-running-text"></span></div>
+    <div class="running-banner" id="rb-running-banner">
+      <span class="dot"></span>
+      <div class="rb-body">
+        <span id="rb-running-text"></span>
+        <div class="rb-progress-track" id="rb-progress-track"><div class="rb-progress-fill" id="rb-progress-fill"></div></div>
+      </div>
+    </div>
     <div class="remote-status" id="rb-status"></div>
     <div class="search-box">
       <input id="jsa-search" type="text" placeholder="🔍 닉네임으로 찾기 (예: 손나은)" autocomplete="off">
@@ -616,12 +631,20 @@ const WINDOW_LABELS = {
   '5d': '최근 5일', '7d': '최근 7일', '15d': '최근 15일', '30d': '최근 30일',
 };
 
-function setBanner(text) {
+function setBanner(text, pct) {
   const banner = document.getElementById('rb-running-banner');
   const textEl = document.getElementById('rb-running-text');
-  if (!text) { banner.classList.remove('show'); return; }
+  const track = document.getElementById('rb-progress-track');
+  const fill = document.getElementById('rb-progress-fill');
+  if (!text) { banner.classList.remove('show'); track.classList.remove('show'); return; }
   textEl.textContent = text;
   banner.classList.add('show');
+  if (typeof pct === 'number' && isFinite(pct)) {
+    track.classList.add('show');
+    fill.style.width = Math.max(0, Math.min(100, pct)) + '%';
+  } else {
+    track.classList.remove('show');
+  }
 }
 
 // status.json(유저스크립트가 실제로 분석을 시작/종료할 때 올림)과 command.json(이 페이지
@@ -633,12 +656,20 @@ function setBanner(text) {
 //     상태라고 보고 "요청 대기중"으로 표시 (요청 직후 새로고침해도 사라지지 않게)
 const CMD_MAX_AGE_MS = 10 * 60 * 1000; // 10분 넘은 요청은 이미 유실/무시된 것으로 보고 표시 안 함
 
+// 직전에 본 상태가 "진행중"이었다가 이번엔 아니면, 방금 막 끝난 것 — data.json이 30초
+// 폴링 주기를 다 기다리지 않고 바로 한 번 더 확인하도록(체감 지연 최소화).
+let wasRunning = false;
+
 function refreshBanner() {
   Promise.all([
     fetch('./status.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
     fetch('./command.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
   ]).then(([status, cmd]) => {
-    if (status && status.state === 'running') {
+    const isRunning = !!(status && status.state === 'running');
+    if (wasRunning && !isRunning) loadData(false); // 진행중 → 완료로 바뀐 순간 바로 결과 가져오기
+    wasRunning = isRunning;
+
+    if (isRunning) {
       const label = WINDOW_LABELS[status.windowValue] || status.windowValue || '';
       let startedText = '';
       try {
@@ -647,7 +678,12 @@ function refreshBanner() {
           startedText = mins <= 0 ? ' (방금 시작)' : ` (${mins}분째 진행 중)`;
         }
       } catch (e) { /* 무시 */ }
-      setBanner(`🔄 분석 진행 중 — ${label}${status.minPicks ? ' · 최소 ' + status.minPicks + '건' : ''}${startedText}`);
+      const hasPct = typeof status.pct === 'number';
+      const pctText = hasPct ? ` · ${status.pct}% (${status.processed}/${status.total}건)` : '';
+      setBanner(
+        `🔄 분석 진행 중 — ${label}${status.minPicks ? ' · 최소 ' + status.minPicks + '건' : ''}${startedText}${pctText}`,
+        hasPct ? status.pct : undefined
+      );
       return;
     }
     if (cmd && cmd.action === 'run' && cmd.requestedAt) {
@@ -665,8 +701,8 @@ function refreshBanner() {
 }
 
 loadData(true).then(refreshBanner).catch(refreshBanner);
-setInterval(() => loadData(false), 30 * 1000);
-setInterval(refreshBanner, 15 * 1000);
+setInterval(() => loadData(false), 15 * 1000);
+setInterval(refreshBanner, 8 * 1000);
 
 // 탭을 백그라운드에 두면 브라우저가 setInterval을 많이 늦춰버려서(수 분까지도), 분석이
 // 끝나도 탭으로 돌아올 때까지 화면이 안 바뀐 것처럼 보이는 문제가 있었다. 탭이 다시

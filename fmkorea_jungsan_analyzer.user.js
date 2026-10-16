@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.5
+// @version      4.6
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.5';
+  const SCRIPT_VERSION = '4.6';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -1066,12 +1066,20 @@
   // 하는 경우) 그 시각을 그대로 유지한다. 예전엔 여기서 매번 new Date()를 새로 찍어버려서,
   // "진행중인 경기" 페이지가 1분마다 자동 새로고침될 때마다 시작 시각이 "방금"으로 계속
   // 리셋돼 실제로는 안 끊기고 진행 중인데도 "계속 새로 분석되는 것처럼" 보이는 문제가 있었음.
-  function uploadRunningStatus(windowValue, windowLabel, minPicks, startedAt) {
-    uploadJsonToGitHub(GITHUB_STATUS_PATH, {
+  // progress({processed, total})를 넘기면 status.json에 진행률(processed/total/pct)도 같이
+  // 올라가서, 대시보드가 "몇 % 진행됐는지" 보여줄 수 있다.
+  function uploadRunningStatus(windowValue, windowLabel, minPicks, startedAt, progress) {
+    const payload = {
       state: 'running',
       windowValue, windowLabel, minPicks,
       startedAt: startedAt || new Date().toISOString(),
-    });
+    };
+    if (progress && typeof progress.total === 'number' && progress.total > 0) {
+      payload.processed = progress.processed;
+      payload.total = progress.total;
+      payload.pct = Math.round((progress.processed / progress.total) * 100);
+    }
+    uploadJsonToGitHub(GITHUB_STATUS_PATH, payload);
   }
   function uploadIdleStatus() {
     uploadJsonToGitHub(GITHUB_STATUS_PATH, {
@@ -1296,6 +1304,23 @@
     return { logDiv, log, setProgress, progressWrap };
   }
 
+  // 진행률을 status.json에 너무 자주 올리면(배치마다, 즉 CONCURRENCY=3건마다) GitHub API
+  // 호출과 커밋이 과도하게 늘어나므로, 최소 간격(PROGRESS_UPLOAD_MIN_MS)을 두고 그 사이에는
+  // 건너뛴다. 모듈 전역 변수라 페이지가 새로고침되면 다시 0부터 시작 — 새로고침 직후 첫
+  // 배치에서는 바로 한 번 올라가게 됨(의도된 동작).
+  const PROGRESS_UPLOAD_MIN_MS = 15 * 1000;
+  let lastProgressUploadAt = 0;
+  function maybeUploadProgress(job, total) {
+    const now = Date.now();
+    if (now - lastProgressUploadAt < PROGRESS_UPLOAD_MIN_MS) return;
+    lastProgressUploadAt = now;
+    uploadRunningStatus(
+      job.windowValue, job.windowLabel, job.minPicks,
+      job.startedAt ? new Date(job.startedAt).toISOString() : undefined,
+      { processed: job.nextIndex, total }
+    );
+  }
+
   // job.posts 중 job.nextIndex부터 끝까지 이어서 처리. CONCURRENCY개씩 묶어 동시에 처리하고,
   // 이미 결과 캐시에 있는(=예전에 한 번 받아본) 글은 네트워크 요청 없이 즉시 재사용한다.
   // 중간에 새로고침이 와도 saveJob()이 배치가 끝날 때마다 저장해두므로 다음 로드 때 이어서 재개된다.
@@ -1345,6 +1370,7 @@
       job.nextIndex = endIdx;
       saveResultCache(cache);
       saveJob(job); // 배치 하나 끝날 때마다 저장 — 다음 자동새로고침에도 안전
+      maybeUploadProgress(job, total); // 대시보드에 진행률 표시(너무 잦지 않게 제한됨)
       if (job.nextIndex < total) await sleepJitter();
     }
 
@@ -1396,6 +1422,9 @@
     panel.querySelector('#jsa-result').innerHTML = '';
     setProgress(0, '준비 중...');
     clearJob();
+    lastProgressUploadAt = 0; // 새 분석이므로 진행률 제한 타이머도 초기화 — 바로 첫 진행률이 올라가게
+
+
 
     if (!window.jQuery || !window.jQuery.exec_json) {
       log('오류: 이 페이지에서 jQuery.exec_json을 찾을 수 없습니다. 잉여력놀이터(mid=pointplay) 게시판 페이지에서 실행해주세요.');
@@ -1445,7 +1474,11 @@
         const { log, setProgress } = getPanelControls(panel);
         // 새로고침으로 이어서 진행하는 경우에도 대시보드의 "진행 중" 배너가 유지되도록 다시 올림.
         // job.startedAt(최초 시작 시각)을 그대로 넘겨서 "N분째 진행 중" 표시가 리셋되지 않게 함.
-        uploadRunningStatus(job.windowValue, job.windowLabel, job.minPicks, job.startedAt ? new Date(job.startedAt).toISOString() : undefined);
+        uploadRunningStatus(
+          job.windowValue, job.windowLabel, job.minPicks,
+          job.startedAt ? new Date(job.startedAt).toISOString() : undefined,
+          Array.isArray(job.posts) ? { processed: job.nextIndex, total: job.posts.length } : undefined
+        );
         log(`(자동 복구) 이전 분석을 이어서 진행합니다 — ${job.nextIndex}/${job.posts.length}건 완료됨`);
         setProgress(5 + (job.nextIndex / Math.max(1, job.posts.length)) * 93, `이어서 진행 중... (${job.nextIndex}/${job.posts.length})`);
         if (window.jQuery && window.jQuery.exec_json) {
