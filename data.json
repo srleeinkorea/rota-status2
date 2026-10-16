@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T16:39:58.005Z",
+  "generatedAt": "2026-10-16T16:40:51.873Z",
   "windowLabel": "최근 3일",
   "minPicks": 10,
   "totalParticipants": 969,
@@ -453,7 +453,13 @@
       "totalBet": 1468039,
       "totalPayout": 1729463,
       "profit": 261424,
-      "picks": []
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 324239
+        }
+      ]
     },
     {
       "name": "개울",
@@ -1317,14 +1323,14 @@
           "bet": 6536
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
-          "bet": 1634
-        },
-        {
           "team": "번리",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 1340
+        },
+        {
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 1634
         },
         {
           "team": "C9",
@@ -1850,8 +1856,8 @@
       "url": "https://www.fmkorea.com/10453547210",
       "teamA": "프랑크푸르트",
       "teamB": "쾰른",
-      "countA": 206,
-      "betA": 597245,
+      "countA": 207,
+      "betA": 598245,
       "countB": 113,
       "betB": 416135
     },
@@ -1860,30 +1866,30 @@
       "url": "https://www.fmkorea.com/10452368407",
       "teamA": "KC",
       "teamB": "MVK",
-      "countA": 376,
-      "betA": 1630416,
+      "countA": 379,
+      "betA": 1956655,
       "countB": 177,
       "betB": 890420
-    },
-    {
-      "title": "라리가 :: 데포르티보(-0.5) vs 레반테 :: 10/17 04:00 경기",
-      "url": "https://www.fmkorea.com/10454100748",
-      "teamA": "데포르티보",
-      "teamB": "레반테",
-      "countA": 59,
-      "betA": 104207,
-      "countB": 42,
-      "betB": 122514
     },
     {
       "title": "EFL 챔피언십 :: 번리(+0.5) vs 울버햄튼 :: 10/17 04:00 경기",
       "url": "https://www.fmkorea.com/10454269789",
       "teamA": "번리",
       "teamB": "울버햄튼",
-      "countA": 26,
-      "betA": 108241,
+      "countA": 27,
+      "betA": 108741,
       "countB": 25,
       "betB": 44621
+    },
+    {
+      "title": "라리가 :: 데포르티보(-0.5) vs 레반테 :: 10/17 04:00 경기",
+      "url": "https://www.fmkorea.com/10454100748",
+      "teamA": "데포르티보",
+      "teamB": "레반테",
+      "countA": 61,
+      "betA": 105307,
+      "countB": 42,
+      "betB": 122514
     },
     {
       "title": "LOL Worlds 플레이인 :: C9 (-2.5) vs FUR :: 10/17 08:00 경기",
@@ -1893,15 +1899,15 @@
       "countA": 129,
       "betA": 205250,
       "countB": 117,
-      "betB": 375302
+      "betB": 376302
     },
     {
       "title": "MLB ALCS #연장포함# :: 탬파베이 vs 클리블랜드 :: 10/17 09:00 경기",
       "url": "https://www.fmkorea.com/10453454449",
       "teamA": "탬파베이",
       "teamB": "클리블랜드",
-      "countA": 114,
-      "betA": 691973,
+      "countA": 115,
+      "betA": 697029,
       "countB": 98,
       "betB": 482127
     }
@@ -2416,13 +2422,13 @@
           "bet": 500
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 500
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 500
         },
         {
@@ -2633,6 +2639,16 @@
       ]
     },
     {
+      "name": "고배당",
+      "picks": [
+        {
+          "team": "탬파베이",
+          "url": "https://www.fmkorea.com/10453454449",
+          "bet": 5056
+        }
+      ]
+    },
+    {
       "name": "고아",
       "picks": [
         {
@@ -2656,13 +2672,13 @@
           "bet": 77777
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 77777
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 77777
         },
         {
@@ -2886,13 +2902,13 @@
           "bet": 100
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -3291,14 +3307,14 @@
           "bet": 533
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
-          "bet": 415
-        },
-        {
           "team": "번리",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 630
+        },
+        {
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 415
         }
       ]
     },
@@ -3571,14 +3587,14 @@
           "bet": 600
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
-          "bet": 400
-        },
-        {
           "team": "울버햄튼",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 297
+        },
+        {
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 400
         }
       ]
     },
@@ -3926,13 +3942,13 @@
           "bet": 1111
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 1111
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 1111
         },
         {
@@ -4311,13 +4327,13 @@
           "bet": 3000
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 3000
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 3000
         },
         {
@@ -4491,13 +4507,13 @@
           "bet": 5000
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 5000
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 5000
         },
         {
@@ -4716,14 +4732,14 @@
           "bet": 1000
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
-          "bet": 2000
-        },
-        {
           "team": "번리",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 3000
+        },
+        {
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 2000
         }
       ]
     },
@@ -5096,13 +5112,13 @@
           "bet": 100
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -5394,6 +5410,11 @@
           "team": "울버햄튼",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
+        },
+        {
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 100
         }
       ]
     },
@@ -5471,14 +5492,14 @@
           "bet": 4231
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
-          "bet": 4830
-        },
-        {
           "team": "울버햄튼",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 4801
+        },
+        {
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 4830
         },
         {
           "team": "C9",
@@ -6011,13 +6032,13 @@
           "bet": 1111
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 1111
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 1111
         }
       ]
@@ -6761,6 +6782,11 @@
           "bet": 1125
         },
         {
+          "team": "프랑크푸르트",
+          "url": "https://www.fmkorea.com/10453547210",
+          "bet": 1000
+        },
+        {
           "team": "MVK",
           "url": "https://www.fmkorea.com/10452368407",
           "bet": 3021
@@ -6771,9 +6797,14 @@
           "bet": 1000
         },
         {
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 1000
+        },
+        {
           "team": "FUR",
           "url": "https://www.fmkorea.com/10453502838",
-          "bet": 3000
+          "bet": 4000
         },
         {
           "team": "탬파베이",
@@ -6836,13 +6867,13 @@
           "bet": 1000
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 500
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 500
         }
       ]
@@ -7031,14 +7062,14 @@
           "bet": 7777
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
-          "bet": 7777
-        },
-        {
           "team": "번리",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 5555
+        },
+        {
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 7777
         }
       ]
     },
@@ -7281,13 +7312,13 @@
           "bet": 100
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -7473,6 +7504,16 @@
       ]
     },
     {
+      "name": "슨몌",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 1000
+        }
+      ]
+    },
+    {
       "name": "시니사탕",
       "picks": [
         {
@@ -7499,6 +7540,11 @@
           "team": "KC",
           "url": "https://www.fmkorea.com/10452368407",
           "bet": 1000
+        },
+        {
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
+          "bet": 500
         }
       ]
     },
@@ -7531,13 +7577,13 @@
           "bet": 100
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -7576,13 +7622,13 @@
           "bet": 123456
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 12345
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 12345
         },
         {
@@ -7741,13 +7787,13 @@
           "bet": 1000
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 1000
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 1000
         },
         {
@@ -8026,13 +8072,13 @@
           "bet": 700
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 700
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 700
         },
         {
@@ -8121,13 +8167,13 @@
           "bet": 100
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -8161,13 +8207,13 @@
           "bet": 100
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -8206,14 +8252,14 @@
           "bet": 5000
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
-          "bet": 7000
-        },
-        {
           "team": "번리",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 5000
+        },
+        {
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 7000
         },
         {
           "team": "FUR",
@@ -8446,13 +8492,13 @@
           "bet": 666
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 333
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 333
         },
         {
@@ -8991,13 +9037,13 @@
           "bet": 200
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 200
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 200
         },
         {
@@ -9566,13 +9612,13 @@
           "bet": 200
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 200
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 200
         },
         {
@@ -9826,13 +9872,13 @@
           "bet": 1111
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 1111
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 1111
         },
         {
@@ -9861,14 +9907,14 @@
           "bet": 6536
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
-          "bet": 1634
-        },
-        {
           "team": "번리",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 1340
+        },
+        {
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 1634
         },
         {
           "team": "C9",
@@ -10053,6 +10099,26 @@
       ]
     },
     {
+      "name": "정지석",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 324239
+        }
+      ]
+    },
+    {
+      "name": "정축복",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 1000
+        }
+      ]
+    },
+    {
       "name": "정현수",
       "picks": [
         {
@@ -10106,13 +10172,13 @@
           "bet": 109
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -10696,13 +10762,13 @@
           "bet": 2000
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 2000
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 2000
         }
       ]
@@ -11071,13 +11137,13 @@
           "bet": 100
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -12151,13 +12217,13 @@
           "bet": 555
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 333
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 333
         }
       ]
@@ -12406,13 +12472,13 @@
           "bet": 1000
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 1000
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 1000
         },
         {
@@ -12736,13 +12802,13 @@
           "bet": 100
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -13606,13 +13672,13 @@
           "bet": 100
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -13651,13 +13717,13 @@
           "bet": 100
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 100
         },
         {
@@ -13956,13 +14022,13 @@
           "bet": 1000
         },
         {
-          "team": "레반테",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "울버햄튼",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 1000
         },
         {
-          "team": "울버햄튼",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 1000
         }
       ]
@@ -14151,13 +14217,13 @@
           "bet": 1750
         },
         {
-          "team": "데포르티보",
-          "url": "https://www.fmkorea.com/10454100748",
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 500
         },
         {
-          "team": "번리",
-          "url": "https://www.fmkorea.com/10454269789",
+          "team": "데포르티보",
+          "url": "https://www.fmkorea.com/10454100748",
           "bet": 500
         },
         {
