@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>정산 승률 대시보드</title>
+<style>
+  :root {
+    --bg:#0f1115; --card:#171a21; --card-2:#1d212a; --border:#262a33; --text:#eceef1;
+    --dim:#9aa1ad; --faint:#6b7280; --accent:#4f8cff; --accent-dim:rgba(79,140,255,.14);
+    --win:#34d399; --lose:#f87171;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    padding:32px 16px;
+  }
+  .wrap { max-width:860px; margin:0 auto; }
+  header { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:6px; }
+  h1 { font-size:20px; margin:0; }
+  .meta { color:var(--dim); font-size:12.5px; }
+  .install-link { color:var(--accent); font-size:12.5px; text-decoration:none; }
+  .install-link:hover { text-decoration:underline; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; margin-bottom:18px; }
+  .section-title { display:flex; align-items:center; gap:8px; font-weight:700; font-size:14px; margin:28px 0 10px; }
+  .count-badge { background:var(--accent-dim); color:var(--accent); font-weight:600; font-size:10.5px; border-radius:999px; padding:2px 9px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  thead th {
+    text-align:left; font-size:10.5px; font-weight:600; color:var(--faint); text-transform:uppercase;
+    letter-spacing:.03em; padding:9px 12px; border-bottom:1px solid var(--border);
+  }
+  td { padding:8px 12px; border-bottom:1px solid var(--border); }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:nth-child(odd) { background:rgba(255,255,255,.015); }
+  tbody tr:hover { background:rgba(79,140,255,.06); }
+  .rank { display:inline-flex; width:18px; color:var(--faint); font-size:11px; font-weight:600; }
+  .rank.r1 { color:#ffd166; } .rank.r2 { color:#cfd8e3; } .rank.r3 { color:#e0a675; }
+  .name { font-weight:600; }
+  .pill {
+    display:inline-block; font-size:11px; font-weight:600; padding:2px 7px; border-radius:999px;
+    background:rgba(255,255,255,.06); color:var(--dim); white-space:nowrap;
+  }
+  .rate { font-weight:700; }
+  .rate.high { color:var(--win); }
+  .rate.low { color:var(--dim); }
+  .money { text-align:right; font-variant-numeric:tabular-nums; color:var(--dim); }
+  .profit { text-align:right; font-variant-numeric:tabular-nums; font-weight:700; }
+  .profit.pos { color:var(--win); } .profit.neg { color:var(--lose); }
+  .picks { display:flex; flex-wrap:wrap; gap:3px; max-width:220px; }
+  .pick-chip {
+    display:inline-block; font-size:10px; font-weight:600; padding:1px 6px; border-radius:999px;
+    background:var(--accent-dim); color:var(--accent); border:1px solid rgba(79,140,255,.3);
+    white-space:nowrap; text-decoration:none;
+  }
+  .pick-chip:hover { filter:brightness(1.15); }
+  .muted { color:var(--faint); font-size:12px; }
+  details.sport { margin-top:4px; }
+  details.sport > summary {
+    cursor:pointer; list-style:none; display:flex; align-items:center; gap:6px; padding:10px 14px;
+    border-radius:10px; background:var(--card); border:1px solid var(--border); font-weight:700; font-size:13px;
+  }
+  details.sport > summary::-webkit-details-marker { display:none; }
+  details.sport > summary:before { content:'▸'; color:var(--faint); font-size:10px; }
+  details.sport[open] > summary:before { content:'▾'; }
+  .sport-card { margin-top:6px; }
+  .sport-header { padding:8px 12px 2px; font-size:11.5px; color:var(--dim); font-weight:700; }
+  .empty-state { text-align:center; padding:60px 20px; color:var(--dim); }
+  .empty-state .btn {
+    display:inline-block; margin-top:14px; background:var(--accent); color:#fff; text-decoration:none;
+    padding:9px 16px; border-radius:999px; font-weight:600; font-size:13px;
+  }
+  .match-card {
+    display:block; background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:7px 10px; margin-bottom:4px; text-decoration:none; color:var(--text);
+  }
+  .match-card:hover { border-color:var(--accent); }
+  .match-title { font-size:10.5px; color:var(--dim); margin-bottom:4px; }
+  .match-sides { display:flex; align-items:center; gap:6px; }
+  .match-side { flex:1; }
+  .match-side .team { font-weight:700; font-size:12.5px; margin-bottom:2px; }
+  .match-side .bar-track { height:4px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; margin-bottom:2px; }
+  .match-side .bar-fill { height:100%; background:var(--accent); border-radius:999px; }
+  .match-side .stat { font-size:10.5px; color:var(--faint); }
+  .match-side .odds { color:var(--win); font-weight:700; }
+  .match-vs { color:var(--faint); font-size:10.5px; font-weight:700; }
+  .search-box { position:relative; margin:14px 0 20px; }
+  .search-box input {
+    width:100%; background:var(--card); border:1px solid var(--border); color:var(--text);
+    border-radius:10px; padding:10px 14px; font-size:14px; outline:none;
+  }
+  .search-box input:focus { border-color:var(--accent); }
+  .search-box .hint { margin-top:6px; font-size:11.5px; color:var(--faint); }
+  tr.jsa-hide { display:none; }
+  tr.jsa-match td:first-child { position:relative; }
+  tr.jsa-match { background:var(--accent-dim) !important; }
+  .finder-card {
+    background:var(--card); border:1px solid rgba(79,140,255,.35); border-radius:12px;
+    padding:12px 14px; margin-bottom:10px;
+  }
+  .finder-card .finder-name { font-weight:700; font-size:14px; margin-bottom:4px; }
+  .finder-card .finder-record { font-size:12px; color:var(--dim); margin-bottom:8px; }
+  .finder-card .finder-record .rate-chip { color:var(--win); font-weight:700; }
+  .finder-card .finder-picks-label { font-size:11px; color:var(--faint); margin-bottom:4px; font-weight:600; }
+  .finder-card .no-picks { font-size:12px; color:var(--faint); }
+  .finder-card.pinned { border-color:rgba(255,209,102,.5); }
+  .finder-card.pinned .finder-name:before { content:'📌 '; }
+  .pinned-title { font-size:11.5px; color:var(--faint); font-weight:700; margin:2px 2px 8px; }
+  .remote-box {
+    display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
+    padding:12px 14px; margin:14px 0 4px;
+  }
+  .remote-box .rb-field { display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--dim); }
+  .remote-box select, .remote-box input[type=number] {
+    background:var(--card-2); border:1px solid var(--border); color:var(--text);
+    border-radius:8px; padding:6px 8px; font-size:13px; outline:none;
+  }
+  .remote-box input[type=number] { width:60px; }
+  .remote-box select:focus, .remote-box input:focus { border-color:var(--accent); }
+  .remote-box .rb-run {
+    background:var(--accent); color:#fff; border:none; border-radius:999px;
+    padding:8px 18px; font-size:13px; font-weight:700; cursor:pointer;
+  }
+  .remote-box .rb-run:hover { filter:brightness(1.1); }
+  .remote-box .rb-run:disabled { background:var(--border); color:var(--faint); cursor:not-allowed; }
+  .remote-box .rb-gear {
+    background:none; border:1px solid var(--border); color:var(--dim); border-radius:8px;
+    padding:6px 9px; cursor:pointer; font-size:13px;
+  }
+  .remote-box .rb-gear:hover { border-color:var(--accent); color:var(--accent); }
+  .remote-status { font-size:12px; color:var(--dim); margin:6px 2px 0; min-height:16px; }
+  .remote-status.ok { color:var(--win); }
+  .remote-status.err { color:var(--lose); }
+
+</style>
+</head>
+<body>
+  <div class="wrap" id="jsa-wrap">
+    <header>
+      <h1>📊 정산 승률 대시보드</h1>
+      <a class="install-link" href="https://raw.githubusercontent.com/srleeinkorea/rota-status2/main/fmkorea_jungsan_analyzer.user.js">유저스크립트 설치</a>
+    </header>
+    <div class="meta" id="meta">불러오는 중...</div>
+    <div class="remote-box">
+      <div class="rb-field">기간
+        <select id="rb-window">
+          <option value="today">오늘</option>
+          <option value="24h" selected>최근 24시간</option>
+          <option value="2d">최근 2일</option>
+          <option value="3d">최근 3일</option>
+          <option value="5d">최근 5일</option>
+          <option value="7d">최근 7일</option>
+          <option value="15d">최근 15일</option>
+          <option value="30d">최근 30일</option>
+        </select>
+      </div>
+      <div class="rb-field">최소 베팅건수
+        <input id="rb-minpicks" type="number" value="5" min="1">
+      </div>
+      <button class="rb-run" id="rb-run">분석 시작</button>
+      <button class="rb-gear" id="rb-gear" title="GitHub 토큰 설정">⚙</button>
+    </div>
+    <div class="remote-status" id="rb-status"></div>
+    <div class="search-box">
+      <input id="jsa-search" type="text" placeholder="🔍 닉네임으로 찾기 (예: 손나은)" autocomplete="off">
+      <div class="hint" id="jsa-search-hint"></div>
+    </div>
+    <div id="jsa-pinned"></div>
+    <div id="jsa-search-results"></div>
+    <div id="content"></div>
+  </div>
+
+<script>
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+}
+function fmtPct(n) { return Math.round(n) + '%'; }
+function numFmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
+function fmtDate(iso) {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleString('ko-KR', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+  } catch (e) { return iso; }
+}
+
+function picksHtml(picks) {
+  if (!picks || picks.length === 0) return '<span class="muted">—</span>';
+  const shown = picks.slice(0, 6);
+  let html = '<div class="picks">';
+  html += shown.map((p) => {
+    const label = escapeHtml(p.team) + (p.bet ? `(${numFmt(p.bet)})` : '');
+    if (p.url) return `<a class="pick-chip" href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    return `<span class="pick-chip">${label}</span>`;
+  }).join('');
+  if (picks.length > 6) html += `<span class="muted">+${picks.length - 6}</span>`;
+  html += '</div>';
+  return html;
+}
+
+function rowHtml(r, withMoney, rankIdx) {
+  const medal = ['r1','r2','r3'][rankIdx] || '';
+  const rateClass = r.rate >= 70 ? 'high' : 'low';
+  let html = `<tr data-jsa-name="${escapeHtml(r.name.toLowerCase())}"><td><span class="rank ${medal}">${rankIdx + 1}</span></td><td class="name">${escapeHtml(r.name)}</td><td><span class="pill">${r.win}승${r.lose}패</span></td><td class="rate ${rateClass}">${fmtPct(r.rate)}</td>`;
+  if (withMoney) {
+    const profitClass = r.profit >= 0 ? 'pos' : 'neg';
+    html += `<td class="money">${numFmt(r.totalBet)}</td><td class="profit ${profitClass}">${r.profit >= 0 ? '+' : ''}${numFmt(r.profit)}</td><td>${picksHtml(r.picks)}</td>`;
+  }
+  html += '</tr>';
+  return html;
+}
+
+function oddsFor(sum, side) {
+  if (!sum || !side) return '-';
+  return (sum / side).toFixed(2);
+}
+
+function matchCardHtml(m) {
+  const totalA = m.betA || 0, totalB = m.betB || 0;
+  const sum = totalA + totalB;
+  const pctA = sum > 0 ? Math.round((totalA / sum) * 100) : 50;
+  const pctB = 100 - pctA;
+  const oddsA = oddsFor(sum, totalA);
+  const oddsB = oddsFor(sum, totalB);
+  return `<a class="match-card" href="${escapeHtml(m.url)}" target="_blank" rel="noopener noreferrer">
+    <div class="match-title">${escapeHtml(m.title)}</div>
+    <div class="match-sides">
+      <div class="match-side">
+        <div class="team">${escapeHtml(m.teamA)}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${pctA}%;"></div></div>
+        <div class="stat"><span class="odds">${oddsA}배</span> · ${m.countA || 0}명 · ${numFmt(totalA)}P (${pctA}%)</div>
+      </div>
+      <div class="match-vs">VS</div>
+      <div class="match-side">
+        <div class="team">${escapeHtml(m.teamB)}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${pctB}%;"></div></div>
+        <div class="stat"><span class="odds">${oddsB}배</span> · ${m.countB || 0}명 · ${numFmt(totalB)}P (${pctB}%)</div>
+      </div>
+    </div>
+  </a>`;
+}
+
+let dashboardData = null;
+
+function render(data) {
+  dashboardData = data;
+  const metaEl = document.getElementById('meta');
+  const contentEl = document.getElementById('content');
+  metaEl.textContent = `${fmtDate(data.generatedAt)} 기준 · ${data.windowLabel || ''} · 최소 ${data.minPicks}건 · 참여자 ${data.totalParticipants}명`;
+
+  let html = '';
+  const matches = data.ongoingMatches || [];
+  if (matches.length) {
+    html += `<div class="section-title" style="margin-bottom:6px;">🔴 진행중인 경기 <span class="count-badge">${matches.length}건</span></div>`;
+    html += '<div style="margin-bottom:14px;">';
+    matches.forEach((m) => { html += matchCardHtml(m); });
+    html += '</div>';
+  }
+
+  html += `<div class="section-title">🏆 종합 승률 랭킹 <span class="count-badge">${data.overall.length}명</span></div>`;
+  if (!data.overall || data.overall.length === 0) {
+    html += `<div class="muted">데이터가 없습니다.</div>`;
+  } else {
+    html += '<div class="card"><table><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th><th style="text-align:right;">베팅액</th><th style="text-align:right;">수익</th><th>진행중인 베팅</th></tr></thead><tbody>';
+    data.overall.forEach((r, idx) => { html += rowHtml(r, true, idx); });
+    html += '</tbody></table></div>';
+  }
+
+  const sportNames = Object.keys(data.sports || {});
+  if (sportNames.length) {
+    html += `<details class="sport"><summary>⚽ 종목별 랭킹 <span class="count-badge">${sportNames.length}개 종목</span></summary><div class="sport-card">`;
+    for (const sport of sportNames) {
+      const arr = data.sports[sport];
+      html += `<div class="sport-header">${escapeHtml(sport)} <span class="count-badge">${arr.length}명</span></div>`;
+      html += '<div class="card"><table><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th></tr></thead><tbody>';
+      arr.forEach((r, idx) => { html += rowHtml(r, false, idx); });
+      html += '</tbody></table></div>';
+    }
+    html += '</div></details>';
+  }
+
+  contentEl.innerHTML = html;
+  renderPinnedCards();
+  applySearchFilter();
+}
+
+// 닉네임 검색 (닉네임 찾기):
+// 1) 업로드된 전체 베팅 내역(allPicks)·전체 전적(allRecords)에서 일치하는
+//    사람을 찾아 "이 사람이 어느 경기 어느 팀에 얼마 걸었는지" 카드로 보여주고
+// 2) 랭킹 테이블도 일치하는 행만 남긴다.
+// 전부 마지막 분석 업로드 시점 기준 데이터다(실시간 아님).
+function finderCardHtml(name, record, picks, pinned) {
+  let html = `<div class="finder-card${pinned ? ' pinned' : ''}"><div class="finder-name">${escapeHtml(name)}</div>`;
+  if (record) {
+    const profitClass = record.profit >= 0 ? 'pos' : 'neg';
+    html += `<div class="finder-record">전적 <span class="pill">${record.win}승${record.lose}패</span> · 승률 <span class="rate-chip">${fmtPct(record.rate)}</span> · 베팅액 ${numFmt(record.totalBet)} · 수익 <span class="profit ${profitClass}" style="font-weight:700;">${record.profit >= 0 ? '+' : ''}${numFmt(record.profit)}</span></div>`;
+  }
+  if (picks && picks.length) {
+    html += `<div class="finder-picks-label">진행중인 베팅 ${picks.length}건</div>`;
+    html += picksHtml(picks.length > 6 ? picks : picks); // picksHtml이 6건 넘으면 +N 처리
+  } else {
+    html += `<div class="no-picks">진행중인 베팅 없음</div>`;
+  }
+  html += '</div>';
+  return html;
+}
+
+// 항상 고정으로 보여줄 닉네임 목록 (검색창에 아무것도 입력하지 않아도 표시됨)
+const PINNED_NAMES = ['손나은', 'IU와함께', '고양이365만원', '홍유순', '에버딘', 'SI모', '고결', 'Lillie', 'Erebor'];
+
+function renderPinnedCards() {
+  const el = document.getElementById('jsa-pinned');
+  if (!el) return;
+  if (!dashboardData) { el.innerHTML = ''; return; }
+  const recordByName = new Map();
+  (dashboardData.allRecords || []).forEach((r) => { recordByName.set(r.name, r); });
+  const picksByName = new Map();
+  (dashboardData.allPicks || []).forEach((p) => { picksByName.set(p.name, p.picks || []); });
+
+  let html = `<div class="pinned-title">📌 고정 닉네임</div>`;
+  PINNED_NAMES.forEach((name) => {
+    html += finderCardHtml(name, recordByName.get(name) || null, picksByName.get(name) || [], true);
+  });
+  el.innerHTML = html;
+}
+
+function applySearchFilter() {
+  const input = document.getElementById('jsa-search');
+  const hint = document.getElementById('jsa-search-hint');
+  const resultsEl = document.getElementById('jsa-search-results');
+  if (!input) return;
+  const q = input.value.trim().toLowerCase();
+  const rows = document.querySelectorAll('#content tr[data-jsa-name]');
+  if (!q) {
+    rows.forEach((tr) => { tr.classList.remove('jsa-hide', 'jsa-match'); });
+    document.querySelectorAll('#content details.sport').forEach((d) => { d.open = false; });
+    hint.textContent = '';
+    if (resultsEl) resultsEl.innerHTML = '';
+    return;
+  }
+
+  // 1) 전체 데이터(allPicks + allRecords)에서 닉네임 찾기
+  let finderHtml = '';
+  let finderCount = 0;
+  if (dashboardData) {
+    const recordByName = new Map();
+    (dashboardData.allRecords || []).forEach((r) => { recordByName.set(r.name, r); });
+    const picksByName = new Map();
+    (dashboardData.allPicks || []).forEach((p) => { picksByName.set(p.name, p.picks || []); });
+
+    const matchedNames = new Set();
+    for (const name of picksByName.keys()) {
+      if (name.toLowerCase().includes(q)) matchedNames.add(name);
+    }
+    for (const name of recordByName.keys()) {
+      if (name.toLowerCase().includes(q)) matchedNames.add(name);
+    }
+    const sorted = Array.from(matchedNames).sort((a, b) => a.localeCompare(b, 'ko'));
+    const MAX_CARDS = 20;
+    sorted.slice(0, MAX_CARDS).forEach((name) => {
+      finderHtml += finderCardHtml(name, recordByName.get(name) || null, picksByName.get(name) || []);
+    });
+    if (sorted.length > MAX_CARDS) {
+      finderHtml += `<div class="muted" style="margin-bottom:10px;">+${sorted.length - MAX_CARDS}명 더 있음 — 더 정확히 입력해보세요.</div>`;
+    }
+    finderCount = sorted.length;
+  }
+  if (resultsEl) resultsEl.innerHTML = finderHtml;
+
+  // 2) 랭킹 테이블 필터링
+  let matchCount = 0;
+  const sportsWithMatch = new Set();
+  rows.forEach((tr) => {
+    const name = tr.getAttribute('data-jsa-name') || '';
+    if (name.includes(q)) {
+      tr.classList.remove('jsa-hide');
+      tr.classList.add('jsa-match');
+      matchCount++;
+      const sportDetails = tr.closest('details.sport');
+      if (sportDetails) sportsWithMatch.add(sportDetails);
+    } else {
+      tr.classList.add('jsa-hide');
+      tr.classList.remove('jsa-match');
+    }
+  });
+  sportsWithMatch.forEach((d) => { d.open = true; });
+
+  const hasFullData = dashboardData && (dashboardData.allPicks || dashboardData.allRecords);
+  if (finderCount > 0 || matchCount > 0) {
+    hint.textContent = `${Math.max(finderCount, matchCount)}명 일치 · 마지막 분석 업로드 시점 기준`;
+  } else if (!hasFullData) {
+    hint.textContent = '일치 없음 — 전체 검색 데이터는 스크립트 v3.7 이상으로 분석을 한 번 돌리면 올라옵니다.';
+  } else {
+    hint.textContent = '일치하는 닉네임이 없습니다.';
+  }
+}
+
+function renderEmpty() {
+  document.getElementById('meta').textContent = '';
+  const searchBox = document.querySelector('.search-box');
+  if (searchBox) searchBox.style.display = 'none';
+  const pinnedEl = document.getElementById('jsa-pinned');
+  if (pinnedEl) pinnedEl.innerHTML = '';
+  document.getElementById('content').innerHTML = `
+    <div class="empty-state">
+      <div>아직 업로드된 분석 결과가 없습니다.</div>
+      <div class="muted" style="margin-top:6px;">유저스크립트를 설치하고 해당 사이트에서 분석을 한 번 돌리면, 완료 시 자동으로 이 페이지에 반영됩니다.</div>
+      <a class="btn" href="https://raw.githubusercontent.com/srleeinkorea/rota-status2/main/fmkorea_jungsan_analyzer.user.js">유저스크립트 설치하기</a>
+    </div>`;
+}
+
+document.getElementById('jsa-search').addEventListener('input', applySearchFilter);
+
+// ---------- 원격 분석 요청 ----------
+// "분석 시작"을 누르면 저장소의 command.json에 요청을 기록한다.
+// fmkorea 탭에 떠 있는 유저스크립트(v3.7+)가 45초마다 이 파일을 확인해서
+// 새 요청이 있으면 그 기간/건수로 분석을 대신 실행하고, 끝나면 결과를
+// data.json으로 올린다. 아래 자동 갱신 폴링이 그 새 결과를 감지해 화면을
+// 바꿔준다. (fmkorea 탭이 하나 이상 열려 있어야 작동)
+const GH_REPO = 'srleeinkorea/rota-status2';
+const DASH_TOKEN_KEY = 'jsa-dash-gh-token';
+
+function getDashToken() {
+  try { return localStorage.getItem(DASH_TOKEN_KEY) || ''; } catch (e) { return ''; }
+}
+function setDashToken(t) {
+  try {
+    if (t) localStorage.setItem(DASH_TOKEN_KEY, t);
+    else localStorage.removeItem(DASH_TOKEN_KEY);
+  } catch (e) {}
+}
+function promptDashToken() {
+  const cur = getDashToken();
+  const masked = cur ? `설정됨 (끝자리 ...${cur.slice(-4)})` : '설정 안 됨';
+  const input = window.prompt(
+    `원격으로 분석을 시작하려면 repo 쓰기 권한이 있는 GitHub 토큰이 필요합니다.\n` +
+    `(유저스크립트 ⚙에 넣은 것과 같은 토큰을 쓰면 됩니다)\n현재 상태: ${masked}\n` +
+    `비워두고 확인 = 삭제, 취소 = 변경 없음`, '');
+  if (input === null) return getDashToken();
+  setDashToken(input.trim());
+  return input.trim();
+}
+
+function rbStatus(msg, cls) {
+  const el = document.getElementById('rb-status');
+  el.textContent = msg || '';
+  el.className = 'remote-status' + (cls ? ' ' + cls : '');
+}
+
+async function sendRunCommand() {
+  let token = getDashToken();
+  if (!token) token = promptDashToken();
+  if (!token) { rbStatus('토큰이 설정되지 않아 요청을 보낼 수 없습니다.', 'err'); return; }
+
+  const btn = document.getElementById('rb-run');
+  btn.disabled = true;
+  rbStatus('요청 전송 중...');
+  try {
+    const cmd = {
+      action: 'run',
+      windowValue: document.getElementById('rb-window').value,
+      minPicks: parseInt(document.getElementById('rb-minpicks').value, 10) || 5,
+      requestedAt: new Date().toISOString(),
+    };
+    const apiUrl = `https://api.github.com/repos/${GH_REPO}/contents/command.json`;
+    const headers = {
+      Authorization: `Bearer ${token}`,
+      Accept: 'application/vnd.github+json',
+      'Content-Type': 'application/json',
+    };
+    let sha;
+    const getRes = await fetch(`${apiUrl}?t=${Date.now()}`, { headers });
+    if (getRes.ok) { const info = await getRes.json(); sha = info.sha; }
+    const body = {
+      message: `원격 분석 요청 (${cmd.requestedAt})`,
+      content: btoa(unescape(encodeURIComponent(JSON.stringify(cmd)))),
+    };
+    if (sha) body.sha = sha;
+    const putRes = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+    if (!putRes.ok) {
+      const t = await putRes.text().catch(() => '');
+      rbStatus(`요청 실패 (${putRes.status}): 토큰 권한을 확인해주세요. ${t.slice(0, 80)}`, 'err');
+    } else {
+      lastSentCommandAt = Date.now();
+      rbStatus('✅ 요청 전송 완료 — fmkorea 탭이 열려 있으면 1분 안에 분석이 시작되고, 끝나면 이 페이지가 자동으로 갱신됩니다.', 'ok');
+    }
+  } catch (e) {
+    rbStatus('요청 전송 중 오류: ' + e.message, 'err');
+  }
+  btn.disabled = false;
+}
+
+document.getElementById('rb-run').addEventListener('click', sendRunCommand);
+document.getElementById('rb-gear').addEventListener('click', () => {
+  const t = promptDashToken();
+  rbStatus(t ? '토큰이 저장되었습니다.' : '토큰이 삭제되었습니다.');
+});
+
+// ---------- 새 결과 자동 갱신 ----------
+// 30초마다 data.json의 generatedAt을 확인해서 바뀌면 화면을 새 데이터로 교체.
+let lastGeneratedAt = null;
+let lastSentCommandAt = 0;
+
+function loadData(first) {
+  return fetch('./data.json', { cache: 'no-store' })
+    .then((res) => { if (!res.ok) throw new Error('no data'); return res.json(); })
+    .then((data) => {
+      if (data.generatedAt !== lastGeneratedAt) {
+        const isUpdate = lastGeneratedAt !== null;
+        lastGeneratedAt = data.generatedAt;
+        render(data);
+        if (isUpdate && lastSentCommandAt) {
+          rbStatus('✅ 새 분석 결과가 반영되었습니다.', 'ok');
+          lastSentCommandAt = 0;
+        }
+      }
+    })
+    .catch(() => { if (first) renderEmpty(); });
+}
+
+loadData(true);
+setInterval(() => loadData(false), 30 * 1000);
+</script>
+</body>
+</html>
+
