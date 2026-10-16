@@ -667,6 +667,13 @@ function refreshBanner() {
 loadData(true).then(refreshBanner).catch(refreshBanner);
 setInterval(() => loadData(false), 30 * 1000);
 setInterval(refreshBanner, 15 * 1000);
+
+// 탭을 백그라운드에 두면 브라우저가 setInterval을 많이 늦춰버려서(수 분까지도), 분석이
+// 끝나도 탭으로 돌아올 때까지 화면이 안 바뀐 것처럼 보이는 문제가 있었다. 탭이 다시
+// 보이거나 포커스를 받는 순간 바로 한 번 더 확인해서 그 지연을 없앤다.
+function refreshNow() { loadData(false); refreshBanner(); }
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') refreshNow(); });
+window.addEventListener('focus', refreshNow);
 </script>
 </body>
 </html>
