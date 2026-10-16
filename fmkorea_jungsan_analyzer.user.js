@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.3
+// @version      4.4
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.3';
+  const SCRIPT_VERSION = '4.4';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -1088,6 +1088,14 @@
   const COMMAND_POLL_MS = 45 * 1000;
   const CMD_MAX_AGE_MS = 10 * 60 * 1000; // 10분 넘게 지난 요청은 무시(오래된 잔재)
 
+  // localStorage에 분석 결과 캐시(RESULT_CACHE_KEY)와 작업 상태(JOB_KEY)가 계속 쌓이면
+  // 브라우저 저장 용량 한도에 걸릴 수 있다. 그 상태에서 CMD_HANDLED_KEY 기록이 조용히
+  // 실패하면, "이미 처리한 요청"을 매번 새 요청으로 착각해서 같은 분석을 45초마다
+  // 무한 반복 실행하는 버그가 생긴다. localStorage 저장이 실패하더라도 최소한 지금
+  // 열려있는 탭(페이지 메모리) 안에서는 반복 실행을 막도록, 메모리 변수를 1차 기준으로 둔다.
+  let cmdHandledMemory = 0;
+  try { cmdHandledMemory = Number(localStorage.getItem(CMD_HANDLED_KEY)) || 0; } catch (e) { /* 무시 */ }
+
   async function pollDashboardCommand() {
     const token = getGithubToken();
     if (!token) return;
@@ -1103,12 +1111,13 @@
       if (!cmd || cmd.action !== 'run' || !cmd.requestedAt) return;
       const reqTs = new Date(cmd.requestedAt).getTime();
       if (!reqTs) return;
-      let handled = 0;
-      try { handled = Number(localStorage.getItem(CMD_HANDLED_KEY)) || 0; } catch (e) { /* 무시 */ }
+      let handled = cmdHandledMemory;
+      try { handled = Math.max(handled, Number(localStorage.getItem(CMD_HANDLED_KEY)) || 0); } catch (e) { /* 무시 */ }
       if (reqTs <= handled) return; // 이미 처리한 요청
       if (Date.now() - reqTs > CMD_MAX_AGE_MS) {
         // 너무 오래된 요청은 기록만 하고 무시 (다시 재시도하지 않도록 handled 처리)
-        try { localStorage.setItem(CMD_HANDLED_KEY, String(reqTs)); } catch (e) { /* 무시 */ }
+        cmdHandledMemory = reqTs;
+        safeSetItem(CMD_HANDLED_KEY, String(reqTs));
         return;
       }
 
@@ -1119,7 +1128,14 @@
       const job = loadJob();
       if (job && job.status === 'running') return;
 
-      try { localStorage.setItem(CMD_HANDLED_KEY, String(reqTs)); } catch (e) { /* 무시 */ }
+      // localStorage 저장이 실패해도(용량 초과 등) 메모리에는 반드시 기록 — 이게 핵심 수정:
+      // 예전엔 저장 실패 시 handled가 끝내 안 올라가서 같은 요청이 영원히 반복 실행됐음.
+      // 저장이 실패하면 safeSetItem이 캐시를 정리하고 한 번 더 시도한다(용량 문제의 근본 원인 해소).
+      cmdHandledMemory = reqTs;
+      const saved = safeSetItem(CMD_HANDLED_KEY, String(reqTs));
+      if (!saved) {
+        try { getPanelControls(panel).log('⚠ 저장공간 부족으로 요청 처리 기록 저장 실패 (이번 탭에서는 정상 동작하지만, 페이지가 새로고침되면 같은 요청이 중복 실행될 수 있음)'); } catch (e2) { /* 무시 */ }
+      }
 
       const windowSel = panel.querySelector('#jsa-window');
       const minInput = panel.querySelector('#jsa-minpicks');
@@ -1234,6 +1250,32 @@
       }
       localStorage.setItem(RESULT_CACHE_KEY, JSON.stringify(cache));
     } catch (e) { /* 용량 초과 등은 무시 — 캐시 없이도 정상 동작함 */ }
+  }
+
+  // localStorage 용량이 꽉 차서 중요한 작은 값(예: "이 요청은 이미 처리했다" 표시)조차
+  // 저장이 안 되는 상황을 벗어나기 위한 비상 정리. 결과 캐시를 과감히 줄이고, 이미
+  // 완료되어 더는 이어서 할 필요 없는 작업 기록을 지워서 공간을 확보한다.
+  function freeUpStorageSpace() {
+    try {
+      const job = loadJob();
+      if (job && job.status === 'done') clearJob(); // 완료된 작업은 이미 업로드/렌더링됐으므로 안전하게 삭제 가능
+    } catch (e) { /* 무시 */ }
+    try {
+      const cache = loadResultCache();
+      const keys = Object.keys(cache);
+      const keep = Math.min(keys.length, 500); // 평소(4000건)보다 훨씬 작게 줄여서 확실히 여유를 만듦
+      const excess = keys.length - keep;
+      for (let i = 0; i < excess; i++) delete cache[keys[i]];
+      localStorage.setItem(RESULT_CACHE_KEY, JSON.stringify(cache));
+    } catch (e) { /* 이것도 실패하면 더 손쓸 방법이 없음 */ }
+  }
+
+  // 작은 값 하나를 저장할 때, 용량 초과로 실패하면 한 번 정리하고 재시도한다.
+  // CMD_HANDLED_KEY처럼 "꼭 저장돼야 동작이 정상인" 값에 사용 — 반환값으로 성공 여부를 알려준다.
+  function safeSetItem(key, value) {
+    try { localStorage.setItem(key, value); return true; } catch (e) { /* 아래에서 정리 후 재시도 */ }
+    freeUpStorageSpace();
+    try { localStorage.setItem(key, value); return true; } catch (e) { return false; }
   }
 
   function getPanelControls(panel) {
