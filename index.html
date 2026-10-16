@@ -165,11 +165,74 @@
   .running-banner .rb-progress-fill {
     background:var(--accent); height:100%; width:0%; border-radius:999px; transition:width .4s ease;
   }
+  #jsa-lock {
+    position:fixed; inset:0; background:var(--bg); z-index:9999;
+    display:flex; align-items:center; justify-content:center;
+  }
+  #jsa-lock .box {
+    background:var(--card); border:1px solid var(--border); border-radius:14px;
+    padding:28px 26px; width:280px; text-align:center;
+  }
+  #jsa-lock .box h2 { font-size:15px; margin:0 0 14px; }
+  #jsa-lock input {
+    width:100%; background:var(--card-2); border:1px solid var(--border); color:var(--text);
+    border-radius:8px; padding:10px 12px; font-size:16px; text-align:center; letter-spacing:4px;
+    outline:none;
+  }
+  #jsa-lock input:focus { border-color:var(--accent); }
+  #jsa-lock .err { color:var(--lose); font-size:12px; margin-top:8px; min-height:15px; }
 
 </style>
 </head>
 <body>
-  <div class="wrap" id="jsa-wrap">
+  <div id="jsa-lock">
+    <div class="box">
+      <h2>🔒 비밀번호를 입력하세요</h2>
+      <input id="jsa-pw" type="password" inputmode="numeric" autocomplete="off" autofocus>
+      <div class="err" id="jsa-pw-err"></div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    // 비밀번호는 코드에 평문으로 적지 않고 SHA-256 해시만 저장한다.
+    // 소스를 열어봐도 이 해시값으로는 원래 비밀번호를 알아낼 수 없음.
+    var PW_HASH = '9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0';
+    var PW_LEN = 4;
+    function sha256Hex(str) {
+      return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
+        return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+      });
+    }
+    function unlock() {
+      document.getElementById('jsa-lock').remove();
+      document.getElementById('jsa-wrap').style.display = '';
+      try { sessionStorage.setItem('jsa-unlocked', '1'); } catch (e) {}
+    }
+    function initLock() {
+      try {
+        if (sessionStorage.getItem('jsa-unlocked') === '1') { unlock(); return; }
+      } catch (e) {}
+      var input = document.getElementById('jsa-pw');
+      var err = document.getElementById('jsa-pw-err');
+      var checking = false;
+      input.addEventListener('input', function () {
+        if (checking || input.value.length < PW_LEN) { err.textContent = ''; return; }
+        checking = true;
+        var tried = input.value;
+        sha256Hex(tried).then(function (hex) {
+          checking = false;
+          if (hex === PW_HASH) { unlock(); return; }
+          err.textContent = '비밀번호가 올바르지 않습니다.';
+          input.value = '';
+        }).catch(function () { checking = false; });
+      });
+      input.focus();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initLock);
+    else initLock();
+  })();
+  </script>
+  <div class="wrap" id="jsa-wrap" style="display:none;">
     <header>
       <h1>📊 정산 승률 대시보드</h1>
       <a class="install-link" href="https://raw.githubusercontent.com/srleeinkorea/rota-status2/main/fmkorea_jungsan_analyzer.user.js">유저스크립트 설치</a>

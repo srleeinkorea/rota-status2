@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.6
+// @version      4.7
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.6';
+  const SCRIPT_VERSION = '4.7';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -1228,14 +1228,49 @@
   // 분석 진행 상태를 localStorage에 계속 저장해두고, 새로고침 후에도 자동으로 이어서 진행한다.
   const JOB_KEY = 'jsa-job-v1';
 
+  // 저장 실패(용량 초과)가 계속되면 작업이 "진행중"인 채로 영원히 굳어버려서, 새로고침할
+  // 때마다 같은 분석을 다시 돌리고 새 원격 요청도 "이미 돌고 있음"으로 계속 막히는 문제가
+  // 있었다. 저장 성공 여부를 추적하고, 실패하면 공간을 비운 뒤 재시도한다.
+  let jobSaveFailed = false;
+
+  // 분석 결과(allPostResults)는 글별 결과 캐시에 이미 똑같이 들어있으므로, 작업 기록에는
+  // 처리된 글 번호(processedSrls)만 저장하고 불러올 때 캐시에서 되살린다. 예전엔 같은
+  // 데이터를 두 군데에 중복 저장해서 용량을 두 배로 먹었다.
+  function serializeJob(job) {
+    const slim = Object.assign({}, job);
+    slim.processedSrls = (job.allPostResults || []).map((r) => r.srl).filter(Boolean);
+    delete slim.allPostResults;
+    slim.lastSavedAt = Date.now();
+    return slim;
+  }
+  function hydrateJob(job) {
+    if (!job) return job;
+    if (Array.isArray(job.allPostResults)) return job; // 예전 형식(결과를 통째로 저장)도 그대로 지원
+    const cache = loadResultCache();
+    job.allPostResults = (job.processedSrls || []).map((srl) => cache[srl]).filter(Boolean);
+    return job;
+  }
+
   function saveJob(job) {
+    const payload = JSON.stringify(serializeJob(job));
     try {
-      localStorage.setItem(JOB_KEY, JSON.stringify(job));
-    } catch (e) { /* 용량 초과 등은 무시하고 메모리상으로만 계속 진행 */ }
+      localStorage.setItem(JOB_KEY, payload);
+      jobSaveFailed = false;
+      return true;
+    } catch (e) { /* 아래에서 공간 확보 후 재시도 */ }
+    freeUpStorageSpace();
+    try {
+      localStorage.setItem(JOB_KEY, payload);
+      jobSaveFailed = false;
+      return true;
+    } catch (e) {
+      jobSaveFailed = true; // 메모리상으로는 계속 진행되지만, 새로고침되면 이어가지 못함
+      return false;
+    }
   }
   function loadJob() {
     try {
-      return JSON.parse(localStorage.getItem(JOB_KEY) || 'null');
+      return hydrateJob(JSON.parse(localStorage.getItem(JOB_KEY) || 'null'));
     } catch (e) { return null; }
   }
   function clearJob() {
@@ -1247,7 +1282,9 @@
   // 가져온 결과를 영구 캐시해둔다. 기간을 바꿔가며 여러 번 분석을 돌려도(예: 24시간 → 5일 →
   // 30일) 이미 받아본 글은 네트워크 요청 없이 즉시 재사용된다.
   const RESULT_CACHE_KEY = 'jsa-result-cache-v1';
-  const RESULT_CACHE_MAX = 4000; // 너무 커지는 것을 막기 위한 보관 개수 상한
+  // 글 하나당 참여자 명단이 통째로 들어가서 항목당 수 KB씩 나간다. 4000건이면 localStorage
+  // 용량(보통 5MB)을 혼자 다 먹어버려서, 다른 저장이 전부 실패하는 사고가 있었음 — 1200건으로 낮춤.
+  const RESULT_CACHE_MAX = 1200;
 
   function loadResultCache() {
     try { return JSON.parse(localStorage.getItem(RESULT_CACHE_KEY) || '{}'); } catch (e) { return {}; }
@@ -1342,6 +1379,7 @@
           const cached = cache[post.document_srl];
           if (cached) {
             log(`[${i}/${total}] (캐시) ${post.title.slice(0, 40)}...`);
+            if (!cached.srl) cached.srl = post.document_srl; // 예전 캐시 항목 보정
             return cached;
           }
           log(`[${i}/${total}] ${post.title.slice(0, 40)}...`);
@@ -1356,7 +1394,8 @@
             return null;
           }
           const sport = classifySport(post.title);
-          const entry = { sport, winList, loseList, title: post.title };
+          // srl을 함께 담아둬야, 작업 기록에는 번호만 저장했다가 캐시에서 결과를 되살릴 수 있음
+          const entry = { srl: post.document_srl, sport, winList, loseList, title: post.title };
           cache[post.document_srl] = entry; // 정산 완료된 글은 결과가 안 바뀌므로 영구 캐시
           log(`  -> ${sport} / 승:${winList.length}명, 패:${loseList.length}명`);
           return entry;
@@ -1468,10 +1507,24 @@
     // 이전 작업이 저장돼 있으면(진행 중이었거나 완료됐던 것) 자동으로 이어서 보여줌 —
     // 1분마다 새로고침되는 페이지에서도 분석이 끊기지 않도록 하기 위함.
     const job = loadJob();
+    // 저장 실패(용량 초과) 등으로 "진행중"인 채 굳어버린 작업 방어 — 마지막으로 저장된 지
+    // 오래됐으면 이어서 진행하지 않고 버린다. 안 그러면 새로고침마다 같은 분석을 다시 돌리고,
+    // "이미 분석 중"으로 판단돼서 새 원격 요청도 영원히 처리되지 않는다.
+    const STALE_JOB_MS = 15 * 60 * 1000;
+    if (job && job.status === 'running') {
+      const lastTouched = job.lastSavedAt || job.startedAt || 0;
+      if (lastTouched && Date.now() - lastTouched > STALE_JOB_MS) {
+        clearJob();
+        const { log } = getPanelControls(panel);
+        log('(정리) 오래 멈춰 있던 이전 분석 기록을 버렸습니다. 새로 "분석 시작"을 눌러주세요.');
+        return;
+      }
+    }
     if (job) {
       applyJobControlsToPanel(panel, job);
       if (job.status === 'running' && Array.isArray(job.posts)) {
         const { log, setProgress } = getPanelControls(panel);
+        if (jobSaveFailed) log('⚠ 저장공간이 부족해 진행 상황이 저장되지 않을 수 있습니다.');
         // 새로고침으로 이어서 진행하는 경우에도 대시보드의 "진행 중" 배너가 유지되도록 다시 올림.
         // job.startedAt(최초 시작 시각)을 그대로 넘겨서 "N분째 진행 중" 표시가 리셋되지 않게 함.
         uploadRunningStatus(
