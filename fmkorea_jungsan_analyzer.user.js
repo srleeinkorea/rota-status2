@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.7
+// @version      4.8
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.7';
+  const SCRIPT_VERSION = '4.8';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -1285,20 +1285,64 @@
   // 글 하나당 참여자 명단이 통째로 들어가서 항목당 수 KB씩 나간다. 4000건이면 localStorage
   // 용량(보통 5MB)을 혼자 다 먹어버려서, 다른 저장이 전부 실패하는 사고가 있었음 — 1200건으로 낮춤.
   const RESULT_CACHE_MAX = 1200;
+  // 캐시 유효기간: 이보다 오래된 항목은 자동으로 버린다. 분석 기간은 길어야 30일이라
+  // 그보다 오래된 글의 결과를 들고 있을 이유가 없다.
+  const RESULT_CACHE_TTL_MS = 30 * 24 * 3600 * 1000;
+  // 캐시가 차지할 수 있는 최대 용량(약 1.5MB). localStorage 전체 한도(보통 5MB)를 캐시
+  // 혼자 다 먹어서 다른 저장(작업 기록, 처리 표시)이 전부 실패하는 걸 막기 위한 상한.
+  const RESULT_CACHE_MAX_BYTES = 1_500_000;
 
   function loadResultCache() {
     try { return JSON.parse(localStorage.getItem(RESULT_CACHE_KEY) || '{}'); } catch (e) { return {}; }
   }
+
+  // 오래된 것 → 개수 초과 → 용량 초과 순으로 정리. 항목에 기록 시각(at)이 없으면
+  // (예전 형식) 가장 오래된 것으로 취급해서 먼저 버린다.
+  function pruneResultCache(cache) {
+    const now = Date.now();
+    let keys = Object.keys(cache);
+
+    // 1) 유효기간 지난 항목 버리기
+    for (const k of keys) {
+      const at = cache[k] && cache[k].at;
+      if (at && now - at > RESULT_CACHE_TTL_MS) delete cache[k];
+    }
+
+    // 오래된 순 정렬 (at 없는 항목이 가장 앞)
+    const byAge = () => Object.keys(cache).sort((a, b) => ((cache[a] && cache[a].at) || 0) - ((cache[b] && cache[b].at) || 0));
+
+    // 2) 개수 상한
+    keys = byAge();
+    for (let i = 0; i < keys.length - RESULT_CACHE_MAX; i++) delete cache[keys[i]];
+
+    // 3) 용량 상한 — 넘으면 오래된 것부터 10%씩 덜어내며 맞춘다
+    let guard = 0;
+    while (JSON.stringify(cache).length > RESULT_CACHE_MAX_BYTES && guard++ < 50) {
+      const ordered = byAge();
+      if (ordered.length === 0) break;
+      const drop = Math.max(1, Math.floor(ordered.length * 0.1));
+      for (let i = 0; i < drop; i++) delete cache[ordered[i]];
+    }
+    return cache;
+  }
+
   function saveResultCache(cache) {
     try {
-      const keys = Object.keys(cache);
-      if (keys.length > RESULT_CACHE_MAX) {
-        // 오래전에 넣은 것부터 정리 (객체 키 삽입 순서 기준)
-        const excess = keys.length - RESULT_CACHE_MAX;
-        for (let i = 0; i < excess; i++) delete cache[keys[i]];
-      }
+      pruneResultCache(cache);
       localStorage.setItem(RESULT_CACHE_KEY, JSON.stringify(cache));
     } catch (e) { /* 용량 초과 등은 무시 — 캐시 없이도 정상 동작함 */ }
+  }
+
+  // 페이지가 뜰 때 한 번 돌리는 정기 청소. 캐시의 유효기간/용량을 정리해서, 사용자가
+  // 아무것도 안 해도 저장공간이 서서히 꽉 차다가 어느 날 전부 멈추는 일이 없게 한다.
+  function housekeepStorage() {
+    try {
+      const cache = loadResultCache();
+      const before = Object.keys(cache).length;
+      pruneResultCache(cache);
+      const after = Object.keys(cache).length;
+      if (after !== before) localStorage.setItem(RESULT_CACHE_KEY, JSON.stringify(cache));
+    } catch (e) { /* 무시 */ }
   }
 
   // localStorage 용량이 꽉 차서 중요한 작은 값(예: "이 요청은 이미 처리했다" 표시)조차
@@ -1395,7 +1439,7 @@
           }
           const sport = classifySport(post.title);
           // srl을 함께 담아둬야, 작업 기록에는 번호만 저장했다가 캐시에서 결과를 되살릴 수 있음
-          const entry = { srl: post.document_srl, sport, winList, loseList, title: post.title };
+          const entry = { srl: post.document_srl, sport, winList, loseList, title: post.title, at: Date.now() };
           cache[post.document_srl] = entry; // 정산 완료된 글은 결과가 안 바뀌므로 영구 캐시
           log(`  -> ${sport} / 승:${winList.length}명, 패:${loseList.length}명`);
           return entry;
@@ -1501,6 +1545,7 @@
 
   function init() {
     if (document.getElementById('jsa-panel')) return;
+    housekeepStorage(); // 저장공간 정기 청소 (유효기간 지난 캐시 정리)
     const panel = createPanel();
     panel.querySelector('#jsa-run').onclick = () => startNewRun(panel);
 
