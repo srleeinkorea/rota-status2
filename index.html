@@ -103,9 +103,18 @@
   .finder-card .finder-record .rate-chip { color:var(--win); font-weight:700; }
   .finder-card .finder-picks-label { font-size:11px; color:var(--faint); margin-bottom:4px; font-weight:600; }
   .finder-card .no-picks { font-size:12px; color:var(--faint); }
-  .finder-card.pinned { border-color:rgba(255,209,102,.5); }
-  .finder-card.pinned .finder-name:before { content:'📌 '; }
-  .pinned-title { font-size:11.5px; color:var(--faint); font-weight:700; margin:2px 2px 8px; }
+  .pinned-title { font-size:11.5px; color:var(--faint); font-weight:700; margin:2px 2px 6px; }
+  .pinned-grid { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px; }
+  .pinned-chip {
+    display:inline-flex; align-items:center; gap:5px; background:var(--card);
+    border:1px solid rgba(255,209,102,.4); border-radius:999px; padding:4px 10px 4px 8px;
+    font-size:11.5px; white-space:nowrap;
+  }
+  .pinned-chip .pin-name { font-weight:700; }
+  .pinned-chip .pin-rate { font-weight:700; color:var(--win); }
+  .pinned-chip .pin-rate.low { color:var(--dim); }
+  .pinned-chip .pin-sep { color:var(--faint); }
+  .pinned-chip .pin-live { color:var(--accent); font-weight:700; }
   .remote-box {
     display:flex; flex-wrap:wrap; align-items:center; gap:10px;
     background:var(--card); border:1px solid var(--border); border-radius:12px;
@@ -308,6 +317,15 @@ function finderCardHtml(name, record, picks, pinned) {
 // 항상 고정으로 보여줄 닉네임 목록 (검색창에 아무것도 입력하지 않아도 표시됨)
 const PINNED_NAMES = ['손나은', 'IU와함께', '고양이365만원', '홍유순', '에버딘', 'SI모', '고결', 'Lillie', 'Erebor'];
 
+function pinnedChipHtml(name, record, picks) {
+  const rateClass = record && record.rate >= 70 ? '' : 'low';
+  const recordPart = record
+    ? `<span class="pin-sep">·</span><span class="pin-rate ${rateClass}">${fmtPct(record.rate)}</span><span class="pin-sep">(${record.win}승${record.lose}패)</span>`
+    : `<span class="pin-sep">· 기록없음</span>`;
+  const livePart = picks && picks.length ? `<span class="pin-sep">·</span><span class="pin-live">진행중 ${picks.length}</span>` : '';
+  return `<span class="pinned-chip"><span class="pin-name">📌 ${escapeHtml(name)}</span>${recordPart}${livePart}</span>`;
+}
+
 function renderPinnedCards() {
   const el = document.getElementById('jsa-pinned');
   if (!el) return;
@@ -317,10 +335,11 @@ function renderPinnedCards() {
   const picksByName = new Map();
   (dashboardData.allPicks || []).forEach((p) => { picksByName.set(p.name, p.picks || []); });
 
-  let html = `<div class="pinned-title">📌 고정 닉네임</div>`;
+  let html = `<div class="pinned-title">📌 고정 닉네임</div><div class="pinned-grid">`;
   PINNED_NAMES.forEach((name) => {
-    html += finderCardHtml(name, recordByName.get(name) || null, picksByName.get(name) || [], true);
+    html += pinnedChipHtml(name, recordByName.get(name) || null, picksByName.get(name) || []);
   });
+  html += '</div>';
   el.innerHTML = html;
 }
 
