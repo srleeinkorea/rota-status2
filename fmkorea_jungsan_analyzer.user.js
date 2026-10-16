@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.0
+// @version      4.1
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.0';
+  const SCRIPT_VERSION = '4.1';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -1058,8 +1058,20 @@
       let handled = 0;
       try { handled = Number(localStorage.getItem(CMD_HANDLED_KEY)) || 0; } catch (e) { /* 무시 */ }
       if (reqTs <= handled) return; // 이미 처리한 요청
+      if (Date.now() - reqTs > CMD_MAX_AGE_MS) {
+        // 너무 오래된 요청은 기록만 하고 무시 (다시 재시도하지 않도록 handled 처리)
+        try { localStorage.setItem(CMD_HANDLED_KEY, String(reqTs)); } catch (e) { /* 무시 */ }
+        return;
+      }
+
+      // 이미 분석이 돌고 있으면 새로 시작하지 않음(중복 실행 방지).
+      // 이 경우 handled 기록을 남기지 않고 그냥 리턴 — 다음 폴링(45초 후)에 현재 작업이
+      // 끝나있으면 이 요청을 다시 발견해서 실행한다. (예전엔 여기서 handled를 먼저
+      // 기록해버려서, 이전 작업이 돌고 있을 때 들어온 요청이 영원히 무시되는 버그가 있었음)
+      const job = loadJob();
+      if (job && job.status === 'running') return;
+
       try { localStorage.setItem(CMD_HANDLED_KEY, String(reqTs)); } catch (e) { /* 무시 */ }
-      if (Date.now() - reqTs > CMD_MAX_AGE_MS) return; // 너무 오래된 요청은 기록만 하고 무시
 
       const windowSel = panel.querySelector('#jsa-window');
       const minInput = panel.querySelector('#jsa-minpicks');
@@ -1069,9 +1081,6 @@
       const mp = parseInt(cmd.minPicks, 10);
       if (mp >= 1 && minInput) minInput.value = String(mp);
 
-      // 이미 분석이 돌고 있으면 새로 시작하지 않음(중복 실행 방지)
-      const job = loadJob();
-      if (job && job.status === 'running') return;
       const runBtn = panel.querySelector('#jsa-run');
       if (runBtn) runBtn.click();
     } catch (e) { /* 네트워크 오류 등 — 다음 폴링에서 재시도 */ }
