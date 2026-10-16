@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T16:34:12.347Z",
+  "generatedAt": "2026-10-16T16:34:56.475Z",
   "windowLabel": "최근 3일",
   "minPicks": 5,
   "totalParticipants": 1723,
@@ -1683,34 +1683,34 @@
   },
   "ongoingMatches": [
     {
-      "title": "ETTU 유럽 탁구선수권 남자단식 :: 트룰스 뫼레고르드(-3.5) vs 보르가르 하우그 :: 10/17 01:40 경기",
-      "url": "https://www.fmkorea.com/10454313293",
-      "teamA": "트룰스 뫼레고르드",
-      "teamB": "보르가르 하우그",
-      "countA": 21,
-      "betA": 25895,
-      "countB": 18,
-      "betB": 42870
-    },
-    {
       "title": "ETTU 유럽 탁구선수권 여자단식 :: 한잉(-3.5) vs 타티아나 쿠쿨코바 :: 10/17 01:40 경기",
       "url": "https://www.fmkorea.com/10454339343",
       "teamA": "한잉",
       "teamB": "타티아나 쿠쿨코바",
-      "countA": 1,
-      "betA": 1000,
-      "countB": 3,
-      "betB": 4558
+      "countA": 4,
+      "betA": 1434,
+      "countB": 6,
+      "betB": 5535
+    },
+    {
+      "title": "ETTU 유럽 탁구선수권 남자단식 :: 트룰스 뫼레고르드(-3.5) vs 보르가르 하우그 :: 10/17 01:40 경기",
+      "url": "https://www.fmkorea.com/10454313293",
+      "teamA": "트룰스 뫼레고르드",
+      "teamB": "보르가르 하우그",
+      "countA": 25,
+      "betA": 27301,
+      "countB": 18,
+      "betB": 42870
     },
     {
       "title": "LOL Worlds 플레이인 :: KC(-1.5) vs MVK :: 10/17 03:00 경기",
       "url": "https://www.fmkorea.com/10452368407",
       "teamA": "KC",
       "teamB": "MVK",
-      "countA": 360,
-      "betA": 1607533,
-      "countB": 175,
-      "betB": 883551
+      "countA": 364,
+      "betA": 1611120,
+      "countB": 176,
+      "betB": 883920
     },
     {
       "title": "라리가 :: 데포르티보(-0.5) vs 레반테 :: 10/17 04:00 경기",
@@ -1739,8 +1739,8 @@
       "teamB": "쾰른",
       "countA": 203,
       "betA": 595645,
-      "countB": 110,
-      "betB": 414224
+      "countB": 112,
+      "betB": 415524
     },
     {
       "title": "EFL 챔피언십 :: 번리(+0.5) vs 울버햄튼 :: 10/17 04:00 경기",
@@ -1767,8 +1767,8 @@
       "url": "https://www.fmkorea.com/10453502838",
       "teamA": "C9",
       "teamB": "FUR",
-      "countA": 125,
-      "betA": 201716,
+      "countA": 126,
+      "betA": 203716,
       "countB": 117,
       "betB": 375302
     }
@@ -4143,13 +4143,13 @@
       "name": "따봉도치야고마워",
       "picks": [
         {
-          "team": "보르가르 하우그",
-          "url": "https://www.fmkorea.com/10454313293",
+          "team": "타티아나 쿠쿨코바",
+          "url": "https://www.fmkorea.com/10454339343",
           "bet": 3000
         },
         {
-          "team": "타티아나 쿠쿨코바",
-          "url": "https://www.fmkorea.com/10454339343",
+          "team": "보르가르 하우그",
+          "url": "https://www.fmkorea.com/10454313293",
           "bet": 3000
         },
         {
@@ -4850,6 +4850,21 @@
       ]
     },
     {
+      "name": "리브의엽기떡볶이",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 500
+        },
+        {
+          "team": "쾰른",
+          "url": "https://www.fmkorea.com/10453547210",
+          "bet": 286
+        }
+      ]
+    },
+    {
       "name": "리암갤러거",
       "picks": [
         {
@@ -5545,6 +5560,16 @@
       ]
     },
     {
+      "name": "무리타",
+      "picks": [
+        {
+          "team": "한잉",
+          "url": "https://www.fmkorea.com/10454339343",
+          "bet": 228
+        }
+      ]
+    },
+    {
       "name": "무쇠궁디",
       "picks": [
         {
@@ -5831,6 +5856,16 @@
           "team": "KC",
           "url": "https://www.fmkorea.com/10452368407",
           "bet": 3000
+        }
+      ]
+    },
+    {
+      "name": "반사회적연애중독",
+      "picks": [
+        {
+          "team": "트룰스 뫼레고르드",
+          "url": "https://www.fmkorea.com/10454313293",
+          "bet": 206
         }
       ]
     },
@@ -6665,6 +6700,16 @@
       ]
     },
     {
+      "name": "살얼음냉면",
+      "picks": [
+        {
+          "team": "트룰스 뫼레고르드",
+          "url": "https://www.fmkorea.com/10454313293",
+          "bet": 1000
+        }
+      ]
+    },
+    {
       "name": "살킬드",
       "picks": [
         {
@@ -6870,6 +6915,16 @@
       ]
     },
     {
+      "name": "선발라인업",
+      "picks": [
+        {
+          "team": "쾰른",
+          "url": "https://www.fmkorea.com/10453547210",
+          "bet": 1014
+        }
+      ]
+    },
+    {
       "name": "선예",
       "picks": [
         {
@@ -6897,6 +6952,11 @@
     {
       "name": "세레나데",
       "picks": [
+        {
+          "team": "타티아나 쿠쿨코바",
+          "url": "https://www.fmkorea.com/10454339343",
+          "bet": 100
+        },
         {
           "team": "보르가르 하우그",
           "url": "https://www.fmkorea.com/10454313293",
@@ -7082,6 +7142,16 @@
     {
       "name": "수원삼성박지원",
       "picks": [
+        {
+          "team": "한잉",
+          "url": "https://www.fmkorea.com/10454339343",
+          "bet": 100
+        },
+        {
+          "team": "트룰스 뫼레고르드",
+          "url": "https://www.fmkorea.com/10454313293",
+          "bet": 100
+        },
         {
           "team": "KC",
           "url": "https://www.fmkorea.com/10452368407",
@@ -7456,6 +7526,16 @@
           "team": "르망",
           "url": "https://www.fmkorea.com/10453798446",
           "bet": 4300
+        }
+      ]
+    },
+    {
+      "name": "싸이버거",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 531
         }
       ]
     },
@@ -8162,6 +8242,11 @@
     {
       "name": "어으아우어",
       "picks": [
+        {
+          "team": "타티아나 쿠쿨코바",
+          "url": "https://www.fmkorea.com/10454339343",
+          "bet": 777
+        },
         {
           "team": "보르가르 하우그",
           "url": "https://www.fmkorea.com/10454313293",
@@ -9005,6 +9090,16 @@
       ]
     },
     {
+      "name": "이거제",
+      "picks": [
+        {
+          "team": "타티아나 쿠쿨코바",
+          "url": "https://www.fmkorea.com/10454339343",
+          "bet": 100
+        }
+      ]
+    },
+    {
       "name": "이다현",
       "picks": [
         {
@@ -9318,14 +9413,14 @@
       "name": "임청아",
       "picks": [
         {
-          "team": "보르가르 하우그",
-          "url": "https://www.fmkorea.com/10454313293",
-          "bet": 1000
-        },
-        {
           "team": "타티아나 쿠쿨코바",
           "url": "https://www.fmkorea.com/10454339343",
           "bet": 100
+        },
+        {
+          "team": "보르가르 하우그",
+          "url": "https://www.fmkorea.com/10454313293",
+          "bet": 1000
         }
       ]
     },
@@ -9633,13 +9728,13 @@
       "name": "잠겨죽어도",
       "picks": [
         {
-          "team": "트룰스 뫼레고르드",
-          "url": "https://www.fmkorea.com/10454313293",
+          "team": "한잉",
+          "url": "https://www.fmkorea.com/10454339343",
           "bet": 1000
         },
         {
-          "team": "한잉",
-          "url": "https://www.fmkorea.com/10454339343",
+          "team": "트룰스 뫼레고르드",
+          "url": "https://www.fmkorea.com/10454313293",
           "bet": 1000
         }
       ]
@@ -9967,6 +10062,16 @@
     {
       "name": "조디악",
       "picks": [
+        {
+          "team": "한잉",
+          "url": "https://www.fmkorea.com/10454339343",
+          "bet": 106
+        },
+        {
+          "team": "트룰스 뫼레고르드",
+          "url": "https://www.fmkorea.com/10454313293",
+          "bet": 100
+        },
         {
           "team": "MVK",
           "url": "https://www.fmkorea.com/10452368407",
@@ -10376,6 +10481,21 @@
           "team": "C9",
           "url": "https://www.fmkorea.com/10453502838",
           "bet": 1500
+        }
+      ]
+    },
+    {
+      "name": "쵸비요네",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 2352
+        },
+        {
+          "team": "C9",
+          "url": "https://www.fmkorea.com/10453502838",
+          "bet": 2000
         }
       ]
     },
@@ -10793,14 +10913,14 @@
       "name": "쿨쿨..",
       "picks": [
         {
-          "team": "트룰스 뫼레고르드",
-          "url": "https://www.fmkorea.com/10454313293",
-          "bet": 2222
-        },
-        {
           "team": "타티아나 쿠쿨코바",
           "url": "https://www.fmkorea.com/10454339343",
           "bet": 1458
+        },
+        {
+          "team": "트룰스 뫼레고르드",
+          "url": "https://www.fmkorea.com/10454313293",
+          "bet": 2222
         }
       ]
     },
@@ -10996,6 +11116,16 @@
           "team": "C9",
           "url": "https://www.fmkorea.com/10453502838",
           "bet": 2984
+        }
+      ]
+    },
+    {
+      "name": "타고난게너무많다",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 204
         }
       ]
     },
@@ -12051,6 +12181,16 @@
           "team": "KC",
           "url": "https://www.fmkorea.com/10452368407",
           "bet": 100000
+        }
+      ]
+    },
+    {
+      "name": "한호열",
+      "picks": [
+        {
+          "team": "MVK",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 369
         }
       ]
     },
