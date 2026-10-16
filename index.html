@@ -616,36 +616,57 @@ const WINDOW_LABELS = {
   '5d': '최근 5일', '7d': '최근 7일', '15d': '최근 15일', '30d': '최근 30일',
 };
 
-function showRunningBanner(status) {
+function setBanner(text) {
   const banner = document.getElementById('rb-running-banner');
   const textEl = document.getElementById('rb-running-text');
-  if (!status || status.state !== 'running') {
-    banner.classList.remove('show');
-    return;
-  }
-  const label = WINDOW_LABELS[status.windowValue] || status.windowValue || '';
-  let startedText = '';
-  try {
-    if (status.startedAt) {
-      const mins = Math.max(0, Math.round((Date.now() - new Date(status.startedAt).getTime()) / 60000));
-      startedText = mins <= 0 ? ' (방금 시작)' : ` (${mins}분째 진행 중)`;
-    }
-  } catch (e) { /* 무시 */ }
-  textEl.textContent = `🔄 분석 진행 중 — ${label}${status.minPicks ? ' · 최소 ' + status.minPicks + '건' : ''}${startedText}`;
+  if (!text) { banner.classList.remove('show'); return; }
+  textEl.textContent = text;
   banner.classList.add('show');
 }
 
-function loadStatus() {
-  return fetch('./status.json', { cache: 'no-store' })
-    .then((res) => { if (!res.ok) throw new Error('no status'); return res.json(); })
-    .then((status) => { showRunningBanner(status); })
-    .catch(() => { showRunningBanner(null); });
+// status.json(유저스크립트가 실제로 분석을 시작/종료할 때 올림)과 command.json(이 페이지
+// 자신이든 다른 사람이든, 누군가 "분석 시작"을 눌러 요청을 남겼을 때)을 함께 보고
+// 지금 상황에 맞는 배너를 띄운다.
+//  1) status.json이 running이면 → "분석 진행중" (가장 확실한 신호)
+//  2) 아직 running은 아니지만, command.json의 요청 시각이 마지막으로 완료된 분석
+//     (data.json의 generatedAt)보다 새로우면 → 유저스크립트가 아직 그 요청을 못 집어간
+//     상태라고 보고 "요청 대기중"으로 표시 (요청 직후 새로고침해도 사라지지 않게)
+const CMD_MAX_AGE_MS = 10 * 60 * 1000; // 10분 넘은 요청은 이미 유실/무시된 것으로 보고 표시 안 함
+
+function refreshBanner() {
+  Promise.all([
+    fetch('./status.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    fetch('./command.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+  ]).then(([status, cmd]) => {
+    if (status && status.state === 'running') {
+      const label = WINDOW_LABELS[status.windowValue] || status.windowValue || '';
+      let startedText = '';
+      try {
+        if (status.startedAt) {
+          const mins = Math.max(0, Math.round((Date.now() - new Date(status.startedAt).getTime()) / 60000));
+          startedText = mins <= 0 ? ' (방금 시작)' : ` (${mins}분째 진행 중)`;
+        }
+      } catch (e) { /* 무시 */ }
+      setBanner(`🔄 분석 진행 중 — ${label}${status.minPicks ? ' · 최소 ' + status.minPicks + '건' : ''}${startedText}`);
+      return;
+    }
+    if (cmd && cmd.action === 'run' && cmd.requestedAt) {
+      const reqTs = new Date(cmd.requestedAt).getTime();
+      const genTs = lastGeneratedAt ? new Date(lastGeneratedAt).getTime() : 0;
+      const age = Date.now() - reqTs;
+      if (reqTs > genTs && age >= 0 && age < CMD_MAX_AGE_MS) {
+        const label = WINDOW_LABELS[cmd.windowValue] || cmd.windowValue || '';
+        setBanner(`⏳ 분석 요청 대기 중 — ${label}${cmd.minPicks ? ' · 최소 ' + cmd.minPicks + '건' : ''} (fmkorea 탭이 열려 있으면 곧 시작됩니다)`);
+        return;
+      }
+    }
+    setBanner(null);
+  });
 }
 
-loadData(true);
-loadStatus();
+loadData(true).then(refreshBanner).catch(refreshBanner);
 setInterval(() => loadData(false), 30 * 1000);
-setInterval(loadStatus, 15 * 1000);
+setInterval(refreshBanner, 15 * 1000);
 </script>
 </body>
 </html>
