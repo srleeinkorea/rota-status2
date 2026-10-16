@@ -108,13 +108,17 @@
   .pinned-chip {
     display:inline-flex; align-items:center; gap:5px; background:var(--card);
     border:1px solid rgba(255,209,102,.4); border-radius:999px; padding:4px 10px 4px 8px;
-    font-size:11.5px; white-space:nowrap;
+    font-size:11.5px; white-space:nowrap; cursor:pointer; user-select:none;
   }
+  .pinned-chip:hover { border-color:rgba(255,209,102,.8); }
+  .pinned-chip.active { background:rgba(255,209,102,.12); border-color:#ffd166; }
   .pinned-chip .pin-name { font-weight:700; }
   .pinned-chip .pin-rate { font-weight:700; color:var(--win); }
   .pinned-chip .pin-rate.low { color:var(--dim); }
   .pinned-chip .pin-sep { color:var(--faint); }
   .pinned-chip .pin-live { color:var(--accent); font-weight:700; }
+  #jsa-pinned-detail:empty { display:none; }
+  #jsa-pinned-detail { margin-bottom:14px; }
   .remote-box {
     display:flex; flex-wrap:wrap; align-items:center; gap:10px;
     background:var(--card); border:1px solid var(--border); border-radius:12px;
@@ -176,6 +180,7 @@
       <div class="hint" id="jsa-search-hint"></div>
     </div>
     <div id="jsa-pinned"></div>
+    <div id="jsa-pinned-detail"></div>
     <div id="jsa-search-results"></div>
     <div id="content"></div>
   </div>
@@ -317,31 +322,54 @@ function finderCardHtml(name, record, picks, pinned) {
 // 항상 고정으로 보여줄 닉네임 목록 (검색창에 아무것도 입력하지 않아도 표시됨)
 const PINNED_NAMES = ['손나은', 'IU와함께', '고양이365만원', '홍유순', '에버딘', 'SI모', '고결', 'Lillie', 'Erebor'];
 
+let pinnedRecordByName = new Map();
+let pinnedPicksByName = new Map();
+let pinnedOpenName = null;
+
 function pinnedChipHtml(name, record, picks) {
   const rateClass = record && record.rate >= 70 ? '' : 'low';
   const recordPart = record
     ? `<span class="pin-sep">·</span><span class="pin-rate ${rateClass}">${fmtPct(record.rate)}</span><span class="pin-sep">(${record.win}승${record.lose}패)</span>`
     : `<span class="pin-sep">· 기록없음</span>`;
   const livePart = picks && picks.length ? `<span class="pin-sep">·</span><span class="pin-live">진행중 ${picks.length}</span>` : '';
-  return `<span class="pinned-chip"><span class="pin-name">📌 ${escapeHtml(name)}</span>${recordPart}${livePart}</span>`;
+  const activeClass = pinnedOpenName === name ? ' active' : '';
+  return `<span class="pinned-chip${activeClass}" data-pin-name="${escapeHtml(name)}"><span class="pin-name">📌 ${escapeHtml(name)}</span>${recordPart}${livePart}</span>`;
+}
+
+function renderPinnedDetail() {
+  const detailEl = document.getElementById('jsa-pinned-detail');
+  if (!detailEl) return;
+  if (!pinnedOpenName) { detailEl.innerHTML = ''; return; }
+  const record = pinnedRecordByName.get(pinnedOpenName) || null;
+  const picks = pinnedPicksByName.get(pinnedOpenName) || [];
+  detailEl.innerHTML = finderCardHtml(pinnedOpenName, record, picks, true);
 }
 
 function renderPinnedCards() {
   const el = document.getElementById('jsa-pinned');
   if (!el) return;
-  if (!dashboardData) { el.innerHTML = ''; return; }
-  const recordByName = new Map();
-  (dashboardData.allRecords || []).forEach((r) => { recordByName.set(r.name, r); });
-  const picksByName = new Map();
-  (dashboardData.allPicks || []).forEach((p) => { picksByName.set(p.name, p.picks || []); });
+  if (!dashboardData) { el.innerHTML = ''; pinnedRecordByName = new Map(); pinnedPicksByName = new Map(); renderPinnedDetail(); return; }
+  pinnedRecordByName = new Map();
+  (dashboardData.allRecords || []).forEach((r) => { pinnedRecordByName.set(r.name, r); });
+  pinnedPicksByName = new Map();
+  (dashboardData.allPicks || []).forEach((p) => { pinnedPicksByName.set(p.name, p.picks || []); });
 
-  let html = `<div class="pinned-title">📌 고정 닉네임</div><div class="pinned-grid">`;
+  let html = `<div class="pinned-title">📌 고정 닉네임 (클릭하면 상세보기)</div><div class="pinned-grid">`;
   PINNED_NAMES.forEach((name) => {
-    html += pinnedChipHtml(name, recordByName.get(name) || null, picksByName.get(name) || []);
+    html += pinnedChipHtml(name, pinnedRecordByName.get(name) || null, pinnedPicksByName.get(name) || []);
   });
   html += '</div>';
   el.innerHTML = html;
+  renderPinnedDetail();
 }
+
+document.getElementById('jsa-pinned').addEventListener('click', (e) => {
+  const chip = e.target.closest('.pinned-chip');
+  if (!chip) return;
+  const name = chip.getAttribute('data-pin-name');
+  pinnedOpenName = pinnedOpenName === name ? null : name;
+  renderPinnedCards();
+});
 
 function applySearchFilter() {
   const input = document.getElementById('jsa-search');
