@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T16:18:00.044Z",
+  "generatedAt": "2026-10-16T16:18:32.716Z",
   "windowLabel": "최근 3일",
   "minPicks": 5,
   "totalParticipants": 1723,
@@ -1688,26 +1688,26 @@
       "teamB": "쾰른",
       "countA": 195,
       "betA": 584608,
-      "countB": 103,
-      "betB": 344029
+      "countB": 104,
+      "betB": 353529
     },
     {
       "title": "LOL Worlds 플레이인 :: KC(-1.5) vs MVK :: 10/17 03:00 경기",
       "url": "https://www.fmkorea.com/10452368407",
       "teamA": "KC",
       "teamB": "MVK",
-      "countA": 343,
-      "betA": 1590829,
-      "countB": 166,
-      "betB": 871202
+      "countA": 344,
+      "betA": 1591362,
+      "countB": 167,
+      "betB": 871302
     },
     {
       "title": "EFL 챔피언십 :: 번리(+0.5) vs 울버햄튼 :: 10/17 04:00 경기",
       "url": "https://www.fmkorea.com/10454269789",
       "teamA": "번리",
       "teamB": "울버햄튼",
-      "countA": 15,
-      "betA": 98633,
+      "countA": 16,
+      "betA": 98733,
       "countB": 16,
       "betB": 36709
     },
@@ -1726,8 +1726,8 @@
       "url": "https://www.fmkorea.com/10453502838",
       "teamA": "C9",
       "teamB": "FUR",
-      "countA": 120,
-      "betA": 178682,
+      "countA": 121,
+      "betA": 178782,
       "countB": 110,
       "betB": 370396
     },
@@ -3037,6 +3037,11 @@
           "bet": 318
         },
         {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 533
+        },
+        {
           "team": "번리",
           "url": "https://www.fmkorea.com/10454269789",
           "bet": 630
@@ -3785,6 +3790,21 @@
           "team": "프랑크푸르트",
           "url": "https://www.fmkorea.com/10453547210",
           "bet": 179
+        }
+      ]
+    },
+    {
+      "name": "돌문",
+      "picks": [
+        {
+          "team": "MVK",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 100
+        },
+        {
+          "team": "C9",
+          "url": "https://www.fmkorea.com/10453502838",
+          "bet": 100
         }
       ]
     },
@@ -4694,6 +4714,11 @@
         {
           "team": "MVK",
           "url": "https://www.fmkorea.com/10452368407",
+          "bet": 100
+        },
+        {
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
           "bet": 100
         },
         {
@@ -9025,6 +9050,16 @@
           "team": "KC",
           "url": "https://www.fmkorea.com/10452368407",
           "bet": 300
+        }
+      ]
+    },
+    {
+      "name": "잘큰사람",
+      "picks": [
+        {
+          "team": "쾰른",
+          "url": "https://www.fmkorea.com/10453547210",
+          "bet": 9500
         }
       ]
     },
