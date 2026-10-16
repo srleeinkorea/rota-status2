@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-16T16:05:52.849Z",
+  "generatedAt": "2026-10-16T16:06:30.311Z",
   "windowLabel": "최근 24시간",
-  "minPicks": 1,
-  "totalParticipants": 2821,
+  "minPicks": 2,
+  "totalParticipants": 1585,
   "overall": [
     {
       "name": "앱솔루트",
@@ -1583,18 +1583,18 @@
       "url": "https://www.fmkorea.com/10453547210",
       "teamA": "프랑크푸르트",
       "teamB": "쾰른",
-      "countA": 186,
-      "betA": 562148,
-      "countB": 96,
-      "betB": 330676
+      "countA": 187,
+      "betA": 563148,
+      "countB": 97,
+      "betB": 339317
     },
     {
       "title": "LOL Worlds 플레이인 :: KC(-1.5) vs MVK :: 10/17 03:00 경기",
       "url": "https://www.fmkorea.com/10452368407",
       "teamA": "KC",
       "teamB": "MVK",
-      "countA": 325,
-      "betA": 1535481,
+      "countA": 326,
+      "betA": 1536406,
       "countB": 160,
       "betB": 869053
     },
@@ -1603,8 +1603,8 @@
       "url": "https://www.fmkorea.com/10454269789",
       "teamA": "번리",
       "teamB": "울버햄튼",
-      "countA": 6,
-      "betA": 82718,
+      "countA": 8,
+      "betA": 84205,
       "countB": 6,
       "betB": 14873
     },
@@ -1615,8 +1615,8 @@
       "teamB": "레반테",
       "countA": 43,
       "betA": 88134,
-      "countB": 31,
-      "betB": 99599
+      "countB": 32,
+      "betB": 100710
     },
     {
       "title": "LOL Worlds 플레이인 :: C9 (-2.5) vs FUR :: 10/17 08:00 경기",
@@ -2544,6 +2544,11 @@
           "bet": 500
         },
         {
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
+          "bet": 376
+        },
+        {
           "team": "C9",
           "url": "https://www.fmkorea.com/10453502838",
           "bet": 1000
@@ -3424,6 +3429,16 @@
           "bet": 1111
         },
         {
+          "team": "번리",
+          "url": "https://www.fmkorea.com/10454269789",
+          "bet": 1111
+        },
+        {
+          "team": "레반테",
+          "url": "https://www.fmkorea.com/10454100748",
+          "bet": 1111
+        },
+        {
           "team": "C9",
           "url": "https://www.fmkorea.com/10453502838",
           "bet": 1111
@@ -3866,6 +3881,11 @@
         {
           "team": "툴루즈",
           "url": "https://www.fmkorea.com/10453798446",
+          "bet": 1000
+        },
+        {
+          "team": "프랑크푸르트",
+          "url": "https://www.fmkorea.com/10453547210",
           "bet": 1000
         },
         {
@@ -5372,6 +5392,16 @@
           "team": "MVK",
           "url": "https://www.fmkorea.com/10452368407",
           "bet": 1680
+        }
+      ]
+    },
+    {
+      "name": "변기통",
+      "picks": [
+        {
+          "team": "쾰른",
+          "url": "https://www.fmkorea.com/10453547210",
+          "bet": 8641
         }
       ]
     },
@@ -9967,6 +9997,16 @@
           "team": "C9",
           "url": "https://www.fmkorea.com/10453502838",
           "bet": 1883
+        }
+      ]
+    },
+    {
+      "name": "팟츠",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10452368407",
+          "bet": 925
         }
       ]
     },
