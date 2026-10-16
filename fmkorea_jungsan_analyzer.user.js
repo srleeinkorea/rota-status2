@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.1
+// @version      4.2
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.1';
+  const SCRIPT_VERSION = '4.2';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -37,6 +37,7 @@
   // GitHub Pages는 정적 사이트라 fmkorea.com에 직접 요청을 못 보내기 때문).
   const GITHUB_REPO = 'srleeinkorea/rota-status2';
   const GITHUB_DATA_PATH = 'data.json';
+  const GITHUB_STATUS_PATH = 'status.json';
   const GH_TOKEN_KEY = 'jsa-gh-token-v1';
   const UPLOAD_TOP_N = 100; // 대시보드 용량/속도를 위해 종합 랭킹은 상위 100명까지만 올림
 
@@ -1028,6 +1029,46 @@
     }
   }
 
+  // 작은 JSON 파일(지금은 status.json)을 저장소에 올리는 공용 헬퍼.
+  // uploadResultsToGitHub와 로직은 같지만 데이터가 훨씬 작고 자주(분석 시작/종료마다) 올라가므로
+  // 분리해둠. 실패해도 조용히 무시(상태 표시는 부가 기능이라 분석 자체를 막으면 안 됨).
+  async function uploadJsonToGitHub(path, payload) {
+    const token = getGithubToken();
+    if (!token) return;
+    try {
+      const content = utf8ToBase64(JSON.stringify(payload, null, 2));
+      const apiUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`;
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      };
+      let sha;
+      const getRes = await fetch(`${apiUrl}?t=${Date.now()}`, { headers });
+      if (getRes.ok) {
+        const info = await getRes.json();
+        sha = info.sha;
+      }
+      const body = { message: `상태 갱신 (${path})`, content };
+      if (sha) body.sha = sha;
+      await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+    } catch (e) { /* 상태 표시는 부가 기능 — 실패해도 분석 자체는 계속 진행 */ }
+  }
+
+  function uploadRunningStatus(windowValue, windowLabel, minPicks) {
+    uploadJsonToGitHub(GITHUB_STATUS_PATH, {
+      state: 'running',
+      windowValue, windowLabel, minPicks,
+      startedAt: new Date().toISOString(),
+    });
+  }
+  function uploadIdleStatus() {
+    uploadJsonToGitHub(GITHUB_STATUS_PATH, {
+      state: 'idle',
+      updatedAt: new Date().toISOString(),
+    });
+  }
+
   // ---------- 5.6 대시보드 원격 분석 요청 (command.json 폴링) ----------
   // 대시보드(GitHub Pages)에서 기간/최소 베팅건수를 고르고 "분석 시작"을
   // 누르면 저장소의 command.json에 요청이 기록된다. fmkorea 탭에 떠 있는
@@ -1226,6 +1267,8 @@
 
     // 새로 완료된 분석 결과를 GitHub 대시보드용 데이터로 올림 (토큰 미설정 시 조용히 건너뜀)
     uploadResultsToGitHub(records, job.minPicks, ongoingPicksMap, job.windowLabel, ongoingMatches, log);
+    // 대시보드가 "분석 진행 중" 배너를 내릴 수 있도록 상태를 idle로 갱신
+    uploadIdleStatus();
   }
 
   async function startNewRun(panel) {
@@ -1247,6 +1290,9 @@
       progressWrap.style.display = 'none';
       return;
     }
+
+    // 대시보드가 "분석 진행 중" 배너를 띄울 수 있도록 상태를 올림 (토큰 미설정 시 조용히 건너뜀)
+    uploadRunningStatus(windowValue, windowOpt.label, minPicks);
 
     setProgress(2, `${windowOpt.label} 기준 정산 글 목록을 가져오는 중...`);
     log(`${windowOpt.label} 기준 정산 글 목록을 가져오는 중...`);
@@ -1285,6 +1331,8 @@
       applyJobControlsToPanel(panel, job);
       if (job.status === 'running' && Array.isArray(job.posts)) {
         const { log, setProgress } = getPanelControls(panel);
+        // 새로고침으로 이어서 진행하는 경우에도 대시보드의 "진행 중" 배너가 유지되도록 다시 올림
+        uploadRunningStatus(job.windowValue, job.windowLabel, job.minPicks);
         log(`(자동 복구) 이전 분석을 이어서 진행합니다 — ${job.nextIndex}/${job.posts.length}건 완료됨`);
         setProgress(5 + (job.nextIndex / Math.max(1, job.posts.length)) * 93, `이어서 진행 중... (${job.nextIndex}/${job.posts.length})`);
         if (window.jQuery && window.jQuery.exec_json) {
