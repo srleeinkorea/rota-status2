@@ -1847,20 +1847,20 @@
       "url": "https://www.fmkorea.com/10455834086",
       "teamA": "바스켓츠 본",
       "teamB": "스카이라이너스",
-      "countA": 15,
-      "betA": 7634,
-      "countB": 10,
-      "betB": 10056
+      "countA": 16,
+      "betA": 7734,
+      "countB": 11,
+      "betB": 10833
     },
     {
       "title": "PL :: 에버튼(+0.5) vs 첼시 :: 10/17 20:30 경기",
       "url": "https://www.fmkorea.com/10454722243",
       "teamA": "에버튼",
       "teamB": "첼시",
-      "countA": 86,
-      "betA": 639552,
-      "countB": 232,
-      "betB": 573249
+      "countA": 87,
+      "betA": 639752,
+      "countB": 233,
+      "betB": 573849
     },
     {
       "title": "LOL DCGI 결승 :: WE(+1.5) vs BFX :: 10/17 18:00 경기",
@@ -1869,18 +1869,18 @@
       "teamB": "BFX",
       "countA": 206,
       "betA": 1498292,
-      "countB": 268,
-      "betB": 857616
+      "countB": 269,
+      "betB": 858195
     },
     {
       "title": "PL :: 브렌트포드 vs 리버풀 :: 10/17 23:00 경기",
       "url": "https://www.fmkorea.com/10454958833",
       "teamA": "브렌트포드",
       "teamB": "리버풀",
-      "countA": 58,
-      "betA": 72774,
-      "countB": 42,
-      "betB": 55158
+      "countA": 59,
+      "betA": 72874,
+      "countB": 43,
+      "betB": 55358
     },
     {
       "title": "PL :: 맨시티(-1.5) vs 입스위치 :: 10/17 23:00 경기",
@@ -2113,6 +2113,11 @@
           "bet": 202
         },
         {
+          "team": "브렌트포드",
+          "url": "https://www.fmkorea.com/10454958833",
+          "bet": 100
+        },
+        {
           "team": "맨시티",
           "url": "https://www.fmkorea.com/10455723915",
           "bet": 112
@@ -2141,6 +2146,16 @@
           "team": "AT 마드리드",
           "url": "https://www.fmkorea.com/10454897831",
           "bet": 128
+        }
+      ]
+    },
+    {
+      "name": "99.김나연",
+      "picks": [
+        {
+          "team": "첼시",
+          "url": "https://www.fmkorea.com/10454722243",
+          "bet": 600
         }
       ]
     },
@@ -2550,6 +2565,16 @@
       ]
     },
     {
+      "name": "국대호빵",
+      "picks": [
+        {
+          "team": "BFX",
+          "url": "https://www.fmkorea.com/10454691455",
+          "bet": 579
+        }
+      ]
+    },
+    {
       "name": "궁금한건못참아",
       "picks": [
         {
@@ -2797,6 +2822,16 @@
     {
       "name": "김창평",
       "picks": [
+        {
+          "team": "에버튼",
+          "url": "https://www.fmkorea.com/10454722243",
+          "bet": 200
+        },
+        {
+          "team": "리버풀",
+          "url": "https://www.fmkorea.com/10454958833",
+          "bet": 200
+        },
         {
           "team": "AT 마드리드",
           "url": "https://www.fmkorea.com/10454897831",
@@ -7163,6 +7198,11 @@
       "name": "유맨",
       "picks": [
         {
+          "team": "스카이라이너스",
+          "url": "https://www.fmkorea.com/10455834086",
+          "bet": 777
+        },
+        {
           "team": "WE",
           "url": "https://www.fmkorea.com/10454691455",
           "bet": 7777
@@ -8016,6 +8056,16 @@
           "team": "첼시",
           "url": "https://www.fmkorea.com/10454722243",
           "bet": 5000
+        }
+      ]
+    },
+    {
+      "name": "조제",
+      "picks": [
+        {
+          "team": "바스켓츠 본",
+          "url": "https://www.fmkorea.com/10455834086",
+          "bet": 100
         }
       ]
     },
@@ -26548,5 +26598,5 @@
       "profit": 165
     }
   ],
-  "ongoingUpdatedAt": "2026-10-17T07:52:06.583Z"
+  "ongoingUpdatedAt": "2026-10-17T07:52:50.881Z"
 }
