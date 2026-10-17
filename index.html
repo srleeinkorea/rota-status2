@@ -24,6 +24,7 @@
   .install-link:hover { text-decoration:underline; }
   .card { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; margin-bottom:18px; }
   .section-title { display:flex; align-items:center; gap:8px; font-weight:700; font-size:14px; margin:28px 0 10px; }
+  .section-cond { font-weight:400; font-size:11.5px; color:var(--faint); margin-left:2px; }
   .count-badge { background:var(--accent-dim); color:var(--accent); font-weight:600; font-size:10.5px; border-radius:999px; padding:2px 9px; }
   table { width:100%; border-collapse:collapse; font-size:13px; }
   thead th {
@@ -399,7 +400,8 @@ function render(data) {
     html += '</div></details>';
   }
 
-  html += `<div class="section-title">🏆 종합 승률 랭킹 <span class="count-badge">${data.overall.length}명</span></div>`;
+  const cond = `${fmtDate(data.generatedAt)} 분석 · ${data.windowLabel || ''} · 최소 ${data.minPicks}건`;
+  html += `<div class="section-title">🏆 종합 승률 랭킹 <span class="count-badge">${data.overall.length}명</span><span class="section-cond">${escapeHtml(cond)}</span></div>`;
   if (!data.overall || data.overall.length === 0) {
     html += `<div class="muted">데이터가 없습니다.</div>`;
   } else {
@@ -827,8 +829,10 @@ function refreshBanner() {
       } catch (e) { /* 무시 */ }
       const hasPct = typeof status.pct === 'number';
       const pctText = hasPct ? ` · ${status.pct}% (${status.processed}/${status.total}건)` : '';
+      // 지금 어느 단계인지(목록 가져오는 중 / 분석 중 / 집계 중 ...)를 앞에 보여준다
+      const phaseText = status.phase ? status.phase : '분석 진행 중';
       setBanner(
-        `🔄 분석 진행 중 — ${label}${status.minPicks ? ' · 최소 ' + status.minPicks + '건' : ''}${startedText}${pctText}`,
+        `🔄 ${phaseText} — ${label}${status.minPicks ? ' · 최소 ' + status.minPicks + '건' : ''}${startedText}${pctText}`,
         hasPct ? status.pct : undefined
       );
       return;

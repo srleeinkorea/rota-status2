@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.3
+// @version      5.4
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.3';
+  const SCRIPT_VERSION = '5.4';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -39,7 +39,7 @@
   const GITHUB_DATA_PATH = 'data.json';
   const GITHUB_STATUS_PATH = 'status.json';
   const GH_TOKEN_KEY = 'jsa-gh-token-v1';
-  const UPLOAD_TOP_N = 100; // 대시보드 용량/속도를 위해 종합 랭킹은 상위 100명까지만 올림
+  const UPLOAD_TOP_N = 300; // 대시보드에 올릴 종합 랭킹 인원 수 (100명은 부족하다는 요청으로 상향)
 
   // ---------- 유틸 ----------
   function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
@@ -1174,12 +1174,13 @@
   // 리셋돼 실제로는 안 끊기고 진행 중인데도 "계속 새로 분석되는 것처럼" 보이는 문제가 있었음.
   // progress({processed, total})를 넘기면 status.json에 진행률(processed/total/pct)도 같이
   // 올라가서, 대시보드가 "몇 % 진행됐는지" 보여줄 수 있다.
-  function uploadRunningStatus(windowValue, windowLabel, minPicks, startedAt, progress) {
+  function uploadRunningStatus(windowValue, windowLabel, minPicks, startedAt, progress, phase) {
     const payload = {
       state: 'running',
       windowValue, windowLabel, minPicks,
       startedAt: startedAt || new Date().toISOString(),
     };
+    if (phase) payload.phase = phase;   // 지금 어느 단계인지 (대시보드에 그대로 표시됨)
     if (progress && typeof progress.total === 'number' && progress.total > 0) {
       payload.processed = progress.processed;
       payload.total = progress.total;
@@ -1521,7 +1522,20 @@
     uploadRunningStatus(
       job.windowValue, job.windowLabel, job.minPicks,
       job.startedAt ? new Date(job.startedAt).toISOString() : undefined,
-      { processed: job.nextIndex, total }
+      { processed: job.nextIndex, total },
+      '정산 결과 분석 중'
+    );
+  }
+
+  // 단계가 바뀔 때마다 즉시 올린다(진행률 제한과 무관하게). 대시보드가 "지금 무슨 일을
+  // 하고 있는지"를 보여줄 수 있도록 하기 위함.
+  function reportPhase(job, phase, progress) {
+    if (!job) return;
+    lastProgressUploadAt = Date.now(); // 방금 올렸으므로 진행률 제한 타이머도 갱신
+    uploadRunningStatus(
+      job.windowValue, job.windowLabel, job.minPicks,
+      job.startedAt ? new Date(job.startedAt).toISOString() : undefined,
+      progress, phase
     );
   }
 
@@ -1629,6 +1643,7 @@
 
     setProgress(97, '진행중인 경기 베팅 정보 수집 중...');
     log('진행중인 경기 베팅 정보 수집 중...');
+    reportPhase(job, '진행중인 경기 베팅 수집 중', { processed: total, total });
     let ongoingPicksMap;
     let ongoingMatches;
     let srlByNick = null;
@@ -1651,11 +1666,13 @@
     let pinnedPoints = {};
     try {
       setProgress(98, '고정 닉네임 잉여력 조회 중...');
+      reportPhase(job, '고정 닉네임 잉여력 조회 중', { processed: total, total });
       pinnedPoints = await collectPinnedPoints(srlByNick, log);
     } catch (e) { log('잉여력 조회 중 오류: ' + e.message); }
 
     setProgress(99, '집계 중...');
     log('집계 중...');
+    reportPhase(job, '집계 중', { processed: total, total });
     const records = aggregate(job.allPostResults);
     log(`완료. 총 참여자 ${records.size}명.`);
     setProgress(100, `완료 — 글 ${total}건, 참여자 ${records.size}명`);
@@ -1666,7 +1683,8 @@
     renderResult(panel, records, job.minPicks, ongoingPicksMap);
 
     // 새로 완료된 분석 결과를 GitHub 대시보드용 데이터로 올림 (토큰 미설정 시 조용히 건너뜀)
-    uploadResultsToGitHub(records, job.minPicks, ongoingPicksMap, job.windowLabel, ongoingMatches, log, pinnedPoints);
+    reportPhase(job, '결과 업로드 중', { processed: total, total });
+    await uploadResultsToGitHub(records, job.minPicks, ongoingPicksMap, job.windowLabel, ongoingMatches, log, pinnedPoints);
     // 대시보드가 "분석 진행 중" 배너를 내릴 수 있도록 상태를 idle로 갱신
     uploadIdleStatus();
   }
@@ -1699,6 +1717,8 @@
 
     setProgress(2, `${windowOpt.label} 기준 정산 글 목록을 가져오는 중...`);
     log(`${windowOpt.label} 기준 정산 글 목록을 가져오는 중...`);
+    // 아직 job 객체를 만들기 전이므로 같은 정보를 담은 임시 객체로 단계를 보고한다
+    reportPhase({ windowValue, windowLabel: windowOpt.label, minPicks, startedAt: Date.now() }, '정산 글 목록 가져오는 중');
     const posts = await collectTodayPosts(log, rangeStart, rangeEnd, windowOpt.label, windowOpt.maxPages);
     log(`${windowOpt.label} 기준 글 ${posts.length}건 발견.`);
     setProgress(5, `글 ${posts.length}건 발견. 분석 시작...`);
