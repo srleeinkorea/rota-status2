@@ -122,6 +122,12 @@
   .finder-card .finder-picks-label { font-size:11px; color:var(--faint); margin-bottom:4px; font-weight:600; }
   .finder-card .no-picks { font-size:12px; color:var(--faint); }
   .pinned-title { font-size:11.5px; color:var(--faint); font-weight:700; margin:2px 2px 6px; }
+  details.pinned-group > summary {
+    cursor:pointer; list-style:none; display:flex; align-items:center; gap:6px; user-select:none;
+  }
+  details.pinned-group > summary::-webkit-details-marker { display:none; }
+  details.pinned-group > summary:before { content:'▸'; color:var(--faint); font-size:10px; }
+  details.pinned-group[open] > summary:before { content:'▾'; }
   .pinned-divider { border-top:1px solid var(--border); margin:10px 2px 12px; }
   .pinned-grid { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px; }
   .pinned-chip {
@@ -382,6 +388,14 @@ function setOngoingOpen(open) {
   try { localStorage.setItem(ONGOING_OPEN_KEY, open ? '1' : '0'); } catch (e) { /* 무시 */ }
 }
 
+// 고정/추천 닉네임 그룹의 접기 상태 (기본값: 펼침)
+function isGroupOpen(id) {
+  try { return localStorage.getItem('jsa-dash-group-' + id) !== '0'; } catch (e) { return true; }
+}
+function setGroupOpen(id, open) {
+  try { localStorage.setItem('jsa-dash-group-' + id, open ? '1' : '0'); } catch (e) { /* 무시 */ }
+}
+
 function render(data) {
   dashboardData = data;
   const metaEl = document.getElementById('meta');
@@ -518,17 +532,23 @@ function renderPinnedCards() {
   pinnedPicksByName = new Map();
   (dashboardData.allPicks || []).forEach((p) => { pinnedPicksByName.set(p.name, p.picks || []); });
 
-  const group = (title, names, isRec) => {
-    let h = `<div class="pinned-title">${title}</div><div class="pinned-grid">`;
+  const group = (id, title, names, isRec) => {
+    const openAttr = isGroupOpen(id) ? ' open' : '';
+    let h = `<details class="pinned-group" data-group="${id}"${openAttr}>`
+          + `<summary class="pinned-title">${title} <span class="count-badge">${names.length}명</span></summary>`
+          + '<div class="pinned-grid">';
     names.forEach((name) => {
       h += pinnedChipHtml(name, pinnedRecordByName.get(name) || null, pinnedPicksByName.get(name) || [], isRec);
     });
-    return h + '</div>';
+    return h + '</div></details>';
   };
-  let html = group('📌 고정 닉네임 (클릭하면 상세보기)', PINNED_NAMES, false)
+  let html = group('pinned', '📌 고정 닉네임 (클릭하면 상세보기)', PINNED_NAMES, false)
            + '<div class="pinned-divider"></div>'
-           + group('🤖 추천 닉네임 (최근 성적 기반)', RECOMMENDED_NAMES, true);
+           + group('rec', '🤖 추천 닉네임 (최근 성적 기반)', RECOMMENDED_NAMES, true);
   el.innerHTML = html;
+  el.querySelectorAll('details.pinned-group').forEach((d) => {
+    d.addEventListener('toggle', () => setGroupOpen(d.getAttribute('data-group'), d.open));
+  });
   renderPinnedDetail();
 }
 
