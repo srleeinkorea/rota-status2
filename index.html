@@ -55,6 +55,14 @@
   }
   .pick-chip:hover { filter:brightness(1.15); }
   .muted { color:var(--faint); font-size:12px; }
+  details.ongoing { margin-bottom:14px; }
+  details.ongoing > summary {
+    cursor:pointer; list-style:none; display:flex; align-items:center; gap:8px;
+    font-weight:700; font-size:14px; margin-bottom:6px; user-select:none;
+  }
+  details.ongoing > summary::-webkit-details-marker { display:none; }
+  details.ongoing > summary:before { content:'▸'; color:var(--faint); font-size:10px; }
+  details.ongoing[open] > summary:before { content:'▾'; }
   details.sport { margin-top:4px; }
   details.sport > summary {
     cursor:pointer; list-style:none; display:flex; align-items:center; gap:6px; padding:10px 14px;
@@ -346,6 +354,15 @@ function matchCardHtml(m) {
 
 let dashboardData = null;
 
+// "진행중인 경기" 섹션 접기/펼치기 상태 (기본값: 펼침)
+const ONGOING_OPEN_KEY = 'jsa-dash-ongoing-open';
+function isOngoingOpen() {
+  try { return localStorage.getItem(ONGOING_OPEN_KEY) !== '0'; } catch (e) { return true; }
+}
+function setOngoingOpen(open) {
+  try { localStorage.setItem(ONGOING_OPEN_KEY, open ? '1' : '0'); } catch (e) { /* 무시 */ }
+}
+
 function render(data) {
   dashboardData = data;
   const metaEl = document.getElementById('meta');
@@ -356,10 +373,13 @@ function render(data) {
   let html = '';
   const matches = data.ongoingMatches || [];
   if (matches.length) {
-    html += `<div class="section-title" style="margin-bottom:6px;">🔴 진행중인 경기 <span class="count-badge">${matches.length}건</span></div>`;
-    html += '<div style="margin-bottom:14px;">';
+    // 접기/펼치기 상태는 localStorage에 기억해서, 새로고침하거나 결과가 갱신돼도 유지된다.
+    const openAttr = isOngoingOpen() ? ' open' : '';
+    html += `<details class="ongoing" id="jsa-ongoing"${openAttr}>`;
+    html += `<summary>🔴 진행중인 경기 <span class="count-badge">${matches.length}건</span></summary>`;
+    html += '<div class="ongoing-body">';
     matches.forEach((m) => { html += matchCardHtml(m); });
-    html += '</div>';
+    html += '</div></details>';
   }
 
   html += `<div class="section-title">🏆 종합 승률 랭킹 <span class="count-badge">${data.overall.length}명</span></div>`;
@@ -385,6 +405,9 @@ function render(data) {
   }
 
   contentEl.innerHTML = html;
+  // 사용자가 직접 접거나 펼친 상태를 기억해둔다 (결과가 갱신돼 다시 그려져도 유지되도록)
+  const ongoingEl = document.getElementById('jsa-ongoing');
+  if (ongoingEl) ongoingEl.addEventListener('toggle', () => setOngoingOpen(ongoingEl.open));
   renderPinnedCards();
   applySearchFilter();
 }
