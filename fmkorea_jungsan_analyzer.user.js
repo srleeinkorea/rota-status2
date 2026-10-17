@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.9
+// @version      5.0
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.9';
+  const SCRIPT_VERSION = '5.0';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -310,11 +310,13 @@
     return posts;
   }
 
+  // 항상 서버에서 새로 받아온다. 예전엔 "지금 이 페이지가 진행중인 경기 목록이면 현재 DOM을
+  // 그대로 쓴다"는 최적화가 있었는데, 그 탭이 오래 열려 있으면 페이지를 연 시점의 낡은 목록을
+  // 읽어버려서 — 이미 마감된 경기가 남고 새로 열린 경기는 빠진 채로 — 대시보드에 올라갔다.
+  // 요청 1번 더 보내는 비용보다 최신성이 훨씬 중요하므로 DOM 지름길을 없앴다.
   async function getOngoingMatchPosts() {
-    const onThisPage = location.href.includes('mid=pointplay') && location.href.includes('act=dispBoardOngoingMatches');
-    if (onThisPage) return extractOngoingPostsFromDoc(document);
-    const url = 'https://www.fmkorea.com/index.php?mid=pointplay&act=dispBoardOngoingMatches';
-    const res = await fetch(url, { credentials: 'same-origin' });
+    const url = `https://www.fmkorea.com/index.php?mid=pointplay&act=dispBoardOngoingMatches&_=${Date.now()}`;
+    const res = await fetch(url, { credentials: 'same-origin', cache: 'no-store' });
     const html = await res.text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return extractOngoingPostsFromDoc(doc);
