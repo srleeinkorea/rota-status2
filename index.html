@@ -131,6 +131,9 @@
   .pinned-chip:hover { border-color:rgba(255,209,102,.8); }
   .pinned-chip.active { background:rgba(255,209,102,.12); border-color:#ffd166; }
   .pinned-chip .pin-name { font-weight:700; }
+  .pinned-chip.rec { border-color:rgba(52,211,153,.45); }
+  .pinned-chip.rec:hover { border-color:rgba(52,211,153,.85); }
+  .pinned-chip.rec.active { background:rgba(52,211,153,.12); border-color:var(--win); }
   .pinned-chip .pin-rate { font-weight:700; color:var(--win); }
   .pinned-chip .pin-rate.low { color:var(--dim); }
   .pinned-chip .pin-sep { color:var(--faint); }
@@ -467,13 +470,19 @@ function finderCardHtml(name, record, picks, pinned) {
 }
 
 // 항상 고정으로 보여줄 닉네임 목록 (검색창에 아무것도 입력하지 않아도 표시됨)
-const PINNED_NAMES = ['손나은', 'IU와함께', '홍유순', '에버딘', 'SI모', '고결', 'Lillie', 'Erebor', 'KU.1905.', '0대0무승부0점', '초코소라빵', '김대승', '로즈', '한산', '신기사거리', '울보사랑', '피자빵v', 'Zerg', '네덜란드'];
+const PINNED_NAMES = ['손나은', 'IU와함께', '홍유순', '에버딘', 'SI모', '고결', 'Lillie', 'Erebor', 'KU.1905.', '0대0무승부0점', '초코소라빵', '김대승', '로즈'];
+
+// 데이터로 뽑은 추천 닉네임 (최근 7일 기준). 사용자가 직접 고른 목록과 구분해서 보여준다.
+const RECOMMENDED_NAMES = ['유맨', '야옹이!', '고인물', '암부', '똑똑한똥강아지', '퀀텀스케이프', '갈망', '피자빵v'];
+
+// 잉여력 조회 대상은 두 목록을 합친 것
+const ALL_WATCH_NAMES = PINNED_NAMES.concat(RECOMMENDED_NAMES);
 
 let pinnedRecordByName = new Map();
 let pinnedPicksByName = new Map();
 let pinnedOpenName = null;
 
-function pinnedChipHtml(name, record, picks) {
+function pinnedChipHtml(name, record, picks, isRec) {
   const rateClass = record && record.rate >= 70 ? '' : 'low';
   const recordPart = record
     ? `<span class="pin-sep">·</span><span class="pin-rate ${rateClass}">${fmtPct(record.rate)}</span><span class="pin-sep">(${record.win}승${record.lose}패)</span>`
@@ -482,7 +491,9 @@ function pinnedChipHtml(name, record, picks) {
   const pts = dashboardData && dashboardData.pinnedPoints ? dashboardData.pinnedPoints[name] : undefined;
   const ptPart = typeof pts === 'number' ? `<span class="pin-sep">·</span><span class="pin-point">${numFmt(pts)}P</span>` : '';
   const activeClass = pinnedOpenName === name ? ' active' : '';
-  return `<span class="pinned-chip${activeClass}" data-pin-name="${escapeHtml(name)}"><span class="pin-name">📌 ${escapeHtml(name)}</span>${recordPart}${ptPart}${livePart}</span>`;
+  const recClass = isRec ? ' rec' : '';
+  const icon = isRec ? '🤖' : '📌';
+  return `<span class="pinned-chip${recClass}${activeClass}" data-pin-name="${escapeHtml(name)}"><span class="pin-name">${icon} ${escapeHtml(name)}</span>${recordPart}${ptPart}${livePart}</span>`;
 }
 
 function renderPinnedDetail() {
@@ -503,11 +514,15 @@ function renderPinnedCards() {
   pinnedPicksByName = new Map();
   (dashboardData.allPicks || []).forEach((p) => { pinnedPicksByName.set(p.name, p.picks || []); });
 
-  let html = `<div class="pinned-title">📌 고정 닉네임 (클릭하면 상세보기)</div><div class="pinned-grid">`;
-  PINNED_NAMES.forEach((name) => {
-    html += pinnedChipHtml(name, pinnedRecordByName.get(name) || null, pinnedPicksByName.get(name) || []);
-  });
-  html += '</div>';
+  const group = (title, names, isRec) => {
+    let h = `<div class="pinned-title">${title}</div><div class="pinned-grid">`;
+    names.forEach((name) => {
+      h += pinnedChipHtml(name, pinnedRecordByName.get(name) || null, pinnedPicksByName.get(name) || [], isRec);
+    });
+    return h + '</div>';
+  };
+  let html = group('📌 고정 닉네임 (클릭하면 상세보기)', PINNED_NAMES, false)
+           + group('🤖 추천 닉네임 (최근 성적 기반)', RECOMMENDED_NAMES, true);
   el.innerHTML = html;
   renderPinnedDetail();
 }
@@ -711,7 +726,7 @@ async function sendRunCommand() {
       action: 'run',
       windowValue: document.getElementById('rb-window').value,
       minPicks: parseInt(document.getElementById('rb-minpicks').value, 10) || 5,
-      pinned: PINNED_NAMES,   // 유저스크립트가 이 닉네임들의 현재 잉여력을 조회한다
+      pinned: ALL_WATCH_NAMES,   // 유저스크립트가 이 닉네임들의 현재 잉여력을 조회한다
       requestedAt: new Date().toISOString(),
     };
     await writeCommand(cmd, token, `원격 분석 요청 (${cmd.requestedAt})`);
@@ -734,7 +749,7 @@ async function sendRefreshOngoingCommand() {
   if (btn) { btn.disabled = true; btn.classList.add('spinning'); }
   rbStatus('진행중인 경기 새로고침 요청 전송 중...');
   try {
-    const cmd = { action: 'refreshOngoing', pinned: PINNED_NAMES, requestedAt: new Date().toISOString() };
+    const cmd = { action: 'refreshOngoing', pinned: ALL_WATCH_NAMES, requestedAt: new Date().toISOString() };
     await writeCommand(cmd, token, `진행중인 경기 새로고침 요청 (${cmd.requestedAt})`);
     rbStatus('✅ 새로고침 요청 완료 — fmkorea 탭이 열려 있으면 1분 안에 최신 경기 목록으로 갱신됩니다.', 'ok');
   } catch (e) {
