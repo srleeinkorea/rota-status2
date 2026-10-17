@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.1
+// @version      5.2
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.1';
+  const SCRIPT_VERSION = '5.2';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -334,11 +334,37 @@
   // 경기(글) 여러 건을 CONCURRENCY개씩 동시에 처리 — 한 건씩 순서대로 기다리지 않는다.
   // 사람별 picks map 외에, 대시보드의 "진행중인 경기 목록" 섹션용으로 경기 자체의
   // 목록(팀별 베팅 인원수/총액)도 함께 모아서 반환한다.
+  // 제목 끝의 "10/17 16:30 경기"에서 경기 시작 시각을 뽑는다. 연도는 제목에 없으므로
+  // 지금 기준으로 추론한다(미래로 12시간 넘게 벗어나면 작년으로 보정 — 연말/연초 경계 대비).
+  function extractMatchStartDate(title) {
+    const m = title.match(/(\d{1,2})\/(\d{1,2})\s+(\d{1,2}):(\d{2})\s*경기/);
+    if (!m) return null;
+    const now = new Date();
+    let dt = new Date(now.getFullYear(), parseInt(m[1], 10) - 1, parseInt(m[2], 10), parseInt(m[3], 10), parseInt(m[4], 10));
+    if (dt.getTime() - now.getTime() > 12 * 3600 * 1000) {
+      dt = new Date(now.getFullYear() - 1, parseInt(m[1], 10) - 1, parseInt(m[2], 10), parseInt(m[3], 10), parseInt(m[4], 10));
+    }
+    return dt;
+  }
+
+  // 혹시 낡은 목록을 받아왔더라도(예: 업데이트 전 코드가 돌고 있는 오래된 탭), 이미 시작
+  // 시각이 지난 경기는 "진행중"이 아니므로 올리지 않는다. 시작 시각을 못 읽는 글(예: O/X
+  // 투표처럼 경기 시각이 없는 것)은 그대로 둔다.
+  function isStillUpcoming(title) {
+    const start = extractMatchStartDate(title);
+    if (!start) return true;
+    return start.getTime() > Date.now();
+  }
+
   async function collectOngoingPicks(log) {
     const map = new Map(); // nick_name -> [{team, url, bet}]
     const matches = []; // [{title, url, teamA, teamB, countA, betA, countB, betB}]
     try {
-      const posts = await getOngoingMatchPosts();
+      const allPosts = await getOngoingMatchPosts();
+      const posts = allPosts.filter((p) => isStillUpcoming(p.title));
+      if (posts.length !== allPosts.length) {
+        log(`이미 시작된 경기 ${allPosts.length - posts.length}건은 제외했습니다.`);
+      }
       log(`진행중인 경기 ${posts.length}건의 베팅 현황을 확인하는 중...`);
       for (let i = 0; i < posts.length; i += CONCURRENCY) {
         const batch = posts.slice(i, i + CONCURRENCY);
