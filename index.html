@@ -387,7 +387,10 @@ function render(data) {
   const metaEl = document.getElementById('meta');
   const contentEl = document.getElementById('content');
   const ongoingPart = data.ongoingUpdatedAt ? ` · 진행중 경기 ${fmtDate(data.ongoingUpdatedAt)} 갱신` : '';
-  metaEl.textContent = `${fmtDate(data.generatedAt)} 기준 · ${data.windowLabel || ''} · 최소 ${data.minPicks}건 · 참여자 ${data.totalParticipants}명${ongoingPart}`;
+  // 어떤 버전의 유저스크립트가 만든 결과인지 — 오래된 탭이 처리했는지 바로 알 수 있게
+  const verPart = data.ongoingScriptVersion || data.scriptVersion
+    ? ` · 스크립트 v${data.ongoingScriptVersion || data.scriptVersion}` : '';
+  metaEl.textContent = `${fmtDate(data.generatedAt)} 기준 · ${data.windowLabel || ''} · 최소 ${data.minPicks}건 · 참여자 ${data.totalParticipants}명${ongoingPart}${verPart}`;
 
   let html = '';
   const matches = data.ongoingMatches || [];

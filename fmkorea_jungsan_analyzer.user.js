@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.6
+// @version      5.7
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.6';
+  const SCRIPT_VERSION = '5.7';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -1134,6 +1134,7 @@
     allRecords.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
     return {
       generatedAt: new Date().toISOString(),
+      scriptVersion: SCRIPT_VERSION,   // 이 결과를 만든 유저스크립트 버전
       windowLabel: windowLabel || null,
       minPicks,
       totalParticipants: overall.length,
@@ -1219,6 +1220,7 @@
       startedAt: startedAt || new Date().toISOString(),
     };
     if (phase) payload.phase = phase;   // 지금 어느 단계인지 (대시보드에 그대로 표시됨)
+    payload.scriptVersion = SCRIPT_VERSION;
     if (progress && typeof progress.total === 'number' && progress.total > 0) {
       payload.processed = progress.processed;
       payload.total = progress.total;
@@ -1369,6 +1371,7 @@
       data.ongoingMatches = matchesSlim;
       data.allPicks = allPicks;
       data.ongoingUpdatedAt = new Date().toISOString();
+      data.ongoingScriptVersion = SCRIPT_VERSION;
       if (Object.keys(pinnedPoints).length) {
         data.pinnedPoints = pinnedPoints;
         data.pinnedPointsAt = data.ongoingUpdatedAt;
@@ -1388,6 +1391,53 @@
   }
   setInterval(refreshOngoingMatchesOnly, ONGOING_REFRESH_MS);
   setTimeout(refreshOngoingMatchesOnly, 90 * 1000); // 패널 뜨고 좀 지나서 첫 실행(초기 분석과 겹치지 않게)
+
+  // ---------- 5.8 구버전 탭 자동 정리 ----------
+  // Tampermonkey는 스크립트를 업데이트해도 "이미 열려 있는 탭"은 예전 코드로 계속 돌린다.
+  // 그래서 오래 띄워둔 탭이 옛날 로직으로 명령을 처리해버리는 사고가 반복됐다
+  // (낡은 경기 목록 업로드, 선택지 이름 오표기 등). 저장소의 최신 버전을 주기적으로
+  // 확인해서, 지금 돌고 있는 코드가 구버전이면 페이지를 새로고침해 최신 코드로 갈아탄다.
+  const VERSION_CHECK_MS = 10 * 60 * 1000;
+  const VERSION_RELOAD_KEY = 'jsa-version-reload-at';
+  const VERSION_RELOAD_COOLDOWN_MS = 10 * 60 * 1000;
+
+  function isNewerVersion(remote, local) {
+    const ra = String(remote).split('.').map(Number);
+    const la = String(local).split('.').map(Number);
+    for (let i = 0; i < Math.max(ra.length, la.length); i++) {
+      const r = ra[i] || 0, l = la[i] || 0;
+      if (r > l) return true;
+      if (r < l) return false;
+    }
+    return false;
+  }
+
+  async function checkForNewVersion() {
+    try {
+      const url = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/fmkorea_jungsan_analyzer.user.js?_=${Date.now()}`;
+      const text = await (await fetch(url, { cache: 'no-store' })).text();
+      const m = text.match(/@version\s+([0-9.]+)/);
+      if (!m || !isNewerVersion(m[1], SCRIPT_VERSION)) return;
+
+      const job = loadJob();
+      if (job && job.status === 'running') return; // 분석 중에는 건드리지 않음 (끝나고 다음 확인 때 처리)
+
+      // Tampermonkey가 아직 새 버전을 설치하지 않았다면 새로고침해도 그대로라
+      // 무한 새로고침이 될 수 있다. 쿨다운을 둬서 최대 10분에 한 번만 시도한다.
+      let lastAt = 0;
+      try { lastAt = Number(sessionStorage.getItem(VERSION_RELOAD_KEY)) || 0; } catch (e) { /* 무시 */ }
+      if (Date.now() - lastAt < VERSION_RELOAD_COOLDOWN_MS) return;
+      try { sessionStorage.setItem(VERSION_RELOAD_KEY, String(Date.now())); } catch (e) { /* 무시 */ }
+
+      const panel = document.getElementById('jsa-panel');
+      if (panel) {
+        try { getPanelControls(panel).log(`새 버전(v${m[1]}) 발견 — 최신 코드로 전환하기 위해 페이지를 새로고침합니다.`); } catch (e) { /* 무시 */ }
+      }
+      setTimeout(() => location.reload(), 1500);
+    } catch (e) { /* 네트워크 오류 등은 무시 */ }
+  }
+  setInterval(checkForNewVersion, VERSION_CHECK_MS);
+  setTimeout(checkForNewVersion, 20 * 1000);
 
   // ---------- 6. 새로고침에도 끊기지 않는 작업(Job) 상태 저장 ----------
   // 이 페이지(dispBoardOngoingMatches)는 다른 스크립트가 1분마다 새로고침을 거는 경우가 있어서,
