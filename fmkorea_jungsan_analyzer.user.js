@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.4
+// @version      5.5
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.4';
+  const SCRIPT_VERSION = '5.5';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -407,24 +407,46 @@
 
   // 고정 닉네임들의 현재 잉여력을 모아서 { 닉네임: 잉여력 } 로 반환.
   // srl은 ① 진행중 베팅 목록에서 얻은 것 ② 캐시 ③ 검색 순으로 찾는다.
-  async function collectPinnedPoints(srlFromBets, log) {
+  // 잉여력은 자주 안 바뀌므로 짧게 캐시해둔다. 새로고침을 연달아 눌러도 회원정보 페이지를
+  // 매번 다시 긁지 않게 해서 체감 속도를 크게 줄인다.
+  const PINNED_POINTS_KEY = 'jsa-pinned-points-v1';
+  const PINNED_POINTS_TTL_MS = 5 * 60 * 1000;
+
+  function loadCachedPinnedPoints() {
+    try {
+      const v = JSON.parse(localStorage.getItem(PINNED_POINTS_KEY) || 'null');
+      if (v && v.at && Date.now() - v.at < PINNED_POINTS_TTL_MS && v.points) return v.points;
+    } catch (e) { /* 무시 */ }
+    return null;
+  }
+  function saveCachedPinnedPoints(points) {
+    try { safeSetItem(PINNED_POINTS_KEY, JSON.stringify({ at: Date.now(), points })); } catch (e) { /* 무시 */ }
+  }
+
+  async function collectPinnedPoints(srlFromBets, log, force) {
     const names = loadPinnedNames();
     if (!names.length) return {};
-    const cache = loadSrlMap();
-    const out = {};
-    for (const nick of names) {
-      let srl = (srlFromBets && srlFromBets.get(nick)) || cache[nick] || null;
-      if (!srl) {
-        srl = await lookupMemberSrlByNick(nick);
-        await sleepJitter();
-      }
-      if (!srl) continue;
-      cache[nick] = srl;
-      const point = await fetchMemberPoint(srl);
-      if (point !== null) out[nick] = point;
-      await sleepJitter();
+    if (!force) {
+      const cached = loadCachedPinnedPoints();
+      if (cached) { if (log) log('고정 닉네임 잉여력: 최근 조회값 재사용.'); return cached; }
     }
-    saveSrlMap(cache);
+    const srlMap = loadSrlMap();
+    const out = {};
+    // 한 명씩 순서대로 하면 느려서, 동시 요청 수를 제한한 채 묶어서 처리한다.
+    for (let i = 0; i < names.length; i += CONCURRENCY) {
+      const batch = names.slice(i, i + CONCURRENCY);
+      await Promise.all(batch.map(async (nick) => {
+        let srl = (srlFromBets && srlFromBets.get(nick)) || srlMap[nick] || null;
+        if (!srl) srl = await lookupMemberSrlByNick(nick); // 한 번 찾으면 캐시되므로 매번 하지는 않음
+        if (!srl) return;
+        srlMap[nick] = srl;
+        const point = await fetchMemberPoint(srl);
+        if (point !== null) out[nick] = point;
+      }));
+      if (i + CONCURRENCY < names.length) await sleepJitter();
+    }
+    saveSrlMap(srlMap);
+    saveCachedPinnedPoints(out);
     if (log) log(`고정 닉네임 잉여력 ${Object.keys(out).length}명 조회 완료.`);
     return out;
   }
@@ -1188,9 +1210,10 @@
     }
     uploadJsonToGitHub(GITHUB_STATUS_PATH, payload);
   }
-  function uploadIdleStatus() {
+  function uploadIdleStatus(dataUpdatedAt) {
     uploadJsonToGitHub(GITHUB_STATUS_PATH, {
       state: 'idle',
+      dataUpdatedAt: dataUpdatedAt || null, // 대시보드가 이 값이 바뀌면 바로 결과를 다시 받아간다
       updatedAt: new Date().toISOString(),
     });
   }
@@ -1204,7 +1227,9 @@
   // 접속할 수 없기 때문)
   const GITHUB_COMMAND_PATH = 'command.json';
   const CMD_HANDLED_KEY = 'jsa-last-cmd-ts';
-  const COMMAND_POLL_MS = 45 * 1000;
+  // 대시보드 버튼을 누른 뒤 이 주기만큼 기다려야 명령을 발견하므로, 체감 속도를 좌우한다.
+  // GitHub API는 인증 시 시간당 5000회라 10초 주기(시간당 360회)도 여유가 충분하다.
+  const COMMAND_POLL_MS = 10 * 1000;
   const CMD_MAX_AGE_MS = 10 * 60 * 1000; // 10분 넘게 지난 요청은 무시(오래된 잔재)
 
   // localStorage에 분석 결과 캐시(RESULT_CACHE_KEY)와 작업 상태(JOB_KEY)가 계속 쌓이면
@@ -1342,6 +1367,7 @@
         sha,
       };
       await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+      uploadIdleStatus(data.ongoingUpdatedAt); // 대시보드가 기다리지 않고 바로 받아가도록
     } catch (e) { /* 다음 주기에 재시도 */ }
   }
   setInterval(refreshOngoingMatchesOnly, ONGOING_REFRESH_MS);
@@ -1667,7 +1693,7 @@
     try {
       setProgress(98, '고정 닉네임 잉여력 조회 중...');
       reportPhase(job, '고정 닉네임 잉여력 조회 중', { processed: total, total });
-      pinnedPoints = await collectPinnedPoints(srlByNick, log);
+      pinnedPoints = await collectPinnedPoints(srlByNick, log, true);
     } catch (e) { log('잉여력 조회 중 오류: ' + e.message); }
 
     setProgress(99, '집계 중...');
@@ -1685,8 +1711,8 @@
     // 새로 완료된 분석 결과를 GitHub 대시보드용 데이터로 올림 (토큰 미설정 시 조용히 건너뜀)
     reportPhase(job, '결과 업로드 중', { processed: total, total });
     await uploadResultsToGitHub(records, job.minPicks, ongoingPicksMap, job.windowLabel, ongoingMatches, log, pinnedPoints);
-    // 대시보드가 "분석 진행 중" 배너를 내릴 수 있도록 상태를 idle로 갱신
-    uploadIdleStatus();
+    // 대시보드가 "분석 진행 중" 배너를 내리고 새 결과를 바로 받아가도록 상태 갱신
+    uploadIdleStatus(new Date().toISOString());
   }
 
   async function startNewRun(panel) {

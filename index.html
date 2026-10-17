@@ -808,6 +808,7 @@ const CMD_MAX_AGE_MS = 10 * 60 * 1000; // 10분 넘은 요청은 이미 유실/�
 // 직전에 본 상태가 "진행중"이었다가 이번엔 아니면, 방금 막 끝난 것 — data.json이 30초
 // 폴링 주기를 다 기다리지 않고 바로 한 번 더 확인하도록(체감 지연 최소화).
 let wasRunning = false;
+let lastSeenDataStamp = null;
 
 function refreshBanner() {
   Promise.all([
@@ -817,6 +818,13 @@ function refreshBanner() {
     const isRunning = !!(status && status.state === 'running');
     if (wasRunning && !isRunning) loadData(false); // 진행중 → 완료로 바뀐 순간 바로 결과 가져오기
     wasRunning = isRunning;
+
+    // 유저스크립트가 결과를 올리면 status.json의 dataUpdatedAt이 바뀐다. 이 값만 보고
+    // 즉시 받아오면, 용량이 큰 data.json을 자주 폴링하지 않고도 바로 반영할 수 있다.
+    if (status && status.dataUpdatedAt && status.dataUpdatedAt !== lastSeenDataStamp) {
+      if (lastSeenDataStamp !== null) loadData(false);
+      lastSeenDataStamp = status.dataUpdatedAt;
+    }
 
     if (isRunning) {
       const label = WINDOW_LABELS[status.windowValue] || status.windowValue || '';
@@ -852,7 +860,7 @@ function refreshBanner() {
 }
 
 loadData(true).then(refreshBanner).catch(refreshBanner);
-setInterval(() => loadData(false), 15 * 1000);
+setInterval(() => loadData(false), 30 * 1000); // 신호(dataUpdatedAt) 기반으로 즉시 갱신되므로 주기는 여유있게
 setInterval(refreshBanner, 8 * 1000);
 
 // 탭을 백그라운드에 두면 브라우저가 setInterval을 많이 늦춰버려서(수 분까지도), 분석이
