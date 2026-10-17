@@ -1,5 +1,8 @@
 {
-  "state": "idle",
-  "dataUpdatedAt": "2026-10-17T15:43:34.402Z",
-  "updatedAt": "2026-10-17T15:43:34.402Z"
+  "state": "running",
+  "windowValue": "24h",
+  "windowLabel": "최근 24시간",
+  "minPicks": 10,
+  "startedAt": "2026-10-17T16:01:22.276Z",
+  "phase": "정산 글 목록 가져오는 중"
 }
