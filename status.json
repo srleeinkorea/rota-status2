@@ -1,5 +1,11 @@
 {
-  "state": "idle",
-  "dataUpdatedAt": "2026-10-17T15:43:24.227Z",
-  "updatedAt": "2026-10-17T15:43:24.227Z"
+  "state": "running",
+  "windowValue": "7d",
+  "windowLabel": "최근 7일",
+  "minPicks": 5,
+  "startedAt": "2026-10-17T15:31:46.754Z",
+  "phase": "집계 중",
+  "processed": 421,
+  "total": 421,
+  "pct": 100
 }
