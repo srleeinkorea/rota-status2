@@ -63,6 +63,15 @@
   details.ongoing > summary::-webkit-details-marker { display:none; }
   details.ongoing > summary:before { content:'▸'; color:var(--faint); font-size:10px; }
   details.ongoing[open] > summary:before { content:'▾'; }
+  .ongoing-refresh {
+    background:transparent; color:var(--accent); border:1px solid var(--border);
+    border-radius:999px; padding:3px 10px; font-size:11px; font-weight:600; cursor:pointer;
+    transition:background .15s, border-color .15s;
+  }
+  .ongoing-refresh:hover { background:var(--accent-dim); border-color:var(--accent); }
+  .ongoing-refresh:disabled { color:var(--faint); cursor:not-allowed; }
+  .ongoing-refresh.spinning { opacity:.6; }
+  .ongoing-updated { color:var(--faint); font-size:11px; font-weight:400; }
   details.sport { margin-top:4px; }
   details.sport > summary {
     cursor:pointer; list-style:none; display:flex; align-items:center; gap:6px; padding:10px 14px;
@@ -376,7 +385,10 @@ function render(data) {
     // 접기/펼치기 상태는 localStorage에 기억해서, 새로고침하거나 결과가 갱신돼도 유지된다.
     const openAttr = isOngoingOpen() ? ' open' : '';
     html += `<details class="ongoing" id="jsa-ongoing"${openAttr}>`;
-    html += `<summary>🔴 진행중인 경기 <span class="count-badge">${matches.length}건</span></summary>`;
+    const updatedText = data.ongoingUpdatedAt ? `<span class="ongoing-updated">${fmtDate(data.ongoingUpdatedAt)} 기준</span>` : '';
+    html += `<summary>🔴 진행중인 경기 <span class="count-badge">${matches.length}건</span>`
+      + `<button class="ongoing-refresh" id="jsa-ongoing-refresh" title="최신 경기 목록 다시 불러오기">🔄 새로고침</button>`
+      + updatedText + `</summary>`;
     html += '<div class="ongoing-body">';
     matches.forEach((m) => { html += matchCardHtml(m); });
     html += '</div></details>';
@@ -408,6 +420,14 @@ function render(data) {
   // 사용자가 직접 접거나 펼친 상태를 기억해둔다 (결과가 갱신돼 다시 그려져도 유지되도록)
   const ongoingEl = document.getElementById('jsa-ongoing');
   if (ongoingEl) ongoingEl.addEventListener('toggle', () => setOngoingOpen(ongoingEl.open));
+  const refreshBtn = document.getElementById('jsa-ongoing-refresh');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', (e) => {
+      e.preventDefault();  // summary 안에 있어서 그냥 두면 접기/펼치기가 같이 동작함
+      e.stopPropagation();
+      sendRefreshOngoingCommand();
+    });
+  }
   renderPinnedCards();
   applySearchFilter();
 }
@@ -637,6 +657,32 @@ document.getElementById('rb-window').addEventListener('change', saveRbSelection)
 document.getElementById('rb-minpicks').addEventListener('change', saveRbSelection);
 document.getElementById('rb-minpicks').addEventListener('input', saveRbSelection);
 
+// command.json에 요청을 기록하는 공용 함수. 대시보드는 fmkorea.com에 직접 접속할 수 없어서
+// (CORS·로그인 세션 문제), 요청만 남겨두면 fmkorea 탭에 떠 있는 유저스크립트가 그걸 보고
+// 대신 실행해주는 구조다. 성공하면 true를 반환한다.
+async function writeCommand(cmd, token, message) {
+  const apiUrl = `https://api.github.com/repos/${GH_REPO}/contents/command.json`;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    Accept: 'application/vnd.github+json',
+    'Content-Type': 'application/json',
+  };
+  let sha;
+  const getRes = await fetch(`${apiUrl}?t=${Date.now()}`, { headers });
+  if (getRes.ok) { const info = await getRes.json(); sha = info.sha; }
+  const body = {
+    message: message,
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(cmd)))),
+  };
+  if (sha) body.sha = sha;
+  const putRes = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+  if (!putRes.ok) {
+    const t = await putRes.text().catch(() => '');
+    throw new Error(`${putRes.status} ${t.slice(0, 80)}`);
+  }
+  return true;
+}
+
 async function sendRunCommand() {
   let token = getDashToken();
   if (!token) token = promptDashToken();
@@ -652,32 +698,33 @@ async function sendRunCommand() {
       minPicks: parseInt(document.getElementById('rb-minpicks').value, 10) || 5,
       requestedAt: new Date().toISOString(),
     };
-    const apiUrl = `https://api.github.com/repos/${GH_REPO}/contents/command.json`;
-    const headers = {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/vnd.github+json',
-      'Content-Type': 'application/json',
-    };
-    let sha;
-    const getRes = await fetch(`${apiUrl}?t=${Date.now()}`, { headers });
-    if (getRes.ok) { const info = await getRes.json(); sha = info.sha; }
-    const body = {
-      message: `원격 분석 요청 (${cmd.requestedAt})`,
-      content: btoa(unescape(encodeURIComponent(JSON.stringify(cmd)))),
-    };
-    if (sha) body.sha = sha;
-    const putRes = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
-    if (!putRes.ok) {
-      const t = await putRes.text().catch(() => '');
-      rbStatus(`요청 실패 (${putRes.status}): 토큰 권한을 확인해주세요. ${t.slice(0, 80)}`, 'err');
-    } else {
-      lastSentCommandAt = Date.now();
-      rbStatus('✅ 요청 전송 완료 — fmkorea 탭이 열려 있으면 1분 안에 분석이 시작되고, 끝나면 이 페이지가 자동으로 갱신됩니다.', 'ok');
-    }
+    await writeCommand(cmd, token, `원격 분석 요청 (${cmd.requestedAt})`);
+    lastSentCommandAt = Date.now();
+    rbStatus('✅ 요청 전송 완료 — fmkorea 탭이 열려 있으면 1분 안에 분석이 시작되고, 끝나면 이 페이지가 자동으로 갱신됩니다.', 'ok');
   } catch (e) {
-    rbStatus('요청 전송 중 오류: ' + e.message, 'err');
+    rbStatus(`요청 실패: ${e.message}`, 'err');
   }
   btn.disabled = false;
+}
+
+// "진행중인 경기"만 최신으로 다시 긁어오라는 요청. 전체 승률 분석(몇 분 걸림)과 달리
+// 경기 목록만 가볍게 다시 받아오므로 보통 1분 안에 반영된다.
+async function sendRefreshOngoingCommand() {
+  let token = getDashToken();
+  if (!token) token = promptDashToken();
+  if (!token) { rbStatus('토큰이 설정되지 않아 요청을 보낼 수 없습니다.', 'err'); return; }
+
+  const btn = document.getElementById('jsa-ongoing-refresh');
+  if (btn) { btn.disabled = true; btn.classList.add('spinning'); }
+  rbStatus('진행중인 경기 새로고침 요청 전송 중...');
+  try {
+    const cmd = { action: 'refreshOngoing', requestedAt: new Date().toISOString() };
+    await writeCommand(cmd, token, `진행중인 경기 새로고침 요청 (${cmd.requestedAt})`);
+    rbStatus('✅ 새로고침 요청 완료 — fmkorea 탭이 열려 있으면 1분 안에 최신 경기 목록으로 갱신됩니다.', 'ok');
+  } catch (e) {
+    rbStatus(`요청 실패: ${e.message}`, 'err');
+  }
+  if (btn) { btn.disabled = false; btn.classList.remove('spinning'); }
 }
 
 document.getElementById('rb-run').addEventListener('click', sendRunCommand);

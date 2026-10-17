@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      4.8
+// @version      4.9
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '4.8';
+  const SCRIPT_VERSION = '4.9';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -1120,7 +1120,9 @@
       });
       if (!res.ok) return; // 파일 없음(404) 등 — 요청 없는 상태
       const cmd = await res.json();
-      if (!cmd || cmd.action !== 'run' || !cmd.requestedAt) return;
+      // action: 'run'= 전체 승률 분석, 'refreshOngoing'= 진행중인 경기 목록만 다시 긁기
+      if (!cmd || !cmd.requestedAt) return;
+      if (cmd.action !== 'run' && cmd.action !== 'refreshOngoing') return;
       const reqTs = new Date(cmd.requestedAt).getTime();
       if (!reqTs) return;
       let handled = cmdHandledMemory;
@@ -1147,6 +1149,13 @@
       const saved = safeSetItem(CMD_HANDLED_KEY, String(reqTs));
       if (!saved) {
         try { getPanelControls(panel).log('⚠ 저장공간 부족으로 요청 처리 기록 저장 실패 (이번 탭에서는 정상 동작하지만, 페이지가 새로고침되면 같은 요청이 중복 실행될 수 있음)'); } catch (e2) { /* 무시 */ }
+      }
+
+      // 진행중인 경기 목록만 다시 긁어오는 가벼운 요청 — 전체 분석은 돌리지 않는다.
+      if (cmd.action === 'refreshOngoing') {
+        try { getPanelControls(panel).log('대시보드 요청: 진행중인 경기 목록을 다시 가져옵니다...'); } catch (e2) { /* 무시 */ }
+        refreshOngoingMatchesOnly();
+        return;
       }
 
       const windowSel = panel.querySelector('#jsa-window');
