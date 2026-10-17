@@ -1992,8 +1992,8 @@
       "url": "https://www.fmkorea.com/10455386688",
       "teamA": "일본",
       "teamB": "대한민국",
-      "countA": 63,
-      "betA": 52386,
+      "countA": 64,
+      "betA": 52486,
       "countB": 27,
       "betB": 105738
     },
@@ -2002,20 +2002,20 @@
       "url": "https://www.fmkorea.com/10455470616",
       "teamA": "바스켓츠 본",
       "teamB": "타이베이",
-      "countA": 69,
-      "betA": 89029,
-      "countB": 47,
-      "betB": 45979
+      "countA": 71,
+      "betA": 89470,
+      "countB": 49,
+      "betB": 46937
     },
     {
       "title": "2026 VCT 챔피언스 상하이 결승 진출전 :: 100T vs 바이탈리티 :: 10/17 16:00 경기",
       "url": "https://www.fmkorea.com/10455009198",
       "teamA": "100T",
       "teamB": "바이탈리티",
-      "countA": 56,
-      "betA": 107514,
-      "countB": 35,
-      "betB": 129731
+      "countA": 57,
+      "betA": 108295,
+      "countB": 36,
+      "betB": 130231
     },
     {
       "title": "KOVO컵 여자부 준결승 :: 한국도로공사(-1.5) vs IBK기업은행 :: 10/17 16:30 경기",
@@ -4048,6 +4048,11 @@
       "name": "람인",
       "picks": [
         {
+          "team": "100T",
+          "url": "https://www.fmkorea.com/10455009198",
+          "bet": 781
+        },
+        {
           "team": "한국도로공사",
           "url": "https://www.fmkorea.com/10454578963",
           "bet": 7000
@@ -4986,6 +4991,11 @@
           "team": "바스켓츠 본",
           "url": "https://www.fmkorea.com/10455470616",
           "bet": 300
+        },
+        {
+          "team": "바이탈리티",
+          "url": "https://www.fmkorea.com/10455009198",
+          "bet": 500
         },
         {
           "team": "BFX",
@@ -6343,6 +6353,11 @@
           "bet": 100
         },
         {
+          "team": "일본",
+          "url": "https://www.fmkorea.com/10455386688",
+          "bet": 100
+        },
+        {
           "team": "바스켓츠 본",
           "url": "https://www.fmkorea.com/10455470616",
           "bet": 160
@@ -7445,6 +7460,16 @@
       ]
     },
     {
+      "name": "어으아우어",
+      "picks": [
+        {
+          "team": "타이베이",
+          "url": "https://www.fmkorea.com/10455470616",
+          "bet": 700
+        }
+      ]
+    },
+    {
       "name": "어쩌려고",
       "picks": [
         {
@@ -8290,6 +8315,16 @@
       ]
     },
     {
+      "name": "이브이5",
+      "picks": [
+        {
+          "team": "바스켓츠 본",
+          "url": "https://www.fmkorea.com/10455470616",
+          "bet": 192
+        }
+      ]
+    },
+    {
       "name": "이사기요이치",
       "picks": [
         {
@@ -9111,6 +9146,16 @@
           "team": "첼시",
           "url": "https://www.fmkorea.com/10454722243",
           "bet": 5000
+        }
+      ]
+    },
+    {
+      "name": "조제",
+      "picks": [
+        {
+          "team": "바스켓츠 본",
+          "url": "https://www.fmkorea.com/10455470616",
+          "bet": 249
         }
       ]
     },
@@ -13041,6 +13086,16 @@
           "team": "첼시",
           "url": "https://www.fmkorea.com/10454722243",
           "bet": 400
+        }
+      ]
+    },
+    {
+      "name": "YEOJIN",
+      "picks": [
+        {
+          "team": "타이베이",
+          "url": "https://www.fmkorea.com/10455470616",
+          "bet": 258
         }
       ]
     },
@@ -26189,5 +26244,6 @@
       "totalBet": 402,
       "profit": 165
     }
-  ]
+  ],
+  "ongoingUpdatedAt": "2026-10-17T06:26:44.840Z"
 }
