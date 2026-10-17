@@ -162,6 +162,9 @@
   .remote-status { font-size:12px; color:var(--dim); margin:6px 2px 0; min-height:16px; }
   .remote-status.ok { color:var(--win); }
   .remote-status.err { color:var(--lose); }
+  .finder-points { font-size:12.5px; color:var(--dim); margin-bottom:4px; }
+  .finder-points strong { color:var(--accent); font-size:13.5px; }
+  .pinned-chip .pin-point { color:#ffd166; font-weight:700; }
   .running-banner {
     display:none; align-items:flex-start; gap:8px; background:var(--accent-dim); color:var(--accent);
     border:1px solid rgba(79,140,255,.35); border-radius:10px; padding:8px 12px; font-size:12.5px;
@@ -441,6 +444,12 @@ function render(data) {
 // 전부 마지막 분석 업로드 시점 기준 데이터다(실시간 아님).
 function finderCardHtml(name, record, picks, pinned) {
   let html = `<div class="finder-card${pinned ? ' pinned' : ''}"><div class="finder-name">${escapeHtml(name)}</div>`;
+  // 현재 보유 잉여력 (유저스크립트가 회원정보에서 읽어온 값. 고정 닉네임만 조회함)
+  const pts = dashboardData && dashboardData.pinnedPoints ? dashboardData.pinnedPoints[name] : undefined;
+  if (typeof pts === 'number') {
+    const at = dashboardData.pinnedPointsAt ? ` <span class="muted">(${fmtDate(dashboardData.pinnedPointsAt)} 기준)</span>` : '';
+    html += `<div class="finder-points">현재 잉여력 <strong>${numFmt(pts)}</strong>${at}</div>`;
+  }
   if (record) {
     const profitClass = record.profit >= 0 ? 'pos' : 'neg';
     html += `<div class="finder-record">전적 <span class="pill">${record.win}승${record.lose}패</span> · 승률 <span class="rate-chip">${fmtPct(record.rate)}</span> · 베팅액 ${numFmt(record.totalBet)} · 수익 <span class="profit ${profitClass}" style="font-weight:700;">${record.profit >= 0 ? '+' : ''}${numFmt(record.profit)}</span></div>`;
@@ -468,8 +477,10 @@ function pinnedChipHtml(name, record, picks) {
     ? `<span class="pin-sep">·</span><span class="pin-rate ${rateClass}">${fmtPct(record.rate)}</span><span class="pin-sep">(${record.win}승${record.lose}패)</span>`
     : `<span class="pin-sep">· 기록없음</span>`;
   const livePart = picks && picks.length ? `<span class="pin-sep">·</span><span class="pin-live">진행중 ${picks.length}</span>` : '';
+  const pts = dashboardData && dashboardData.pinnedPoints ? dashboardData.pinnedPoints[name] : undefined;
+  const ptPart = typeof pts === 'number' ? `<span class="pin-sep">·</span><span class="pin-point">${numFmt(pts)}P</span>` : '';
   const activeClass = pinnedOpenName === name ? ' active' : '';
-  return `<span class="pinned-chip${activeClass}" data-pin-name="${escapeHtml(name)}"><span class="pin-name">📌 ${escapeHtml(name)}</span>${recordPart}${livePart}</span>`;
+  return `<span class="pinned-chip${activeClass}" data-pin-name="${escapeHtml(name)}"><span class="pin-name">📌 ${escapeHtml(name)}</span>${recordPart}${ptPart}${livePart}</span>`;
 }
 
 function renderPinnedDetail() {
@@ -698,6 +709,7 @@ async function sendRunCommand() {
       action: 'run',
       windowValue: document.getElementById('rb-window').value,
       minPicks: parseInt(document.getElementById('rb-minpicks').value, 10) || 5,
+      pinned: PINNED_NAMES,   // 유저스크립트가 이 닉네임들의 현재 잉여력을 조회한다
       requestedAt: new Date().toISOString(),
     };
     await writeCommand(cmd, token, `원격 분석 요청 (${cmd.requestedAt})`);
@@ -720,7 +732,7 @@ async function sendRefreshOngoingCommand() {
   if (btn) { btn.disabled = true; btn.classList.add('spinning'); }
   rbStatus('진행중인 경기 새로고침 요청 전송 중...');
   try {
-    const cmd = { action: 'refreshOngoing', requestedAt: new Date().toISOString() };
+    const cmd = { action: 'refreshOngoing', pinned: PINNED_NAMES, requestedAt: new Date().toISOString() };
     await writeCommand(cmd, token, `진행중인 경기 새로고침 요청 (${cmd.requestedAt})`);
     rbStatus('✅ 새로고침 요청 완료 — fmkorea 탭이 열려 있으면 1분 안에 최신 경기 목록으로 갱신됩니다.', 'ok');
   } catch (e) {

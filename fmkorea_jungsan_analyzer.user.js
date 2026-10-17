@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.2
+// @version      5.3
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.2';
+  const SCRIPT_VERSION = '5.3';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -356,8 +356,82 @@
     return start.getTime() > Date.now();
   }
 
+  // ---------- 3.6 고정 닉네임의 현재 잉여력(포인트) 조회 ----------
+  // 베팅 목록에는 보유 잉여력이 없고(point=베팅액, exp=예상 배당금), 회원정보 페이지에만
+  // "레벨: N / 잉여력: M" 형태로 들어있다. 그래서 고정 닉네임에 한해서만(요청 수를 줄이려고)
+  // 회원정보 페이지를 열어 현재 잉여력을 읽어온다.
+  const PINNED_NAMES_KEY = 'jsa-pinned-names';   // 대시보드가 명령에 실어 보낸 고정 닉네임 목록
+  const MEMBER_SRL_KEY = 'jsa-member-srl-v1';    // 닉네임 -> member_srl 캐시 (조회 비용 절약)
+
+  function loadPinnedNames() {
+    try { const v = JSON.parse(localStorage.getItem(PINNED_NAMES_KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; }
+  }
+  function savePinnedNames(list) {
+    try { safeSetItem(PINNED_NAMES_KEY, JSON.stringify(list)); } catch (e) { /* 무시 */ }
+  }
+  function loadSrlMap() {
+    try { return JSON.parse(localStorage.getItem(MEMBER_SRL_KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function saveSrlMap(m) {
+    try { safeSetItem(MEMBER_SRL_KEY, JSON.stringify(m)); } catch (e) { /* 무시 */ }
+  }
+
+  // 검색 페이지에서 닉네임으로 member_srl 찾기 (최근 글이 없는 사람은 안 잡힐 수 있음)
+  async function lookupMemberSrlByNick(nick) {
+    try {
+      const url = `https://www.fmkorea.com/search.php?mid=pointplay&category=&search_keyword=${encodeURIComponent(nick)}&search_target=nick_name`;
+      const doc = new DOMParser().parseFromString(await (await fetch(url, { credentials: 'same-origin' })).text(), 'text/html');
+      for (const a of doc.querySelectorAll('a.member_plate')) {
+        if ((a.textContent || '').trim() !== nick) continue;
+        const m = String(a.className || '').match(/member_(\d+)/);
+        if (m) return parseInt(m[1], 10);
+      }
+    } catch (e) { /* 무시 */ }
+    return null;
+  }
+
+  // 회원정보 페이지에서 현재 잉여력 읽기. 페이지 상단에는 "로그인한 본인"의 잉여력도 같이
+  // 나오므로, 회원정보 표의 "레벨: N / 잉여력: M" 형태(슬래시 포함)만 골라야 한다.
+  async function fetchMemberPoint(srl) {
+    try {
+      const url = `https://www.fmkorea.com/index.php?mid=pointplay&act=dispMemberInfo&member_srl=${srl}&_=${Date.now()}`;
+      const doc = new DOMParser().parseFromString(await (await fetch(url, { credentials: 'same-origin' })).text(), 'text/html');
+      for (const tr of doc.querySelectorAll('tr')) {
+        const t = (tr.textContent || '').replace(/\s+/g, ' ').trim();
+        const m = t.match(/레벨:\s*\d+\s*\/\s*잉여력:\s*([\d,]+)/);
+        if (m) return parseInt(m[1].replace(/,/g, ''), 10);
+      }
+    } catch (e) { /* 무시 */ }
+    return null;
+  }
+
+  // 고정 닉네임들의 현재 잉여력을 모아서 { 닉네임: 잉여력 } 로 반환.
+  // srl은 ① 진행중 베팅 목록에서 얻은 것 ② 캐시 ③ 검색 순으로 찾는다.
+  async function collectPinnedPoints(srlFromBets, log) {
+    const names = loadPinnedNames();
+    if (!names.length) return {};
+    const cache = loadSrlMap();
+    const out = {};
+    for (const nick of names) {
+      let srl = (srlFromBets && srlFromBets.get(nick)) || cache[nick] || null;
+      if (!srl) {
+        srl = await lookupMemberSrlByNick(nick);
+        await sleepJitter();
+      }
+      if (!srl) continue;
+      cache[nick] = srl;
+      const point = await fetchMemberPoint(srl);
+      if (point !== null) out[nick] = point;
+      await sleepJitter();
+    }
+    saveSrlMap(cache);
+    if (log) log(`고정 닉네임 잉여력 ${Object.keys(out).length}명 조회 완료.`);
+    return out;
+  }
+
   async function collectOngoingPicks(log) {
     const map = new Map(); // nick_name -> [{team, url, bet}]
+    const srlByNick = new Map(); // nick_name -> member_srl (잉여력 조회에 재사용)
     const matches = []; // [{title, url, teamA, teamB, countA, betA, countB, betB}]
     try {
       const allPosts = await getOngoingMatchPosts();
@@ -381,12 +455,14 @@
               if (!e.nick_name) continue;
               if (!map.has(e.nick_name)) map.set(e.nick_name, []);
               map.get(e.nick_name).push({ team: matchup.a, url, bet: e.point || 0 });
+              if (e.member_srl) srlByNick.set(e.nick_name, e.member_srl);
               countA++; betA += e.point || 0;
             }
             for (const e of opt2) {
               if (!e.nick_name) continue;
               if (!map.has(e.nick_name)) map.set(e.nick_name, []);
               map.get(e.nick_name).push({ team: matchup.b, url, bet: e.point || 0 });
+              if (e.member_srl) srlByNick.set(e.nick_name, e.member_srl);
               countB++; betB += e.point || 0;
             }
             matches.push({ title: post.title, url, teamA: matchup.a, teamB: matchup.b, countA, betA, countB, betB });
@@ -399,7 +475,7 @@
     } catch (e) {
       log('진행중인 경기 목록 조회 실패: ' + e.message);
     }
-    return { map, matches };
+    return { map, matches, srlByNick };
   }
 
   // ---------- 4. 집계 ----------
@@ -978,7 +1054,7 @@
   }
 
   // 업로드할 JSON payload 구성 — 종합 랭킹 상위 N명 + 종목별 랭킹 + 진행중인 베팅 picks + 진행중인 경기 목록
-  function buildDashboardPayload(records, minPicks, ongoingPicksMap, windowLabel, ongoingMatches) {
+  function buildDashboardPayload(records, minPicks, ongoingPicksMap, windowLabel, ongoingMatches, pinnedPoints) {
     const overall = overallRanking(records, minPicks);
     const bySport = sportRanking(records, Math.max(2, Math.min(2, minPicks)));
     const overallSlim = overall.slice(0, UPLOAD_TOP_N).map((r) => ({
@@ -1028,14 +1104,16 @@
       ongoingMatches: matchesSlim,
       allPicks,
       allRecords,
+      pinnedPoints: pinnedPoints || {},   // { 닉네임: 현재 잉여력 }
+      pinnedPointsAt: pinnedPoints && Object.keys(pinnedPoints).length ? new Date().toISOString() : null,
     };
   }
 
-  async function uploadResultsToGitHub(records, minPicks, ongoingPicksMap, windowLabel, ongoingMatches, log) {
+  async function uploadResultsToGitHub(records, minPicks, ongoingPicksMap, windowLabel, ongoingMatches, log, pinnedPoints) {
     const token = getGithubToken();
     if (!token) return; // 토큰 설정 안 돼 있으면 조용히 건너뜀 (패널 설정에서 등록 가능)
     try {
-      const payload = buildDashboardPayload(records, minPicks, ongoingPicksMap, windowLabel, ongoingMatches);
+      const payload = buildDashboardPayload(records, minPicks, ongoingPicksMap, windowLabel, ongoingMatches, pinnedPoints);
       const content = utf8ToBase64(JSON.stringify(payload, null, 2));
       const apiUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_DATA_PATH}`;
       const headers = {
@@ -1148,6 +1226,9 @@
       });
       if (!res.ok) return; // 파일 없음(404) 등 — 요청 없는 상태
       const cmd = await res.json();
+      // 대시보드가 보내준 고정 닉네임 목록을 저장해둔다 (잉여력 조회 대상)
+      if (cmd && Array.isArray(cmd.pinned)) savePinnedNames(cmd.pinned);
+
       // action: 'run'= 전체 승률 분석, 'refreshOngoing'= 진행중인 경기 목록만 다시 긁기
       if (!cmd || !cmd.requestedAt) return;
       if (cmd.action !== 'run' && cmd.action !== 'refreshOngoing') return;
@@ -1220,7 +1301,8 @@
     if (job && job.status === 'running') return; // 전체 분석과 충돌 방지
 
     try {
-      const { map, matches } = await collectOngoingPicks(() => {}); // 조용히 수집(패널 로그 오염 방지)
+      const { map, matches, srlByNick } = await collectOngoingPicks(() => {}); // 조용히 수집(패널 로그 오염 방지)
+      const pinnedPoints = await collectPinnedPoints(srlByNick, null);
       const matchesSlim = matches.map((m) => ({
         title: m.title, url: m.url, teamA: m.teamA, teamB: m.teamB,
         countA: m.countA, betA: m.betA, countB: m.countB, betB: m.betB,
@@ -1245,6 +1327,10 @@
       data.ongoingMatches = matchesSlim;
       data.allPicks = allPicks;
       data.ongoingUpdatedAt = new Date().toISOString();
+      if (Object.keys(pinnedPoints).length) {
+        data.pinnedPoints = pinnedPoints;
+        data.pinnedPointsAt = data.ongoingUpdatedAt;
+      }
       if (Array.isArray(data.overall)) {
         data.overall.forEach((r) => { r.picks = map.get(r.name) || []; });
       }
@@ -1545,6 +1631,7 @@
     log('진행중인 경기 베팅 정보 수집 중...');
     let ongoingPicksMap;
     let ongoingMatches;
+    let srlByNick = null;
     if (job.ongoingPicks) {
       // 이미 한 번 수집해둔 게 있으면(예: 1분마다 새로고침되는 페이지에서 재개된 경우)
       // 다시 긁지 않고 그대로 재사용한다.
@@ -1554,10 +1641,18 @@
       const collected = await collectOngoingPicks(log);
       ongoingPicksMap = collected.map;
       ongoingMatches = collected.matches;
+      srlByNick = collected.srlByNick;
       job.ongoingPicks = Array.from(ongoingPicksMap.entries());
       job.ongoingMatches = ongoingMatches;
       saveJob(job);
     }
+
+    // 고정 닉네임들의 현재 잉여력 조회 (대시보드가 보내준 목록이 없으면 건너뜀)
+    let pinnedPoints = {};
+    try {
+      setProgress(98, '고정 닉네임 잉여력 조회 중...');
+      pinnedPoints = await collectPinnedPoints(srlByNick, log);
+    } catch (e) { log('잉여력 조회 중 오류: ' + e.message); }
 
     setProgress(99, '집계 중...');
     log('집계 중...');
@@ -1571,7 +1666,7 @@
     renderResult(panel, records, job.minPicks, ongoingPicksMap);
 
     // 새로 완료된 분석 결과를 GitHub 대시보드용 데이터로 올림 (토큰 미설정 시 조용히 건너뜀)
-    uploadResultsToGitHub(records, job.minPicks, ongoingPicksMap, job.windowLabel, ongoingMatches, log);
+    uploadResultsToGitHub(records, job.minPicks, ongoingPicksMap, job.windowLabel, ongoingMatches, log, pinnedPoints);
     // 대시보드가 "분석 진행 중" 배너를 내릴 수 있도록 상태를 idle로 갱신
     uploadIdleStatus();
   }
