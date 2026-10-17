@@ -305,16 +305,18 @@ function fmtDate(iso) {
   } catch (e) { return iso; }
 }
 
-function picksHtml(picks) {
+// limit을 넘기지 않으면 전부 보여준다. 랭킹 표에서는 칸이 좁아서 6건까지만 보여주고
+// "+N"으로 줄이지만, 닉네임을 눌러서 여는 상세 카드에서는 전부 보여줘야 한다.
+function picksHtml(picks, limit) {
   if (!picks || picks.length === 0) return '<span class="muted">—</span>';
-  const shown = picks.slice(0, 6);
+  const shown = (typeof limit === 'number') ? picks.slice(0, limit) : picks;
   let html = '<div class="picks">';
   html += shown.map((p) => {
     const label = escapeHtml(p.team) + (p.bet ? `(${numFmt(p.bet)})` : '');
     if (p.url) return `<a class="pick-chip" href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
     return `<span class="pick-chip">${label}</span>`;
   }).join('');
-  if (picks.length > 6) html += `<span class="muted">+${picks.length - 6}</span>`;
+  if (shown.length < picks.length) html += `<span class="muted">+${picks.length - shown.length}</span>`;
   html += '</div>';
   return html;
 }
@@ -325,7 +327,7 @@ function rowHtml(r, withMoney, rankIdx) {
   let html = `<tr data-jsa-name="${escapeHtml(r.name.toLowerCase())}"><td><span class="rank ${medal}">${rankIdx + 1}</span></td><td class="name">${escapeHtml(r.name)}</td><td><span class="pill">${r.win}승${r.lose}패</span></td><td class="rate ${rateClass}">${fmtPct(r.rate)}</td>`;
   if (withMoney) {
     const profitClass = r.profit >= 0 ? 'pos' : 'neg';
-    html += `<td class="money">${numFmt(r.totalBet)}</td><td class="profit ${profitClass}">${r.profit >= 0 ? '+' : ''}${numFmt(r.profit)}</td><td>${picksHtml(r.picks)}</td>`;
+    html += `<td class="money">${numFmt(r.totalBet)}</td><td class="profit ${profitClass}">${r.profit >= 0 ? '+' : ''}${numFmt(r.profit)}</td><td>${picksHtml(r.picks, 6)}</td>`;
   }
   html += '</tr>';
   return html;
@@ -445,7 +447,7 @@ function finderCardHtml(name, record, picks, pinned) {
   }
   if (picks && picks.length) {
     html += `<div class="finder-picks-label">진행중인 베팅 ${picks.length}건</div>`;
-    html += picksHtml(picks.length > 6 ? picks : picks); // picksHtml이 6건 넘으면 +N 처리
+    html += picksHtml(picks); // 상세 카드에서는 진행중인 베팅을 전부 보여준다
   } else {
     html += `<div class="no-picks">진행중인 베팅 없음</div>`;
   }
