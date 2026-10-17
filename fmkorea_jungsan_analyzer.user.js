@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.7
+// @version      5.8
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.7';
+  const SCRIPT_VERSION = '5.8';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -42,7 +42,29 @@
   const UPLOAD_TOP_N = 300; // 대시보드에 올릴 종합 랭킹 인원 수 (100명은 부족하다는 요청으로 상향)
 
   // ---------- 유틸 ----------
-  function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
+  // 크롬은 화면에 안 보이는 탭의 setTimeout을 크게 늦춘다(숨겨진 뒤 5분이 지나면 1분에 한 번).
+  // 이 분석기는 글 사이사이 짧은 지연을 두고 순차 처리하므로, 그 상태에선 사실상 멈춘 것처럼
+  // 기어간다. 무음 오디오로 제한을 푸는 방법은 사용자가 탭을 한 번도 건드리지 않으면
+  // 오디오가 suspended로 막혀 효과가 없었다. 웹 워커의 타이머는 이 제한을 받지 않으므로,
+  // 지연은 워커에 맡기고 실패할 때만 setTimeout으로 대체한다.
+  const sleepWorker = (() => {
+    try {
+      const src = 'onmessage=function(e){setTimeout(function(){postMessage(e.data.id);},e.data.ms);}';
+      const w = new Worker(URL.createObjectURL(new Blob([src], { type: 'application/javascript' })));
+      const pending = new Map();
+      let seq = 0;
+      w.onmessage = (e) => {
+        const done = pending.get(e.data);
+        if (done) { pending.delete(e.data); done(); }
+      };
+      return { wait: (ms) => new Promise((res) => { const id = ++seq; pending.set(id, res); w.postMessage({ id, ms }); }) };
+    } catch (e) { return null; }
+  })();
+
+  function sleep(ms) {
+    if (sleepWorker) return sleepWorker.wait(ms);
+    return new Promise((r) => setTimeout(r, ms));
+  }
   // 매번 똑같은 간격이 아니라 사람처럼 들쭉날쭉하게 — 요청 지문(fingerprint)을 피하기 위함
   function sleepJitter(base) { return sleep((base || REQUEST_DELAY_MS) + Math.random() * REQUEST_JITTER_MS); }
 
