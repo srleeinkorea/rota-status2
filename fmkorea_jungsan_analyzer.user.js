@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.0
+// @version      5.1
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.0';
+  const SCRIPT_VERSION = '5.1';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -1416,7 +1416,54 @@
   // job.posts 중 job.nextIndex부터 끝까지 이어서 처리. CONCURRENCY개씩 묶어 동시에 처리하고,
   // 이미 결과 캐시에 있는(=예전에 한 번 받아본) 글은 네트워크 요청 없이 즉시 재사용한다.
   // 중간에 새로고침이 와도 saveJob()이 배치가 끝날 때마다 저장해두므로 다음 로드 때 이어서 재개된다.
+  // ---------- 백그라운드 탭 타이머 제한 해제 ----------
+  // 크롬은 화면에 안 보이는 탭의 타이머를 늦춘다. 숨겨진 직후 5분간은 최소 1초 간격으로,
+  // 그 뒤로는 1분에 한 번까지 제한된다(intensive throttling). 이 분석기는 글 사이사이
+  // 짧은 지연을 두고 순차 처리하는 구조라, 다른 데스크톱/백그라운드에 오래 두면 사실상
+  // 멈춘 것처럼 기어간다. "소리가 나는 탭"은 이 제한에서 제외되므로, 분석이 도는 동안만
+  // 무음 오디오를 재생해서 제 속도를 유지하고 끝나면 바로 끈다.
+  let keepAwakeCtx = null;
+  let keepAwakeNodes = null;
+
+  function startKeepAwake() {
+    if (keepAwakeCtx) return;
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      const ctx = new Ctx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      gain.gain.value = 0.0001; // 사실상 무음 (완전 0이면 '소리 없음'으로 판정될 수 있음)
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      keepAwakeCtx = ctx;
+      keepAwakeNodes = { osc, gain };
+      // 사용자 제스처 없이 시작하면 suspended 상태일 수 있어 재개를 시도한다
+      if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+    } catch (e) { /* 실패해도 분석 자체는 그대로 진행 */ }
+  }
+
+  function stopKeepAwake() {
+    try {
+      if (keepAwakeNodes) { keepAwakeNodes.osc.stop(); keepAwakeNodes.osc.disconnect(); keepAwakeNodes.gain.disconnect(); }
+      if (keepAwakeCtx) keepAwakeCtx.close();
+    } catch (e) { /* 무시 */ }
+    keepAwakeCtx = null;
+    keepAwakeNodes = null;
+  }
+
+  // 분석이 도는 동안만 타이머 제한 해제를 켜둔다. 중간에 오류가 나도 반드시 꺼지도록 감싼다.
   async function processJob(panel, job) {
+    startKeepAwake();
+    try {
+      return await processJobInner(panel, job);
+    } finally {
+      stopKeepAwake();
+    }
+  }
+
+  async function processJobInner(panel, job) {
     const { log, setProgress, progressWrap } = getPanelControls(panel);
     const total = job.posts.length;
     const cache = loadResultCache();
