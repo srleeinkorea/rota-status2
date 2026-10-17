@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.5
+// @version      5.6
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.5';
+  const SCRIPT_VERSION = '5.6';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -216,19 +216,33 @@
   }
 
   // ---------- 2. 각 글의 pk(point-game id) 추출 ----------
+  // pk와 함께 실제 선택지 이름도 같이 뽑는다.
+  // 제목만 보고 "A vs B"를 선택지로 쓰면 언/오버나 O/X 같은 글에서 틀린 이름이 붙는다
+  // (예: "라리가 양팀 득점 합 [2.5] 언/오버 :: 레알 베티스 vs 바르셀로나"의 선택지는
+  //  팀이 아니라 "2.5 언더"/"2.5 오버"). 글 페이지의 label.label2가 실제 선택지 이름이다.
   async function fetchPostDetail(document_srl) {
     // 짧은 URL 형태(/문서번호)가 긴 쿼리스트링 형태보다 안정적으로 응답함(간헐적 432 차단 회피)
     const url = `https://www.fmkorea.com/${document_srl}`;
+    // 432(일시 차단)는 간헐적으로 뜬다. 여기서 실패하면 선택지 이름을 놓치므로 조금씩
+    // 간격을 늘려가며 두 번까지 더 시도한다.
     let res = await fetch(url, { credentials: 'same-origin' });
-    if (res.status === 432) {
-      await sleep(800);
-      res = await fetch(url, { credentials: 'same-origin' }); // 1회 재시도
+    for (let attempt = 1; attempt <= 2 && res.status === 432; attempt++) {
+      await sleep(800 * attempt);
+      res = await fetch(url, { credentials: 'same-origin' });
     }
     if (!res.ok) return null;
     const html = await res.text();
     const m = html.match(/getPpListClick\((\d+)\s*,\s*1\)/);
     if (!m) return null;
-    return parseInt(m[1], 10);
+    let labels = null;
+    try {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const ls = Array.from(doc.querySelectorAll('label.label2'))
+        .map((l) => (l.textContent || '').replace(/\s+/g, ' ').trim())
+        .filter(Boolean);
+      if (ls.length >= 2) labels = { a: ls[0], b: ls[1] };
+    } catch (e) { /* 실패하면 제목 파싱으로 대체 */ }
+    return { pk: parseInt(m[1], 10), labels };
   }
 
   // ---------- 3. pp.getPpList AJAX 호출 (페이지네이션 포함) ----------
@@ -465,12 +479,14 @@
       for (let i = 0; i < posts.length; i += CONCURRENCY) {
         const batch = posts.slice(i, i + CONCURRENCY);
         await Promise.all(batch.map(async (post) => {
-          const matchup = extractMatchupTeams(post.title);
-          if (!matchup) return;
           const url = `https://www.fmkorea.com/${post.document_srl}`;
           try {
-            const pk = await fetchPostDetail(post.document_srl);
-            if (!pk) return;
+            const detail = await fetchPostDetail(post.document_srl);
+            if (!detail || !detail.pk) return;
+            const { pk, labels } = detail;
+            // 글에 적힌 실제 선택지 이름이 우선. 없으면 제목의 "A vs B"로 대체한다.
+            const matchup = labels || extractMatchupTeams(post.title);
+            if (!matchup) return;
             const { opt1, opt2 } = await fetchOngoingBettors(pk);
             let countA = 0, betA = 0, countB = 0, betB = 0;
             for (const e of opt1) {
@@ -1637,7 +1653,8 @@
             return cached;
           }
           log(`[${i}/${total}] ${post.title.slice(0, 40)}...`);
-          const pk = await fetchPostDetail(post.document_srl);
+          const detail = await fetchPostDetail(post.document_srl);
+          const pk = detail && detail.pk;
           if (!pk) {
             log('  -> pk 추출 실패, 건너뜀');
             return null;
