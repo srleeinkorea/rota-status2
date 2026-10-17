@@ -63,8 +63,8 @@
       "teamB": "무승부",
       "countA": 10,
       "betA": 6223,
-      "countB": 10,
-      "betB": 54602
+      "countB": 11,
+      "betB": 55713
     },
     {
       "title": "세리에 A :: AS 로마(-0.5) vs 제노아 :: 10/18 03:45 경기",
@@ -77,16 +77,6 @@
       "betB": 331534
     },
     {
-      "title": "MLS :: 애틀랜타 (+0.5) vs 인터 마이애미 :: 10/18 08:30 경기",
-      "url": "https://www.fmkorea.com/10457906201",
-      "teamA": "애틀랜타 (+0.5)",
-      "teamB": "인터 마이애미",
-      "countA": 0,
-      "betA": 0,
-      "countB": 8,
-      "betB": 3361
-    },
-    {
       "title": "KOVO컵 여자부 결승 :: GS칼텍스 vs 한국도로공사 :: 10/18 13:30 경기",
       "url": "https://www.fmkorea.com/10457706164",
       "teamA": "GS칼텍스",
@@ -95,6 +85,16 @@
       "betA": 2758,
       "countB": 16,
       "betB": 104483
+    },
+    {
+      "title": "MLS :: 애틀랜타 (+0.5) vs 인터 마이애미 :: 10/18 08:30 경기",
+      "url": "https://www.fmkorea.com/10457906201",
+      "teamA": "애틀랜타 (+0.5)",
+      "teamB": "인터 마이애미",
+      "countA": 0,
+      "betA": 0,
+      "countB": 8,
+      "betB": 3361
     },
     {
       "title": "MLB ALCS #연장포함# :: 탬파베이 vs 클리블랜드 :: 10/18 09:08 경기",
@@ -113,16 +113,16 @@
       "teamB": "제주",
       "countA": 8,
       "betA": 3315,
-      "countB": 4,
-      "betB": 6404
+      "countB": 5,
+      "betB": 7515
     },
     {
       "title": "KBO 준PO #연장포함# :: LG (+1.5) vs KIA :: 10/18 14:00 경기",
       "url": "https://www.fmkorea.com/10457442556",
       "teamA": "LG (+1.5)",
       "teamB": "KIA",
-      "countA": 22,
-      "betA": 15549,
+      "countA": 23,
+      "betA": 16660,
       "countB": 19,
       "betB": 28506
     },
@@ -5062,6 +5062,11 @@
       "name": "세트카",
       "picks": [
         {
+          "team": "무승부",
+          "url": "https://www.fmkorea.com/10457737604",
+          "bet": 1111
+        },
+        {
           "team": "제노아",
           "url": "https://www.fmkorea.com/10457642195",
           "bet": 1111
@@ -5074,6 +5079,16 @@
         {
           "team": "클리블랜드",
           "url": "https://www.fmkorea.com/10456864395",
+          "bet": 1111
+        },
+        {
+          "team": "제주",
+          "url": "https://www.fmkorea.com/10457884882",
+          "bet": 1111
+        },
+        {
+          "team": "LG (+1.5)",
+          "url": "https://www.fmkorea.com/10457442556",
           "bet": 1111
         }
       ]
@@ -16895,5 +16910,6 @@
     "꼬습노": 42320,
     "자계": 123672
   },
-  "pinnedPointsAt": "2026-10-17T18:39:29.900Z"
+  "pinnedPointsAt": "2026-10-17T18:39:46.170Z",
+  "ongoingUpdatedAt": "2026-10-17T18:39:46.170Z"
 }
