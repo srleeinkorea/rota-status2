@@ -77,6 +77,16 @@
       "betB": 331534
     },
     {
+      "title": "MLS :: 애틀랜타 (+0.5) vs 인터 마이애미 :: 10/18 08:30 경기",
+      "url": "https://www.fmkorea.com/10457906201",
+      "teamA": "애틀랜타 (+0.5)",
+      "teamB": "인터 마이애미",
+      "countA": 1,
+      "betA": 1111,
+      "countB": 8,
+      "betB": 3361
+    },
+    {
       "title": "KOVO컵 여자부 결승 :: GS칼텍스 vs 한국도로공사 :: 10/18 13:30 경기",
       "url": "https://www.fmkorea.com/10457706164",
       "teamA": "GS칼텍스",
@@ -85,16 +95,6 @@
       "betA": 2758,
       "countB": 16,
       "betB": 104483
-    },
-    {
-      "title": "MLS :: 애틀랜타 (+0.5) vs 인터 마이애미 :: 10/18 08:30 경기",
-      "url": "https://www.fmkorea.com/10457906201",
-      "teamA": "애틀랜타 (+0.5)",
-      "teamB": "인터 마이애미",
-      "countA": 0,
-      "betA": 0,
-      "countB": 8,
-      "betB": 3361
     },
     {
       "title": "MLB ALCS #연장포함# :: 탬파베이 vs 클리블랜드 :: 10/18 09:08 경기",
@@ -107,16 +107,6 @@
       "betB": 382874
     },
     {
-      "title": "K리그1 :: 전북(-0.5) vs 제주 :: 10/18 14:00 경기",
-      "url": "https://www.fmkorea.com/10457884882",
-      "teamA": "전북(-0.5)",
-      "teamB": "제주",
-      "countA": 8,
-      "betA": 3315,
-      "countB": 5,
-      "betB": 7515
-    },
-    {
       "title": "KBO 준PO #연장포함# :: LG (+1.5) vs KIA :: 10/18 14:00 경기",
       "url": "https://www.fmkorea.com/10457442556",
       "teamA": "LG (+1.5)",
@@ -125,6 +115,16 @@
       "betA": 16660,
       "countB": 19,
       "betB": 28506
+    },
+    {
+      "title": "K리그1 :: 전북(-0.5) vs 제주 :: 10/18 14:00 경기",
+      "url": "https://www.fmkorea.com/10457884882",
+      "teamA": "전북(-0.5)",
+      "teamB": "제주",
+      "countA": 8,
+      "betA": 3315,
+      "countB": 5,
+      "betB": 7515
     },
     {
       "title": "2026 남성 발롱도르 해리 케인 수상 O/X",
@@ -1807,13 +1807,13 @@
           "bet": 100
         },
         {
-          "team": "전북(-0.5)",
-          "url": "https://www.fmkorea.com/10457884882",
+          "team": "LG (+1.5)",
+          "url": "https://www.fmkorea.com/10457442556",
           "bet": 100
         },
         {
-          "team": "LG (+1.5)",
-          "url": "https://www.fmkorea.com/10457442556",
+          "team": "전북(-0.5)",
+          "url": "https://www.fmkorea.com/10457884882",
           "bet": 100
         }
       ]
@@ -5072,6 +5072,11 @@
           "bet": 1111
         },
         {
+          "team": "애틀랜타 (+0.5)",
+          "url": "https://www.fmkorea.com/10457906201",
+          "bet": 1111
+        },
+        {
           "team": "한국도로공사",
           "url": "https://www.fmkorea.com/10457706164",
           "bet": 1111
@@ -5082,13 +5087,13 @@
           "bet": 1111
         },
         {
-          "team": "제주",
-          "url": "https://www.fmkorea.com/10457884882",
+          "team": "LG (+1.5)",
+          "url": "https://www.fmkorea.com/10457442556",
           "bet": 1111
         },
         {
-          "team": "LG (+1.5)",
-          "url": "https://www.fmkorea.com/10457442556",
+          "team": "제주",
+          "url": "https://www.fmkorea.com/10457884882",
           "bet": 1111
         }
       ]
@@ -6072,14 +6077,14 @@
           "bet": 1500
         },
         {
-          "team": "전북(-0.5)",
-          "url": "https://www.fmkorea.com/10457884882",
-          "bet": 1013
-        },
-        {
           "team": "LG (+1.5)",
           "url": "https://www.fmkorea.com/10457442556",
           "bet": 1500
+        },
+        {
+          "team": "전북(-0.5)",
+          "url": "https://www.fmkorea.com/10457884882",
+          "bet": 1013
         }
       ]
     },
@@ -6772,13 +6777,13 @@
           "bet": 100
         },
         {
-          "team": "제주",
-          "url": "https://www.fmkorea.com/10457884882",
+          "team": "KIA",
+          "url": "https://www.fmkorea.com/10457442556",
           "bet": 100
         },
         {
-          "team": "KIA",
-          "url": "https://www.fmkorea.com/10457442556",
+          "team": "제주",
+          "url": "https://www.fmkorea.com/10457884882",
           "bet": 100
         },
         {
@@ -8037,14 +8042,14 @@
           "bet": 100
         },
         {
-          "team": "전북(-0.5)",
-          "url": "https://www.fmkorea.com/10457884882",
-          "bet": 107
-        },
-        {
           "team": "LG (+1.5)",
           "url": "https://www.fmkorea.com/10457442556",
           "bet": 100
+        },
+        {
+          "team": "전북(-0.5)",
+          "url": "https://www.fmkorea.com/10457884882",
+          "bet": 107
         },
         {
           "team": "수상 X",
@@ -8197,13 +8202,13 @@
           "bet": 100
         },
         {
-          "team": "전북(-0.5)",
-          "url": "https://www.fmkorea.com/10457884882",
+          "team": "KIA",
+          "url": "https://www.fmkorea.com/10457442556",
           "bet": 100
         },
         {
-          "team": "KIA",
-          "url": "https://www.fmkorea.com/10457442556",
+          "team": "전북(-0.5)",
+          "url": "https://www.fmkorea.com/10457884882",
           "bet": 100
         },
         {
@@ -8902,14 +8907,14 @@
           "bet": 500
         },
         {
-          "team": "제주",
-          "url": "https://www.fmkorea.com/10457884882",
-          "bet": 5555
-        },
-        {
           "team": "LG (+1.5)",
           "url": "https://www.fmkorea.com/10457442556",
           "bet": 500
+        },
+        {
+          "team": "제주",
+          "url": "https://www.fmkorea.com/10457884882",
+          "bet": 5555
         },
         {
           "team": "수상 X",
@@ -9192,14 +9197,14 @@
           "bet": 500
         },
         {
-          "team": "전북(-0.5)",
-          "url": "https://www.fmkorea.com/10457884882",
-          "bet": 1000
-        },
-        {
           "team": "LG (+1.5)",
           "url": "https://www.fmkorea.com/10457442556",
           "bet": 300
+        },
+        {
+          "team": "전북(-0.5)",
+          "url": "https://www.fmkorea.com/10457884882",
+          "bet": 1000
         },
         {
           "team": "수상 O",
@@ -11397,13 +11402,13 @@
           "bet": 100
         },
         {
-          "team": "제주",
-          "url": "https://www.fmkorea.com/10457884882",
+          "team": "LG (+1.5)",
+          "url": "https://www.fmkorea.com/10457442556",
           "bet": 100
         },
         {
-          "team": "LG (+1.5)",
-          "url": "https://www.fmkorea.com/10457442556",
+          "team": "제주",
+          "url": "https://www.fmkorea.com/10457884882",
           "bet": 100
         },
         {
@@ -11582,13 +11587,13 @@
           "bet": 100
         },
         {
-          "team": "전북(-0.5)",
-          "url": "https://www.fmkorea.com/10457884882",
+          "team": "LG (+1.5)",
+          "url": "https://www.fmkorea.com/10457442556",
           "bet": 100
         },
         {
-          "team": "LG (+1.5)",
-          "url": "https://www.fmkorea.com/10457442556",
+          "team": "전북(-0.5)",
+          "url": "https://www.fmkorea.com/10457884882",
           "bet": 100
         },
         {
@@ -16910,6 +16915,6 @@
     "꼬습노": 42320,
     "자계": 123672
   },
-  "pinnedPointsAt": "2026-10-17T18:39:46.170Z",
-  "ongoingUpdatedAt": "2026-10-17T18:39:46.170Z"
+  "pinnedPointsAt": "2026-10-17T18:39:50.102Z",
+  "ongoingUpdatedAt": "2026-10-17T18:39:50.102Z"
 }
