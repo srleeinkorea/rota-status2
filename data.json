@@ -4347,18 +4347,18 @@
       "url": "https://www.fmkorea.com/10458461584",
       "teamA": "Ub(-3.5)",
       "teamB": "더칭",
-      "countA": 95,
-      "betA": 116584,
-      "countB": 62,
-      "betB": 68097
+      "countA": 96,
+      "betA": 117584,
+      "countB": 63,
+      "betB": 70319
     },
     {
       "title": "PL :: 노팅엄(+0.5) vs 아스날 :: 10/19 00:30 경기",
       "url": "https://www.fmkorea.com/10458574630",
       "teamA": "노팅엄(+0.5)",
       "teamB": "아스날",
-      "countA": 33,
-      "betA": 67029,
+      "countA": 34,
+      "betA": 67320,
       "countB": 80,
       "betB": 631411
     },
@@ -4367,10 +4367,20 @@
       "url": "https://www.fmkorea.com/10458196186",
       "teamA": "리즈(-0.5)",
       "teamB": "맨유",
-      "countA": 62,
-      "betA": 201655,
-      "countB": 172,
-      "betB": 266530
+      "countA": 63,
+      "betA": 203877,
+      "countB": 173,
+      "betB": 268030
+    },
+    {
+      "title": "LOL Worlds 플레이인 :: KC(-2.5) vs MVK :: 10/19 03:00 경기",
+      "url": "https://www.fmkorea.com/10458947148",
+      "teamA": "KC(-2.5)",
+      "teamB": "MVK",
+      "countA": 0,
+      "betA": 0,
+      "countB": 1,
+      "betB": 3000
     },
     {
       "title": "2026 남성 발롱도르 해리 케인 수상 O/X",
@@ -6556,6 +6566,11 @@
           "team": "맨유",
           "url": "https://www.fmkorea.com/10458196186",
           "bet": 3000
+        },
+        {
+          "team": "MVK",
+          "url": "https://www.fmkorea.com/10458947148",
+          "bet": 3000
         }
       ]
     },
@@ -7546,6 +7561,16 @@
           "team": "맨유",
           "url": "https://www.fmkorea.com/10458196186",
           "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "문동주",
+      "picks": [
+        {
+          "team": "더칭",
+          "url": "https://www.fmkorea.com/10458461584",
+          "bet": 2222
         }
       ]
     },
@@ -8750,6 +8775,16 @@
       ]
     },
     {
+      "name": "삼돌2",
+      "picks": [
+        {
+          "team": "리즈(-0.5)",
+          "url": "https://www.fmkorea.com/10458196186",
+          "bet": 2222
+        }
+      ]
+    },
+    {
       "name": "상단무",
       "picks": [
         {
@@ -9896,6 +9931,26 @@
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 4000
+        }
+      ]
+    },
+    {
+      "name": "안정형인간",
+      "picks": [
+        {
+          "team": "Ub(-3.5)",
+          "url": "https://www.fmkorea.com/10458461584",
+          "bet": 1000
+        },
+        {
+          "team": "노팅엄(+0.5)",
+          "url": "https://www.fmkorea.com/10458574630",
+          "bet": 291
+        },
+        {
+          "team": "맨유",
+          "url": "https://www.fmkorea.com/10458196186",
+          "bet": 1500
         }
       ]
     },
@@ -45541,5 +45596,7 @@
     "고인물": 15228852,
     "퀀텀스케이프": 67000
   },
-  "pinnedPointsAt": "2026-10-18T06:11:27.765Z"
+  "pinnedPointsAt": "2026-10-18T06:12:54.438Z",
+  "ongoingUpdatedAt": "2026-10-18T06:12:54.438Z",
+  "ongoingScriptVersion": "5.8"
 }
