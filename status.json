@@ -1,5 +1,12 @@
 {
-  "state": "idle",
-  "dataUpdatedAt": "2026-10-18T09:17:18.773Z",
-  "updatedAt": "2026-10-18T09:17:18.773Z"
+  "state": "running",
+  "windowValue": "7d",
+  "windowLabel": "최근 7일",
+  "minPicks": 100,
+  "startedAt": "2026-10-18T09:13:01.993Z",
+  "phase": "고정 닉네임 잉여력 조회 중",
+  "scriptVersion": "6.1",
+  "processed": 410,
+  "total": 410,
+  "pct": 100
 }
