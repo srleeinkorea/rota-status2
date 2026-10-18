@@ -1,5 +1,12 @@
 {
-  "state": "idle",
-  "dataUpdatedAt": "2026-10-18T08:22:48.604Z",
-  "updatedAt": "2026-10-18T08:22:48.604Z"
+  "state": "running",
+  "windowValue": "3d",
+  "windowLabel": "최근 3일",
+  "minPicks": 3,
+  "startedAt": "2026-10-18T08:22:23.865Z",
+  "phase": "정산 결과 분석 중",
+  "scriptVersion": "6.0",
+  "processed": 117,
+  "total": 177,
+  "pct": 66
 }
