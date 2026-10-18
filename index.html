@@ -73,6 +73,12 @@
   .ongoing-refresh:disabled { color:var(--faint); cursor:not-allowed; }
   .ongoing-refresh.spinning { opacity:.6; }
   .ongoing-updated { color:var(--faint); font-size:11px; font-weight:400; }
+  details.overall > summary {
+    cursor:pointer; list-style:none; user-select:none;
+  }
+  details.overall > summary::-webkit-details-marker { display:none; }
+  details.overall > summary:before { content:'▸'; color:var(--faint); font-size:10px; margin-right:2px; }
+  details.overall[open] > summary:before { content:'▾'; }
   details.sport { margin-top:4px; }
   details.sport > summary {
     cursor:pointer; list-style:none; display:flex; align-items:center; gap:6px; padding:10px 14px;
@@ -425,7 +431,9 @@ function render(data) {
   }
 
   const cond = `${fmtDate(data.generatedAt)} 분석 · ${data.windowLabel || ''} · 최소 ${data.minPicks}건`;
-  html += `<div class="section-title">🏆 종합 승률 랭킹 <span class="count-badge">${data.overall.length}명</span><span class="section-cond">${escapeHtml(cond)}</span></div>`;
+  // 종합 랭킹도 접을 수 있게 (접은 상태는 기억됨)
+  html += `<details class="overall"${isGroupOpen('overall') ? ' open' : ''}>`
+        + `<summary class="section-title">🏆 종합 승률 랭킹 <span class="count-badge">${data.overall.length}명</span><span class="section-cond">${escapeHtml(cond)}</span></summary>`;
   if (!data.overall || data.overall.length === 0) {
     html += `<div class="muted">데이터가 없습니다.</div>`;
   } else {
@@ -433,6 +441,7 @@ function render(data) {
     data.overall.forEach((r, idx) => { html += rowHtml(r, true, idx); });
     html += '</tbody></table></div>';
   }
+  html += '</details>';
 
   const sportNames = Object.keys(data.sports || {});
   if (sportNames.length) {
@@ -451,6 +460,8 @@ function render(data) {
   // 사용자가 직접 접거나 펼친 상태를 기억해둔다 (결과가 갱신돼 다시 그려져도 유지되도록)
   const ongoingEl = document.getElementById('jsa-ongoing');
   if (ongoingEl) ongoingEl.addEventListener('toggle', () => setOngoingOpen(ongoingEl.open));
+  const overallEl = contentEl.querySelector('details.overall');
+  if (overallEl) overallEl.addEventListener('toggle', () => setGroupOpen('overall', overallEl.open));
   const refreshBtn = document.getElementById('jsa-ongoing-refresh');
   if (refreshBtn) {
     refreshBtn.addEventListener('click', (e) => {
