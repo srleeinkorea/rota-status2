@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.8
+// @version      5.9
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.8';
+  const SCRIPT_VERSION = '5.9';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -112,6 +112,8 @@
 
   // 종목 분류 (제목 키워드 기반, 필요시 자유롭게 추가/수정)
   const SPORT_RULES = [
+    // 3x3은 일반 농구와 경기 양상이 달라 따로 집계한다. 다른 농구 규칙보다 앞에 둬야 한다.
+    [/3\s*x\s*3|3대3/i, '3x3 농구(FIBA)'],
     [/ETTU|탁구/, '탁구(ETTU)'],
     [/BWF|배드민턴/, '배드민턴(BWF)'],
     [/AFC\s*CL|챔피언스리그 엘리트/, '축구(AFC CL)'],
@@ -977,6 +979,9 @@
 
   const OVERALL_TOP_DEFAULT = 10;
   const SPORT_TOP = 3;
+  // 종목별로 더 많이 보고 싶은 경우 여기에 인원을 지정한다 (요청: 3x3은 5~10명)
+  const SPORT_TOP_OVERRIDES = { '3x3 농구(FIBA)': 10 };
+  function sportTopFor(sport) { return SPORT_TOP_OVERRIDES[sport] || SPORT_TOP; }
   const RANK_MEDAL = ['r1', 'r2', 'r3'];
 
   const PICKS_SHOWN = 6;
@@ -1046,7 +1051,7 @@
     for (const [sport, arr] of bySport.entries()) {
       html += `<div class="jsa-sport-header">${escapeHtml(sport)} <span class="jsa-count-badge">${arr.length}명</span></div>`;
       html += '<div class="jsa-card"><table class="jsa-table"><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th></tr></thead><tbody>';
-      arr.slice(0, SPORT_TOP).forEach((r, idx) => { html += rowHtml(r, false, idx); });
+      arr.slice(0, sportTopFor(sport)).forEach((r, idx) => { html += rowHtml(r, false, idx); });
       html += '</tbody></table></div>';
     }
     html += '</div></details>';
@@ -1124,7 +1129,7 @@
     }));
     const sportsSlim = {};
     for (const [sport, arr] of bySport.entries()) {
-      sportsSlim[sport] = arr.slice(0, SPORT_TOP).map((r) => ({
+      sportsSlim[sport] = arr.slice(0, sportTopFor(sport)).map((r) => ({
         name: r.name, win: r.win, lose: r.lose, total: r.total, rate: Math.round(r.rate * 10) / 10,
       }));
     }
