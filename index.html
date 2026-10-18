@@ -416,7 +416,19 @@ function render(data) {
   metaEl.textContent = `${fmtDate(data.generatedAt)} 기준 · ${data.windowLabel || ''} · 최소 ${data.minPicks}건 · 참여자 ${data.totalParticipants}명${ongoingPart}${verPart}`;
 
   let html = '';
-  const matches = data.ongoingMatches || [];
+  const matchStartTs = (title) => {
+    const m = (title || '').match(/(\d{1,2})\/(\d{1,2})\s+(\d{1,2}):(\d{2})\s*경기/);
+    if (!m) return Infinity;
+    const now = new Date();
+    let dt = new Date(now.getFullYear(), +m[1] - 1, +m[2], +m[3], +m[4]);
+    if (dt.getTime() - now.getTime() > 180 * 24 * 3600 * 1000) dt = new Date(now.getFullYear() - 1, +m[1] - 1, +m[2], +m[3], +m[4]);
+    return dt.getTime();
+  };
+  const matches = (data.ongoingMatches || []).slice().sort((a, b) => {
+    const d = matchStartTs(a.title) - matchStartTs(b.title);
+    if (d !== 0 && Number.isFinite(d)) return d;
+    return (a.title || '').localeCompare(b.title || '', 'ko');
+  });
   if (matches.length) {
     // 접기/펼치기 상태는 localStorage에 기억해서, 새로고침하거나 결과가 갱신돼도 유지된다.
     const openAttr = isOngoingOpen() ? ' open' : '';
@@ -443,12 +455,28 @@ function render(data) {
   }
   html += '</details>';
 
+  const SPORT_ICONS = [
+    [/축구|K리그|EPL|라리가|분데스|세리에|리그1|MLS|UCL|UEL|UECL|AFC|J리그|ISL|EFL|에레디비시|프리메이라|A리그|국가대표/, '⚽'],
+    [/배구|KOVO|FIVB|VNL/, '🏐'],
+    [/야구|MLB|KBO|NPB/, '⚾'],
+    [/농구|NBA|KBL|CBA|3x3/i, '🏀'],
+    [/미식축구|NFL/, '🏈'],
+    [/아이스하키|NHL|IIHF/, '🏒'],
+    [/테니스|WTA|ATP/, '🎾'],
+    [/탁구|ETTU/, '🏓'],
+    [/배드민턴|BWF/, '🏸'],
+    [/LOL|발로란트|VCT|스타크래프트/i, '🎮'],
+  ];
+  function sportIcon(sport) {
+    for (const [re, ic] of SPORT_ICONS) { if (re.test(sport)) return ic; }
+    return '🎯';
+  }
   const sportNames = Object.keys(data.sports || {});
   if (sportNames.length) {
     html += `<details class="sport"><summary>⚽ 종목별 랭킹 <span class="count-badge">${sportNames.length}개 종목</span></summary><div class="sport-card">`;
     for (const sport of sportNames) {
       const arr = data.sports[sport];
-      html += `<div class="sport-header">${escapeHtml(sport)} <span class="count-badge">${arr.length}명</span></div>`;
+      html += `<div class="sport-header">${sportIcon(sport)} ${escapeHtml(sport)} <span class="count-badge">${arr.length}명</span></div>`;
       html += '<div class="card"><table><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th><th>진행중인 베팅</th></tr></thead><tbody>';
       arr.forEach((r, idx) => { html += rowHtml(r, false, idx, true); });
       html += '</tbody></table></div>';
