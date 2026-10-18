@@ -1,12 +1,12 @@
 {
   "state": "running",
-  "windowValue": "7d",
-  "windowLabel": "최근 7일",
-  "minPicks": 100,
-  "startedAt": "2026-10-18T09:13:01.993Z",
-  "phase": "정산 결과 분석 중",
-  "scriptVersion": "6.1",
-  "processed": 387,
-  "total": 410,
-  "pct": 94
+  "windowValue": "today",
+  "windowLabel": "오늘",
+  "minPicks": 4,
+  "startedAt": "2026-10-18T09:16:42.411Z",
+  "phase": "고정 닉네임 잉여력 조회 중",
+  "scriptVersion": "6.2",
+  "processed": 29,
+  "total": 29,
+  "pct": 100
 }
