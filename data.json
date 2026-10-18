@@ -1869,7 +1869,33 @@
       "totalBet": 1500,
       "totalPayout": 2519,
       "profit": 1019,
-      "picks": []
+      "picks": [
+        {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 300
+        },
+        {
+          "team": "리즈(-0.5)",
+          "url": "https://www.fmkorea.com/10458196186",
+          "bet": 300
+        },
+        {
+          "team": "KC(-2.5)",
+          "url": "https://www.fmkorea.com/10458947148",
+          "bet": 200
+        },
+        {
+          "team": "브라이튼(-1.5)",
+          "url": "https://www.fmkorea.com/10459206661",
+          "bet": 450
+        },
+        {
+          "team": "아스날",
+          "url": "https://www.fmkorea.com/10458574630",
+          "bet": 500
+        }
+      ]
     },
     {
       "name": "주주대주주",
@@ -1980,6 +2006,11 @@
       "profit": 747,
       "picks": [
         {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 100
+        },
+        {
           "team": "상하이(-0.5)",
           "url": "https://www.fmkorea.com/10459154486",
           "bet": 100
@@ -1992,6 +2023,11 @@
         {
           "team": "KC(-2.5)",
           "url": "https://www.fmkorea.com/10458947148",
+          "bet": 100
+        },
+        {
+          "team": "브라이튼(-1.5)",
+          "url": "https://www.fmkorea.com/10459206661",
           "bet": 100
         },
         {
@@ -3101,6 +3137,11 @@
       "profit": 571,
       "picks": [
         {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 100
+        },
+        {
           "team": "상하이(-0.5)",
           "url": "https://www.fmkorea.com/10459154486",
           "bet": 100
@@ -3946,7 +3987,13 @@
       "totalBet": 8153,
       "totalPayout": 9549,
       "profit": 1396,
-      "picks": []
+      "picks": [
+        {
+          "team": "레체",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 3826
+        }
+      ]
     },
     {
       "name": "신보람",
@@ -4473,6 +4520,11 @@
       "profit": 208,
       "picks": [
         {
+          "team": "리즈(-0.5)",
+          "url": "https://www.fmkorea.com/10458196186",
+          "bet": 500
+        },
+        {
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 500
@@ -4842,18 +4894,18 @@
       "url": "https://www.fmkorea.com/10459219967",
       "teamA": "우디네세 (-0.5)",
       "teamB": "레체",
-      "countA": 5,
-      "betA": 500,
-      "countB": 4,
-      "betB": 80977
+      "countA": 12,
+      "betA": 1744,
+      "countB": 7,
+      "betB": 86914
     },
     {
       "title": "FIBA 3x3 월드투어 마카오 :: 상하이(-0.5) vs 타이베이 완바오 :: 10/18 17:10 경기",
       "url": "https://www.fmkorea.com/10459154486",
       "teamA": "상하이(-0.5)",
       "teamB": "타이베이 완바오",
-      "countA": 71,
-      "betA": 62900,
+      "countA": 77,
+      "betA": 69750,
       "countB": 34,
       "betB": 42098
     },
@@ -4862,30 +4914,30 @@
       "url": "https://www.fmkorea.com/10458196186",
       "teamA": "리즈(-0.5)",
       "teamB": "맨유",
-      "countA": 91,
-      "betA": 220757,
-      "countB": 226,
-      "betB": 455909
+      "countA": 93,
+      "betA": 221557,
+      "countB": 227,
+      "betB": 456009
     },
     {
       "title": "LOL Worlds 플레이인 :: KC(-2.5) vs MVK :: 10/19 03:00 경기",
       "url": "https://www.fmkorea.com/10458947148",
       "teamA": "KC(-2.5)",
       "teamB": "MVK",
-      "countA": 32,
-      "betA": 15425,
-      "countB": 50,
-      "betB": 34632
+      "countA": 34,
+      "betA": 15752,
+      "countB": 52,
+      "betB": 35065
     },
     {
       "title": "PL :: 브라이튼(-1.5) vs 크리스탈 팰리스 :: 10/18 22:00 경기",
       "url": "https://www.fmkorea.com/10459206661",
       "teamA": "브라이튼(-1.5)",
       "teamB": "크리스탈 팰리스",
-      "countA": 8,
-      "betA": 2221,
-      "countB": 13,
-      "betB": 85837
+      "countA": 11,
+      "betA": 2871,
+      "countB": 16,
+      "betB": 88048
     },
     {
       "title": "PL :: 노팅엄(+0.5) vs 아스날 :: 10/19 00:30 경기",
@@ -4894,16 +4946,16 @@
       "teamB": "아스날",
       "countA": 54,
       "betA": 1091419,
-      "countB": 131,
-      "betB": 761590
+      "countB": 134,
+      "betB": 762745
     },
     {
       "title": "2026 남성 발롱도르 해리 케인 수상 O/X",
       "url": "https://www.fmkorea.com/10451711238",
       "teamA": "수상 O",
       "teamB": "수상 X",
-      "countA": 477,
-      "betA": 1398886,
+      "countA": 478,
+      "betA": 1398986,
       "countB": 283,
       "betB": 363818
     }
@@ -5647,6 +5699,11 @@
     {
       "name": "공범",
       "picks": [
+        {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 100
+        },
         {
           "team": "상하이(-0.5)",
           "url": "https://www.fmkorea.com/10459154486",
@@ -6855,6 +6912,16 @@
       ]
     },
     {
+      "name": "달해가꾸는꿈",
+      "picks": [
+        {
+          "team": "KC(-2.5)",
+          "url": "https://www.fmkorea.com/10458947148",
+          "bet": 127
+        }
+      ]
+    },
+    {
       "name": "닭밹숙",
       "picks": [
         {
@@ -6943,8 +7010,18 @@
       "name": "대치",
       "picks": [
         {
+          "team": "레체",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 1000
+        },
+        {
           "team": "맨유",
           "url": "https://www.fmkorea.com/10458196186",
+          "bet": 1000
+        },
+        {
+          "team": "크리스탈 팰리스",
+          "url": "https://www.fmkorea.com/10459206661",
           "bet": 1000
         }
       ]
@@ -8370,6 +8447,16 @@
       ]
     },
     {
+      "name": "모녀덮밥",
+      "picks": [
+        {
+          "team": "상하이(-0.5)",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 700
+        }
+      ]
+    },
+    {
       "name": "모리셔스맨",
       "picks": [
         {
@@ -8441,6 +8528,16 @@
           "team": "아스날",
           "url": "https://www.fmkorea.com/10458574630",
           "bet": 500
+        }
+      ]
+    },
+    {
+      "name": "무리타",
+      "picks": [
+        {
+          "team": "상하이(-0.5)",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 2330
         }
       ]
     },
@@ -8903,6 +9000,11 @@
       "name": "방황하는자",
       "picks": [
         {
+          "team": "리즈(-0.5)",
+          "url": "https://www.fmkorea.com/10458196186",
+          "bet": 500
+        },
+        {
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 500
@@ -9098,6 +9200,11 @@
       "name": "변리사",
       "picks": [
         {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 444
+        },
+        {
           "team": "타이베이 완바오",
           "url": "https://www.fmkorea.com/10459154486",
           "bet": 444
@@ -9126,6 +9233,16 @@
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 2000
+        }
+      ]
+    },
+    {
+      "name": "병만",
+      "picks": [
+        {
+          "team": "상하이(-0.5)",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 1043
         }
       ]
     },
@@ -10023,8 +10140,18 @@
       "name": "세트카",
       "picks": [
         {
+          "team": "레체",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 1111
+        },
+        {
           "team": "맨유",
           "url": "https://www.fmkorea.com/10458196186",
+          "bet": 1111
+        },
+        {
+          "team": "크리스탈 팰리스",
+          "url": "https://www.fmkorea.com/10459206661",
           "bet": 1111
         },
         {
@@ -10318,6 +10445,11 @@
       "name": "수원삼성박지원",
       "picks": [
         {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 100
+        },
+        {
           "team": "상하이(-0.5)",
           "url": "https://www.fmkorea.com/10459154486",
           "bet": 100
@@ -10330,6 +10462,11 @@
         {
           "team": "KC(-2.5)",
           "url": "https://www.fmkorea.com/10458947148",
+          "bet": 100
+        },
+        {
+          "team": "브라이튼(-1.5)",
+          "url": "https://www.fmkorea.com/10459206661",
           "bet": 100
         },
         {
@@ -10605,6 +10742,16 @@
       ]
     },
     {
+      "name": "시눅크",
+      "picks": [
+        {
+          "team": "수상 O",
+          "url": "https://www.fmkorea.com/10451711238",
+          "bet": 100
+        }
+      ]
+    },
+    {
       "name": "시스템오디오",
       "picks": [
         {
@@ -10645,6 +10792,21 @@
         {
           "team": "리즈(-0.5)",
           "url": "https://www.fmkorea.com/10458196186",
+          "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "신숭겸",
+      "picks": [
+        {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 100
+        },
+        {
+          "team": "브라이튼(-1.5)",
+          "url": "https://www.fmkorea.com/10459206661",
           "bet": 100
         }
       ]
@@ -11810,6 +11972,36 @@
       ]
     },
     {
+      "name": "오른처럼든든하게",
+      "picks": [
+        {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 100
+        },
+        {
+          "team": "맨유",
+          "url": "https://www.fmkorea.com/10458196186",
+          "bet": 100
+        },
+        {
+          "team": "MVK",
+          "url": "https://www.fmkorea.com/10458947148",
+          "bet": 100
+        },
+        {
+          "team": "크리스탈 팰리스",
+          "url": "https://www.fmkorea.com/10459206661",
+          "bet": 100
+        },
+        {
+          "team": "아스날",
+          "url": "https://www.fmkorea.com/10458574630",
+          "bet": 100
+        }
+      ]
+    },
+    {
       "name": "오리기",
       "picks": [
         {
@@ -12225,12 +12417,37 @@
       ]
     },
     {
+      "name": "원상현",
+      "picks": [
+        {
+          "team": "레체",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 3826
+        }
+      ]
+    },
+    {
       "name": "원천호수",
       "picks": [
+        {
+          "team": "상하이(-0.5)",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 555
+        },
         {
           "team": "맨유",
           "url": "https://www.fmkorea.com/10458196186",
           "bet": 663
+        },
+        {
+          "team": "MVK",
+          "url": "https://www.fmkorea.com/10458947148",
+          "bet": 333
+        },
+        {
+          "team": "아스날",
+          "url": "https://www.fmkorea.com/10458574630",
+          "bet": 555
         },
         {
           "team": "수상 O",
@@ -12951,6 +13168,36 @@
           "team": "KC(-2.5)",
           "url": "https://www.fmkorea.com/10458947148",
           "bet": 179
+        }
+      ]
+    },
+    {
+      "name": "자이언츠응원단장",
+      "picks": [
+        {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 300
+        },
+        {
+          "team": "리즈(-0.5)",
+          "url": "https://www.fmkorea.com/10458196186",
+          "bet": 300
+        },
+        {
+          "team": "KC(-2.5)",
+          "url": "https://www.fmkorea.com/10458947148",
+          "bet": 200
+        },
+        {
+          "team": "브라이튼(-1.5)",
+          "url": "https://www.fmkorea.com/10459206661",
+          "bet": 450
+        },
+        {
+          "team": "아스날",
+          "url": "https://www.fmkorea.com/10458574630",
+          "bet": 500
         }
       ]
     },
@@ -14710,6 +14957,16 @@
       ]
     },
     {
+      "name": "턴리버",
+      "picks": [
+        {
+          "team": "상하이(-0.5)",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 1739
+        }
+      ]
+    },
+    {
       "name": "테리우스",
       "picks": [
         {
@@ -15176,6 +15433,16 @@
           "team": "상하이(-0.5)",
           "url": "https://www.fmkorea.com/10459154486",
           "bet": 215
+        }
+      ]
+    },
+    {
+      "name": "푸른빨간색",
+      "picks": [
+        {
+          "team": "상하이(-0.5)",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 483
         }
       ]
     },
@@ -16842,6 +17109,11 @@
     {
       "name": "Lillie",
       "picks": [
+        {
+          "team": "우디네세 (-0.5)",
+          "url": "https://www.fmkorea.com/10459219967",
+          "bet": 100
+        },
         {
           "team": "타이베이 완바오",
           "url": "https://www.fmkorea.com/10459154486",
@@ -37274,7 +37546,7 @@
     "스윙": 261543,
     "퀀텀스케이프": 68760
   },
-  "pinnedPointsAt": "2026-10-18T07:46:48.335Z",
-  "ongoingUpdatedAt": "2026-10-18T07:46:48.335Z",
+  "pinnedPointsAt": "2026-10-18T07:50:15.034Z",
+  "ongoingUpdatedAt": "2026-10-18T07:50:15.034Z",
   "ongoingScriptVersion": "5.8"
 }
