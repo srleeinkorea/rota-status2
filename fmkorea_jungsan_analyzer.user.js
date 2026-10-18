@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      5.9
+// @version      6.1
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '5.9';
+  const SCRIPT_VERSION = '6.1';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -556,7 +556,12 @@
       return r.sports.get(sport);
     }
 
-    for (const { sport, winList, loseList } of allPostResults) {
+    for (const entry of allPostResults) {
+      const { winList, loseList } = entry;
+      // 종목은 캐시에 저장된 값을 쓰지 않고 제목에서 매번 다시 판정한다.
+      // 저장된 값을 쓰면 종목 분류 규칙을 바꿔도(예: 3x3 분리) 이미 캐시된 글들은
+      // 옛 분류('기타')로 남아, 캐시를 통째로 지우기 전까지 반영되지 않는다.
+      const sport = entry.title ? classifySport(entry.title) : (entry.sport || '기타');
       for (const it of winList) {
         const r = rec(it.name);
         r.win++;
@@ -1006,7 +1011,7 @@
     return html;
   }
 
-  function rowHtml(r, withMoney, rankIdx) {
+  function rowHtml(r, withMoney, rankIdx, withPicks) {
     const rankCell = (typeof rankIdx === 'number')
       ? `<td><span class="jsa-rank ${RANK_MEDAL[rankIdx] || ''}">${rankIdx + 1}</span></td>`
       : '';
@@ -1015,12 +1020,23 @@
     if (withMoney) {
       const profitClass = r.profit >= 0 ? 'pos' : 'neg';
       html += `<td class="jsa-money">${numFmt(r.totalBet)}</td><td class="jsa-profit ${profitClass}">${r.profit >= 0 ? '+' : ''}${numFmt(r.profit)}</td><td>${picksHtml(r.picks)}</td>`;
+    } else if (withPicks) {
+      // 종목별 랭킹: 돈 관련 칸은 빼고 "지금 이 종목에 뭘 걸었는지"만 보여준다
+      html += `<td>${picksHtml(r.picks)}</td>`;
     }
     html += '</tr>';
     return html;
   }
 
-  function renderResult(panel, records, minPicks, ongoingPicksMap) {
+  // 진행중인 경기 목록으로 "경기 주소 -> 종목" 표를 만든다. 베팅 항목에는 경기 제목이
+  // 없고 주소만 있어서, 종목별로 추리려면 이 표가 필요하다.
+  function sportByMatchUrl(matches) {
+    const map = {};
+    (matches || []).forEach((m) => { if (m && m.url) map[m.url] = classifySport(m.title || ''); });
+    return map;
+  }
+
+  function renderResult(panel, records, minPicks, ongoingPicksMap, ongoingMatchesForPicks) {
     const resultDiv = panel.querySelector('#jsa-result');
     const overall = overallRanking(records, minPicks);
     const bySport = sportRanking(records, Math.max(2, Math.min(2, minPicks)));
@@ -1048,10 +1064,16 @@
 
     html += `<details class="jsa-sport-accordion"><summary>⚽ 종목별 랭킹 <span class="jsa-count-badge">${bySport.size}개 종목</span></summary>`;
     html += '<div class="jsa-sport-card">';
+    const sportByUrl = sportByMatchUrl(ongoingMatchesForPicks);
     for (const [sport, arr] of bySport.entries()) {
       html += `<div class="jsa-sport-header">${escapeHtml(sport)} <span class="jsa-count-badge">${arr.length}명</span></div>`;
-      html += '<div class="jsa-card"><table class="jsa-table"><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th></tr></thead><tbody>';
-      arr.slice(0, sportTopFor(sport)).forEach((r, idx) => { html += rowHtml(r, false, idx); });
+      html += '<div class="jsa-card"><table class="jsa-table"><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th><th>진행중인 베팅</th></tr></thead><tbody>';
+      arr.slice(0, sportTopFor(sport)).forEach((r, idx) => {
+        // 그 사람의 진행중 베팅 중 이 종목 경기만 추려서 보여준다
+        const all = (ongoingPicksMap && ongoingPicksMap.get(r.name)) || [];
+        r.picks = all.filter((p) => sportByUrl[p.url] === sport);
+        html += rowHtml(r, false, idx, true);
+      });
       html += '</tbody></table></div>';
     }
     html += '</div></details>';
@@ -1128,9 +1150,12 @@
       picks: (ongoingPicksMap && ongoingPicksMap.get(r.name)) || [],
     }));
     const sportsSlim = {};
+    const sportUrlMap = sportByMatchUrl(ongoingMatches);
     for (const [sport, arr] of bySport.entries()) {
       sportsSlim[sport] = arr.slice(0, sportTopFor(sport)).map((r) => ({
         name: r.name, win: r.win, lose: r.lose, total: r.total, rate: Math.round(r.rate * 10) / 10,
+        // 이 종목에 지금 걸어둔 베팅만 추려서 함께 올림
+        picks: ((ongoingPicksMap && ongoingPicksMap.get(r.name)) || []).filter((p) => sportUrlMap[p.url] === sport),
       }));
     }
     const matchesSlim = (ongoingMatches || []).map((m) => ({
@@ -1800,7 +1825,7 @@
 
     job.status = 'done';
     saveJob(job); // 완료 상태도 저장해둬서, 새로고침 후 다시 열었을 때 바로 결과가 보이게 함
-    renderResult(panel, records, job.minPicks, ongoingPicksMap);
+    renderResult(panel, records, job.minPicks, ongoingPicksMap, ongoingMatches);
 
     // 새로 완료된 분석 결과를 GitHub 대시보드용 데이터로 올림 (토큰 미설정 시 조용히 건너뜀)
     reportPhase(job, '결과 업로드 중', { processed: total, total });
@@ -1912,7 +1937,7 @@
       } else if (job.status === 'done' && Array.isArray(job.allPostResults)) {
         const records = aggregate(job.allPostResults);
         const ongoingPicksMap = job.ongoingPicks ? new Map(job.ongoingPicks) : new Map();
-        renderResult(panel, records, job.minPicks || 4, ongoingPicksMap);
+        renderResult(panel, records, job.minPicks || 4, ongoingPicksMap, job.ongoingMatches || []);
       }
     }
   }

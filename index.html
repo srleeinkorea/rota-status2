@@ -335,13 +335,16 @@ function picksHtml(picks, limit) {
   return html;
 }
 
-function rowHtml(r, withMoney, rankIdx) {
+function rowHtml(r, withMoney, rankIdx, withPicks) {
   const medal = ['r1','r2','r3'][rankIdx] || '';
   const rateClass = r.rate >= 70 ? 'high' : 'low';
   let html = `<tr data-jsa-name="${escapeHtml(r.name.toLowerCase())}"><td><span class="rank ${medal}">${rankIdx + 1}</span></td><td class="name">${escapeHtml(r.name)}</td><td><span class="pill">${r.win}승${r.lose}패</span></td><td class="rate ${rateClass}">${fmtPct(r.rate)}</td>`;
   if (withMoney) {
     const profitClass = r.profit >= 0 ? 'pos' : 'neg';
     html += `<td class="money">${numFmt(r.totalBet)}</td><td class="profit ${profitClass}">${r.profit >= 0 ? '+' : ''}${numFmt(r.profit)}</td><td>${picksHtml(r.picks, 6)}</td>`;
+  } else if (withPicks) {
+    // 종목별 랭킹: 그 종목에 지금 걸어둔 베팅만 표시
+    html += `<td>${picksHtml(r.picks, 6)}</td>`;
   }
   html += '</tr>';
   return html;
@@ -437,8 +440,8 @@ function render(data) {
     for (const sport of sportNames) {
       const arr = data.sports[sport];
       html += `<div class="sport-header">${escapeHtml(sport)} <span class="count-badge">${arr.length}명</span></div>`;
-      html += '<div class="card"><table><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th></tr></thead><tbody>';
-      arr.forEach((r, idx) => { html += rowHtml(r, false, idx); });
+      html += '<div class="card"><table><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th><th>진행중인 베팅</th></tr></thead><tbody>';
+      arr.forEach((r, idx) => { html += rowHtml(r, false, idx, true); });
       html += '</tbody></table></div>';
     }
     html += '</div></details>';
