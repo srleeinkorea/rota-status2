@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      6.5
+// @version      6.6
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '6.5';
+  const SCRIPT_VERSION = '6.6';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -676,7 +676,7 @@
   const PANEL_POS_KEY = 'jsa-panel-pos-v1';
   const PANEL_SIZE_KEY = 'jsa-panel-size-v1';
   const PANEL_MIN_WIDTH = 380;
-  const PANEL_MAX_WIDTH = 900;
+  const PANEL_MAX_WIDTH = 1600;
   const PANEL_MIN_HEIGHT = 240;
 
   function injectStyles() {
@@ -835,6 +835,10 @@
     document.head.appendChild(style);
   }
 
+  function vw() { return document.documentElement.clientWidth || window.innerWidth; }
+  function vh() { return document.documentElement.clientHeight || window.innerHeight; }
+  const VIEW_MARGIN = 8;
+
   function makeDraggable(panel, handle) {
     let dragging = false, startX = 0, startY = 0, startLeft = 0, startTop = 0;
 
@@ -856,8 +860,8 @@
       const dx = e.clientX - startX, dy = e.clientY - startY;
       const w = panel.offsetWidth, h = panel.offsetHeight;
       // 패널 전체가 항상 뷰포트 안에 들어오도록 — 일부라도 화면 밖으로 안 나가게 제한
-      const maxLeft = Math.max(0, window.innerWidth - w);
-      const maxTop = Math.max(0, window.innerHeight - h);
+      const maxLeft = Math.max(0, vw() - w - VIEW_MARGIN);
+      const maxTop = Math.max(0, vh() - h - VIEW_MARGIN);
       const newLeft = Math.max(0, Math.min(maxLeft, startLeft + dx));
       const newTop = Math.max(0, Math.min(maxTop, startTop + dy));
       panel.style.left = newLeft + 'px';
@@ -894,8 +898,8 @@
       const rect = panel.getBoundingClientRect();
       const w = rect.width, h = rect.height;
       // 패널이 뷰포트보다 큰 경우(작은 창 등)에는 0에 붙이는 수밖에 없음
-      const maxLeft = Math.max(0, window.innerWidth - w);
-      const maxTop = Math.max(0, window.innerHeight - h);
+      const maxLeft = Math.max(0, vw() - w - VIEW_MARGIN);
+      const maxTop = Math.max(0, vh() - h - VIEW_MARGIN);
       let left = Math.min(Math.max(rect.left, 0), maxLeft);
       let top = Math.min(Math.max(rect.top, 0), maxTop);
       if (left !== rect.left || top !== rect.top) {
@@ -928,12 +932,17 @@
       const dx = e.clientX - startX, dy = e.clientY - startY;
       const rect = panel.getBoundingClientRect();
       // 패널 왼쪽/위쪽 고정 위치 기준으로, 오른쪽/아래쪽이 뷰포트를 넘지 않게 상한을 건다
-      const maxW = Math.min(PANEL_MAX_WIDTH, window.innerWidth - rect.left);
-      const maxH = Math.min(window.innerHeight - 20, window.innerHeight - rect.top);
-      const newW = Math.max(PANEL_MIN_WIDTH, Math.min(maxW, startW + dx));
-      const newH = Math.max(PANEL_MIN_HEIGHT, Math.min(maxH, startH + dy));
+      const availW = Math.max(PANEL_MIN_WIDTH, vw() - VIEW_MARGIN * 2);
+      const availH = Math.max(PANEL_MIN_HEIGHT, vh() - VIEW_MARGIN * 2);
+      const newW = Math.max(PANEL_MIN_WIDTH, Math.min(Math.min(PANEL_MAX_WIDTH, availW), startW + dx));
+      const newH = Math.max(PANEL_MIN_HEIGHT, Math.min(availH, startH + dy));
       panel.style.width = newW + 'px';
       panel.style.height = newH + 'px';
+      panel.style.maxWidth = 'none';
+      const overR = rect.left + newW - (vw() - VIEW_MARGIN);
+      if (overR > 0) { panel.style.right = 'auto'; panel.style.left = Math.max(VIEW_MARGIN, rect.left - overR) + 'px'; }
+      const overB = rect.top + newH - (vh() - VIEW_MARGIN);
+      if (overB > 0) { panel.style.top = Math.max(VIEW_MARGIN, rect.top - overB) + 'px'; }
     }
     function onUp() {
       if (!resizing) return;
@@ -942,6 +951,7 @@
       document.removeEventListener('mouseup', onUp);
       try {
         localStorage.setItem(PANEL_SIZE_KEY, JSON.stringify({ width: panel.style.width, height: panel.style.height }));
+        if (panel.style.left) localStorage.setItem(PANEL_POS_KEY, JSON.stringify({ left: panel.style.left, top: panel.style.top }));
       } catch (e) { /* 저장 실패해도 무시 */ }
     }
     handle.addEventListener('mousedown', onDown);
