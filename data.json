@@ -537,14 +537,14 @@
           "bet": 1234
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 1234
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 555
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 1234
         },
         {
           "team": "화성",
@@ -1383,6 +1383,11 @@
           "bet": 100
         },
         {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 100
+        },
+        {
           "team": "수원삼성(-0.5)",
           "url": "https://www.fmkorea.com/10458019732",
           "bet": 100
@@ -1836,7 +1841,18 @@
       "totalBet": 9657,
       "totalPayout": 12265,
       "profit": 2608,
-      "picks": []
+      "picks": [
+        {
+          "team": "GS칼텍스",
+          "url": "https://www.fmkorea.com/10457706164",
+          "bet": 1000
+        },
+        {
+          "team": "KIA",
+          "url": "https://www.fmkorea.com/10457442556",
+          "bet": 561
+        }
+      ]
     },
     {
       "name": "망고미",
@@ -3032,6 +3048,11 @@
           "bet": 3601
         },
         {
+          "team": "제주",
+          "url": "https://www.fmkorea.com/10457884882",
+          "bet": 1555
+        },
+        {
           "team": "KIA",
           "url": "https://www.fmkorea.com/10457442556",
           "bet": 1666
@@ -3299,7 +3320,7 @@
         {
           "team": "한국도로공사",
           "url": "https://www.fmkorea.com/10457706164",
-          "bet": 2000
+          "bet": 20000
         }
       ]
     },
@@ -3386,13 +3407,13 @@
           "bet": 777
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
+          "team": "서울 SK",
+          "url": "https://www.fmkorea.com/10458284511",
           "bet": 777
         },
         {
-          "team": "서울 SK",
-          "url": "https://www.fmkorea.com/10458284511",
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
           "bet": 777
         },
         {
@@ -4717,7 +4738,13 @@
       "totalBet": 3293,
       "totalPayout": 4061,
       "profit": 768,
-      "picks": []
+      "picks": [
+        {
+          "team": "한국도로공사",
+          "url": "https://www.fmkorea.com/10457706164",
+          "bet": 1234
+        }
+      ]
     },
     {
       "name": "페덱종신",
@@ -4891,7 +4918,7 @@
         {
           "team": "리즈(-0.5)",
           "url": "https://www.fmkorea.com/10458196186",
-          "bet": 100
+          "bet": 500
         },
         {
           "team": "아스날",
@@ -5075,13 +5102,13 @@
           "bet": 100
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
+          "team": "서울 SK",
+          "url": "https://www.fmkorea.com/10458284511",
           "bet": 100
         },
         {
-          "team": "서울 SK",
-          "url": "https://www.fmkorea.com/10458284511",
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
           "bet": 100
         },
         {
@@ -5400,6 +5427,11 @@
         {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
+          "bet": 100
+        },
+        {
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
           "bet": 100
         },
         {
@@ -5909,14 +5941,14 @@
           "bet": 444
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 400
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 444
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 400
         },
         {
           "team": "화성",
@@ -6005,14 +6037,14 @@
           "bet": 100
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 100
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 1000
+        },
+        {
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 100
         },
         {
           "team": "수원삼성(-0.5)",
@@ -6595,10 +6627,10 @@
       "url": "https://www.fmkorea.com/10457706164",
       "teamA": "GS칼텍스",
       "teamB": "한국도로공사",
-      "countA": 148,
-      "betA": 704532,
-      "countB": 187,
-      "betB": 1499838
+      "countA": 149,
+      "betA": 705532,
+      "countB": 189,
+      "betB": 1520072
     },
     {
       "title": "K리그1 :: 전북(-0.5) vs 제주 :: 10/18 14:00 경기",
@@ -6607,8 +6639,8 @@
       "teamB": "제주",
       "countA": 124,
       "betA": 388696,
-      "countB": 167,
-      "betB": 447758
+      "countB": 168,
+      "betB": 449313
     },
     {
       "title": "KBO 준PO #연장포함# :: LG (+1.5) vs KIA :: 10/18 14:00 경기",
@@ -6617,18 +6649,8 @@
       "teamB": "KIA",
       "countA": 206,
       "betA": 2165232,
-      "countB": 320,
-      "betB": 2059107
-    },
-    {
-      "title": "K리그1 :: 대전 (-1.5) vs 광주 :: 10/18 14:00 경기",
-      "url": "https://www.fmkorea.com/10458570247",
-      "teamA": "대전 (-1.5)",
-      "teamB": "광주",
-      "countA": 17,
-      "betA": 13029,
-      "countB": 15,
-      "betB": 13672
+      "countB": 321,
+      "betB": 2059668
     },
     {
       "title": "KBL #연장포함# :: 서울 SK vs 고양 소노 :: 10/18 14:00 경기",
@@ -6637,8 +6659,18 @@
       "teamB": "고양 소노",
       "countA": 82,
       "betA": 100050,
-      "countB": 39,
-      "betB": 219523
+      "countB": 40,
+      "betB": 223310
+    },
+    {
+      "title": "K리그1 :: 대전 (-1.5) vs 광주 :: 10/18 14:00 경기",
+      "url": "https://www.fmkorea.com/10458570247",
+      "teamA": "대전 (-1.5)",
+      "teamB": "광주",
+      "countA": 19,
+      "betA": 14240,
+      "countB": 17,
+      "betB": 14272
     },
     {
       "title": "K리그2 :: 수원삼성(-0.5) vs 화성 :: 10/18 14:00 경기",
@@ -6676,7 +6708,7 @@
       "teamA": "리즈(-0.5)",
       "teamB": "맨유",
       "countA": 36,
-      "betA": 171939,
+      "betA": 172339,
       "countB": 107,
       "betB": 176572
     },
@@ -6828,6 +6860,21 @@
       ]
     },
     {
+      "name": "#카리나",
+      "picks": [
+        {
+          "team": "GS칼텍스",
+          "url": "https://www.fmkorea.com/10457706164",
+          "bet": 1000
+        },
+        {
+          "team": "KIA",
+          "url": "https://www.fmkorea.com/10457442556",
+          "bet": 561
+        }
+      ]
+    },
+    {
       "name": "#해방",
       "picks": [
         {
@@ -6914,6 +6961,11 @@
           "team": "KIA",
           "url": "https://www.fmkorea.com/10457442556",
           "bet": 5555
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 1111
         },
         {
           "team": "수원삼성(-0.5)",
@@ -7046,14 +7098,14 @@
           "bet": 293
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 185
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 181
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 185
         },
         {
           "team": "수원삼성(-0.5)",
@@ -8256,13 +8308,13 @@
           "bet": 777
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
+          "team": "서울 SK",
+          "url": "https://www.fmkorea.com/10458284511",
           "bet": 777
         },
         {
-          "team": "서울 SK",
-          "url": "https://www.fmkorea.com/10458284511",
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
           "bet": 777
         },
         {
@@ -8409,6 +8461,11 @@
           "team": "한국도로공사",
           "url": "https://www.fmkorea.com/10457706164",
           "bet": 3601
+        },
+        {
+          "team": "제주",
+          "url": "https://www.fmkorea.com/10457884882",
+          "bet": 1555
         },
         {
           "team": "KIA",
@@ -10961,6 +11018,11 @@
           "bet": 100
         },
         {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 100
+        },
+        {
           "team": "수원삼성(-0.5)",
           "url": "https://www.fmkorea.com/10458019732",
           "bet": 100
@@ -11851,13 +11913,13 @@
           "bet": 100
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
+          "team": "서울 SK",
+          "url": "https://www.fmkorea.com/10458284511",
           "bet": 100
         },
         {
-          "team": "서울 SK",
-          "url": "https://www.fmkorea.com/10458284511",
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
           "bet": 100
         },
         {
@@ -11936,13 +11998,13 @@
           "bet": 100
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
+          "team": "서울 SK",
+          "url": "https://www.fmkorea.com/10458284511",
           "bet": 100
         },
         {
-          "team": "서울 SK",
-          "url": "https://www.fmkorea.com/10458284511",
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
           "bet": 100
         },
         {
@@ -12753,7 +12815,7 @@
         {
           "team": "리즈(-0.5)",
           "url": "https://www.fmkorea.com/10458196186",
-          "bet": 100
+          "bet": 500
         },
         {
           "team": "아스날",
@@ -13326,14 +13388,14 @@
           "bet": 1234
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 1234
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 555
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 1234
         },
         {
           "team": "화성",
@@ -13731,14 +13793,14 @@
           "bet": 444
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 400
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 444
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 400
         },
         {
           "team": "화성",
@@ -13770,6 +13832,11 @@
     {
       "name": "별빛",
       "picks": [
+        {
+          "team": "한국도로공사",
+          "url": "https://www.fmkorea.com/10457706164",
+          "bet": 1000
+        },
         {
           "team": "광주",
           "url": "https://www.fmkorea.com/10458570247",
@@ -13929,6 +13996,11 @@
           "team": "제주",
           "url": "https://www.fmkorea.com/10457884882",
           "bet": 1500
+        },
+        {
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 500
         }
       ]
     },
@@ -14449,6 +14521,16 @@
           "team": "수원삼성(-0.5)",
           "url": "https://www.fmkorea.com/10458019732",
           "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "ㅃㅃ",
+      "picks": [
+        {
+          "team": "고양 소노",
+          "url": "https://www.fmkorea.com/10458284511",
+          "bet": 3787
         }
       ]
     },
@@ -19073,6 +19155,16 @@
       ]
     },
     {
+      "name": "윤가놈",
+      "picks": [
+        {
+          "team": "한국도로공사",
+          "url": "https://www.fmkorea.com/10457706164",
+          "bet": 1234
+        }
+      ]
+    },
+    {
       "name": "윤다",
       "picks": [
         {
@@ -20051,14 +20143,14 @@
           "bet": 100
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 200
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 100
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 200
         },
         {
           "team": "수원삼성(-0.5)",
@@ -20246,14 +20338,14 @@
           "bet": 5000
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 2000
-        },
-        {
           "team": "고양 소노",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 5000
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 2000
         },
         {
           "team": "화성",
@@ -20736,13 +20828,13 @@
           "bet": 101
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
+          "team": "서울 SK",
+          "url": "https://www.fmkorea.com/10458284511",
           "bet": 101
         },
         {
-          "team": "서울 SK",
-          "url": "https://www.fmkorea.com/10458284511",
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
           "bet": 101
         }
       ]
@@ -21941,14 +22033,14 @@
           "bet": 100
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 1111
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 1000
+        },
+        {
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 1111
         },
         {
           "team": "화성",
@@ -22478,7 +22570,7 @@
         {
           "team": "한국도로공사",
           "url": "https://www.fmkorea.com/10457706164",
-          "bet": 2000
+          "bet": 20000
         }
       ]
     },
@@ -24916,6 +25008,11 @@
           "bet": 100
         },
         {
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 100
+        },
+        {
           "team": "수원삼성(-0.5)",
           "url": "https://www.fmkorea.com/10458019732",
           "bet": 100
@@ -25311,14 +25408,14 @@
           "bet": 1000
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 1033
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 1000
+        },
+        {
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 1033
         },
         {
           "team": "화성",
@@ -26106,13 +26203,13 @@
           "bet": 2189
         },
         {
-          "team": "대전 (-1.5)",
-          "url": "https://www.fmkorea.com/10458570247",
+          "team": "고양 소노",
+          "url": "https://www.fmkorea.com/10458284511",
           "bet": 100
         },
         {
-          "team": "고양 소노",
-          "url": "https://www.fmkorea.com/10458284511",
+          "team": "대전 (-1.5)",
+          "url": "https://www.fmkorea.com/10458570247",
           "bet": 100
         },
         {
@@ -27176,14 +27273,14 @@
           "bet": 100
         },
         {
-          "team": "광주",
-          "url": "https://www.fmkorea.com/10458570247",
-          "bet": 100
-        },
-        {
           "team": "서울 SK",
           "url": "https://www.fmkorea.com/10458284511",
           "bet": 1000
+        },
+        {
+          "team": "광주",
+          "url": "https://www.fmkorea.com/10458570247",
+          "bet": 100
         },
         {
           "team": "수원삼성(-0.5)",
@@ -44172,7 +44269,7 @@
     "스윙": 261541,
     "퀀텀스케이프": 67869
   },
-  "pinnedPointsAt": "2026-10-18T04:04:54.124Z",
-  "ongoingUpdatedAt": "2026-10-18T04:04:54.124Z",
+  "pinnedPointsAt": "2026-10-18T04:05:32.828Z",
+  "ongoingUpdatedAt": "2026-10-18T04:05:32.828Z",
   "ongoingScriptVersion": "5.8"
 }
