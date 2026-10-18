@@ -1,5 +1,8 @@
 {
-  "state": "idle",
-  "dataUpdatedAt": "2026-10-18T09:52:58.303Z",
-  "updatedAt": "2026-10-18T09:53:01.113Z"
+  "state": "running",
+  "windowValue": "7d",
+  "windowLabel": "최근 7일",
+  "minPicks": 3,
+  "startedAt": "2026-10-18T09:53:21.122Z",
+  "scriptVersion": "6.2"
 }
