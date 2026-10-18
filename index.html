@@ -107,6 +107,14 @@
   .match-side .bar-fill { height:100%; background:var(--accent); border-radius:999px; }
   .match-side .stat { font-size:10.5px; color:var(--faint); }
   .match-side .odds { color:var(--win); font-weight:700; }
+  /* 관심 닉네임이 베팅한 쪽만 색으로 표시 */
+  .match-side.picked { background:rgba(81,112,255,.10); border-radius:8px; padding:4px 6px; margin:-4px -2px; box-shadow:inset 0 0 0 1px rgba(81,112,255,.35); }
+  .match-side.picked.rec-only { background:rgba(255,176,32,.10); box-shadow:inset 0 0 0 1px rgba(255,176,32,.38); }
+  .match-side.picked .team { color:#8ea2ff; }
+  .match-side.picked.rec-only .team { color:#ffc04d; }
+  .side-pickers { margin-top:3px; display:flex; flex-wrap:wrap; gap:3px; }
+  .side-picker { font-size:10px; padding:1px 5px; border-radius:999px; background:rgba(81,112,255,.18); color:#b9c4ff; font-weight:700; }
+  .side-picker.rec { background:rgba(255,176,32,.18); color:#ffd08a; }
   .match-vs { color:var(--faint); font-size:10.5px; font-weight:700; }
   .search-box { position:relative; margin:14px 0 20px; }
   .search-box input {
@@ -361,7 +369,42 @@ function oddsFor(sum, side) {
   return (sum / side).toFixed(2);
 }
 
-function matchCardHtml(m) {
+// 관심 닉네임(고정/추천)이 이 경기에서 어느 쪽에 걸었는지 찾아낸다.
+function sidePickers(m, allPicks) {
+  const out = { A: [], B: [] };
+  if (!allPicks) return out;
+  const norm = (x) => (x || '').replace(/\s+/g, '');
+  const a = norm(m.teamA), b = norm(m.teamB);
+  for (const row of allPicks) {
+    const kind = PINNED_SET.has(row.name) ? 'pin' : (REC_SET.has(row.name) ? 'rec' : null);
+    if (!kind) continue;
+    for (const p of row.picks || []) {
+      if (p.url !== m.url) continue;
+      const t = norm(p.team);
+      let side = null;
+      if (t === a) side = 'A'; else if (t === b) side = 'B';
+      else if (a && t.includes(a)) side = 'A'; else if (b && t.includes(b)) side = 'B';
+      else if (t && a.includes(t)) side = 'A'; else if (t && b.includes(t)) side = 'B';
+      if (side) out[side].push({ name: row.name, kind, bet: p.bet });
+    }
+  }
+  return out;
+}
+
+function sideClassAndChips(list) {
+  if (!list.length) return { cls: '', chips: '' };
+  const hasPin = list.some((x) => x.kind === 'pin');
+  const cls = ' picked' + (hasPin ? '' : ' rec-only');
+  const chips = '<div class="side-pickers">' + list.map((x) =>
+    '<span class="side-picker ' + (x.kind === 'rec' ? 'rec' : '') + '">' + escapeHtml(x.name) + (x.bet ? ' ' + numFmt(x.bet) : '') + '</span>'
+  ).join('') + '</div>';
+  return { cls, chips };
+}
+
+function matchCardHtml(m, allPicks) {
+  const pickers = sidePickers(m, allPicks);
+  const sa = sideClassAndChips(pickers.A);
+  const sb = sideClassAndChips(pickers.B);
   const totalA = m.betA || 0, totalB = m.betB || 0;
   const sum = totalA + totalB;
   const pctA = sum > 0 ? Math.round((totalA / sum) * 100) : 50;
@@ -371,16 +414,18 @@ function matchCardHtml(m) {
   return `<a class="match-card" href="${escapeHtml(m.url)}" target="_blank" rel="noopener noreferrer">
     <div class="match-title">${escapeHtml(m.title)}</div>
     <div class="match-sides">
-      <div class="match-side">
+      <div class="match-side${sa.cls}">
         <div class="team">${escapeHtml(m.teamA)}</div>
         <div class="bar-track"><div class="bar-fill" style="width:${pctA}%;"></div></div>
         <div class="stat"><span class="odds">${oddsA}배</span> · ${m.countA || 0}명 · ${numFmt(totalA)}P (${pctA}%)</div>
+        ${sa.chips}
       </div>
       <div class="match-vs">VS</div>
-      <div class="match-side">
+      <div class="match-side${sb.cls}">
         <div class="team">${escapeHtml(m.teamB)}</div>
         <div class="bar-track"><div class="bar-fill" style="width:${pctB}%;"></div></div>
         <div class="stat"><span class="odds">${oddsB}배</span> · ${m.countB || 0}명 · ${numFmt(totalB)}P (${pctB}%)</div>
+        ${sb.chips}
       </div>
     </div>
   </a>`;
@@ -438,7 +483,7 @@ function render(data) {
       + `<button class="ongoing-refresh" id="jsa-ongoing-refresh" title="최신 경기 목록 다시 불러오기">🔄 새로고침</button>`
       + updatedText + `</summary>`;
     html += '<div class="ongoing-body">';
-    matches.forEach((m) => { html += matchCardHtml(m); });
+    matches.forEach((m) => { html += matchCardHtml(m, data.allPicks); });
     html += '</div></details>';
   }
 
@@ -537,6 +582,8 @@ const RECOMMENDED_NAMES = ['이영서', '忠南大學校', '보드보드6kg', '�
 
 // 잉여력 조회 대상은 두 목록을 합친 것
 const ALL_WATCH_NAMES = PINNED_NAMES.concat(RECOMMENDED_NAMES);
+const PINNED_SET = new Set(PINNED_NAMES);
+const REC_SET = new Set(RECOMMENDED_NAMES);
 
 let pinnedRecordByName = new Map();
 let pinnedPicksByName = new Map();
