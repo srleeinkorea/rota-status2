@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      6.3
+// @version      6.4
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '6.3';
+  const SCRIPT_VERSION = '6.4';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -97,7 +97,7 @@
     const hour = parseInt(m[3], 10);
     const minute = parseInt(m[4], 10);
     let dt = new Date(year, month, day, hour, minute);
-    if (dt.getTime() - now.getTime() > 12 * 3600 * 1000) {
+    if (dt.getTime() - now.getTime() > 180 * 24 * 3600 * 1000) {
       dt = new Date(year - 1, month, day, hour, minute); // 연말/연초 경계 보정
     }
     return dt;
@@ -579,6 +579,14 @@
     } catch (e) {
       log('진행중인 경기 목록 조회 실패: ' + e.message);
     }
+    matches.sort((a, b) => {
+      const da = extractMatchStartDate(a.title || '');
+      const db = extractMatchStartDate(b.title || '');
+      if (da && db) return da.getTime() - db.getTime();
+      if (da) return -1;
+      if (db) return 1;
+      return (a.title || '').localeCompare(b.title || '', 'ko');
+    });
     return { map, matches, srlByNick };
   }
 
@@ -1054,6 +1062,23 @@
     return html;
   }
 
+  const SPORT_ICONS = [
+    [/축구|K리그|EPL|라리가|분데스|세리에|리그1|MLS|UCL|UEL|UECL|AFC|J리그|ISL|EFL|에레디비시|프리메이라|A리그|국가대표/, '⚽'],
+    [/배구|KOVO|FIVB|VNL/, '🏐'],
+    [/야구|MLB|KBO|NPB/, '⚾'],
+    [/농구|NBA|KBL|CBA|3x3/i, '🏀'],
+    [/미식축구|NFL/, '🏈'],
+    [/아이스하키|NHL|IIHF/, '🏒'],
+    [/테니스|WTA|ATP/, '🎾'],
+    [/탁구|ETTU/, '🏓'],
+    [/배드민턴|BWF/, '🏸'],
+    [/LOL|발로란트|VCT|스타크래프트/i, '🎮'],
+  ];
+  function sportIcon(sport) {
+    for (const [re, ic] of SPORT_ICONS) { if (re.test(sport)) return ic; }
+    return '🎯';
+  }
+
   function rowHtml(r, withMoney, rankIdx, withPicks) {
     const rankCell = (typeof rankIdx === 'number')
       ? `<td><span class="jsa-rank ${RANK_MEDAL[rankIdx] || ''}">${rankIdx + 1}</span></td>`
@@ -1109,7 +1134,7 @@
     html += '<div class="jsa-sport-card">';
     const sportByUrl = sportByMatchUrl(ongoingMatchesForPicks);
     for (const [sport, arr] of bySport.entries()) {
-      html += `<div class="jsa-sport-header">${escapeHtml(sport)} <span class="jsa-count-badge">${arr.length}명</span></div>`;
+      html += `<div class="jsa-sport-header">${sportIcon(sport)} ${escapeHtml(sport)} <span class="jsa-count-badge">${arr.length}명</span></div>`;
       html += '<div class="jsa-card"><table class="jsa-table"><thead><tr><th></th><th>닉네임</th><th>전적</th><th>승률</th><th>진행중인 베팅</th></tr></thead><tbody>';
       arr.slice(0, sportTopFor(sport)).forEach((r, idx) => {
         // 그 사람의 진행중 베팅 중 이 종목 경기만 추려서 보여준다
