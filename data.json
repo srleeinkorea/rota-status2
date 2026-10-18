@@ -1502,7 +1502,13 @@
       "totalBet": 7136,
       "totalPayout": 6455,
       "profit": -681,
-      "picks": []
+      "picks": [
+        {
+          "team": "타이베이 완바오",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 235
+        }
+      ]
     },
     {
       "name": "방정원스페셜",
@@ -1603,13 +1609,13 @@
       "profit": 5424,
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1000
         }
       ]
@@ -1669,13 +1675,13 @@
       "profit": 394,
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         }
       ]
@@ -2090,14 +2096,14 @@
       "profit": 57965,
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 16000
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 15000
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 16000
         }
       ]
     },
@@ -2143,6 +2149,11 @@
           "team": "암스테르담",
           "url": "https://www.fmkorea.com/10459073592",
           "bet": 300
+        },
+        {
+          "team": "타이베이 완바오",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 269
         }
       ]
     },
@@ -3256,13 +3267,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 500
         },
         {
@@ -3402,13 +3413,13 @@
           "bet": 100
         },
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -3707,14 +3718,14 @@
           "bet": 200
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 300
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 350
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 300
         },
         {
           "team": "부산 KCC",
@@ -4632,28 +4643,28 @@
       "teamB": "암스테르담",
       "countA": 59,
       "betA": 151500,
-      "countB": 84,
-      "betB": 154334
-    },
-    {
-      "title": "K리그2 :: 부산(-0.5) vs 전남 :: 10/18 16:30 경기",
-      "url": "https://www.fmkorea.com/10459080204",
-      "teamA": "부산(-0.5)",
-      "teamB": "전남",
-      "countA": 88,
-      "betA": 117229,
-      "countB": 32,
-      "betB": 128658
+      "countB": 87,
+      "betB": 209105
     },
     {
       "title": "K리그1 :: 서울(-1.5) vs 김천 :: 10/18 16:30 경기",
       "url": "https://www.fmkorea.com/10459116943",
       "teamA": "서울(-1.5)",
       "teamB": "김천",
-      "countA": 52,
-      "betA": 99306,
-      "countB": 84,
-      "betB": 123763
+      "countA": 53,
+      "betA": 104306,
+      "countB": 85,
+      "betB": 124985
+    },
+    {
+      "title": "K리그2 :: 부산(-0.5) vs 전남 :: 10/18 16:30 경기",
+      "url": "https://www.fmkorea.com/10459080204",
+      "teamA": "부산(-0.5)",
+      "teamB": "전남",
+      "countA": 89,
+      "betA": 119729,
+      "countB": 32,
+      "betB": 128658
     },
     {
       "title": "FIBA 3x3 월드투어 마카오 :: 상하이(-0.5) vs 타이베이 완바오 :: 10/18 17:10 경기",
@@ -4662,8 +4673,8 @@
       "teamB": "타이베이 완바오",
       "countA": 13,
       "betA": 5664,
-      "countB": 6,
-      "betB": 1600
+      "countB": 9,
+      "betB": 2548
     },
     {
       "title": "KBL :: 안양 정관장 (-5.5) vs 부산 KCC :: 10/18 16:30 경기",
@@ -4672,8 +4683,8 @@
       "teamB": "부산 KCC",
       "countA": 50,
       "betA": 104204,
-      "countB": 55,
-      "betB": 102819
+      "countB": 57,
+      "betB": 115284
     },
     {
       "title": "PL :: 리즈(-0.5) vs 맨유 :: 10/18 22:00 경기",
@@ -4771,13 +4782,13 @@
       "name": "[SSS]김채연",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 222
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 222
         },
         {
@@ -4816,13 +4827,13 @@
           "bet": 510
         },
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 500
         },
         {
@@ -4891,14 +4902,14 @@
       "name": "0114",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 5555
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 11111
+        },
+        {
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 5555
         }
       ]
     },
@@ -4961,13 +4972,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -5016,14 +5027,14 @@
           "bet": 208
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 186
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 215
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 186
         },
         {
           "team": "부산 KCC",
@@ -5306,13 +5317,13 @@
           "bet": 1000
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1000
         },
         {
@@ -5471,13 +5482,13 @@
           "bet": 500
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 500
         },
         {
@@ -5691,13 +5702,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -5736,13 +5747,13 @@
       "name": "공지따개",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1000
         },
         {
@@ -5921,13 +5932,13 @@
       "name": "구원의서",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 777
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 777
         },
         {
@@ -6036,13 +6047,13 @@
           "bet": 1000
         },
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1000
         },
         {
@@ -6136,14 +6147,14 @@
       "name": "그린기티스",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 222
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 333
+        },
+        {
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 222
         },
         {
           "team": "수상 X",
@@ -6496,14 +6507,14 @@
       "name": "낑낑용의오답노트",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 444
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 333
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 444
         }
       ]
     },
@@ -6646,13 +6657,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -7373,6 +7384,16 @@
       ]
     },
     {
+      "name": "동네",
+      "picks": [
+        {
+          "team": "암스테르담",
+          "url": "https://www.fmkorea.com/10459073592",
+          "bet": 1653
+        }
+      ]
+    },
+    {
       "name": "동네촌닭",
       "picks": [
         {
@@ -7386,14 +7407,14 @@
       "name": "동재앙",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 500
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
+        },
+        {
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 500
         },
         {
           "team": "수상 X",
@@ -7461,13 +7482,13 @@
       "name": "두부사마",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -7616,13 +7637,13 @@
           "bet": 3000
         },
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 3000
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 3000
         },
         {
@@ -7656,14 +7677,14 @@
           "bet": 200
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 100
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 300
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 100
         },
         {
           "team": "안양 정관장 (-5.5)",
@@ -7736,13 +7757,13 @@
       "name": "똑똑한똥강아지",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 555
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 555
         },
         {
@@ -7941,14 +7962,14 @@
           "bet": 600
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 506
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 506
         },
         {
           "team": "수상 O",
@@ -8041,13 +8062,13 @@
       "name": "로바로스",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         }
       ]
@@ -8066,14 +8087,14 @@
       "name": "로키",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 500
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 3000
+        },
+        {
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 500
         },
         {
           "team": "부산 KCC",
@@ -8154,6 +8175,16 @@
           "team": "리즈(-0.5)",
           "url": "https://www.fmkorea.com/10458196186",
           "bet": 1900
+        }
+      ]
+    },
+    {
+      "name": "루테란",
+      "picks": [
+        {
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
+          "bet": 5000
         }
       ]
     },
@@ -8496,13 +8527,13 @@
           "bet": 100
         },
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -8741,14 +8772,14 @@
       "name": "맹호락지세",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 100
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 200
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 100
         },
         {
           "team": "수상 X",
@@ -8851,13 +8882,13 @@
       "name": "모모",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 9999
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 9999
         }
       ]
@@ -8878,7 +8909,7 @@
         {
           "team": "암스테르담",
           "url": "https://www.fmkorea.com/10459073592",
-          "bet": 100
+          "bet": 2000
         },
         {
           "team": "수상 O",
@@ -8916,13 +8947,13 @@
           "bet": 567
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 567
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 567
         },
         {
@@ -8991,13 +9022,13 @@
       "name": "무릉도원좌",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 200
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 200
         }
       ]
@@ -9236,14 +9267,14 @@
       "name": "미구엘카브레라",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 500
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 500
         }
       ]
     },
@@ -9341,13 +9372,13 @@
       "name": "바나나오렌지",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -9386,13 +9417,13 @@
       "name": "바이아리우",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -9651,13 +9682,13 @@
       "name": "버거몬",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -9771,13 +9802,18 @@
           "bet": 444
         },
         {
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
+          "bet": 444
+        },
+        {
           "team": "부산(-0.5)",
           "url": "https://www.fmkorea.com/10459080204",
           "bet": 444
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "타이베이 완바오",
+          "url": "https://www.fmkorea.com/10459154486",
           "bet": 444
         },
         {
@@ -9831,13 +9867,13 @@
       "name": "병목안새마을양지",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         }
       ]
@@ -9881,13 +9917,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -10146,14 +10182,14 @@
           "bet": 200
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 300
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 350
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 300
         },
         {
           "team": "부산 KCC",
@@ -10366,14 +10402,14 @@
       "name": "빌레로",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 200
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 250
+        },
+        {
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 200
         },
         {
           "team": "부산 KCC",
@@ -10641,13 +10677,13 @@
           "bet": 1000
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 500
         },
         {
@@ -10806,14 +10842,14 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 1000
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 1000
         },
         {
           "team": "상하이(-0.5)",
@@ -10951,13 +10987,13 @@
       "name": "세트카",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1111
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1111
         },
         {
@@ -11121,14 +11157,14 @@
       "name": "손나은",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 2982
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 1867
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 2982
         },
         {
           "team": "부산 KCC",
@@ -11296,13 +11332,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -11341,14 +11377,14 @@
       "name": "수원의효정리",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 432
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 200
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 432
         },
         {
           "team": "리즈(-0.5)",
@@ -11836,16 +11872,6 @@
       "name": "아니근데시환아",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 300
-        },
-        {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 100
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
@@ -11854,6 +11880,16 @@
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 300
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 300
+        },
+        {
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 100
         },
         {
           "team": "안양 정관장 (-5.5)",
@@ -12341,13 +12377,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -12676,13 +12712,13 @@
       "name": "에스파리나",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 2222
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 2222
         },
         {
@@ -13066,14 +13102,14 @@
           "bet": 333
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 3000
-        },
-        {
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 10000
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 3000
         }
       ]
     },
@@ -13096,14 +13132,14 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 200
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 377
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 200
         }
       ]
     },
@@ -13546,13 +13582,13 @@
           "bet": 777
         },
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 777
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 777
         },
         {
@@ -13714,6 +13750,16 @@
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 994
+        }
+      ]
+    },
+    {
+      "name": "이대로못간다",
+      "picks": [
+        {
+          "team": "암스테르담",
+          "url": "https://www.fmkorea.com/10459073592",
+          "bet": 1082
         }
       ]
     },
@@ -14121,13 +14167,13 @@
           "bet": 200
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -14186,13 +14232,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -14224,6 +14270,16 @@
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 1862
+        }
+      ]
+    },
+    {
+      "name": "잉하킹",
+      "picks": [
+        {
+          "team": "암스테르담",
+          "url": "https://www.fmkorea.com/10459073592",
+          "bet": 50000
         }
       ]
     },
@@ -14316,13 +14372,13 @@
       "name": "작은별이야기",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -14396,13 +14452,18 @@
       "name": "장래희망망개",
       "picks": [
         {
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
+          "bet": 12345
+        },
+        {
           "team": "전남",
           "url": "https://www.fmkorea.com/10459080204",
           "bet": 12345
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산 KCC",
+          "url": "https://www.fmkorea.com/10459124861",
           "bet": 12345
         }
       ]
@@ -14421,13 +14482,13 @@
       "name": "장우",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1111
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1111
         },
         {
@@ -14461,13 +14522,13 @@
       "name": "장카설유_",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 2000
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 2000
         },
         {
@@ -14761,14 +14822,14 @@
       "name": "조폭",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 16000
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 15000
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 16000
         }
       ]
     },
@@ -15201,13 +15262,13 @@
       "name": "찰랑찰랑홀란드",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1000
         }
       ]
@@ -15326,13 +15387,13 @@
       "name": "첼시냐지국이냐",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 500
         },
         {
@@ -15356,6 +15417,11 @@
       "name": "초능력",
       "picks": [
         {
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
+          "bet": 7777
+        },
+        {
           "team": "부산(-0.5)",
           "url": "https://www.fmkorea.com/10459080204",
           "bet": 1111
@@ -15364,11 +15430,6 @@
           "team": "전남",
           "url": "https://www.fmkorea.com/10459080204",
           "bet": 11111
-        },
-        {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
-          "bet": 7777
         },
         {
           "team": "부산 KCC",
@@ -15514,6 +15575,16 @@
           "team": "전남",
           "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "추억",
+      "picks": [
+        {
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
+          "bet": 1000
         }
       ]
     },
@@ -15741,13 +15812,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -15891,13 +15962,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 500
         },
         {
@@ -16116,13 +16187,13 @@
           "bet": 2000
         },
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 2000
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 2000
         },
         {
@@ -16196,13 +16267,13 @@
       "name": "킹년은다르다",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 500
         }
       ]
@@ -16381,14 +16452,14 @@
       "name": "토로통통팡이",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 1250
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 1999
+        },
+        {
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 1250
         }
       ]
     },
@@ -16759,6 +16830,11 @@
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 274
+        },
+        {
+          "team": "부산 KCC",
+          "url": "https://www.fmkorea.com/10459124861",
+          "bet": 120
         }
       ]
     },
@@ -16776,13 +16852,13 @@
       "name": "포크킹",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 500
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 500
         },
         {
@@ -16858,7 +16934,7 @@
         {
           "team": "암스테르담",
           "url": "https://www.fmkorea.com/10459073592",
-          "bet": 214
+          "bet": 350
         }
       ]
     },
@@ -16986,13 +17062,13 @@
       "name": "피찌카토",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         }
       ]
@@ -17076,14 +17152,14 @@
       "name": "하이원아레나",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
-          "bet": 300
-        },
-        {
           "team": "김천",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 239
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 300
         }
       ]
     },
@@ -17146,13 +17222,13 @@
           "bet": 123
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -17221,14 +17297,14 @@
       "name": "한국항공우주",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 555
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
-          "bet": 333
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 555
         },
         {
           "team": "안양 정관장 (-5.5)",
@@ -17369,6 +17445,11 @@
           "team": "암스테르담",
           "url": "https://www.fmkorea.com/10459073592",
           "bet": 300
+        },
+        {
+          "team": "타이베이 완바오",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 269
         }
       ]
     },
@@ -17836,13 +17917,13 @@
       "name": "blueshot",
       "picks": [
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 111
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 111
         },
         {
@@ -17881,13 +17962,13 @@
           "bet": 100
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -18311,13 +18392,13 @@
       "name": "GottaGo",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -18551,13 +18632,13 @@
           "bet": 5000
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1000
         },
         {
@@ -18791,13 +18872,13 @@
           "bet": 100
         },
         {
-          "team": "전남",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 100
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "전남",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 100
         },
         {
@@ -18846,13 +18927,13 @@
       "name": "Lovely원이",
       "picks": [
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "서울(-1.5)",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 1000
         },
         {
-          "team": "서울(-1.5)",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 1000
         },
         {
@@ -19684,6 +19765,11 @@
           "team": "서울(-1.5)",
           "url": "https://www.fmkorea.com/10459116943",
           "bet": 2500
+        },
+        {
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
+          "bet": 2500
         }
       ]
     },
@@ -19758,6 +19844,16 @@
       ]
     },
     {
+      "name": "YEOJIN",
+      "picks": [
+        {
+          "team": "타이베이 완바오",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 235
+        }
+      ]
+    },
+    {
       "name": "YH_S2",
       "picks": [
         {
@@ -19766,13 +19862,13 @@
           "bet": 250
         },
         {
-          "team": "부산(-0.5)",
-          "url": "https://www.fmkorea.com/10459080204",
+          "team": "김천",
+          "url": "https://www.fmkorea.com/10459116943",
           "bet": 250
         },
         {
-          "team": "김천",
-          "url": "https://www.fmkorea.com/10459116943",
+          "team": "부산(-0.5)",
+          "url": "https://www.fmkorea.com/10459080204",
           "bet": 250
         },
         {
@@ -49869,7 +49965,7 @@
     "고인물": 15151075,
     "퀀텀스케이프": 68760
   },
-  "pinnedPointsAt": "2026-10-18T07:25:05.038Z",
-  "ongoingUpdatedAt": "2026-10-18T07:25:05.038Z",
+  "pinnedPointsAt": "2026-10-18T07:25:24.824Z",
+  "ongoingUpdatedAt": "2026-10-18T07:25:24.824Z",
   "ongoingScriptVersion": "5.8"
 }
