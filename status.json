@@ -2,8 +2,11 @@
   "state": "running",
   "windowValue": "7d",
   "windowLabel": "최근 7일",
-  "minPicks": 10,
-  "startedAt": "2026-10-18T09:16:41.369Z",
-  "phase": "정산 글 목록 가져오는 중",
-  "scriptVersion": "6.2"
+  "minPicks": 100,
+  "startedAt": "2026-10-18T09:13:01.993Z",
+  "phase": "정산 결과 분석 중",
+  "scriptVersion": "6.1",
+  "processed": 351,
+  "total": 410,
+  "pct": 86
 }
