@@ -1,11 +1,11 @@
 {
   "state": "running",
-  "windowValue": "7d",
-  "windowLabel": "최근 7일",
+  "windowValue": "24h",
+  "windowLabel": "최근 24시간",
   "minPicks": 3,
-  "startedAt": "2026-10-18T09:53:29.958Z",
+  "startedAt": "2026-10-18T10:37:15.775Z",
   "scriptVersion": "6.2",
-  "processed": 351,
-  "total": 413,
-  "pct": 85
+  "processed": 48,
+  "total": 54,
+  "pct": 89
 }
