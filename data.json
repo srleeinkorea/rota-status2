@@ -1205,7 +1205,13 @@
       "totalBet": 9964,
       "totalPayout": 12871,
       "profit": 2907,
-      "picks": []
+      "picks": [
+        {
+          "team": "타이베이 완바오",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 6166
+        }
+      ]
     },
     {
       "name": "하얀강아지메로",
@@ -4985,8 +4991,8 @@
       "url": "https://www.fmkorea.com/10459250091",
       "teamA": "마이애미(-3.5)",
       "teamB": "코타이",
-      "countA": 26,
-      "betA": 30660,
+      "countA": 27,
+      "betA": 31659,
       "countB": 14,
       "betB": 15005
     },
@@ -5005,10 +5011,10 @@
       "url": "https://www.fmkorea.com/10459154486",
       "teamA": "상하이(-0.5)",
       "teamB": "타이베이 완바오",
-      "countA": 123,
-      "betA": 245076,
-      "countB": 72,
-      "betB": 121816
+      "countA": 125,
+      "betA": 247716,
+      "countB": 74,
+      "betB": 128182
     },
     {
       "title": "PL :: 브라이튼(-1.5) vs 크리스탈 팰리스 :: 10/18 22:00 경기",
@@ -10618,6 +10624,16 @@
       ]
     },
     {
+      "name": "사탕바구니",
+      "picks": [
+        {
+          "team": "타이베이 완바오",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 6166
+        }
+      ]
+    },
+    {
       "name": "司憲府",
       "picks": [
         {
@@ -10725,6 +10741,11 @@
     {
       "name": "상큼",
       "picks": [
+        {
+          "team": "마이애미(-3.5)",
+          "url": "https://www.fmkorea.com/10459250091",
+          "bet": 999
+        },
         {
           "team": "타이베이 완바오",
           "url": "https://www.fmkorea.com/10459154486",
@@ -17923,6 +17944,16 @@
       ]
     },
     {
+      "name": "close2u",
+      "picks": [
+        {
+          "team": "상하이(-0.5)",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 2540
+        }
+      ]
+    },
+    {
       "name": "colour",
       "picks": [
         {
@@ -19436,6 +19467,11 @@
           "bet": 100
         },
         {
+          "team": "상하이(-0.5)",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 100
+        },
+        {
           "team": "맨유",
           "url": "https://www.fmkorea.com/10458196186",
           "bet": 1000
@@ -19684,6 +19720,16 @@
           "team": "타이베이 완바오",
           "url": "https://www.fmkorea.com/10459154486",
           "bet": 235
+        }
+      ]
+    },
+    {
+      "name": "YH_S2",
+      "picks": [
+        {
+          "team": "타이베이 완바오",
+          "url": "https://www.fmkorea.com/10459154486",
+          "bet": 200
         }
       ]
     },
@@ -40232,5 +40278,7 @@
     "고인물": 15125435,
     "퀀텀스케이프": 69790
   },
-  "pinnedPointsAt": "2026-10-18T08:08:04.098Z"
+  "pinnedPointsAt": "2026-10-18T08:08:18.901Z",
+  "ongoingUpdatedAt": "2026-10-18T08:08:18.901Z",
+  "ongoingScriptVersion": "5.8"
 }
