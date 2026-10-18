@@ -462,7 +462,7 @@ function render(data) {
 
   let html = '';
   const matchStartTs = (title) => {
-    const m = (title || '').match(/(\d{1,2})\/(\d{1,2})\s+(\d{1,2}):(\d{2})\s*경기/);
+    const m = (title || '').match(/마감\s*(\d{1,2})\/(\d{1,2})\s+(\d{1,2}):(\d{2})/) || (title || '').match(/(\d{1,2})\/(\d{1,2})\s+(\d{1,2}):(\d{2})\s*경기/);
     if (!m) return Infinity;
     const now = new Date();
     let dt = new Date(now.getFullYear(), +m[1] - 1, +m[2], +m[3], +m[4]);
