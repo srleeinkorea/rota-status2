@@ -1,5 +1,12 @@
 {
-  "state": "idle",
-  "dataUpdatedAt": "2026-10-18T07:27:19.840Z",
-  "updatedAt": "2026-10-18T07:27:22.575Z"
+  "state": "running",
+  "windowValue": "today",
+  "windowLabel": "오늘",
+  "minPicks": 3,
+  "startedAt": "2026-10-18T07:27:25.109Z",
+  "phase": "진행중인 경기 베팅 수집 중",
+  "scriptVersion": "5.8",
+  "processed": 23,
+  "total": 23,
+  "pct": 100
 }
