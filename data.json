@@ -1452,6 +1452,11 @@
           "bet": 100
         },
         {
+          "team": "베이징 파이터스(+7.5)",
+          "url": "https://www.fmkorea.com/10462139950",
+          "bet": 200
+        },
+        {
           "team": "장윤철",
           "url": "https://www.fmkorea.com/10461622684",
           "bet": 100
@@ -1665,7 +1670,13 @@
       "totalBet": 34666,
       "totalPayout": 51630,
       "profit": 16964,
-      "picks": []
+      "picks": [
+        {
+          "team": "홀",
+          "url": "https://www.fmkorea.com/10463326152",
+          "bet": 3000
+        }
+      ]
     },
     {
       "name": "김지연",
@@ -3760,7 +3771,13 @@
       "totalBet": 12990,
       "totalPayout": 15259,
       "profit": 2269,
-      "picks": []
+      "picks": [
+        {
+          "team": "베이징 파이터스(+7.5)",
+          "url": "https://www.fmkorea.com/10462139950",
+          "bet": 100
+        }
+      ]
     },
     {
       "name": "유느님좋아",
@@ -4636,6 +4653,11 @@
         {
           "team": "홀",
           "url": "https://www.fmkorea.com/10463326152",
+          "bet": 222
+        },
+        {
+          "team": "베이징 파이터스(+7.5)",
+          "url": "https://www.fmkorea.com/10462139950",
           "bet": 222
         }
       ]
@@ -5938,8 +5960,8 @@
       "url": "https://www.fmkorea.com/10463326152",
       "teamA": "홀",
       "teamB": "짝",
-      "countA": 87,
-      "betA": 156409,
+      "countA": 89,
+      "betA": 159509,
       "countB": 44,
       "betB": 157432
     },
@@ -5948,10 +5970,10 @@
       "url": "https://www.fmkorea.com/10462139950",
       "teamA": "베이징 파이터스(+7.5)",
       "teamB": "상하이 샤크스",
-      "countA": 72,
-      "betA": 199892,
-      "countB": 119,
-      "betB": 192783
+      "countA": 76,
+      "betA": 200605,
+      "countB": 120,
+      "betB": 193783
     },
     {
       "title": "스타끝장전 :: 김민철 (-1.5) vs 장윤철 :: 10/19 21:00 경기",
@@ -6036,6 +6058,11 @@
         {
           "team": "홀",
           "url": "https://www.fmkorea.com/10463326152",
+          "bet": 222
+        },
+        {
+          "team": "베이징 파이터스(+7.5)",
+          "url": "https://www.fmkorea.com/10462139950",
           "bet": 222
         }
       ]
@@ -9884,6 +9911,11 @@
           "bet": 100
         },
         {
+          "team": "베이징 파이터스(+7.5)",
+          "url": "https://www.fmkorea.com/10462139950",
+          "bet": 200
+        },
+        {
           "team": "장윤철",
           "url": "https://www.fmkorea.com/10461622684",
           "bet": 100
@@ -12264,6 +12296,11 @@
       "name": "반사",
       "picks": [
         {
+          "team": "베이징 파이터스(+7.5)",
+          "url": "https://www.fmkorea.com/10462139950",
+          "bet": 191
+        },
+        {
           "team": "장윤철",
           "url": "https://www.fmkorea.com/10461622684",
           "bet": 1234
@@ -13152,6 +13189,16 @@
           "team": "토트넘(-0.5)",
           "url": "https://www.fmkorea.com/10462556408",
           "bet": 230
+        }
+      ]
+    },
+    {
+      "name": "비숑",
+      "picks": [
+        {
+          "team": "홀",
+          "url": "https://www.fmkorea.com/10463326152",
+          "bet": 100
         }
       ]
     },
@@ -18029,6 +18076,11 @@
           "bet": 5000
         },
         {
+          "team": "상하이 샤크스",
+          "url": "https://www.fmkorea.com/10462139950",
+          "bet": 1000
+        },
+        {
           "team": "장윤철",
           "url": "https://www.fmkorea.com/10461622684",
           "bet": 1298
@@ -20941,6 +20993,16 @@
       ]
     },
     {
+      "name": "트리플",
+      "picks": [
+        {
+          "team": "베이징 파이터스(+7.5)",
+          "url": "https://www.fmkorea.com/10462139950",
+          "bet": 100
+        }
+      ]
+    },
+    {
       "name": "트릭두",
       "picks": [
         {
@@ -22022,6 +22084,16 @@
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 39841
+        }
+      ]
+    },
+    {
+      "name": "햄치즈스폐셜",
+      "picks": [
+        {
+          "team": "홀",
+          "url": "https://www.fmkorea.com/10463326152",
+          "bet": 3000
         }
       ]
     },
@@ -48548,5 +48620,7 @@
     "웍스아웃": 84867,
     "valse": 108
   },
-  "pinnedPointsAt": "2026-10-19T11:32:01.345Z"
+  "pinnedPointsAt": "2026-10-19T11:32:32.345Z",
+  "ongoingUpdatedAt": "2026-10-19T11:32:32.345Z",
+  "ongoingScriptVersion": "6.7"
 }
