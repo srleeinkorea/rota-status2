@@ -1,9 +1,12 @@
 {
   "state": "running",
-  "windowValue": "3d",
-  "windowLabel": "최근 3일",
+  "windowValue": "24h",
+  "windowLabel": "최근 24시간",
   "minPicks": 5,
-  "startedAt": "2026-10-19T16:42:44.620Z",
-  "phase": "정산 글 목록 가져오는 중",
-  "scriptVersion": "6.7"
+  "startedAt": "2026-10-19T16:42:43.343Z",
+  "phase": "진행중인 경기 베팅 수집 중",
+  "scriptVersion": "6.7",
+  "processed": 39,
+  "total": 39,
+  "pct": 100
 }
