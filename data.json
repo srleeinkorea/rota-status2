@@ -487,7 +487,13 @@
       "totalBet": 27250,
       "totalPayout": 43596,
       "profit": 16346,
-      "picks": []
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 4792
+        }
+      ]
     },
     {
       "name": "명정",
@@ -537,7 +543,13 @@
       "totalBet": 22448,
       "totalPayout": 20724,
       "profit": -1724,
-      "picks": []
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 2116
+        }
+      ]
     },
     {
       "name": "초이초",
@@ -3146,7 +3158,13 @@
       "totalBet": 7549,
       "totalPayout": 12088,
       "profit": 4539,
-      "picks": []
+      "picks": [
+        {
+          "team": "KB손해보험",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 678
+        }
+      ]
     },
     {
       "name": "대항해시대",
@@ -3370,7 +3388,13 @@
       "totalBet": 22356,
       "totalPayout": 31645,
       "profit": 9289,
-      "picks": []
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 3333
+        }
+      ]
     },
     {
       "name": "하이윈터",
@@ -3643,6 +3667,11 @@
       "profit": 2167,
       "picks": [
         {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 1000
+        },
+        {
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 100
@@ -3828,7 +3857,13 @@
       "totalBet": 7889,
       "totalPayout": 10210,
       "profit": 2321,
-      "picks": []
+      "picks": [
+        {
+          "team": "[183.5] 오버",
+          "url": "https://www.fmkorea.com/10462093834",
+          "bet": 777
+        }
+      ]
     },
     {
       "name": "양승혜",
@@ -5801,28 +5836,28 @@
       "url": "https://www.fmkorea.com/10462093834",
       "teamA": "[183.5] 언더",
       "teamB": "[183.5] 오버",
-      "countA": 48,
-      "betA": 35518,
-      "countB": 37,
-      "betB": 47879
+      "countA": 49,
+      "betA": 37648,
+      "countB": 42,
+      "betB": 54423
     },
     {
       "title": "KOVO컵 남자부 :: 한국전력 vs KB손해보험 :: 10/19 15:30 경기",
       "url": "https://www.fmkorea.com/10461258510",
       "teamA": "한국전력",
       "teamB": "KB손해보험",
-      "countA": 145,
-      "betA": 321454,
-      "countB": 107,
-      "betB": 201806
+      "countA": 155,
+      "betA": 348748,
+      "countB": 109,
+      "betB": 202584
     },
     {
       "title": "KOVO컵 남자부 :: 대한항공(-1.5) vs 삼성화재 :: 10/19 19:00 경기",
       "url": "https://www.fmkorea.com/10461385208",
       "teamA": "대한항공(-1.5)",
       "teamB": "삼성화재",
-      "countA": 106,
-      "betA": 171989,
+      "countA": 108,
+      "betA": 179989,
       "countB": 50,
       "betB": 160781
     },
@@ -5833,8 +5868,8 @@
       "teamB": "대구 한국가스공사",
       "countA": 82,
       "betA": 139247,
-      "countB": 41,
-      "betB": 165968
+      "countB": 42,
+      "betB": 170968
     },
     {
       "title": "CBA :: 베이징 파이터스(+7.5) vs 상하이 샤크스 :: 10/19 20:35 경기",
@@ -5851,10 +5886,10 @@
       "url": "https://www.fmkorea.com/10461622684",
       "teamA": "김민철 (-1.5)",
       "teamB": "장윤철",
-      "countA": 80,
-      "betA": 77986,
-      "countB": 62,
-      "betB": 66125
+      "countA": 83,
+      "betA": 82275,
+      "countB": 63,
+      "betB": 66833
     },
     {
       "title": "2026 남성 발롱도르 해리 케인 수상 O/X",
@@ -6189,7 +6224,7 @@
         {
           "team": "김민철 (-1.5)",
           "url": "https://www.fmkorea.com/10461622684",
-          "bet": 100
+          "bet": 1029
         }
       ]
     },
@@ -6412,6 +6447,11 @@
       "name": "개야르",
       "picks": [
         {
+          "team": "[183.5] 오버",
+          "url": "https://www.fmkorea.com/10462093834",
+          "bet": 101
+        },
+        {
           "team": "한국전력",
           "url": "https://www.fmkorea.com/10461258510",
           "bet": 177
@@ -6509,12 +6549,32 @@
       ]
     },
     {
+      "name": "결재",
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 3333
+        }
+      ]
+    },
+    {
       "name": "경기도지사",
       "picks": [
         {
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 1000
+        }
+      ]
+    },
+    {
+      "name": "경대",
+      "picks": [
+        {
+          "team": "김민철 (-1.5)",
+          "url": "https://www.fmkorea.com/10461622684",
+          "bet": 160
         }
       ]
     },
@@ -6784,7 +6844,7 @@
         {
           "team": "[183.5] 언더",
           "url": "https://www.fmkorea.com/10462093834",
-          "bet": 365
+          "bet": 2395
         },
         {
           "team": "한국전력",
@@ -7044,6 +7104,16 @@
       ]
     },
     {
+      "name": "귀염상에육덕젖소",
+      "picks": [
+        {
+          "team": "김민철 (-1.5)",
+          "url": "https://www.fmkorea.com/10461622684",
+          "bet": 3000
+        }
+      ]
+    },
+    {
       "name": "귀한자식",
       "picks": [
         {
@@ -7126,6 +7196,11 @@
     {
       "name": "극뽁",
       "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 100
+        },
         {
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
@@ -7280,6 +7355,16 @@
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 554
+        }
+      ]
+    },
+    {
+      "name": "기안장",
+      "picks": [
+        {
+          "team": "[183.5] 오버",
+          "url": "https://www.fmkorea.com/10462093834",
+          "bet": 786
         }
       ]
     },
@@ -7875,6 +7960,16 @@
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 300
+        }
+      ]
+    },
+    {
+      "name": "네르",
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 2116
         }
       ]
     },
@@ -10174,6 +10269,16 @@
       ]
     },
     {
+      "name": "무조건해야겠네",
+      "picks": [
+        {
+          "team": "김민철 (-1.5)",
+          "url": "https://www.fmkorea.com/10461622684",
+          "bet": 200
+        }
+      ]
+    },
+    {
       "name": "무카무카",
       "picks": [
         {
@@ -10454,6 +10559,16 @@
       ]
     },
     {
+      "name": "박나래",
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 4792
+        }
+      ]
+    },
+    {
       "name": "박부거",
       "picks": [
         {
@@ -10700,6 +10815,16 @@
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 1250
+        }
+      ]
+    },
+    {
+      "name": "베르베르레렐",
+      "picks": [
+        {
+          "team": "장윤철",
+          "url": "https://www.fmkorea.com/10461622684",
+          "bet": 708
         }
       ]
     },
@@ -11289,6 +11414,16 @@
       ]
     },
     {
+      "name": "빵꾸",
+      "picks": [
+        {
+          "team": "[183.5] 오버",
+          "url": "https://www.fmkorea.com/10462093834",
+          "bet": 1880
+        }
+      ]
+    },
+    {
       "name": "뽀득뽀도득",
       "picks": [
         {
@@ -11451,6 +11586,11 @@
     {
       "name": "三國志14",
       "picks": [
+        {
+          "team": "KB손해보험",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 100
+        },
         {
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
@@ -11684,6 +11824,16 @@
       ]
     },
     {
+      "name": "설윤아의물대포",
+      "picks": [
+        {
+          "team": "[183.5] 언더",
+          "url": "https://www.fmkorea.com/10462093834",
+          "bet": 100
+        }
+      ]
+    },
+    {
       "name": "세계종말",
       "picks": [
         {
@@ -11706,6 +11856,11 @@
     {
       "name": "세레나데",
       "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 1000
+        },
         {
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
@@ -13455,6 +13610,16 @@
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "양준석",
+      "picks": [
+        {
+          "team": "[183.5] 오버",
+          "url": "https://www.fmkorea.com/10462093834",
+          "bet": 777
         }
       ]
     },
@@ -16094,6 +16259,31 @@
       ]
     },
     {
+      "name": "채다",
+      "picks": [
+        {
+          "team": "[183.5] 오버",
+          "url": "https://www.fmkorea.com/10462093834",
+          "bet": 3000
+        },
+        {
+          "team": "대한항공(-1.5)",
+          "url": "https://www.fmkorea.com/10461385208",
+          "bet": 5000
+        },
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 5000
+        },
+        {
+          "team": "대구 한국가스공사",
+          "url": "https://www.fmkorea.com/10461626296",
+          "bet": 5000
+        }
+      ]
+    },
+    {
       "name": "채밀",
       "picks": [
         {
@@ -18399,6 +18589,16 @@
       ]
     },
     {
+      "name": "황연주",
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 3900
+        }
+      ]
+    },
+    {
       "name": "황제뗑컨",
       "picks": [
         {
@@ -18615,6 +18815,16 @@
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "ARK",
+      "picks": [
+        {
+          "team": "KB손해보험",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 678
         }
       ]
     },
@@ -18895,6 +19105,16 @@
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 190
+        }
+      ]
+    },
+    {
+      "name": "dispatch",
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 259
         }
       ]
     },
@@ -19379,6 +19599,16 @@
       ]
     },
     {
+      "name": "Hyasyu",
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 1000
+        }
+      ]
+    },
+    {
       "name": "iCaNiT",
       "picks": [
         {
@@ -19685,6 +19915,16 @@
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "LPBA",
+      "picks": [
+        {
+          "team": "한국전력",
+          "url": "https://www.fmkorea.com/10461258510",
+          "bet": 5794
         }
       ]
     },
@@ -20680,6 +20920,16 @@
           "team": "한국전력",
           "url": "https://www.fmkorea.com/10461258510",
           "bet": 3805
+        }
+      ]
+    },
+    {
+      "name": "Yamamoto",
+      "picks": [
+        {
+          "team": "대한항공(-1.5)",
+          "url": "https://www.fmkorea.com/10461385208",
+          "bet": 3000
         }
       ]
     },
@@ -49323,42 +49573,42 @@
     }
   ],
   "pinnedPoints": {
-    "IU와함께": 6989,
     "손나은": 184450,
+    "IU와함께": 6989,
     "홍유순": 4306009,
-    "고결": 18439,
     "에버딘": 2050180,
-    "SI모": 116001,
-    "Lillie": 248643,
-    "KU.1905.": 135051,
+    "SI모": 116064,
+    "고결": 18589,
+    "KU.1905.": 135052,
     "Erebor": 2400006,
+    "Lillie": 248750,
     "0대0무승부0점": 25933,
-    "초코소라빵": 101229,
-    "김대승": 23759,
-    "로즈": 561,
+    "김대승": 23763,
+    "초코소라빵": 101230,
     "忠南大學校": 6622,
     "이영서": 94,
+    "로즈": 561,
+    "잉그리드버그만": 152431,
     "보드보드6kg": 161214,
     "파이널게임": 48970,
-    "잉그리드버그만": 152430,
     "꼬습노": 98037,
     "피자빵v": 328521,
     "야옹이!": 2241628,
-    "$UWON": 4082,
+    "$UWON": 4085,
     "똑똑한똥강아지": 39355,
     "암부": 131584,
-    "채다": 31834,
-    "고인물": 14519451,
     "스윙": 258103,
-    "고태호": 109313,
-    "퀀텀스케이프": 70510,
+    "고인물": 14519451,
+    "채다": 13835,
     "Our": 492878,
-    "웍스아웃": 105814,
+    "고태호": 109313,
+    "퀀텀스케이프": 70516,
     "다비치코드": 626118,
     "色水下高十多": 15,
+    "웍스아웃": 105814,
     "valse": 44
   },
-  "pinnedPointsAt": "2026-10-19T05:51:03.421Z",
-  "ongoingUpdatedAt": "2026-10-19T05:51:03.421Z",
+  "pinnedPointsAt": "2026-10-19T05:56:07.853Z",
+  "ongoingUpdatedAt": "2026-10-19T05:56:07.853Z",
   "ongoingScriptVersion": "6.7"
 }
