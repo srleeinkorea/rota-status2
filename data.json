@@ -1594,6 +1594,11 @@
           "bet": 50000
         },
         {
+          "team": "대한항공(-1.5)",
+          "url": "https://www.fmkorea.com/10461385208",
+          "bet": 44000
+        },
+        {
           "team": "토트넘(-0.5)",
           "url": "https://www.fmkorea.com/10462556408",
           "bet": 50000
@@ -5466,8 +5471,8 @@
       "url": "https://www.fmkorea.com/10461626296",
       "teamA": "원주 DB(-2.5)",
       "teamB": "대구 한국가스공사",
-      "countA": 120,
-      "betA": 227470,
+      "countA": 121,
+      "betA": 228581,
       "countB": 58,
       "betB": 190583
     },
@@ -5476,18 +5481,18 @@
       "url": "https://www.fmkorea.com/10461385208",
       "teamA": "대한항공(-1.5)",
       "teamB": "삼성화재",
-      "countA": 155,
-      "betA": 324516,
-      "countB": 62,
-      "betB": 170793
+      "countA": 157,
+      "betA": 369627,
+      "countB": 63,
+      "betB": 170893
     },
     {
       "title": "CBA :: 베이징 파이터스(+7.5) vs 상하이 샤크스 :: 10/19 20:35 경기",
       "url": "https://www.fmkorea.com/10462139950",
       "teamA": "베이징 파이터스(+7.5)",
       "teamB": "상하이 샤크스",
-      "countA": 26,
-      "betA": 117392,
+      "countA": 27,
+      "betA": 117592,
       "countB": 39,
       "betB": 27045
     },
@@ -5498,8 +5503,8 @@
       "teamB": "장윤철",
       "countA": 118,
       "betA": 163323,
-      "countB": 85,
-      "betB": 130415
+      "countB": 86,
+      "betB": 131480
     },
     {
       "title": "PL :: 토트넘(-0.5) vs 코번트리 :: 10/20 04:00 경기",
@@ -5508,8 +5513,8 @@
       "teamB": "코번트리",
       "countA": 12,
       "betA": 1196913,
-      "countB": 27,
-      "betB": 105593
+      "countB": 28,
+      "betB": 105793
     },
     {
       "title": "2026 남성 발롱도르 해리 케인 수상 O/X",
@@ -7175,6 +7180,16 @@
           "team": "수상 O",
           "url": "https://www.fmkorea.com/10451711238",
           "bet": 3500
+        }
+      ]
+    },
+    {
+      "name": "깡낑",
+      "picks": [
+        {
+          "team": "장윤철",
+          "url": "https://www.fmkorea.com/10461622684",
+          "bet": 1065
         }
       ]
     },
@@ -12237,6 +12252,11 @@
           "bet": 50000
         },
         {
+          "team": "대한항공(-1.5)",
+          "url": "https://www.fmkorea.com/10461385208",
+          "bet": 44000
+        },
+        {
           "team": "토트넘(-0.5)",
           "url": "https://www.fmkorea.com/10462556408",
           "bet": 50000
@@ -14057,6 +14077,11 @@
       "name": "워킹스트리트",
       "picks": [
         {
+          "team": "베이징 파이터스(+7.5)",
+          "url": "https://www.fmkorea.com/10462139950",
+          "bet": 200
+        },
+        {
           "team": "대구 한국가스공사",
           "url": "https://www.fmkorea.com/10461626296",
           "bet": 200
@@ -14064,6 +14089,11 @@
         {
           "team": "삼성화재",
           "url": "https://www.fmkorea.com/10461385208",
+          "bet": 200
+        },
+        {
+          "team": "코번트리",
+          "url": "https://www.fmkorea.com/10462556408",
           "bet": 200
         },
         {
@@ -15359,6 +15389,11 @@
         {
           "team": "대구 한국가스공사",
           "url": "https://www.fmkorea.com/10461626296",
+          "bet": 100
+        },
+        {
+          "team": "삼성화재",
+          "url": "https://www.fmkorea.com/10461385208",
           "bet": 100
         },
         {
@@ -19761,6 +19796,16 @@
     {
       "name": "SI모",
       "picks": [
+        {
+          "team": "원주 DB(-2.5)",
+          "url": "https://www.fmkorea.com/10461626296",
+          "bet": 1111
+        },
+        {
+          "team": "대한항공(-1.5)",
+          "url": "https://www.fmkorea.com/10461385208",
+          "bet": 1111
+        },
         {
           "team": "수상 X",
           "url": "https://www.fmkorea.com/10451711238",
@@ -48891,5 +48936,7 @@
     "色水下高十多": 28,
     "valse": 118
   },
-  "pinnedPointsAt": "2026-10-19T07:22:48.945Z"
+  "pinnedPointsAt": "2026-10-19T07:24:06.554Z",
+  "ongoingUpdatedAt": "2026-10-19T07:24:06.554Z",
+  "ongoingScriptVersion": "6.7"
 }
