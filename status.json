@@ -1,8 +1,9 @@
 {
   "state": "running",
-  "windowValue": "30d",
-  "windowLabel": "최근 30일",
-  "minPicks": 60,
-  "startedAt": "2026-10-20T21:19:18.184Z",
+  "windowValue": "7d",
+  "windowLabel": "최근 7일",
+  "minPicks": 4,
+  "startedAt": "2026-10-20T21:51:27.512Z",
+  "phase": "정산 글 목록 가져오는 중",
   "scriptVersion": "6.7"
 }
