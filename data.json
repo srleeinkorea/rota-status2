@@ -1479,13 +1479,13 @@
           "bet": 100
         },
         {
-          "team": "골든스테이트",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "현대캐피탈",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 100
         },
         {
-          "team": "현대캐피탈",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 100
         }
       ]
@@ -2350,14 +2350,14 @@
           "bet": 2000
         },
         {
-          "team": "현대캐피탈",
-          "url": "https://www.fmkorea.com/10478167835",
-          "bet": 1000
-        },
-        {
           "team": "맨체스터 시티",
           "url": "https://www.fmkorea.com/10478348261",
           "bet": 2222
+        },
+        {
+          "team": "현대캐피탈",
+          "url": "https://www.fmkorea.com/10478167835",
+          "bet": 1000
         },
         {
           "team": "KT 위즈",
@@ -2532,13 +2532,13 @@
           "bet": 100
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "맨체스터 시티",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
-          "team": "맨체스터 시티",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 100
         }
       ]
@@ -3072,7 +3072,13 @@
       "totalBet": 2600,
       "totalPayout": 2731,
       "profit": 131,
-      "picks": []
+      "picks": [
+        {
+          "team": "LYON",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 1000
+        }
+      ]
     },
     {
       "name": "흐흐123",
@@ -5494,20 +5500,20 @@
       "url": "https://www.fmkorea.com/10478354962",
       "teamA": "휴스턴",
       "teamB": "샌안토니오",
-      "countA": 23,
-      "betA": 15588,
-      "countB": 24,
-      "betB": 26795
+      "countA": 25,
+      "betA": 16550,
+      "countB": 25,
+      "betB": 26995
     },
     {
       "title": "NBA :: 멤피스(+3.5) vs 골든스테이트 :: 10/24 11:00 경기",
       "url": "https://www.fmkorea.com/10478364824",
       "teamA": "멤피스(+3.5)",
       "teamB": "골든스테이트",
-      "countA": 11,
-      "betA": 16520,
-      "countB": 16,
-      "betB": 19975
+      "countA": 12,
+      "betA": 16620,
+      "countB": 17,
+      "betB": 20175
     },
     {
       "title": "KOVO컵 남자부 준결승 :: 한국전력(+1.5) vs 현대캐피탈 :: 10/24 16:30 경기",
@@ -5544,10 +5550,10 @@
       "url": "https://www.fmkorea.com/10477970021",
       "teamA": "TSW",
       "teamB": "LYON",
-      "countA": 155,
-      "betA": 637692,
-      "countB": 373,
-      "betB": 1126661
+      "countA": 160,
+      "betA": 652875,
+      "countB": 376,
+      "betB": 1135922
     }
   ],
   "allPicks": [
@@ -6465,8 +6471,8 @@
           "bet": 500
         },
         {
-          "team": "멤피스(+3.5)",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "아스톤 빌라(+0.5)",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 200
         },
         {
@@ -6475,8 +6481,8 @@
           "bet": 200
         },
         {
-          "team": "아스톤 빌라(+0.5)",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "멤피스(+3.5)",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 200
         }
       ]
@@ -7800,14 +7806,14 @@
           "bet": 100
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
-          "bet": 200
-        },
-        {
           "team": "아스톤 빌라(+0.5)",
           "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
+        },
+        {
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
+          "bet": 200
         },
         {
           "team": "KT 위즈",
@@ -7979,6 +7985,11 @@
     {
       "name": "럭키라일락",
       "picks": [
+        {
+          "team": "휴스턴",
+          "url": "https://www.fmkorea.com/10478354962",
+          "bet": 862
+        },
         {
           "team": "LYON",
           "url": "https://www.fmkorea.com/10477970021",
@@ -8545,6 +8556,16 @@
           "bet": 100
         },
         {
+          "team": "휴스턴",
+          "url": "https://www.fmkorea.com/10478354962",
+          "bet": 100
+        },
+        {
+          "team": "샌안토니오",
+          "url": "https://www.fmkorea.com/10478354962",
+          "bet": 200
+        },
+        {
           "team": "TSW",
           "url": "https://www.fmkorea.com/10477970021",
           "bet": 300
@@ -8553,6 +8574,16 @@
           "team": "LYON",
           "url": "https://www.fmkorea.com/10477970021",
           "bet": 1000
+        },
+        {
+          "team": "멤피스(+3.5)",
+          "url": "https://www.fmkorea.com/10478364824",
+          "bet": 100
+        },
+        {
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
+          "bet": 200
         }
       ]
     },
@@ -9690,14 +9721,14 @@
           "bet": 100
         },
         {
-          "team": "현대캐피탈",
-          "url": "https://www.fmkorea.com/10478167835",
-          "bet": 250
-        },
-        {
           "team": "맨체스터 시티",
           "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
+        },
+        {
+          "team": "현대캐피탈",
+          "url": "https://www.fmkorea.com/10478167835",
+          "bet": 250
         },
         {
           "team": "KT 위즈",
@@ -10065,6 +10096,11 @@
           "bet": 100
         },
         {
+          "team": "LYON",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 100
+        },
+        {
           "team": "골든스테이트",
           "url": "https://www.fmkorea.com/10478364824",
           "bet": 100
@@ -10345,13 +10381,13 @@
           "bet": 1111
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "아스톤 빌라(+0.5)",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 1111
         },
         {
-          "team": "아스톤 빌라(+0.5)",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 1111
         }
       ]
@@ -10660,8 +10696,8 @@
           "bet": 100
         },
         {
-          "team": "골든스테이트",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "맨체스터 시티",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
@@ -10670,8 +10706,8 @@
           "bet": 100
         },
         {
-          "team": "맨체스터 시티",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 100
         },
         {
@@ -10745,13 +10781,13 @@
           "bet": 100
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "맨체스터 시티",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
-          "team": "맨체스터 시티",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 100
         }
       ]
@@ -11625,14 +11661,14 @@
           "bet": 100
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
-          "bet": 100
-        },
-        {
           "team": "맨체스터 시티",
           "url": "https://www.fmkorea.com/10478348261",
           "bet": 200
+        },
+        {
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
+          "bet": 100
         },
         {
           "team": "KT 위즈",
@@ -11703,6 +11739,16 @@
           "team": "TSW",
           "url": "https://www.fmkorea.com/10477970021",
           "bet": 305
+        }
+      ]
+    },
+    {
+      "name": "양의식",
+      "picks": [
+        {
+          "team": "LYON",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 1000
         }
       ]
     },
@@ -11977,7 +12023,7 @@
         {
           "team": "TSW",
           "url": "https://www.fmkorea.com/10477970021",
-          "bet": 2042
+          "bet": 5042
         }
       ]
     },
@@ -12370,13 +12416,13 @@
           "bet": 532
         },
         {
-          "team": "골든스테이트",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 777
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 777
         }
       ]
@@ -12685,14 +12731,14 @@
           "bet": 2000
         },
         {
-          "team": "현대캐피탈",
-          "url": "https://www.fmkorea.com/10478167835",
-          "bet": 1000
-        },
-        {
           "team": "맨체스터 시티",
           "url": "https://www.fmkorea.com/10478348261",
           "bet": 2222
+        },
+        {
+          "team": "현대캐피탈",
+          "url": "https://www.fmkorea.com/10478167835",
+          "bet": 1000
         },
         {
           "team": "KT 위즈",
@@ -12730,13 +12776,13 @@
           "bet": 777
         },
         {
-          "team": "골든스테이트",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 777
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 777
         }
       ]
@@ -12823,6 +12869,16 @@
           "team": "삼성 라이온즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "의원",
+      "picks": [
+        {
+          "team": "LYON",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 1161
         }
       ]
     },
@@ -12930,8 +12986,8 @@
           "bet": 687
         },
         {
-          "team": "멤피스(+3.5)",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "아스톤 빌라(+0.5)",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
@@ -12940,8 +12996,8 @@
           "bet": 100
         },
         {
-          "team": "아스톤 빌라(+0.5)",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "멤피스(+3.5)",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 100
         },
         {
@@ -13150,13 +13206,13 @@
           "bet": 100
         },
         {
-          "team": "골든스테이트",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "현대캐피탈",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 100
         },
         {
-          "team": "현대캐피탈",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 100
         }
       ]
@@ -13460,13 +13516,13 @@
       "name": "장우",
       "picks": [
         {
-          "team": "멤피스(+3.5)",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "아스톤 빌라(+0.5)",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 1111
         },
         {
-          "team": "아스톤 빌라(+0.5)",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "멤피스(+3.5)",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 1111
         },
         {
@@ -14530,14 +14586,14 @@
           "bet": 1211
         },
         {
-          "team": "골든스테이트",
-          "url": "https://www.fmkorea.com/10478364824",
-          "bet": 1111
-        },
-        {
           "team": "한국전력(+1.5)",
           "url": "https://www.fmkorea.com/10478167835",
           "bet": 1000
+        },
+        {
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
+          "bet": 1111
         },
         {
           "team": "KT 위즈",
@@ -14630,13 +14686,13 @@
           "bet": 100
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "맨체스터 시티",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
-          "team": "맨체스터 시티",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 100
         },
         {
@@ -14972,7 +15028,7 @@
         {
           "team": "LYON",
           "url": "https://www.fmkorea.com/10477970021",
-          "bet": 1000
+          "bet": 8000
         }
       ]
     },
@@ -14995,13 +15051,13 @@
           "bet": 100
         },
         {
-          "team": "현대캐피탈",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "맨체스터 시티",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
-          "team": "맨체스터 시티",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "현대캐피탈",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 100
         },
         {
@@ -15173,6 +15229,16 @@
           "team": "대한민국",
           "url": "https://www.fmkorea.com/10478273782",
           "bet": 119
+        }
+      ]
+    },
+    {
+      "name": "트리플",
+      "picks": [
+        {
+          "team": "TSW",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 100
         }
       ]
     },
@@ -15468,6 +15534,16 @@
           "team": "KT 위즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "폭도",
+      "picks": [
+        {
+          "team": "TSW",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 4834
         }
       ]
     },
@@ -15950,13 +16026,13 @@
           "bet": 300
         },
         {
-          "team": "골든스테이트",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 200
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 200
         }
       ]
@@ -16005,8 +16081,8 @@
           "bet": 7005
         },
         {
-          "team": "골든스테이트",
-          "url": "https://www.fmkorea.com/10478364824",
+          "team": "아스톤 빌라(+0.5)",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
@@ -16015,8 +16091,8 @@
           "bet": 100
         },
         {
-          "team": "아스톤 빌라(+0.5)",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "골든스테이트",
+          "url": "https://www.fmkorea.com/10478364824",
           "bet": 100
         }
       ]
@@ -16637,6 +16713,16 @@
       ]
     },
     {
+      "name": "DKT화이팅",
+      "picks": [
+        {
+          "team": "TSW",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 1355
+        }
+      ]
+    },
+    {
       "name": "DnDn한육개장",
       "picks": [
         {
@@ -17083,6 +17169,16 @@
           "team": "삼성 라이온즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 6900
+        }
+      ]
+    },
+    {
+      "name": "IU루다원이메이",
+      "picks": [
+        {
+          "team": "TSW",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 4894
         }
       ]
     },
@@ -17565,13 +17661,13 @@
           "bet": 100
         },
         {
-          "team": "현대캐피탈",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "맨체스터 시티",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
-          "team": "맨체스터 시티",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "현대캐피탈",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 100
         },
         {
@@ -17640,13 +17736,13 @@
           "bet": 100
         },
         {
-          "team": "한국전력(+1.5)",
-          "url": "https://www.fmkorea.com/10478167835",
+          "team": "맨체스터 시티",
+          "url": "https://www.fmkorea.com/10478348261",
           "bet": 100
         },
         {
-          "team": "맨체스터 시티",
-          "url": "https://www.fmkorea.com/10478348261",
+          "team": "한국전력(+1.5)",
+          "url": "https://www.fmkorea.com/10478167835",
           "bet": 100
         },
         {
@@ -17725,14 +17821,14 @@
           "bet": 777
         },
         {
-          "team": "멤피스(+3.5)",
-          "url": "https://www.fmkorea.com/10478364824",
-          "bet": 555
-        },
-        {
           "team": "맨체스터 시티",
           "url": "https://www.fmkorea.com/10478348261",
           "bet": 2000
+        },
+        {
+          "team": "멤피스(+3.5)",
+          "url": "https://www.fmkorea.com/10478364824",
+          "bet": 555
         }
       ]
     },
@@ -18103,6 +18199,16 @@
           "team": "삼성 라이온즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 1111
+        }
+      ]
+    },
+    {
+      "name": "sky=blue",
+      "picks": [
+        {
+          "team": "TSW",
+          "url": "https://www.fmkorea.com/10477970021",
+          "bet": 1000
         }
       ]
     },
@@ -57268,5 +57374,7 @@
     "色水下高十多": 116,
     "valse": 38
   },
-  "pinnedPointsAt": "2026-10-23T23:59:22.754Z"
+  "pinnedPointsAt": "2026-10-23T23:59:52.293Z",
+  "ongoingUpdatedAt": "2026-10-23T23:59:52.293Z",
+  "ongoingScriptVersion": "6.8"
 }
