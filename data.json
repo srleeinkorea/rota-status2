@@ -1435,7 +1435,18 @@
       "totalBet": 2847,
       "totalPayout": 3847,
       "profit": 1000,
-      "picks": []
+      "picks": [
+        {
+          "team": "토리노 (-0.5)",
+          "url": "https://www.fmkorea.com/10476384858",
+          "bet": 200
+        },
+        {
+          "team": "DK",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 200
+        }
+      ]
     },
     {
       "name": "약사",
@@ -4940,8 +4951,8 @@
       "url": "https://www.fmkorea.com/10475566137",
       "teamA": "GEN",
       "teamB": "IG",
-      "countA": 409,
-      "betA": 2909148,
+      "countA": 413,
+      "betA": 2912291,
       "countB": 91,
       "betB": 779389
     },
@@ -4950,8 +4961,8 @@
       "url": "https://www.fmkorea.com/10475741407",
       "teamA": "HLE",
       "teamB": "TES",
-      "countA": 210,
-      "betA": 467086,
+      "countA": 211,
+      "betA": 468086,
       "countB": 64,
       "betB": 64679
     },
@@ -4960,8 +4971,8 @@
       "url": "https://www.fmkorea.com/10476384858",
       "teamA": "토리노 (-0.5)",
       "teamB": "몬차",
-      "countA": 22,
-      "betA": 19628,
+      "countA": 24,
+      "betA": 19928,
       "countB": 21,
       "betB": 8250
     },
@@ -4970,20 +4981,20 @@
       "url": "https://www.fmkorea.com/10475932703",
       "teamA": "입스위치(+0.5)",
       "teamB": "노팅엄",
-      "countA": 49,
-      "betA": 62009,
-      "countB": 60,
-      "betB": 53088
+      "countA": 50,
+      "betA": 62151,
+      "countB": 61,
+      "betB": 53188
     },
     {
       "title": "LOL Worlds :: G2 vs DK :: 10/24 06:00 경기",
       "url": "https://www.fmkorea.com/10476304982",
       "teamA": "G2",
       "teamB": "DK",
-      "countA": 28,
-      "betA": 316516,
-      "countB": 75,
-      "betB": 93924
+      "countA": 30,
+      "betA": 317216,
+      "countB": 77,
+      "betB": 94224
     },
     {
       "title": "2026 KBO 한국시리즈 우승팀 :: 10/25 14:00 진행",
@@ -5004,6 +5015,16 @@
           "team": "KT 위즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 599
+        }
+      ]
+    },
+    {
+      "name": ":먹구름이아니야",
+      "picks": [
+        {
+          "team": "GEN",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 100
         }
       ]
     },
@@ -7874,6 +7895,11 @@
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
           "bet": 100
+        },
+        {
+          "team": "GEN",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 100
         }
       ]
     },
@@ -10303,6 +10329,16 @@
       ]
     },
     {
+      "name": "소쌍록보러옴",
+      "picks": [
+        {
+          "team": "G2",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 600
+        }
+      ]
+    },
+    {
       "name": "속력",
       "picks": [
         {
@@ -10784,6 +10820,26 @@
           "team": "TES",
           "url": "https://www.fmkorea.com/10475741407",
           "bet": 500
+        }
+      ]
+    },
+    {
+      "name": "슼갈",
+      "picks": [
+        {
+          "team": "HLE",
+          "url": "https://www.fmkorea.com/10475741407",
+          "bet": 1000
+        },
+        {
+          "team": "GEN",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 1000
+        },
+        {
+          "team": "DK",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 100
         }
       ]
     },
@@ -11880,6 +11936,16 @@
     {
       "name": "엥그게마자",
       "picks": [
+        {
+          "team": "토리노 (-0.5)",
+          "url": "https://www.fmkorea.com/10476384858",
+          "bet": 100
+        },
+        {
+          "team": "노팅엄",
+          "url": "https://www.fmkorea.com/10475932703",
+          "bet": 100
+        },
         {
           "team": "KT 위즈",
           "url": "https://www.fmkorea.com/10466468368",
@@ -13399,6 +13465,11 @@
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
           "bet": 100
+        },
+        {
+          "team": "G2",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 100
         }
       ]
     },
@@ -14879,6 +14950,11 @@
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
           "bet": 494
+        },
+        {
+          "team": "입스위치(+0.5)",
+          "url": "https://www.fmkorea.com/10475932703",
+          "bet": 142
         },
         {
           "team": "KT 위즈",
@@ -16498,6 +16574,21 @@
       ]
     },
     {
+      "name": "현금관망단",
+      "picks": [
+        {
+          "team": "토리노 (-0.5)",
+          "url": "https://www.fmkorea.com/10476384858",
+          "bet": 200
+        },
+        {
+          "team": "DK",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 200
+        }
+      ]
+    },
+    {
       "name": "현대유니콘스",
       "picks": [
         {
@@ -16654,6 +16745,16 @@
           "team": "삼성 라이온즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 400
+        }
+      ]
+    },
+    {
+      "name": "후꾸선장",
+      "picks": [
+        {
+          "team": "GEN",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 1943
         }
       ]
     },
@@ -37670,42 +37771,42 @@
     }
   ],
   "pinnedPoints": {
-    "손나은": 311113,
     "IU와함께": 7400,
     "홍유순": 4310118,
-    "에버딘": 2123962,
-    "SI모": 142464,
-    "고결": 73451,
-    "Lillie": 308005,
+    "손나은": 311189,
+    "고결": 73495,
+    "에버딘": 2124003,
+    "SI모": 142465,
     "KU.1905.": 100440,
-    "Erebor": 2453200,
+    "Lillie": 308156,
+    "Erebor": 2453210,
+    "0대0무승부0점": 0,
     "김대승": 10,
     "초코소라빵": 95270,
-    "0대0무승부0점": 0,
-    "로즈": 494,
+    "로즈": 495,
     "이영서": 546,
     "忠南大學校": 223,
+    "보드보드6kg": 39883,
     "잉그리드버그만": 158485,
-    "보드보드6kg": 39843,
     "파이널게임": 8119,
-    "야옹이!": 2657410,
     "꼬습노": 20100,
+    "야옹이!": 2657444,
     "피자빵v": 3,
+    "$UWON": 4745,
     "암부": 127624,
-    "$UWON": 4744,
     "똑똑한똥강아지": 36750,
-    "채다": 66896,
     "스윙": 234636,
+    "채다": 66896,
     "고인물": 15255856,
-    "퀀텀스케이프": 73383,
     "고태호": 83,
     "Our": 536080,
-    "웍스아웃": 5,
+    "퀀텀스케이프": 73385,
     "다비치코드": 662084,
-    "色水下高十多": 286,
+    "色水下高十多": 336,
+    "웍스아웃": 5,
     "valse": 62
   },
-  "pinnedPointsAt": "2026-10-23T10:14:20.459Z",
-  "ongoingUpdatedAt": "2026-10-23T10:14:20.459Z",
+  "pinnedPointsAt": "2026-10-23T10:18:08.460Z",
+  "ongoingUpdatedAt": "2026-10-23T10:18:08.460Z",
   "ongoingScriptVersion": "6.7"
 }
