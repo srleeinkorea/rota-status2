@@ -1,9 +1,9 @@
 {
   "state": "running",
-  "windowValue": "3d",
-  "windowLabel": "최근 3일",
-  "minPicks": 3,
-  "startedAt": "2026-10-23T05:36:08.226Z",
+  "windowValue": "24h",
+  "windowLabel": "최근 24시간",
+  "minPicks": 4,
+  "startedAt": "2026-10-23T05:36:13.422Z",
   "phase": "정산 글 목록 가져오는 중",
   "scriptVersion": "6.7"
 }
