@@ -3135,6 +3135,11 @@
       "profit": 274,
       "picks": [
         {
+          "team": "토리노 (-0.5)",
+          "url": "https://www.fmkorea.com/10476384858",
+          "bet": 100
+        },
+        {
           "team": "HLE",
           "url": "https://www.fmkorea.com/10475741407",
           "bet": 100
@@ -3142,6 +3147,11 @@
         {
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
+          "bet": 100
+        },
+        {
+          "team": "DK",
+          "url": "https://www.fmkorea.com/10476304982",
           "bet": 100
         },
         {
@@ -4268,7 +4278,13 @@
       "totalBet": 7822,
       "totalPayout": 8483,
       "profit": 661,
-      "picks": []
+      "picks": [
+        {
+          "team": "162.5 언더",
+          "url": "https://www.fmkorea.com/10475963089",
+          "bet": 352
+        }
+      ]
     },
     {
       "name": "하혜성",
@@ -4557,7 +4573,7 @@
         {
           "team": "수원 KT(+2.5)",
           "url": "https://www.fmkorea.com/10474694640",
-          "bet": 1839
+          "bet": 2839
         }
       ]
     },
@@ -4756,7 +4772,13 @@
       "totalBet": 3237,
       "totalPayout": 2248,
       "profit": -989,
-      "picks": []
+      "picks": [
+        {
+          "team": "원주 DB",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 414
+        }
+      ]
     },
     {
       "name": "푸른희망",
@@ -5716,18 +5738,18 @@
       "url": "https://www.fmkorea.com/10476319083",
       "teamA": "홀",
       "teamB": "짝",
-      "countA": 53,
-      "betA": 83875,
-      "countB": 34,
-      "betB": 127437
+      "countA": 57,
+      "betA": 87881,
+      "countB": 35,
+      "betB": 127537
     },
     {
       "title": "KBL 양팀 득점 합 [162.5] 언/오버 :: 수원 KT vs 원주 DB :: 10/23 19:00 경기",
       "url": "https://www.fmkorea.com/10475963089",
       "teamA": "162.5 언더",
       "teamB": "162.5 오버",
-      "countA": 73,
-      "betA": 195783,
+      "countA": 78,
+      "betA": 225354,
       "countB": 111,
       "betB": 824487
     },
@@ -5736,20 +5758,20 @@
       "url": "https://www.fmkorea.com/10474694640",
       "teamA": "수원 KT(+2.5)",
       "teamB": "원주 DB",
-      "countA": 169,
-      "betA": 579045,
-      "countB": 263,
-      "betB": 916561
+      "countA": 176,
+      "betA": 725387,
+      "countB": 269,
+      "betB": 925052
     },
     {
       "title": "LOL Worlds :: GEN vs IG :: 10/24 02:00 경기",
       "url": "https://www.fmkorea.com/10475566137",
       "teamA": "GEN",
       "teamB": "IG",
-      "countA": 383,
-      "betA": 2781758,
-      "countB": 83,
-      "betB": 775336
+      "countA": 385,
+      "betA": 2782505,
+      "countB": 84,
+      "betB": 775541
     },
     {
       "title": "LOL Worlds :: HLE vs TES :: 10/24 03:00 경기",
@@ -5758,16 +5780,16 @@
       "teamB": "TES",
       "countA": 197,
       "betA": 409046,
-      "countB": 56,
-      "betB": 59957
+      "countB": 57,
+      "betB": 60457
     },
     {
       "title": "세리에 A :: 토리노 (-0.5) vs 몬차 :: 10/24 03:45 경기",
       "url": "https://www.fmkorea.com/10476384858",
       "teamA": "토리노 (-0.5)",
       "teamB": "몬차",
-      "countA": 11,
-      "betA": 5095,
+      "countA": 12,
+      "betA": 5195,
       "countB": 11,
       "betB": 3852
     },
@@ -5776,8 +5798,8 @@
       "url": "https://www.fmkorea.com/10475932703",
       "teamA": "입스위치(+0.5)",
       "teamB": "노팅엄",
-      "countA": 45,
-      "betA": 59896,
+      "countA": 46,
+      "betA": 60096,
       "countB": 47,
       "betB": 45139
     },
@@ -5788,8 +5810,8 @@
       "teamB": "DK",
       "countA": 16,
       "betA": 311601,
-      "countB": 46,
-      "betB": 40853
+      "countB": 49,
+      "betB": 42332
     },
     {
       "title": "2026 KBO 한국시리즈 우승팀 :: 10/25 14:00 진행",
@@ -5839,7 +5861,7 @@
         {
           "team": "원주 DB",
           "url": "https://www.fmkorea.com/10474694640",
-          "bet": 3819
+          "bet": 5264
         }
       ]
     },
@@ -7174,6 +7196,16 @@
       ]
     },
     {
+      "name": "그냥샌안",
+      "picks": [
+        {
+          "team": "수원 KT(+2.5)",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 10117
+        }
+      ]
+    },
+    {
       "name": "그렇긴한대",
       "picks": [
         {
@@ -7749,6 +7781,16 @@
       ]
     },
     {
+      "name": "꾸앙이",
+      "picks": [
+        {
+          "team": "홀",
+          "url": "https://www.fmkorea.com/10476319083",
+          "bet": 3251
+        }
+      ]
+    },
+    {
       "name": "꾸으우앙",
       "picks": [
         {
@@ -7957,6 +7999,11 @@
       "name": "납골당",
       "picks": [
         {
+          "team": "토리노 (-0.5)",
+          "url": "https://www.fmkorea.com/10476384858",
+          "bet": 100
+        },
+        {
           "team": "HLE",
           "url": "https://www.fmkorea.com/10475741407",
           "bet": 100
@@ -7964,6 +8011,11 @@
         {
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
+          "bet": 100
+        },
+        {
+          "team": "DK",
+          "url": "https://www.fmkorea.com/10476304982",
           "bet": 100
         },
         {
@@ -7979,6 +8031,21 @@
         {
           "team": "KT 위즈",
           "url": "https://www.fmkorea.com/10466468368",
+          "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "내맘을알아",
+      "picks": [
+        {
+          "team": "홀",
+          "url": "https://www.fmkorea.com/10476319083",
+          "bet": 100
+        },
+        {
+          "team": "입스위치(+0.5)",
+          "url": "https://www.fmkorea.com/10475932703",
           "bet": 200
         }
       ]
@@ -8254,6 +8321,11 @@
         {
           "team": "IG",
           "url": "https://www.fmkorea.com/10475566137",
+          "bet": 100
+        },
+        {
+          "team": "DK",
+          "url": "https://www.fmkorea.com/10476304982",
           "bet": 100
         },
         {
@@ -9574,12 +9646,22 @@
         {
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
-          "bet": 2100
+          "bet": 2200
         },
         {
           "team": "노팅엄",
           "url": "https://www.fmkorea.com/10475932703",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "로열",
+      "picks": [
+        {
+          "team": "162.5 언더",
+          "url": "https://www.fmkorea.com/10475963089",
+          "bet": 19652
         }
       ]
     },
@@ -10444,6 +10526,16 @@
       ]
     },
     {
+      "name": "맷꿰",
+      "picks": [
+        {
+          "team": "162.5 언더",
+          "url": "https://www.fmkorea.com/10475963089",
+          "bet": 5823
+        }
+      ]
+    },
+    {
       "name": "멀록전투대장",
       "picks": [
         {
@@ -10649,7 +10741,7 @@
         {
           "team": "DK",
           "url": "https://www.fmkorea.com/10476304982",
-          "bet": 921
+          "bet": 1097
         }
       ]
     },
@@ -10820,6 +10912,16 @@
           "team": "삼성 라이온즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "무억",
+      "picks": [
+        {
+          "team": "원주 DB",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 123
         }
       ]
     },
@@ -12284,6 +12386,26 @@
       ]
     },
     {
+      "name": "사도세자",
+      "picks": [
+        {
+          "team": "TES",
+          "url": "https://www.fmkorea.com/10475741407",
+          "bet": 500
+        },
+        {
+          "team": "GEN",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 500
+        },
+        {
+          "team": "DK",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 1103
+        }
+      ]
+    },
+    {
       "name": "사랑나무꾼",
       "picks": [
         {
@@ -12374,7 +12496,7 @@
         {
           "team": "수원 KT(+2.5)",
           "url": "https://www.fmkorea.com/10474694640",
-          "bet": 1839
+          "bet": 2839
         }
       ]
     },
@@ -12729,7 +12851,7 @@
         {
           "team": "수원 KT(+2.5)",
           "url": "https://www.fmkorea.com/10474694640",
-          "bet": 1087
+          "bet": 2134
         }
       ]
     },
@@ -12995,6 +13117,16 @@
           "team": "수원 KT(+2.5)",
           "url": "https://www.fmkorea.com/10474694640",
           "bet": 1000
+        }
+      ]
+    },
+    {
+      "name": "송우기fan",
+      "picks": [
+        {
+          "team": "수원 KT(+2.5)",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 112
         }
       ]
     },
@@ -13475,6 +13607,16 @@
           "team": "원주 DB",
           "url": "https://www.fmkorea.com/10474694640",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "시도루이",
+      "picks": [
+        {
+          "team": "162.5 언더",
+          "url": "https://www.fmkorea.com/10475963089",
+          "bet": 352
         }
       ]
     },
@@ -14095,6 +14237,16 @@
           "team": "KT 위즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 1729
+        }
+      ]
+    },
+    {
+      "name": "아앙꼬좋아",
+      "picks": [
+        {
+          "team": "원주 DB",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 1955
         }
       ]
     },
@@ -14959,6 +15111,16 @@
       ]
     },
     {
+      "name": "에이유",
+      "picks": [
+        {
+          "team": "원주 DB",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 3477
+        }
+      ]
+    },
+    {
       "name": "에펨광임",
       "picks": [
         {
@@ -15565,6 +15727,16 @@
           "team": "KT 위즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 2600
+        }
+      ]
+    },
+    {
+      "name": "올인만이답",
+      "picks": [
+        {
+          "team": "GEN",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 147
         }
       ]
     },
@@ -16179,6 +16351,16 @@
       ]
     },
     {
+      "name": "유카",
+      "picks": [
+        {
+          "team": "홀",
+          "url": "https://www.fmkorea.com/10476319083",
+          "bet": 555
+        }
+      ]
+    },
+    {
       "name": "유카나",
       "picks": [
         {
@@ -16371,6 +16553,11 @@
     {
       "name": "이병",
       "picks": [
+        {
+          "team": "162.5 언더",
+          "url": "https://www.fmkorea.com/10475963089",
+          "bet": 3333
+        },
         {
           "team": "원주 DB",
           "url": "https://www.fmkorea.com/10474694640",
@@ -17654,6 +17841,16 @@
       ]
     },
     {
+      "name": "조이보이",
+      "picks": [
+        {
+          "team": "원주 DB",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 300
+        }
+      ]
+    },
+    {
       "name": "존박",
       "picks": [
         {
@@ -18345,6 +18542,16 @@
           "team": "삼성 라이온즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 560
+        }
+      ]
+    },
+    {
+      "name": "천기범",
+      "picks": [
+        {
+          "team": "수원 KT(+2.5)",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 200
         }
       ]
     },
@@ -19867,6 +20074,11 @@
       "name": "트릭두",
       "picks": [
         {
+          "team": "홀",
+          "url": "https://www.fmkorea.com/10476319083",
+          "bet": 100
+        },
+        {
           "team": "수원 KT(+2.5)",
           "url": "https://www.fmkorea.com/10474694640",
           "bet": 100
@@ -20459,6 +20671,16 @@
       ]
     },
     {
+      "name": "프리모",
+      "picks": [
+        {
+          "team": "수원 KT(+2.5)",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 3366
+        }
+      ]
+    },
+    {
       "name": "프히일롱",
       "picks": [
         {
@@ -21045,6 +21267,16 @@
           "team": "KT 위즈",
           "url": "https://www.fmkorea.com/10466468368",
           "bet": 5555
+        }
+      ]
+    },
+    {
+      "name": "혈화",
+      "picks": [
+        {
+          "team": "IG",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 205
         }
       ]
     },
@@ -22377,6 +22609,11 @@
       "name": "ingyeo",
       "picks": [
         {
+          "team": "162.5 언더",
+          "url": "https://www.fmkorea.com/10475963089",
+          "bet": 411
+        },
+        {
           "team": "수원 KT(+2.5)",
           "url": "https://www.fmkorea.com/10474694640",
           "bet": 1000
@@ -22400,6 +22637,16 @@
           "team": "홀",
           "url": "https://www.fmkorea.com/10476319083",
           "bet": 1000
+        }
+      ]
+    },
+    {
+      "name": "IPLUCK",
+      "picks": [
+        {
+          "team": "수원 KT(+2.5)",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 500
         }
       ]
     },
@@ -22540,6 +22787,16 @@
           "team": "IG",
           "url": "https://www.fmkorea.com/10475566137",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "KBL",
+      "picks": [
+        {
+          "team": "수원 KT(+2.5)",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 100000
         }
       ]
     },
@@ -22984,6 +23241,16 @@
       ]
     },
     {
+      "name": "meowww",
+      "picks": [
+        {
+          "team": "짝",
+          "url": "https://www.fmkorea.com/10476319083",
+          "bet": 100
+        }
+      ]
+    },
+    {
       "name": "Mezian",
       "picks": [
         {
@@ -23005,6 +23272,16 @@
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
           "bet": 159
+        }
+      ]
+    },
+    {
+      "name": "MoonMan",
+      "picks": [
+        {
+          "team": "원주 DB",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 414
         }
       ]
     },
@@ -23399,6 +23676,16 @@
       ]
     },
     {
+      "name": "polepole",
+      "picks": [
+        {
+          "team": "원주 DB",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 777
+        }
+      ]
+    },
+    {
       "name": "Polyyes",
       "picks": [
         {
@@ -23785,6 +24072,16 @@
           "team": "원주 DB",
           "url": "https://www.fmkorea.com/10474694640",
           "bet": 400
+        }
+      ]
+    },
+    {
+      "name": "STANTON",
+      "picks": [
+        {
+          "team": "수원 KT(+2.5)",
+          "url": "https://www.fmkorea.com/10474694640",
+          "bet": 30000
         }
       ]
     },
@@ -42967,41 +43264,41 @@
   ],
   "pinnedPoints": {
     "손나은": 310995,
-    "IU와함께": 17334,
-    "홍유순": 4310006,
-    "에버딘": 2126080,
+    "홍유순": 4310052,
+    "IU와함께": 17340,
+    "에버딘": 2126152,
     "SI모": 142463,
-    "고결": 74184,
-    "Lillie": 307840,
-    "KU.1905.": 180275,
-    "Erebor": 2453000,
-    "0대0무승부0점": 196,
+    "고결": 74230,
+    "Lillie": 307846,
+    "KU.1905.": 180286,
+    "Erebor": 2453100,
+    "0대0무승부0점": 0,
     "초코소라빵": 95269,
     "김대승": 10,
-    "忠南大學校": 223,
-    "로즈": 405,
     "이영서": 546,
+    "로즈": 494,
+    "忠南大學校": 223,
     "보드보드6kg": 39843,
     "잉그리드버그만": 158483,
-    "파이널게임": 8081,
+    "파이널게임": 8108,
     "야옹이!": 2657295,
-    "꼬습노": 79985,
+    "꼬습노": 20100,
     "피자빵v": 3,
-    "똑똑한똥강아지": 36666,
-    "$UWON": 4743,
     "암부": 122966,
-    "스윙": 274635,
+    "$UWON": 4743,
+    "똑똑한똥강아지": 36715,
     "고인물": 15255856,
     "채다": 66896,
+    "스윙": 274636,
+    "Our": 536168,
     "퀀텀스케이프": 72000,
     "고태호": 78,
-    "Our": 536168,
-    "웍스아웃": 5,
     "다비치코드": 660000,
-    "色水下高十多": 267,
+    "웍스아웃": 5,
+    "色水下高十多": 268,
     "valse": 62
   },
-  "pinnedPointsAt": "2026-10-23T09:44:22.206Z",
-  "ongoingUpdatedAt": "2026-10-23T09:44:22.206Z",
+  "pinnedPointsAt": "2026-10-23T09:49:05.286Z",
+  "ongoingUpdatedAt": "2026-10-23T09:49:05.286Z",
   "ongoingScriptVersion": "6.7"
 }
