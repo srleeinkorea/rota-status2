@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         정산 승률 분석기
 // @namespace    fmkorea-jungsan-analyzer
-// @version      6.7
+// @version      6.8
 // @description  잉여력놀이터 '정산' 게시판의 최근 24시간 내 마감 글들을 자동으로 읽어서 참가자별 승률(종합/종목별)을 집계합니다. 사이트 내부 AJAX(pp.getPpList)를 그대로 호출해서, 글을 일일이 열고 참여현황을 손으로 베낄 필요가 없습니다. 종합 랭킹에는 진행중인(아직 결과가 안 나온) 경기에 누가 어디 베팅했는지도 함께 보여줍니다.
 // @match        https://www.fmkorea.com/*
 // @grant        none
@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '6.7';
+  const SCRIPT_VERSION = '6.8';
   const CATEGORIES = [
     { id: '4874265175', label: '정산' },
     { id: '5179656568', label: '정산(결산미포함)' },
@@ -172,6 +172,7 @@
     [/\bNPB\b/, 'NPB(야구)'],
     [/\bNHL\b|IIHF|아이스하키/, '아이스하키'],
     [/스타크래프트|\bASL\b|스타끝장전/, '스타크래프트'],
+    [/\bPBA\b|\bLPBA\b|당구/, '당구(PBA)'],
   ];
 
   function classifySport(title) {
@@ -1055,7 +1056,7 @@
   function numFmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
 
   const OVERALL_TOP_DEFAULT = 10;
-  const SPORT_TOP = 10;
+  const SPORT_TOP = 15;
   // 종목별로 더 많이 보고 싶은 경우 여기에 인원을 지정한다 (요청: 3x3은 5~10명)
   const SPORT_TOP_OVERRIDES = {};
   function sportTopFor(sport) { return SPORT_TOP_OVERRIDES[sport] || SPORT_TOP; }
@@ -1094,6 +1095,7 @@
     [/탁구|ETTU/, '🏓'],
     [/배드민턴|BWF/, '🏸'],
     [/LOL|발로란트|VCT|스타크래프트/i, '🎮'],
+    [/당구|PBA/i, '🎱'],
   ];
   function sportIcon(sport) {
     for (const [re, ic] of SPORT_ICONS) { if (re.test(sport)) return ic; }
