@@ -4940,28 +4940,28 @@
       "url": "https://www.fmkorea.com/10475566137",
       "teamA": "GEN",
       "teamB": "IG",
-      "countA": 408,
-      "betA": 2903730,
-      "countB": 90,
-      "betB": 777167
+      "countA": 409,
+      "betA": 2909148,
+      "countB": 91,
+      "betB": 779389
     },
     {
       "title": "LOL Worlds :: HLE vs TES :: 10/24 03:00 경기",
       "url": "https://www.fmkorea.com/10475741407",
       "teamA": "HLE",
       "teamB": "TES",
-      "countA": 209,
-      "betA": 466859,
-      "countB": 63,
-      "betB": 62457
+      "countA": 210,
+      "betA": 467086,
+      "countB": 64,
+      "betB": 64679
     },
     {
       "title": "세리에 A :: 토리노 (-0.5) vs 몬차 :: 10/24 03:45 경기",
       "url": "https://www.fmkorea.com/10476384858",
       "teamA": "토리노 (-0.5)",
       "teamB": "몬차",
-      "countA": 21,
-      "betA": 19528,
+      "countA": 22,
+      "betA": 19628,
       "countB": 21,
       "betB": 8250
     },
@@ -4970,20 +4970,20 @@
       "url": "https://www.fmkorea.com/10475932703",
       "teamA": "입스위치(+0.5)",
       "teamB": "노팅엄",
-      "countA": 48,
-      "betA": 60396,
-      "countB": 59,
-      "betB": 52988
+      "countA": 49,
+      "betA": 62009,
+      "countB": 60,
+      "betB": 53088
     },
     {
       "title": "LOL Worlds :: G2 vs DK :: 10/24 06:00 경기",
       "url": "https://www.fmkorea.com/10476304982",
       "teamA": "G2",
       "teamB": "DK",
-      "countA": 25,
-      "betA": 313694,
-      "countB": 74,
-      "betB": 93424
+      "countA": 28,
+      "betA": 316516,
+      "countB": 75,
+      "betB": 93924
     },
     {
       "title": "2026 KBO 한국시리즈 우승팀 :: 10/25 14:00 진행",
@@ -6464,6 +6464,16 @@
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
           "bet": 1297
+        }
+      ]
+    },
+    {
+      "name": "나카야마시치리",
+      "picks": [
+        {
+          "team": "입스위치(+0.5)",
+          "url": "https://www.fmkorea.com/10475932703",
+          "bet": 1613
         }
       ]
     },
@@ -9501,8 +9511,28 @@
       "name": "붕스시붕",
       "picks": [
         {
+          "team": "토리노 (-0.5)",
+          "url": "https://www.fmkorea.com/10476384858",
+          "bet": 100
+        },
+        {
+          "team": "HLE",
+          "url": "https://www.fmkorea.com/10475741407",
+          "bet": 100
+        },
+        {
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
+          "bet": 100
+        },
+        {
+          "team": "G2",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 100
+        },
+        {
+          "team": "노팅엄",
+          "url": "https://www.fmkorea.com/10475932703",
           "bet": 100
         },
         {
@@ -10146,6 +10176,21 @@
           "bet": 3333
         },
         {
+          "team": "TES",
+          "url": "https://www.fmkorea.com/10475741407",
+          "bet": 2222
+        },
+        {
+          "team": "IG",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 2222
+        },
+        {
+          "team": "G2",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 2222
+        },
+        {
           "team": "노팅엄",
           "url": "https://www.fmkorea.com/10475932703",
           "bet": 3333
@@ -10684,6 +10729,16 @@
           "team": "IG",
           "url": "https://www.fmkorea.com/10475566137",
           "bet": 300
+        },
+        {
+          "team": "G2",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 500
+        },
+        {
+          "team": "DK",
+          "url": "https://www.fmkorea.com/10476304982",
+          "bet": 500
         },
         {
           "team": "KT 위즈",
@@ -13728,7 +13783,7 @@
         {
           "team": "HLE",
           "url": "https://www.fmkorea.com/10475741407",
-          "bet": 1300
+          "bet": 1427
         },
         {
           "team": "IG",
@@ -14214,6 +14269,16 @@
           "team": "GEN",
           "url": "https://www.fmkorea.com/10475566137",
           "bet": 232
+        }
+      ]
+    },
+    {
+      "name": "징거를대바",
+      "picks": [
+        {
+          "team": "GEN",
+          "url": "https://www.fmkorea.com/10475566137",
+          "bet": 5418
         }
       ]
     },
@@ -37640,7 +37705,7 @@
     "色水下高十多": 286,
     "valse": 62
   },
-  "pinnedPointsAt": "2026-10-23T10:13:05.889Z",
-  "ongoingUpdatedAt": "2026-10-23T10:13:05.889Z",
+  "pinnedPointsAt": "2026-10-23T10:14:20.459Z",
+  "ongoingUpdatedAt": "2026-10-23T10:14:20.459Z",
   "ongoingScriptVersion": "6.7"
 }
