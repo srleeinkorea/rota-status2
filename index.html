@@ -511,6 +511,7 @@ function render(data) {
     [/탁구|ETTU/, '🏓'],
     [/배드민턴|BWF/, '🏸'],
     [/LOL|발로란트|VCT|스타크래프트/i, '🎮'],
+    [/당구|PBA/i, '🎱'],
   ];
   function sportIcon(sport) {
     for (const [re, ic] of SPORT_ICONS) { if (re.test(sport)) return ic; }
