@@ -355,10 +355,10 @@ function rowHtml(r, withMoney, rankIdx, withPicks) {
   let html = `<tr data-jsa-name="${escapeHtml(r.name.toLowerCase())}"><td><span class="rank ${medal}">${rankIdx + 1}</span></td><td class="name">${escapeHtml(r.name)}</td><td><span class="pill">${r.win}승${r.lose}패</span></td><td class="rate ${rateClass}">${fmtPct(r.rate)}</td>`;
   if (withMoney) {
     const profitClass = r.profit >= 0 ? 'pos' : 'neg';
-    html += `<td class="money">${numFmt(r.totalBet)}</td><td class="profit ${profitClass}">${r.profit >= 0 ? '+' : ''}${numFmt(r.profit)}</td><td>${picksHtml(r.picks, 6)}</td>`;
+    html += `<td class="money">${numFmt(r.totalBet)}</td><td class="profit ${profitClass}">${r.profit >= 0 ? '+' : ''}${numFmt(r.profit)}</td><td>${picksHtml(r.picks)}</td>`;
   } else if (withPicks) {
     // 종목별 랭킹: 그 종목에 지금 걸어둔 베팅만 표시
-    html += `<td>${picksHtml(r.picks, 6)}</td>`;
+    html += `<td>${picksHtml(r.picks)}</td>`;
   }
   html += '</tr>';
   return html;
