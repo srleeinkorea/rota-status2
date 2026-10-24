@@ -3,7 +3,10 @@
   "windowValue": "24h",
   "windowLabel": "최근 24시간",
   "minPicks": 4,
-  "startedAt": "2026-10-24T06:34:02.640Z",
-  "phase": "정산 글 목록 가져오는 중",
-  "scriptVersion": "6.8"
+  "startedAt": "2026-10-24T06:34:04.592Z",
+  "phase": "정산 결과 분석 중",
+  "scriptVersion": "6.8",
+  "processed": 27,
+  "total": 49,
+  "pct": 55
 }
