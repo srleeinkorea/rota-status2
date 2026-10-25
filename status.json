@@ -1,11 +1,9 @@
 {
   "state": "running",
-  "windowValue": "7d",
-  "windowLabel": "최근 7일",
+  "windowValue": "3d",
+  "windowLabel": "최근 3일",
   "minPicks": 35,
-  "startedAt": "2026-10-25T16:53:44.985Z",
-  "scriptVersion": "7.0",
-  "processed": 0,
-  "total": 361,
-  "pct": 0
+  "startedAt": "2026-10-25T16:53:50.191Z",
+  "phase": "정산 글 목록 가져오는 중",
+  "scriptVersion": "7.0"
 }
