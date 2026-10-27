@@ -748,7 +748,23 @@
       "totalBet": 8000,
       "totalPayout": 11495,
       "profit": 3495,
-      "picks": []
+      "picks": [
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 400
+        },
+        {
+          "team": "[6.5] 오버",
+          "url": "https://www.fmkorea.com/10492364025",
+          "bet": 200
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 400
+        }
+      ]
     },
     {
       "name": "수염토끼",
@@ -764,6 +780,11 @@
           "team": "[6.5] 오버",
           "url": "https://www.fmkorea.com/10492364025",
           "bet": 10045
+        },
+        {
+          "team": "1회득점 O",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 20000
         }
       ]
     },
@@ -942,7 +963,28 @@
       "totalBet": 2500,
       "totalPayout": 3723,
       "profit": 1223,
-      "picks": []
+      "picks": [
+        {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 500
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 500
+        },
+        {
+          "team": "새크라멘토 (+17.5)",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 500
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 500
+        }
+      ]
     },
     {
       "name": "아앙꼬좋아",
@@ -966,13 +1008,13 @@
       "profit": 12099,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 3333
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 3333
         },
         {
@@ -1113,14 +1155,14 @@
       "profit": 9199,
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 350
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 1234
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 350
         },
         {
           "team": "탬파베이",
@@ -1298,6 +1340,11 @@
           "bet": 646
         },
         {
+          "team": "샌안토니오",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 1500
+        },
+        {
           "team": "[6.5] 언더",
           "url": "https://www.fmkorea.com/10492364025",
           "bet": 700
@@ -1429,14 +1476,14 @@
       "profit": 598,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 154
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 500
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 154
         },
         {
           "team": "디트로이트",
@@ -1483,9 +1530,19 @@
       "profit": 5881,
       "picks": [
         {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1000
+        },
+        {
           "team": "뉴욕 닉스",
           "url": "https://www.fmkorea.com/10492140226",
           "bet": 464
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 1000
         }
       ]
     },
@@ -1653,14 +1710,14 @@
           "bet": 123
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 333
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 100
         }
       ]
     },
@@ -1857,7 +1914,18 @@
       "totalBet": 2067,
       "totalPayout": 2676,
       "profit": 609,
-      "picks": []
+      "picks": [
+        {
+          "team": "탬파베이",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 200
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 300
+        }
+      ]
     },
     {
       "name": "극뽁",
@@ -2215,14 +2283,14 @@
       "profit": 15849,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 1999
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 1888
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1999
         },
         {
           "team": "밀워키",
@@ -2245,13 +2313,18 @@
           "bet": 2333
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 2111
         },
         {
-          "team": "1회득점 X",
-          "url": "https://www.fmkorea.com/10492405388",
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 1666
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 2111
         }
       ]
@@ -2293,11 +2366,6 @@
           "bet": 1111
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 1000
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 888
@@ -2306,6 +2374,11 @@
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 1111
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 1000
         }
       ]
     },
@@ -2348,13 +2421,13 @@
       "profit": 18680,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -2378,13 +2451,13 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
           "bet": 100
         },
         {
-          "team": "LA 레이커스",
-          "url": "https://www.fmkorea.com/10492322215",
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -2400,13 +2473,13 @@
       "profit": 1842,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -2430,11 +2503,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -2442,6 +2510,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -2456,6 +2529,16 @@
       "totalPayout": 23728,
       "profit": 4303,
       "picks": [
+        {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 777
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 777
+        },
         {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
@@ -2707,14 +2790,14 @@
       "profit": 5686,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 2222
-        },
-        {
           "team": "[222.5] 언더",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 1555
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 2222
         },
         {
           "team": "새크라멘토 (+17.5)",
@@ -2727,14 +2810,14 @@
           "bet": 2222
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 1555
-        },
-        {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 2222
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 1555
         }
       ]
     },
@@ -2771,13 +2854,13 @@
       "profit": 29435,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 11111
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 11111
         },
         {
@@ -3176,13 +3259,13 @@
       "profit": -82737,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 1000
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 1000
         }
       ]
@@ -3357,13 +3440,13 @@
       "profit": 816,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -3387,11 +3470,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -3399,6 +3477,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -3431,14 +3514,14 @@
       "profit": 7588,
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 6749
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 2000
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 6749
         },
         {
           "team": "밀워키",
@@ -3468,13 +3551,13 @@
       "profit": 13917,
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 500
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 500
         },
         {
@@ -3493,13 +3576,13 @@
           "bet": 1000
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 500
         },
         {
-          "team": "1회득점 X",
-          "url": "https://www.fmkorea.com/10492405388",
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 500
         }
       ]
@@ -3607,6 +3690,11 @@
           "bet": 100
         },
         {
+          "team": "[6.5] 언더",
+          "url": "https://www.fmkorea.com/10492364025",
+          "bet": 100
+        },
+        {
           "team": "디트로이트",
           "url": "https://www.fmkorea.com/10492140226",
           "bet": 200
@@ -3653,7 +3741,7 @@
         {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
-          "bet": 100
+          "bet": 295
         }
       ]
     },
@@ -3853,7 +3941,13 @@
       "totalBet": 20830,
       "totalPayout": 16543,
       "profit": -4287,
-      "picks": []
+      "picks": [
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1951
+        }
+      ]
     },
     {
       "name": "Soulight",
@@ -3938,6 +4032,11 @@
       "profit": 15290,
       "picks": [
         {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 10000
+        },
+        {
           "team": "탬파베이",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 10250
@@ -3999,14 +4098,14 @@
       "profit": 20528,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 1000
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1000
         },
         {
           "team": "밀워키",
@@ -4046,13 +4145,13 @@
       "profit": 1937,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 500
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 500
         },
         {
@@ -4076,11 +4175,6 @@
           "bet": 500
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 500
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 500
@@ -4088,6 +4182,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 500
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 500
         }
       ]
@@ -4103,13 +4202,13 @@
       "profit": 25484,
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 10000
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 10000
         },
         {
@@ -4182,13 +4281,13 @@
       "profit": 434,
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -4253,6 +4352,21 @@
           "team": "탬파베이",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 2198
+        },
+        {
+          "team": "새크라멘토 (+17.5)",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 1000
+        },
+        {
+          "team": "디트로이트",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 1028
+        },
+        {
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 8000
         }
       ]
     },
@@ -4328,14 +4442,29 @@
       "profit": 1965,
       "picks": [
         {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 200
+        },
+        {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 2898
         },
         {
+          "team": "샌안토니오",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 200
+        },
+        {
           "team": "디트로이트",
           "url": "https://www.fmkorea.com/10492140226",
           "bet": 149
+        },
+        {
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 200
         }
       ]
     },
@@ -4589,6 +4718,11 @@
       "profit": 599,
       "picks": [
         {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 3000
+        },
+        {
           "team": "디트로이트",
           "url": "https://www.fmkorea.com/10492140226",
           "bet": 5000
@@ -4729,13 +4863,13 @@
       "profit": 1051,
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 1000
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 1000
         },
         {
@@ -4744,13 +4878,13 @@
           "bet": 800
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
           "bet": 1000
         },
         {
-          "team": "LA 레이커스",
-          "url": "https://www.fmkorea.com/10492322215",
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 1000
         }
       ]
@@ -4826,13 +4960,13 @@
       "profit": 172,
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -4856,11 +4990,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -4868,6 +4997,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -4883,13 +5017,13 @@
       "profit": 731,
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 300
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 300
         },
         {
@@ -4913,13 +5047,13 @@
           "bet": 300
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 200
         },
         {
-          "team": "1회득점 X",
-          "url": "https://www.fmkorea.com/10492405388",
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 200
         }
       ]
@@ -6937,94 +7071,94 @@
   },
   "ongoingMatches": [
     {
-      "title": "NBA :: 브루클린(+11.5) vs 보스턴 :: 10/28 08:30 경기",
-      "url": "https://www.fmkorea.com/10492360209",
-      "teamA": "브루클린(+11.5)",
-      "teamB": "보스턴",
-      "countA": 65,
-      "betA": 101791,
-      "countB": 86,
-      "betB": 158918
-    },
-    {
       "title": "NBA 양팀 득점 합 [222.5] 언/오버 :: 브루클린 vs 보스턴 :: 10/28 08:30 경기",
       "url": "https://www.fmkorea.com/10492402546",
       "teamA": "[222.5] 언더",
       "teamB": "[222.5] 오버",
-      "countA": 21,
-      "betA": 25431,
-      "countB": 46,
-      "betB": 58389
+      "countA": 22,
+      "betA": 26431,
+      "countB": 52,
+      "betB": 68043
+    },
+    {
+      "title": "NBA :: 브루클린(+11.5) vs 보스턴 :: 10/28 08:30 경기",
+      "url": "https://www.fmkorea.com/10492360209",
+      "teamA": "브루클린(+11.5)",
+      "teamB": "보스턴",
+      "countA": 72,
+      "betA": 106943,
+      "countB": 100,
+      "betB": 184831
     },
     {
       "title": "MLB WS #연장포함# :: 밀워키 vs 탬파베이 :: 10/28 09:00 경기",
       "url": "https://www.fmkorea.com/10490691866",
       "teamA": "밀워키",
       "teamB": "탬파베이",
-      "countA": 375,
-      "betA": 3998705,
-      "countB": 239,
-      "betB": 3023539
+      "countA": 384,
+      "betA": 5027054,
+      "countB": 245,
+      "betB": 3026297
     },
     {
       "title": "NBA :: 새크라멘토 (+17.5) vs 샌안토니오 :: 10/28 09:00 경기",
       "url": "https://www.fmkorea.com/10492362267",
       "teamA": "새크라멘토 (+17.5)",
       "teamB": "샌안토니오",
-      "countA": 73,
-      "betA": 105923,
-      "countB": 28,
-      "betB": 229129
+      "countA": 79,
+      "betA": 161303,
+      "countB": 33,
+      "betB": 231929
     },
     {
       "title": "MLB WS 양팀 득점 합 [6.5] 언/오버 :: 밀워키 vs 탬파베이 :: 10/28 09:00 경기",
       "url": "https://www.fmkorea.com/10492364025",
       "teamA": "[6.5] 언더",
       "teamB": "[6.5] 오버",
-      "countA": 34,
-      "betA": 38464,
-      "countB": 52,
-      "betB": 110911
+      "countA": 35,
+      "betA": 38564,
+      "countB": 58,
+      "betB": 133718
     },
     {
       "title": "NBA #연장포함# :: 디트로이트 vs 뉴욕 닉스 :: 10/28 09:00 경기",
       "url": "https://www.fmkorea.com/10492140226",
       "teamA": "디트로이트",
       "teamB": "뉴욕 닉스",
-      "countA": 123,
-      "betA": 396005,
-      "countB": 114,
-      "betB": 500635
-    },
-    {
-      "title": "NBA 양팀 득점 합 [218.5] 언/오버 :: 디트로이트 vs 뉴욕 닉스 :: 10/28 09:00 경기",
-      "url": "https://www.fmkorea.com/10492429664",
-      "teamA": "[218.5] 언더",
-      "teamB": "[218.5] 오버",
-      "countA": 21,
-      "betA": 24216,
-      "countB": 25,
-      "betB": 45669
+      "countA": 127,
+      "betA": 407010,
+      "countB": 118,
+      "betB": 504486
     },
     {
       "title": "MLB WS 1회득점 O/X :: 밀워키 vs 탬파베이 :: 10/28 09:00 경기",
       "url": "https://www.fmkorea.com/10492405388",
       "teamA": "1회득점 O",
       "teamB": "1회득점 X",
-      "countA": 28,
-      "betA": 55117,
-      "countB": 60,
-      "betB": 73526
+      "countA": 33,
+      "betA": 78200,
+      "countB": 67,
+      "betB": 79226
+    },
+    {
+      "title": "NBA 양팀 득점 합 [218.5] 언/오버 :: 디트로이트 vs 뉴욕 닉스 :: 10/28 09:00 경기",
+      "url": "https://www.fmkorea.com/10492429664",
+      "teamA": "[218.5] 언더",
+      "teamB": "[218.5] 오버",
+      "countA": 22,
+      "betA": 25216,
+      "countB": 27,
+      "betB": 46269
     },
     {
       "title": "NBA #연장포함# :: 포틀랜드 vs LA 레이커스 :: 10/28 12:00 경기",
       "url": "https://www.fmkorea.com/10492322215",
       "teamA": "포틀랜드",
       "teamB": "LA 레이커스",
-      "countA": 38,
-      "betA": 58808,
-      "countB": 72,
-      "betB": 101039
+      "countA": 41,
+      "betA": 62031,
+      "countB": 76,
+      "betB": 111005
     }
   ],
   "allPicks": [
@@ -7062,14 +7196,19 @@
       "name": "(진짜몰라)",
       "picks": [
         {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 500
+        },
+        {
           "team": "보스턴",
           "url": "https://www.fmkorea.com/10492360209",
           "bet": 600
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
-          "bet": 500
+          "team": "[6.5] 오버",
+          "url": "https://www.fmkorea.com/10492364025",
+          "bet": 1437
         },
         {
           "team": "뉴욕 닉스",
@@ -7084,17 +7223,27 @@
       ]
     },
     {
-      "name": "[Noir]",
+      "name": "[태사]문중",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 500
-        },
+          "team": "새크라멘토 (+17.5)",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 10009
+        }
+      ]
+    },
+    {
+      "name": "[Noir]",
+      "picks": [
         {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 300
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 500
         },
         {
           "team": "새크라멘토 (+17.5)",
@@ -7107,14 +7256,14 @@
           "bet": 500
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 300
-        },
-        {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 500
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 300
         }
       ]
     },
@@ -7122,13 +7271,13 @@
       "name": "@Chuuo3o",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 10000
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 10000
         },
         {
@@ -7160,6 +7309,36 @@
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 10000
+        }
+      ]
+    },
+    {
+      "name": "#백곰",
+      "picks": [
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 400
+        },
+        {
+          "team": "[6.5] 오버",
+          "url": "https://www.fmkorea.com/10492364025",
+          "bet": 200
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 400
+        }
+      ]
+    },
+    {
+      "name": "#승아",
+      "picks": [
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 1000000
         }
       ]
     },
@@ -7209,6 +7388,16 @@
       ]
     },
     {
+      "name": "1X2",
+      "picks": [
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1951
+        }
+      ]
+    },
+    {
       "name": "250ney",
       "picks": [
         {
@@ -7232,9 +7421,19 @@
       "name": "77zysr",
       "picks": [
         {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1000
+        },
+        {
           "team": "뉴욕 닉스",
           "url": "https://www.fmkorea.com/10492140226",
           "bet": 464
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 1000
         }
       ]
     },
@@ -7272,14 +7471,14 @@
       "name": "가을가을야구",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 500
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 600
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 500
         },
         {
           "team": "탬파베이",
@@ -7344,6 +7543,21 @@
       ]
     },
     {
+      "name": "감수",
+      "picks": [
+        {
+          "team": "디트로이트",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 7777
+        },
+        {
+          "team": "뉴욕 닉스",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 2578
+        }
+      ]
+    },
+    {
       "name": "갑숙",
       "picks": [
         {
@@ -7377,13 +7591,13 @@
       "name": "강릉시",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 500
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 500
         }
       ]
@@ -7459,6 +7673,26 @@
       ]
     },
     {
+      "name": "개리",
+      "picks": [
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 333
+        }
+      ]
+    },
+    {
+      "name": "개집",
+      "picks": [
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 241
+        }
+      ]
+    },
+    {
       "name": "거너스12번 지연M",
       "picks": [
         {
@@ -7512,13 +7746,13 @@
       "name": "겨울밤별",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -7542,13 +7776,13 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
           "bet": 100
         },
         {
-          "team": "LA 레이커스",
-          "url": "https://www.fmkorea.com/10492322215",
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -7556,6 +7790,11 @@
     {
       "name": "결국다지나감",
       "picks": [
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 10000
+        },
         {
           "team": "탬파베이",
           "url": "https://www.fmkorea.com/10490691866",
@@ -7585,6 +7824,16 @@
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 132
+        }
+      ]
+    },
+    {
+      "name": "고결",
+      "picks": [
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1000
         }
       ]
     },
@@ -7632,14 +7881,14 @@
       "name": "고명준조형우",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 200
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 200
         },
         {
           "team": "탬파베이",
@@ -7702,14 +7951,14 @@
           "bet": 1000
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 500
-        },
-        {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 230
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 500
         }
       ]
     },
@@ -7717,14 +7966,14 @@
       "name": "고태호",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 6749
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 2000
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 6749
         },
         {
           "team": "밀워키",
@@ -7877,6 +8126,16 @@
       "name": "구원의서",
       "picks": [
         {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 777
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 777
+        },
+        {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 777
@@ -7887,14 +8146,14 @@
       "name": "구후루루",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 131
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 131
         },
         {
           "team": "밀워키",
@@ -7917,11 +8176,6 @@
           "bet": 600
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 200
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 200
@@ -7930,6 +8184,11 @@
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 140
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 200
         }
       ]
     },
@@ -7992,14 +8251,14 @@
       "name": "권소영",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 1999
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 1888
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1999
         },
         {
           "team": "밀워키",
@@ -8022,13 +8281,18 @@
           "bet": 2333
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 2111
         },
         {
-          "team": "1회득점 X",
-          "url": "https://www.fmkorea.com/10492405388",
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 1666
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 2111
         }
       ]
@@ -8217,8 +8481,18 @@
       "name": "김정배",
       "picks": [
         {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 200
+        },
+        {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
+          "bet": 200
+        },
+        {
+          "team": "샌안토니오",
+          "url": "https://www.fmkorea.com/10492362267",
           "bet": 200
         },
         {
@@ -8277,13 +8551,13 @@
       "name": "껄무새전문",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 11111
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 11111
         },
         {
@@ -8532,13 +8806,13 @@
       "name": "네잎클로바",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 300
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 300
         },
         {
@@ -8562,13 +8836,13 @@
           "bet": 300
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 200
         },
         {
-          "team": "1회득점 X",
-          "url": "https://www.fmkorea.com/10492405388",
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 200
         }
       ]
@@ -8697,13 +8971,13 @@
       "name": "다저스해체해",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 300
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 300
         },
         {
@@ -8717,18 +8991,28 @@
           "bet": 300
         },
         {
+          "team": "[6.5] 오버",
+          "url": "https://www.fmkorea.com/10492364025",
+          "bet": 500
+        },
+        {
           "team": "뉴욕 닉스",
           "url": "https://www.fmkorea.com/10492140226",
           "bet": 300
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 300
+          "team": "1회득점 O",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 500
         },
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 300
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 300
         }
       ]
@@ -8797,14 +9081,14 @@
       "name": "답변이제한됩니다",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 2000
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 3000
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 2000
         },
         {
           "team": "탬파베이",
@@ -8864,12 +9148,72 @@
       ]
     },
     {
+      "name": "대깨롱잡이",
+      "picks": [
+        {
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 1000
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 1000
+        }
+      ]
+    },
+    {
       "name": "대대강광",
       "picks": [
         {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 500
+        }
+      ]
+    },
+    {
+      "name": "대황펩",
+      "picks": [
+        {
+          "team": "탬파베이",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 200
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 300
+        }
+      ]
+    },
+    {
+      "name": "데민",
+      "picks": [
+        {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 4500
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 4400
+        }
+      ]
+    },
+    {
+      "name": "데헤아",
+      "picks": [
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 100
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 100
         }
       ]
     },
@@ -8910,6 +9254,16 @@
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 3000
+        }
+      ]
+    },
+    {
+      "name": "돌림판",
+      "picks": [
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1366
         }
       ]
     },
@@ -9035,6 +9389,16 @@
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 500
+        }
+      ]
+    },
+    {
+      "name": "드록신의가호",
+      "picks": [
+        {
+          "team": "탬파베이",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 475
         }
       ]
     },
@@ -9367,14 +9731,14 @@
       "name": "럭키라일락",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 1025
-        },
-        {
           "team": "[222.5] 언더",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 1102
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1025
         },
         {
           "team": "밀워키",
@@ -9397,11 +9761,6 @@
           "bet": 2143
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 1032
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 994
@@ -9410,6 +9769,11 @@
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 1000
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 1032
         }
       ]
     },
@@ -9539,7 +9903,17 @@
         {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
-          "bet": 100
+          "bet": 295
+        }
+      ]
+    },
+    {
+      "name": "루니의집사",
+      "picks": [
+        {
+          "team": "탬파베이",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 462
         }
       ]
     },
@@ -9580,6 +9954,31 @@
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 2440
+        }
+      ]
+    },
+    {
+      "name": "르츠티케이삭",
+      "picks": [
+        {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 500
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 500
+        },
+        {
+          "team": "새크라멘토 (+17.5)",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 500
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 500
         }
       ]
     },
@@ -9712,13 +10111,13 @@
       "name": "마고와두크슈투톱",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -9742,11 +10141,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -9754,6 +10148,11 @@
         {
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -9802,14 +10201,29 @@
       "name": "마사시",
       "picks": [
         {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 200
+        },
+        {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 2898
         },
         {
+          "team": "샌안토니오",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 200
+        },
+        {
           "team": "디트로이트",
           "url": "https://www.fmkorea.com/10492140226",
           "bet": 149
+        },
+        {
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 200
         }
       ]
     },
@@ -9872,11 +10286,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -9884,6 +10293,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -9987,16 +10401,6 @@
       "name": "말랑이지",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 100
-        },
-        {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 300
-        },
-        {
           "team": "[222.5] 언더",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
@@ -10005,6 +10409,16 @@
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 401
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 100
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 300
         },
         {
           "team": "밀워키",
@@ -10322,13 +10736,13 @@
       "name": "모트독",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 1111
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 1111
         },
         {
@@ -10352,11 +10766,6 @@
           "bet": 1111
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 1111
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 1111
@@ -10364,6 +10773,11 @@
         {
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 1111
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 1111
         }
       ]
@@ -10534,7 +10948,7 @@
         {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
-          "bet": 123456
+          "bet": 133456
         }
       ]
     },
@@ -10657,14 +11071,14 @@
           "bet": 123
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 333
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 100
         }
       ]
     },
@@ -10724,7 +11138,7 @@
         {
           "team": "디트로이트",
           "url": "https://www.fmkorea.com/10492140226",
-          "bet": 100
+          "bet": 2100
         }
       ]
     },
@@ -10912,6 +11326,11 @@
           "bet": 646
         },
         {
+          "team": "샌안토니오",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 1500
+        },
+        {
           "team": "[6.5] 언더",
           "url": "https://www.fmkorea.com/10492364025",
           "bet": 700
@@ -11072,13 +11491,13 @@
       "name": "불사조운",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 500
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 500
         },
         {
@@ -11102,11 +11521,6 @@
           "bet": 500
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 500
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 500
@@ -11114,6 +11528,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 500
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 500
         }
       ]
@@ -11125,6 +11544,16 @@
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "브라이언호크",
+      "picks": [
+        {
+          "team": "탬파베이",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 427
         }
       ]
     },
@@ -11302,14 +11731,19 @@
       "name": "ㅅㄱ",
       "picks": [
         {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 100
+        },
+        {
           "team": "브루클린(+11.5)",
           "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
-          "bet": 100
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 3333
         },
         {
           "team": "1회득점 X",
@@ -11402,14 +11836,14 @@
       "name": "살균소독기",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 2222
-        },
-        {
           "team": "[222.5] 언더",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 1555
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 2222
         },
         {
           "team": "새크라멘토 (+17.5)",
@@ -11422,14 +11856,14 @@
           "bet": 2222
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 1555
-        },
-        {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 2222
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 1555
         }
       ]
     },
@@ -11437,13 +11871,13 @@
       "name": "三國志14",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -11467,11 +11901,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -11479,6 +11908,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -11510,6 +11944,51 @@
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 3333
+        }
+      ]
+    },
+    {
+      "name": "삼천당제약",
+      "picks": [
+        {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 100
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 100
+        },
+        {
+          "team": "새크라멘토 (+17.5)",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 100
+        },
+        {
+          "team": "[6.5] 오버",
+          "url": "https://www.fmkorea.com/10492364025",
+          "bet": 100
+        },
+        {
+          "team": "디트로이트",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 100
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 100
+        },
+        {
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 100
         }
       ]
     },
@@ -11559,7 +12038,7 @@
         {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
-          "bet": 133
+          "bet": 300
         }
       ]
     },
@@ -11647,13 +12126,13 @@
       "name": "세트카",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 1111
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 1111
         },
         {
@@ -11677,13 +12156,13 @@
           "bet": 1111
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "포틀랜드",
+          "url": "https://www.fmkorea.com/10492322215",
           "bet": 1111
         },
         {
-          "team": "포틀랜드",
-          "url": "https://www.fmkorea.com/10492322215",
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 1111
         }
       ]
@@ -11787,14 +12266,14 @@
       "name": "손나은",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 1419
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 923
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1419
         },
         {
           "team": "탬파베이",
@@ -11817,11 +12296,6 @@
           "bet": 2858
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 218
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 777
@@ -11830,6 +12304,11 @@
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 2721
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 218
         }
       ]
     },
@@ -11905,6 +12384,11 @@
           "team": "[6.5] 오버",
           "url": "https://www.fmkorea.com/10492364025",
           "bet": 10045
+        },
+        {
+          "team": "1회득점 O",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 20000
         }
       ]
     },
@@ -11922,13 +12406,13 @@
       "name": "수원삼성박지원",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -11952,11 +12436,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -11964,6 +12443,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -12032,14 +12516,14 @@
           "bet": 278
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 400
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 200
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 400
         }
       ]
     },
@@ -12060,6 +12544,26 @@
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "스윙",
+      "picks": [
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 10000
+        },
+        {
+          "team": "[6.5] 오버",
+          "url": "https://www.fmkorea.com/10492364025",
+          "bet": 20000
+        },
+        {
+          "team": "1회득점 O",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 2000
         }
       ]
     },
@@ -12222,14 +12726,14 @@
       "name": "신불사",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 350
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 1234
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 350
         },
         {
           "team": "탬파베이",
@@ -12317,13 +12821,13 @@
       "name": "신한",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 222
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 222
         },
         {
@@ -12409,6 +12913,11 @@
         {
           "team": "새크라멘토 (+17.5)",
           "url": "https://www.fmkorea.com/10492362267",
+          "bet": 100
+        },
+        {
+          "team": "[6.5] 언더",
+          "url": "https://www.fmkorea.com/10492364025",
           "bet": 100
         },
         {
@@ -12582,13 +13091,13 @@
       "name": "아주미군",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 2000
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 2000
         },
         {
@@ -12612,11 +13121,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 1000
@@ -12624,6 +13128,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -12774,6 +13283,16 @@
       ]
     },
     {
+      "name": "애틀",
+      "picks": [
+        {
+          "team": "뉴욕 닉스",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 950
+        }
+      ]
+    },
+    {
       "name": "앵거",
       "picks": [
         {
@@ -12819,6 +13338,11 @@
         {
           "team": "디트로이트",
           "url": "https://www.fmkorea.com/10492140226",
+          "bet": 3333
+        },
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 3333
         },
         {
@@ -12947,13 +13471,13 @@
       "name": "에스파리나",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 888
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 888
         },
         {
@@ -12977,11 +13501,6 @@
           "bet": 888
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 888
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 888
@@ -12989,6 +13508,11 @@
         {
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 888
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 888
         }
       ]
@@ -13017,14 +13541,14 @@
       "name": "엑시",
       "picks": [
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 1601
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 2000
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 1601
         }
       ]
     },
@@ -13275,6 +13799,16 @@
           "team": "디트로이트",
           "url": "https://www.fmkorea.com/10492140226",
           "bet": 3000
+        },
+        {
+          "team": "1회득점 O",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 100
+        },
+        {
+          "team": "포틀랜드",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 3000
         }
       ]
     },
@@ -13449,6 +13983,16 @@
       ]
     },
     {
+      "name": "우짜꼬",
+      "picks": [
+        {
+          "team": "탬파베이",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 1094
+        }
+      ]
+    },
+    {
       "name": "우회하라아이",
       "picks": [
         {
@@ -13467,13 +14011,13 @@
       "name": "운동호소인",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -13497,11 +14041,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -13509,6 +14048,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -13572,11 +14116,6 @@
           "bet": 1111
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 1000
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 888
@@ -13585,6 +14124,11 @@
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 1111
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
+          "bet": 1000
         }
       ]
     },
@@ -13602,13 +14146,13 @@
       "name": "유맨",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 777
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 777
         },
         {
@@ -13632,11 +14176,6 @@
           "bet": 777
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 777
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 777
@@ -13644,6 +14183,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 777
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 777
         }
       ]
@@ -13897,13 +14441,13 @@
       "name": "이종범",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 777
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 777
         },
         {
@@ -13927,11 +14471,6 @@
           "bet": 777
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 777
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 777
@@ -13939,6 +14478,11 @@
         {
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 777
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 777
         }
       ]
@@ -14307,14 +14851,14 @@
       "name": "전설의미남",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 300
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 538
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 300
         },
         {
           "team": "디트로이트",
@@ -14332,13 +14876,13 @@
       "name": "절망의군주",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -14417,13 +14961,13 @@
       "name": "정조",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 300
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 300
         },
         {
@@ -14447,11 +14991,6 @@
           "bet": 300
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 300
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 300
@@ -14459,6 +14998,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 300
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 300
         }
       ]
@@ -14517,14 +15061,14 @@
       "name": "조디악",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 100
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 108
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 100
         },
         {
           "team": "밀워키",
@@ -14547,11 +15091,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -14559,6 +15098,11 @@
         {
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -15045,6 +15589,21 @@
           "team": "탬파베이",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 2198
+        },
+        {
+          "team": "새크라멘토 (+17.5)",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 1000
+        },
+        {
+          "team": "디트로이트",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 1028
+        },
+        {
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 8000
         }
       ]
     },
@@ -15092,13 +15651,13 @@
       "name": "초림2",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -15122,13 +15681,13 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
         },
         {
-          "team": "1회득점 X",
-          "url": "https://www.fmkorea.com/10492405388",
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -15176,6 +15735,11 @@
     {
       "name": "춘삼2",
       "picks": [
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 3000
+        },
         {
           "team": "디트로이트",
           "url": "https://www.fmkorea.com/10492140226",
@@ -15324,6 +15888,16 @@
       ]
     },
     {
+      "name": "카즈키",
+      "picks": [
+        {
+          "team": "새크라멘토 (+17.5)",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 43671
+        }
+      ]
+    },
+    {
       "name": "칼슘마그네슘아연",
       "picks": [
         {
@@ -15382,13 +15956,13 @@
       "name": "케빈맥고니글",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 300
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 300
         },
         {
@@ -15567,13 +16141,13 @@
       "name": "탕수육쇼스",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 777
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 777
         },
         {
@@ -15587,13 +16161,13 @@
           "bet": 777
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 777
         },
         {
-          "team": "1회득점 X",
-          "url": "https://www.fmkorea.com/10492405388",
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 777
         }
       ]
@@ -15681,6 +16255,16 @@
     {
       "name": "토로통통팡이",
       "picks": [
+        {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 777
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1985
+        },
         {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
@@ -15930,6 +16514,16 @@
           "team": "탬파베이",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 17777
+        },
+        {
+          "team": "뉴욕 닉스",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 123
+        },
+        {
+          "team": "포틀랜드",
+          "url": "https://www.fmkorea.com/10492322215",
+          "bet": 123
         }
       ]
     },
@@ -15960,6 +16554,16 @@
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
           "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "패자의검",
+      "picks": [
+        {
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 300
         }
       ]
     },
@@ -16122,13 +16726,13 @@
           "bet": 474
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
           "bet": 474
         },
         {
-          "team": "LA 레이커스",
-          "url": "https://www.fmkorea.com/10492322215",
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 474
         }
       ]
@@ -16249,6 +16853,16 @@
       ]
     },
     {
+      "name": "프로핏두유",
+      "picks": [
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 1000
+        }
+      ]
+    },
+    {
       "name": "플핸최강자",
       "picks": [
         {
@@ -16307,13 +16921,13 @@
       "name": "피자는소주랑먹어",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -16337,11 +16951,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -16349,6 +16958,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -16400,6 +17014,31 @@
           "team": "탬파베이",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 501
+        }
+      ]
+    },
+    {
+      "name": "하얀강아지메로",
+      "picks": [
+        {
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
+          "bet": 3000
+        },
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1112
+        }
+      ]
+    },
+    {
+      "name": "하즈키렌",
+      "picks": [
+        {
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1000
         }
       ]
     },
@@ -16457,13 +17096,13 @@
       "name": "하혜성",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 3333
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 3333
         },
         {
@@ -16537,13 +17176,13 @@
       "name": "한지안",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 1000
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 1000
         },
         {
@@ -16552,13 +17191,13 @@
           "bet": 800
         },
         {
-          "team": "[218.5] 오버",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "LA 레이커스",
+          "url": "https://www.fmkorea.com/10492322215",
           "bet": 1000
         },
         {
-          "team": "LA 레이커스",
-          "url": "https://www.fmkorea.com/10492322215",
+          "team": "[218.5] 오버",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 1000
         }
       ]
@@ -16772,13 +17411,13 @@
       "name": "혐.오터진게시판",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -16802,11 +17441,6 @@
           "bet": 100
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 100
-        },
-        {
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 100
@@ -16814,6 +17448,11 @@
         {
           "team": "LA 레이커스",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 100
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 100
         }
       ]
@@ -16845,6 +17484,16 @@
           "team": "1회득점 X",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "혼란두",
+      "picks": [
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 3001
         }
       ]
     },
@@ -17154,6 +17803,16 @@
       ]
     },
     {
+      "name": "BayStars",
+      "picks": [
+        {
+          "team": "[6.5] 오버",
+          "url": "https://www.fmkorea.com/10492364025",
+          "bet": 570
+        }
+      ]
+    },
+    {
       "name": "Bebeeek",
       "picks": [
         {
@@ -17214,11 +17873,51 @@
       ]
     },
     {
+      "name": "Chels2a",
+      "picks": [
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 120
+        }
+      ]
+    },
+    {
       "name": "Chronus",
       "picks": [
         {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
+          "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "close2u",
+      "picks": [
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 100
+        },
+        {
+          "team": "탬파베이",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 100
+        },
+        {
+          "team": "새크라멘토 (+17.5)",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 100
+        },
+        {
+          "team": "디트로이트",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 100
+        },
+        {
+          "team": "포틀랜드",
+          "url": "https://www.fmkorea.com/10492322215",
           "bet": 100
         }
       ]
@@ -17547,13 +18246,13 @@
       "name": "K Dragon",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 500
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 500
         },
         {
@@ -17572,13 +18271,13 @@
           "bet": 1000
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
+          "team": "1회득점 X",
+          "url": "https://www.fmkorea.com/10492405388",
           "bet": 500
         },
         {
-          "team": "1회득점 X",
-          "url": "https://www.fmkorea.com/10492405388",
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 500
         }
       ]
@@ -17702,14 +18401,14 @@
       "name": "Lillie",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 1000
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1000
         },
         {
           "team": "밀워키",
@@ -17807,14 +18506,14 @@
       "name": "MoonMan",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
-          "bet": 154
-        },
-        {
           "team": "[222.5] 오버",
           "url": "https://www.fmkorea.com/10492402546",
           "bet": 500
+        },
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 154
         },
         {
           "team": "디트로이트",
@@ -17864,6 +18563,16 @@
       ]
     },
     {
+      "name": "Muze",
+      "picks": [
+        {
+          "team": "샌안토니오",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 700
+        }
+      ]
+    },
+    {
       "name": "name9",
       "picks": [
         {
@@ -17897,13 +18606,13 @@
       "name": "O해원",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 100
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 100
         },
         {
@@ -18004,6 +18713,16 @@
       ]
     },
     {
+      "name": "ORAS",
+      "picks": [
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 1000
+        }
+      ]
+    },
+    {
       "name": "Our",
       "picks": [
         {
@@ -18092,13 +18811,13 @@
       "name": "S.E.X",
       "picks": [
         {
-          "team": "브루클린(+11.5)",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 언더",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 1000
         },
         {
-          "team": "[222.5] 언더",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "브루클린(+11.5)",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 1000
         },
         {
@@ -18122,11 +18841,6 @@
           "bet": 1000
         },
         {
-          "team": "[218.5] 언더",
-          "url": "https://www.fmkorea.com/10492429664",
-          "bet": 1000
-        },
-        {
           "team": "1회득점 O",
           "url": "https://www.fmkorea.com/10492405388",
           "bet": 1000
@@ -18134,6 +18848,11 @@
         {
           "team": "포틀랜드",
           "url": "https://www.fmkorea.com/10492322215",
+          "bet": 1000
+        },
+        {
+          "team": "[218.5] 언더",
+          "url": "https://www.fmkorea.com/10492429664",
           "bet": 1000
         }
       ]
@@ -18407,13 +19126,13 @@
       "name": "THIS",
       "picks": [
         {
-          "team": "보스턴",
-          "url": "https://www.fmkorea.com/10492360209",
+          "team": "[222.5] 오버",
+          "url": "https://www.fmkorea.com/10492402546",
           "bet": 1000
         },
         {
-          "team": "[222.5] 오버",
-          "url": "https://www.fmkorea.com/10492402546",
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
           "bet": 1000
         }
       ]
@@ -18429,12 +19148,52 @@
       ]
     },
     {
+      "name": "untem",
+      "picks": [
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 600
+        }
+      ]
+    },
+    {
       "name": "v레인v",
       "picks": [
         {
           "team": "밀워키",
           "url": "https://www.fmkorea.com/10490691866",
           "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "valse",
+      "picks": [
+        {
+          "team": "보스턴",
+          "url": "https://www.fmkorea.com/10492360209",
+          "bet": 200
+        },
+        {
+          "team": "밀워키",
+          "url": "https://www.fmkorea.com/10490691866",
+          "bet": 200
+        },
+        {
+          "team": "샌안토니오",
+          "url": "https://www.fmkorea.com/10492362267",
+          "bet": 200
+        },
+        {
+          "team": "뉴욕 닉스",
+          "url": "https://www.fmkorea.com/10492140226",
+          "bet": 200
+        },
+        {
+          "team": "1회득점 O",
+          "url": "https://www.fmkorea.com/10492405388",
+          "bet": 483
         }
       ]
     },
@@ -44220,41 +44979,41 @@
     }
   ],
   "pinnedPoints": {
+    "손나은": 567974,
     "홍유순": 4320043,
-    "IU와함께": 2086,
-    "손나은": 567881,
+    "IU와함께": 2357,
     "에버딘": 2002186,
-    "SI모": 114363,
-    "고결": 136436,
-    "Erebor": 2633225,
+    "SI모": 114494,
+    "고결": 135489,
+    "Lillie": 299197,
     "KU.1905.": 100292,
-    "Lillie": 299067,
+    "Erebor": 2633225,
     "0대0무승부0점": 2,
     "초코소라빵": 77218,
     "김대승": 7328,
-    "로즈": 4644,
-    "이영서": 260,
+    "로즈": 4658,
+    "이영서": 265,
     "忠南大學校": 275,
-    "파이널게임": 9561,
     "보드보드6kg": 561,
-    "잉그리드버그만": 222009,
-    "꼬습노": 30000,
+    "파이널게임": 9604,
+    "잉그리드버그만": 222010,
     "야옹이!": 0,
+    "꼬습노": 30000,
     "암부": 3,
     "$UWON": 9564,
     "똑똑한똥강아지": 50362,
-    "스윙": 293542,
+    "채다": 60290,
+    "스윙": 261608,
     "고인물": 15779721,
-    "채다": 60255,
     "퀀텀스케이프": 60136,
-    "Our": 656730,
-    "고태호": 5,
-    "色水下高十多": 317,
+    "Our": 656495,
+    "고태호": 6,
     "다비치코드": 670586,
-    "웍스아웃": 2191,
-    "valse": 1278
+    "色水下高十多": 317,
+    "웍스아웃": 2192,
+    "valse": 0
   },
-  "pinnedPointsAt": "2026-10-27T23:10:03.426Z",
-  "ongoingUpdatedAt": "2026-10-27T23:10:03.426Z",
+  "pinnedPointsAt": "2026-10-27T23:14:22.921Z",
+  "ongoingUpdatedAt": "2026-10-27T23:14:22.921Z",
   "ongoingScriptVersion": "7.0"
 }
