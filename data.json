@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T11:36:02.289Z",
+  "generatedAt": "2026-10-31T11:38:09.861Z",
   "scriptVersion": "7.0",
   "windowLabel": "최근 24시간",
   "minPicks": 5,
@@ -1124,6 +1124,11 @@
       "profit": 11779,
       "picks": [
         {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 10000
+        },
+        {
           "team": "한화생명",
           "url": "https://www.fmkorea.com/10503155731",
           "bet": 1100
@@ -1711,6 +1716,11 @@
           "team": "쑨잉샤",
           "url": "https://www.fmkorea.com/10504051416",
           "bet": 200
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 200
         }
       ]
     },
@@ -2062,6 +2072,11 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 5006
+        },
+        {
+          "team": "AT 마드리드",
+          "url": "https://www.fmkorea.com/10503659968",
+          "bet": 3008
         }
       ]
     },
@@ -2338,7 +2353,18 @@
       "totalBet": 3222,
       "totalPayout": 3827,
       "profit": 605,
-      "picks": []
+      "picks": [
+        {
+          "team": "P.V 신두",
+          "url": "https://www.fmkorea.com/10504121223",
+          "bet": 500
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 500
+        }
+      ]
     },
     {
       "name": "신소현",
@@ -2381,6 +2407,16 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 10000
+        },
+        {
+          "team": "P.V 신두",
+          "url": "https://www.fmkorea.com/10504121223",
+          "bet": 1111
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 555
         },
         {
           "team": "AT 마드리드",
@@ -3189,14 +3225,14 @@
           "bet": 1111
         },
         {
-          "team": "전반전 첼시 득점 X",
-          "url": "https://www.fmkorea.com/10504380701",
-          "bet": 1008
-        },
-        {
           "team": "P.V 신두",
           "url": "https://www.fmkorea.com/10504121223",
           "bet": 1111
+        },
+        {
+          "team": "전반전 첼시 득점 X",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 1008
         },
         {
           "team": "레반테(+0.5)",
@@ -4150,6 +4186,11 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 10000
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 1557
         }
       ]
     },
@@ -4250,7 +4291,7 @@
         {
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
-          "bet": 487
+          "bet": 869
         },
         {
           "team": "P.V 신두",
@@ -8670,40 +8711,40 @@
       "url": "https://www.fmkorea.com/10504051416",
       "teamA": "히나 하야타(+1.5)",
       "teamB": "쑨잉샤",
-      "countA": 41,
-      "betA": 41722,
-      "countB": 80,
-      "betB": 131719
+      "countA": 42,
+      "betA": 42008,
+      "countB": 81,
+      "betB": 131852
     },
     {
       "title": "PL 양팀 득점 합 [2.5] 언/오버 :: 첼시 vs 맨체스터 유나이티드 :: 10/31 21:30 경기",
       "url": "https://www.fmkorea.com/10502708530",
       "teamA": "2.5 언더",
       "teamB": "2.5 오버",
-      "countA": 139,
-      "betA": 134654,
-      "countB": 152,
-      "betB": 269576
+      "countA": 142,
+      "betA": 138954,
+      "countB": 156,
+      "betB": 291083
     },
     {
       "title": "PL :: 첼시(-0.5) vs 맨체스터 유나이티드 :: 10/31 21:30 경기",
       "url": "https://www.fmkorea.com/10501649201",
       "teamA": "첼시(-0.5)",
       "teamB": "맨체스터 유나이티드",
-      "countA": 841,
-      "betA": 3461474,
-      "countB": 504,
-      "betB": 3305703
+      "countA": 857,
+      "betA": 3579788,
+      "countB": 517,
+      "betB": 3344694
     },
     {
       "title": "PL 전반전 첼시 득점 O/X :: 첼시 vs 맨유 :: 10/31 21:30 경기",
       "url": "https://www.fmkorea.com/10504380701",
       "teamA": "전반전 첼시 득점 O",
       "teamB": "전반전 첼시 득점 X",
-      "countA": 3,
-      "betA": 2050,
-      "countB": 3,
-      "betB": 1609
+      "countA": 10,
+      "betA": 5568,
+      "countB": 6,
+      "betB": 4520
     },
     {
       "title": "라리가 :: 레반테(+0.5) vs AT 마드리드 :: 10/31 22:00 경기",
@@ -8712,8 +8753,8 @@
       "teamB": "AT 마드리드",
       "countA": 54,
       "betA": 259108,
-      "countB": 208,
-      "betB": 535315
+      "countB": 211,
+      "betB": 538650
     },
     {
       "title": "BWF HYLO 오픈 여자단식 :: 안몰 카르브(+1.5) vs P.V 신두 :: 10/31 22:10 경기",
@@ -8722,16 +8763,16 @@
       "teamB": "P.V 신두",
       "countA": 23,
       "betA": 99059,
-      "countB": 69,
-      "betB": 105180
+      "countB": 71,
+      "betB": 106791
     },
     {
       "title": "PL :: 맨체스터 시티(-0.5) vs 브라이튼 :: 11/1 00:00 경기",
       "url": "https://www.fmkorea.com/10503314118",
       "teamA": "맨체스터 시티(-0.5)",
       "teamB": "브라이튼",
-      "countA": 212,
-      "betA": 474637,
+      "countA": 213,
+      "betA": 477068,
       "countB": 103,
       "betB": 192906
     },
@@ -8742,16 +8783,16 @@
       "teamB": "KC",
       "countA": 65,
       "betA": 594870,
-      "countB": 202,
-      "betB": 410101
+      "countB": 205,
+      "betB": 411008
     },
     {
       "title": "PL :: 토트넘(-0.5) vs 크리스탈팰리스 :: 11/1 02:30 경기",
       "url": "https://www.fmkorea.com/10503598174",
       "teamA": "토트넘(-0.5)",
       "teamB": "크리스탈팰리스",
-      "countA": 192,
-      "betA": 531720,
+      "countA": 193,
+      "betA": 532349,
       "countB": 104,
       "betB": 271461
     },
@@ -8760,8 +8801,8 @@
       "url": "https://www.fmkorea.com/10503909440",
       "teamA": "바이에른 뮌헨 (-1.5)",
       "teamB": "도르트문트",
-      "countA": 92,
-      "betA": 149443,
+      "countA": 93,
+      "betA": 149543,
       "countB": 56,
       "betB": 174107
     },
@@ -8770,18 +8811,18 @@
       "url": "https://www.fmkorea.com/10504070234",
       "teamA": "LOS(+1.5)",
       "teamB": "LYON",
-      "countA": 52,
-      "betA": 152237,
-      "countB": 66,
-      "betB": 132929
+      "countA": 53,
+      "betA": 153237,
+      "countB": 68,
+      "betB": 133560
     },
     {
       "title": "라리가 :: 바르셀로나 (-2.5) vs 알라베스 :: 11/1 05:00 경기",
       "url": "https://www.fmkorea.com/10504045263",
       "teamA": "바르셀로나 (-2.5)",
       "teamB": "알라베스",
-      "countA": 75,
-      "betA": 123280,
+      "countA": 76,
+      "betA": 127787,
       "countB": 37,
       "betB": 137800
     },
@@ -8792,8 +8833,8 @@
       "teamB": "한화생명",
       "countA": 170,
       "betA": 2438811,
-      "countB": 429,
-      "betB": 2747449
+      "countB": 437,
+      "betB": 2784482
     }
   ],
   "allPicks": [
@@ -9518,6 +9559,26 @@
       ]
     },
     {
+      "name": "가양주",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10503107544",
+          "bet": 500
+        },
+        {
+          "team": "LYON",
+          "url": "https://www.fmkorea.com/10504070234",
+          "bet": 500
+        },
+        {
+          "team": "한화생명",
+          "url": "https://www.fmkorea.com/10503155731",
+          "bet": 300
+        }
+      ]
+    },
+    {
       "name": "가을가을야구",
       "picks": [
         {
@@ -9610,6 +9671,11 @@
     {
       "name": "간좀그만봐",
       "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10503107544",
+          "bet": 300
+        },
         {
           "team": "KC",
           "url": "https://www.fmkorea.com/10503107544",
@@ -10228,7 +10294,7 @@
         {
           "team": "AT 마드리드",
           "url": "https://www.fmkorea.com/10503659968",
-          "bet": 1700
+          "bet": 1827
         }
       ]
     },
@@ -10854,6 +10920,11 @@
           "team": "안몰 카르브(+1.5)",
           "url": "https://www.fmkorea.com/10504121223",
           "bet": 100
+        },
+        {
+          "team": "전반전 첼시 득점 X",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 1111
         }
       ]
     },
@@ -11083,6 +11154,16 @@
       ]
     },
     {
+      "name": "국대무아르데타",
+      "picks": [
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 535
+        }
+      ]
+    },
+    {
       "name": "국물",
       "picks": [
         {
@@ -11129,6 +11210,16 @@
           "team": "맨체스터 시티(-0.5)",
           "url": "https://www.fmkorea.com/10503314118",
           "bet": 3000
+        }
+      ]
+    },
+    {
+      "name": "군필여고생",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 2000
         }
       ]
     },
@@ -11858,6 +11949,16 @@
       ]
     },
     {
+      "name": "김덕창",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 100
+        }
+      ]
+    },
+    {
       "name": "김민교애니잘한다",
       "picks": [
         {
@@ -12443,6 +12544,16 @@
       ]
     },
     {
+      "name": "나운드",
+      "picks": [
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 558
+        }
+      ]
+    },
+    {
       "name": "나유타:삼독",
       "picks": [
         {
@@ -12661,8 +12772,23 @@
           "bet": 100
         },
         {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 100
+        },
+        {
           "team": "안몰 카르브(+1.5)",
           "url": "https://www.fmkorea.com/10504121223",
+          "bet": 100
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 100
+        },
+        {
+          "team": "AT 마드리드",
+          "url": "https://www.fmkorea.com/10503659968",
           "bet": 100
         }
       ]
@@ -13713,7 +13839,12 @@
         {
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
-          "bet": 2018
+          "bet": 2444
+        },
+        {
+          "team": "한화생명",
+          "url": "https://www.fmkorea.com/10503155731",
+          "bet": 7777
         }
       ]
     },
@@ -13724,6 +13855,16 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "댓츠마인",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 1000
         }
       ]
     },
@@ -14633,6 +14774,16 @@
       ]
     },
     {
+      "name": "땡보",
+      "picks": [
+        {
+          "team": "한화생명",
+          "url": "https://www.fmkorea.com/10503155731",
+          "bet": 10000
+        }
+      ]
+    },
+    {
       "name": "떠숭이서",
       "picks": [
         {
@@ -15525,6 +15676,11 @@
     {
       "name": "롱냥이",
       "picks": [
+        {
+          "team": "쑨잉샤",
+          "url": "https://www.fmkorea.com/10504051416",
+          "bet": 133
+        },
         {
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
@@ -16551,6 +16707,11 @@
       "name": "마티스와마테우스",
       "picks": [
         {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 106
+        },
+        {
           "team": "토트넘(-0.5)",
           "url": "https://www.fmkorea.com/10503598174",
           "bet": 118
@@ -16863,6 +17024,16 @@
       ]
     },
     {
+      "name": "망토두른강아지",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 750
+        }
+      ]
+    },
+    {
       "name": "망할때가됐다",
       "picks": [
         {
@@ -16893,7 +17064,7 @@
         {
           "team": "맨체스터 유나이티드",
           "url": "https://www.fmkorea.com/10501649201",
-          "bet": 5620
+          "bet": 15620
         }
       ]
     },
@@ -17054,6 +17225,21 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 183
+        }
+      ]
+    },
+    {
+      "name": "맹이누.",
+      "picks": [
+        {
+          "team": "2.5 언더",
+          "url": "https://www.fmkorea.com/10502708530",
+          "bet": 200
+        },
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 582
         }
       ]
     },
@@ -17269,6 +17455,21 @@
           "team": "한화생명",
           "url": "https://www.fmkorea.com/10503155731",
           "bet": 2500
+        }
+      ]
+    },
+    {
+      "name": "메카스펜스",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 500
+        },
+        {
+          "team": "토트넘(-0.5)",
+          "url": "https://www.fmkorea.com/10503598174",
+          "bet": 629
         }
       ]
     },
@@ -17730,6 +17931,11 @@
     {
       "name": "문어다리",
       "picks": [
+        {
+          "team": "2.5 오버",
+          "url": "https://www.fmkorea.com/10502708530",
+          "bet": 3300
+        },
         {
           "team": "맨체스터 유나이티드",
           "url": "https://www.fmkorea.com/10501649201",
@@ -19866,6 +20072,11 @@
       "name": "비벼",
       "picks": [
         {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 500
+        },
+        {
           "team": "한화생명",
           "url": "https://www.fmkorea.com/10503155731",
           "bet": 500
@@ -20053,6 +20264,16 @@
       ]
     },
     {
+      "name": "빙그레한화",
+      "picks": [
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 1000
+        }
+      ]
+    },
+    {
       "name": "빙그르르",
       "picks": [
         {
@@ -20169,6 +20390,16 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 1408
+        }
+      ]
+    },
+    {
+      "name": "빼빼로데2",
+      "picks": [
+        {
+          "team": "맨체스터 시티(-0.5)",
+          "url": "https://www.fmkorea.com/10503314118",
+          "bet": 2431
         }
       ]
     },
@@ -20849,6 +21080,11 @@
           "team": "쑨잉샤",
           "url": "https://www.fmkorea.com/10504051416",
           "bet": 200
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 200
         }
       ]
     },
@@ -21364,6 +21600,21 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 5000
+        }
+      ]
+    },
+    {
+      "name": "셀토스",
+      "picks": [
+        {
+          "team": "P.V 신두",
+          "url": "https://www.fmkorea.com/10504121223",
+          "bet": 500
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 500
         }
       ]
     },
@@ -22378,6 +22629,16 @@
       ]
     },
     {
+      "name": "스파이더소니",
+      "picks": [
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 686
+        }
+      ]
+    },
+    {
       "name": "스피드왕강번개",
       "picks": [
         {
@@ -22763,12 +23024,32 @@
       ]
     },
     {
+      "name": "싸수올로",
+      "picks": [
+        {
+          "team": "2.5 오버",
+          "url": "https://www.fmkorea.com/10502708530",
+          "bet": 16475
+        }
+      ]
+    },
+    {
       "name": "싼티나아반떼",
       "picks": [
         {
           "team": "KC",
           "url": "https://www.fmkorea.com/10503107544",
           "bet": 100
+        }
+      ]
+    },
+    {
+      "name": "쌍기사맨",
+      "picks": [
+        {
+          "team": "한화생명",
+          "url": "https://www.fmkorea.com/10503155731",
+          "bet": 15134
         }
       ]
     },
@@ -24063,6 +24344,21 @@
       ]
     },
     {
+      "name": "얼어있는중",
+      "picks": [
+        {
+          "team": "히나 하야타(+1.5)",
+          "url": "https://www.fmkorea.com/10504051416",
+          "bet": 286
+        },
+        {
+          "team": "전반전 첼시 득점 X",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 300
+        }
+      ]
+    },
+    {
       "name": "얼음콜라존맛",
       "picks": [
         {
@@ -25166,6 +25462,16 @@
           "bet": 10000
         },
         {
+          "team": "P.V 신두",
+          "url": "https://www.fmkorea.com/10504121223",
+          "bet": 1111
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 555
+        },
+        {
           "team": "AT 마드리드",
           "url": "https://www.fmkorea.com/10503659968",
           "bet": 5000
@@ -25674,6 +25980,16 @@
           "team": "맨체스터 시티(-0.5)",
           "url": "https://www.fmkorea.com/10503314118",
           "bet": 130
+        },
+        {
+          "team": "LYON",
+          "url": "https://www.fmkorea.com/10504070234",
+          "bet": 131
+        },
+        {
+          "team": "한화생명",
+          "url": "https://www.fmkorea.com/10503155731",
+          "bet": 170
         }
       ]
     },
@@ -26049,6 +26365,16 @@
           "team": "맨체스터 시티(-0.5)",
           "url": "https://www.fmkorea.com/10503314118",
           "bet": 5000
+        }
+      ]
+    },
+    {
+      "name": "월세",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 900
         }
       ]
     },
@@ -26843,6 +27169,21 @@
       ]
     },
     {
+      "name": "이유란",
+      "picks": [
+        {
+          "team": "2.5 언더",
+          "url": "https://www.fmkorea.com/10502708530",
+          "bet": 4000
+        },
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 10000
+        }
+      ]
+    },
+    {
       "name": "이을남",
       "picks": [
         {
@@ -27189,6 +27530,11 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 5006
+        },
+        {
+          "team": "AT 마드리드",
+          "url": "https://www.fmkorea.com/10503659968",
+          "bet": 3008
         }
       ]
     },
@@ -27333,6 +27679,16 @@
       ]
     },
     {
+      "name": "잉놀개고수",
+      "picks": [
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 100
+        }
+      ]
+    },
+    {
       "name": "잉수효과",
       "picks": [
         {
@@ -27459,6 +27815,16 @@
           "team": "BLG",
           "url": "https://www.fmkorea.com/10503155731",
           "bet": 500
+        }
+      ]
+    },
+    {
+      "name": "잉토하고시퍼여",
+      "picks": [
+        {
+          "team": "KC",
+          "url": "https://www.fmkorea.com/10503107544",
+          "bet": 107
         }
       ]
     },
@@ -28168,6 +28534,16 @@
       ]
     },
     {
+      "name": "전설이고",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 200
+        }
+      ]
+    },
+    {
       "name": "전술찾기",
       "picks": [
         {
@@ -28221,13 +28597,13 @@
           "bet": 100
         },
         {
-          "team": "전반전 첼시 득점 X",
-          "url": "https://www.fmkorea.com/10504380701",
+          "team": "P.V 신두",
+          "url": "https://www.fmkorea.com/10504121223",
           "bet": 100
         },
         {
-          "team": "P.V 신두",
-          "url": "https://www.fmkorea.com/10504121223",
+          "team": "전반전 첼시 득점 X",
+          "url": "https://www.fmkorea.com/10504380701",
           "bet": 100
         },
         {
@@ -28334,6 +28710,16 @@
           "team": "한화생명",
           "url": "https://www.fmkorea.com/10503155731",
           "bet": 535
+        }
+      ]
+    },
+    {
+      "name": "정신차려요",
+      "picks": [
+        {
+          "team": "2.5 오버",
+          "url": "https://www.fmkorea.com/10502708530",
+          "bet": 1460
         }
       ]
     },
@@ -29426,6 +29812,11 @@
       "name": "쭈르르",
       "picks": [
         {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 10000
+        },
+        {
           "team": "한화생명",
           "url": "https://www.fmkorea.com/10503155731",
           "bet": 1100
@@ -29918,6 +30309,21 @@
       ]
     },
     {
+      "name": "첼토니",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 500
+        },
+        {
+          "team": "한화생명",
+          "url": "https://www.fmkorea.com/10503155731",
+          "bet": 500
+        }
+      ]
+    },
+    {
       "name": "초능력",
       "picks": [
         {
@@ -30246,6 +30652,11 @@
           "bet": 2000
         },
         {
+          "team": "전반전 첼시 득점 X",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 1500
+        },
+        {
           "team": "KC",
           "url": "https://www.fmkorea.com/10503107544",
           "bet": 2000
@@ -30308,7 +30719,7 @@
         {
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
-          "bet": 487
+          "bet": 869
         },
         {
           "team": "P.V 신두",
@@ -30491,14 +30902,14 @@
           "bet": 1111
         },
         {
-          "team": "전반전 첼시 득점 X",
-          "url": "https://www.fmkorea.com/10504380701",
-          "bet": 1008
-        },
-        {
           "team": "P.V 신두",
           "url": "https://www.fmkorea.com/10504121223",
           "bet": 1111
+        },
+        {
+          "team": "전반전 첼시 득점 X",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 1008
         },
         {
           "team": "레반테(+0.5)",
@@ -31691,6 +32102,11 @@
           "bet": 100
         },
         {
+          "team": "AT 마드리드",
+          "url": "https://www.fmkorea.com/10503659968",
+          "bet": 100
+        },
+        {
           "team": "크리스탈팰리스",
           "url": "https://www.fmkorea.com/10503598174",
           "bet": 100
@@ -31698,6 +32114,11 @@
         {
           "team": "브라이튼",
           "url": "https://www.fmkorea.com/10503314118",
+          "bet": 100
+        },
+        {
+          "team": "바이에른 뮌헨 (-1.5)",
+          "url": "https://www.fmkorea.com/10503909440",
           "bet": 100
         }
       ]
@@ -32623,6 +33044,16 @@
       ]
     },
     {
+      "name": "풋볼매니져24",
+      "picks": [
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 2500
+        }
+      ]
+    },
+    {
       "name": "풍선껌",
       "picks": [
         {
@@ -32703,6 +33134,16 @@
       ]
     },
     {
+      "name": "플버지",
+      "picks": [
+        {
+          "team": "바르셀로나 (-2.5)",
+          "url": "https://www.fmkorea.com/10504045263",
+          "bet": 4507
+        }
+      ]
+    },
+    {
       "name": "플핸최강자",
       "picks": [
         {
@@ -32754,6 +33195,16 @@
           "team": "2.5 언더",
           "url": "https://www.fmkorea.com/10502708530",
           "bet": 1206
+        }
+      ]
+    },
+    {
+      "name": "피유우",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 3000
         }
       ]
     },
@@ -32888,6 +33339,16 @@
       ]
     },
     {
+      "name": "하든",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 183
+        }
+      ]
+    },
+    {
       "name": "하루종일자고싶어",
       "picks": [
         {
@@ -33014,6 +33475,16 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 200
+        }
+      ]
+    },
+    {
+      "name": "하이브V",
+      "picks": [
+        {
+          "team": "한화생명",
+          "url": "https://www.fmkorea.com/10503155731",
+          "bet": 652
         }
       ]
     },
@@ -33469,6 +33940,16 @@
           "team": "맨체스터 유나이티드",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 1000
+        }
+      ]
+    },
+    {
+      "name": "허니짜장",
+      "picks": [
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 309
         }
       ]
     },
@@ -34083,6 +34564,16 @@
       ]
     },
     {
+      "name": "휴지캄나",
+      "picks": [
+        {
+          "team": "2.5 오버",
+          "url": "https://www.fmkorea.com/10502708530",
+          "bet": 272
+        }
+      ]
+    },
+    {
       "name": "흉자",
       "picks": [
         {
@@ -34631,6 +35122,16 @@
       "name": "ArseneP",
       "picks": [
         {
+          "team": "2.5 언더",
+          "url": "https://www.fmkorea.com/10502708530",
+          "bet": 100
+        },
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 1000
+        },
+        {
           "team": "레반테(+0.5)",
           "url": "https://www.fmkorea.com/10503659968",
           "bet": 100
@@ -34809,6 +35310,26 @@
           "team": "한화생명",
           "url": "https://www.fmkorea.com/10503155731",
           "bet": 5000
+        }
+      ]
+    },
+    {
+      "name": "BenRice",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 360
+        }
+      ]
+    },
+    {
+      "name": "Bergkamp",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 2000
         }
       ]
     },
@@ -35448,6 +35969,16 @@
       ]
     },
     {
+      "name": "Erebor",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 100117
+        }
+      ]
+    },
+    {
       "name": "erling",
       "picks": [
         {
@@ -35569,6 +36100,11 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 10000
+        },
+        {
+          "team": "전반전 첼시 득점 O",
+          "url": "https://www.fmkorea.com/10504380701",
+          "bet": 1557
         }
       ]
     },
@@ -35839,6 +36375,16 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 2000
+        }
+      ]
+    },
+    {
+      "name": "Gusto",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 5000
         }
       ]
     },
@@ -36853,6 +37399,16 @@
       ]
     },
     {
+      "name": "mangata",
+      "picks": [
+        {
+          "team": "한화생명",
+          "url": "https://www.fmkorea.com/10503155731",
+          "bet": 2500
+        }
+      ]
+    },
+    {
       "name": "MARESCA",
       "picks": [
         {
@@ -36919,6 +37475,16 @@
           "team": "맨체스터 시티(-0.5)",
           "url": "https://www.fmkorea.com/10503314118",
           "bet": 1000
+        }
+      ]
+    },
+    {
+      "name": "META",
+      "picks": [
+        {
+          "team": "맨체스터 유나이티드",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 1621
         }
       ]
     },
@@ -37029,6 +37595,16 @@
           "team": "첼시(-0.5)",
           "url": "https://www.fmkorea.com/10501649201",
           "bet": 219
+        }
+      ]
+    },
+    {
+      "name": "MUUx2",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 576
         }
       ]
     },
@@ -37938,6 +38514,16 @@
       ]
     },
     {
+      "name": "SAFFRON",
+      "picks": [
+        {
+          "team": "첼시(-0.5)",
+          "url": "https://www.fmkorea.com/10501649201",
+          "bet": 320
+        }
+      ]
+    },
+    {
       "name": "SAKERS",
       "picks": [
         {
@@ -38058,6 +38644,11 @@
         {
           "team": "맨체스터 시티(-0.5)",
           "url": "https://www.fmkorea.com/10503314118",
+          "bet": 1000
+        },
+        {
+          "team": "LOS(+1.5)",
+          "url": "https://www.fmkorea.com/10504070234",
           "bet": 1000
         },
         {
@@ -68043,39 +68634,39 @@
     }
   ],
   "pinnedPoints": {
-    "손나은": 975696,
+    "홍유순": 4353977,
+    "손나은": 975736,
     "IU와함께": 26569,
-    "홍유순": 4353976,
     "에버딘": 2002836,
     "고결": 177462,
-    "SI모": 118870,
+    "SI모": 118881,
     "Lillie": 344957,
+    "Erebor": 2500000,
     "KU.1905.": 101789,
-    "Erebor": 2600117,
-    "초코소라빵": 87489,
+    "0대0무승부0점": 706,
     "김대승": 113,
-    "0대0무승부0점": 660,
-    "忠南大學校": 654,
+    "초코소라빵": 87489,
     "로즈": 160,
-    "이영서": 318,
-    "보드보드6kg": 1690,
-    "파이널게임": 20079,
+    "이영서": 319,
+    "忠南大學校": 654,
     "잉그리드버그만": 225907,
+    "파이널게임": 20079,
+    "보드보드6kg": 1690,
     "꼬습노": 73,
     "야옹이!": 38,
-    "$UWON": 1092,
     "암부": 2,
-    "똑똑한똥강아지": 34713,
-    "고인물": 15436980,
-    "채다": 39419,
+    "$UWON": 1092,
+    "똑똑한똥강아지": 34728,
     "스윙": 323395,
+    "채다": 39419,
+    "고인물": 15436980,
+    "퀀텀스케이프": 68033,
     "Our": 530605,
     "고태호": 77,
-    "퀀텀스케이프": 68033,
+    "웍스아웃": 441,
     "다비치코드": 698638,
-    "色水下高十多": 238,
-    "웍스아웃": 438,
+    "色水下高十多": 38,
     "valse": 61
   },
-  "pinnedPointsAt": "2026-10-31T11:36:02.289Z"
+  "pinnedPointsAt": "2026-10-31T11:38:09.861Z"
 }
