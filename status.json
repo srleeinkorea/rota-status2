@@ -1,12 +1,8 @@
 {
   "state": "running",
-  "windowValue": "3d",
-  "windowLabel": "최근 3일",
-  "minPicks": 5,
-  "startedAt": "2026-10-31T01:22:12.258Z",
-  "phase": "고정 닉네임 잉여력 조회 중",
-  "scriptVersion": "7.0",
-  "processed": 171,
-  "total": 171,
-  "pct": 100
+  "windowValue": "15d",
+  "windowLabel": "최근 15일",
+  "minPicks": 50,
+  "startedAt": "2026-10-31T03:39:05.404Z",
+  "scriptVersion": "7.0"
 }
